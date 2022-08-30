@@ -23,11 +23,11 @@ public class EnemyBowRotation : MonoBehaviour
 
 
         Vector2 PlayerPosition = Player.transform.position;
-        Vector2 PivotPosition = new Vector2 (Pivot.transform.position.x, Pivot.transform.position.y - 0.05f) ;
+        Vector2 PivotPosition = new Vector2 (Pivot.transform.position.x, Pivot.transform.position.y - 0.3f) ;
 
         Vector2 Direction = PlayerPosition - PivotPosition;
         transform.right = Direction * -1f;
-        transform.position = PivotPosition + Direction.normalized / 7.5f;
+        transform.position = PivotPosition + Direction.normalized / 2f;
 
         if (Direction.x > 0f)
         {

@@ -17,12 +17,19 @@ public class SpriteController : MonoBehaviour
     public Transform Hand;
     public Transform Shield;
     public Transform Effects;
-    public Transform Weapon;
+ 
 
     public Vector2 MovementVector;
   
     bool FlipLastInput = false;
+
     bool CanTurn = true;
+    #pragma warning disable 414
+    public bool CanMove = true;
+    #pragma warning restore 414
+
+
+
     void Update()
     {
         MovementVector.x = Input.GetAxis("Horizontal");
@@ -49,7 +56,7 @@ public class SpriteController : MonoBehaviour
                 Hand.transform.localPosition = new Vector3(Hand.transform.localPosition.x * -1f, Hand.transform.localPosition.y, Hand.transform.localPosition.z);
                 Shield.transform.localPosition = new Vector3(Shield.transform.localPosition.x * -1f, Shield.transform.localPosition.y, Shield.transform.localPosition.z);
                 Effects.transform.localPosition = new Vector3(Effects.transform.localPosition.x * -1f, Effects.transform.localPosition.y, Effects.transform.localPosition.z);
-                Weapon.transform.eulerAngles = new Vector3(Weapon.transform.eulerAngles.x, Weapon.transform.eulerAngles.y, Weapon.transform.eulerAngles.z * -1f);
+                Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z * -1f);
 
 
                 FlipLastInput = true;
@@ -67,7 +74,7 @@ public class SpriteController : MonoBehaviour
                 Hand.transform.localPosition = new Vector3(Hand.transform.localPosition.x, Hand.transform.localPosition.y, Hand.transform.localPosition.z);
                 Shield.transform.localPosition = new Vector3(Shield.transform.localPosition.x, Shield.transform.localPosition.y, Shield.transform.localPosition.z);
                 Effects.transform.localPosition = new Vector3(Effects.transform.localPosition.x, Effects.transform.localPosition.y, Effects.transform.localPosition.z);
-                Weapon.transform.eulerAngles = new Vector3(Weapon.transform.eulerAngles.x, Weapon.transform.eulerAngles.y, Weapon.transform.eulerAngles.z);
+                Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z);
 
                 FlipLastInput = false;
 
@@ -88,6 +95,7 @@ public class SpriteController : MonoBehaviour
                 Hand.transform.localPosition = new Vector3(Hand.transform.localPosition.x * -1f, Hand.transform.localPosition.y, Hand.transform.localPosition.z);
                 Shield.transform.localPosition = new Vector3(Shield.transform.localPosition.x * -1f, Shield.transform.localPosition.y, Shield.transform.localPosition.z);
                 Effects.transform.localPosition = new Vector3(Effects.transform.localPosition.x * -1f, Effects.transform.localPosition.y, Effects.transform.localPosition.z);
+                Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z * -1f);
 
 
 
@@ -108,6 +116,8 @@ public class SpriteController : MonoBehaviour
                 Hand.transform.localPosition = new Vector3(Hand.transform.localPosition.x, Hand.transform.localPosition.y, Hand.transform.localPosition.z);
                 Shield.transform.localPosition = new Vector3(Shield.transform.localPosition.x, Shield.transform.localPosition.y, Shield.transform.localPosition.z);
                 Effects.transform.localPosition = new Vector3(Effects.transform.localPosition.x, Effects.transform.localPosition.y, Effects.transform.localPosition.z);
+                Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z);
+
 
 
                 FlipLastInput = false;
@@ -125,14 +135,14 @@ public class SpriteController : MonoBehaviour
 
     public void StartAttack()
     {
-        
+        CanMove = false;
         CanTurn = false;
     }
 
 
     public void StopAttack()
     {
-       
+        CanMove = true;
         CanTurn = true;
     }
 

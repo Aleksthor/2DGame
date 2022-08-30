@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     HUD hud;
+    Animator playerAnimator;
 
     #region Variables
     [Header("Moveable Object")]
@@ -31,7 +32,12 @@ public class Movement : MonoBehaviour
 
     //Stamina Cooldown
     [SerializeField] float staminaCooldownPrecentage = 75f;
+    #pragma warning disable 414
     float dashTransparity = 0.5f;
+    #pragma warning restore 414
+
+    SpriteController spriteController;
+
     #endregion
 
 
@@ -41,9 +47,14 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         hud = FindObjectOfType<HUD>();
+        playerAnimator = player.GetComponent<Animator>();
+        spriteController = player.GetComponent<SpriteController>();
     }
+
+
     private void Update()
     {
+        Animations();
         ButtonInput();
         MovementSpeed();
 
@@ -57,6 +68,18 @@ public class Movement : MonoBehaviour
 
     //--------------------
 
+    //Animations 
+    void Animations()
+    {
+        if (movement.x == 0 && movement.y == 0)
+        {
+            playerAnimator.SetBool("Moving", false);
+        }
+        else
+        {
+            playerAnimator.SetBool("Moving", true);
+        }
+    }
 
     //Player Button Inputs
     void ButtonInput()
@@ -70,18 +93,25 @@ public class Movement : MonoBehaviour
     //Movement Speed
     void MovementSpeed()
     {
-        if (isDashing)
+        if(spriteController.CanMove)
         {
-            player.transform.position += new Vector3(movement.x, movement.y, 0f) * dashingSpeed * Time.deltaTime;
+            if (isDashing)
+            {
+                player.transform.position += new Vector3(movement.x, movement.y, 0f) * dashingSpeed * Time.deltaTime;
+
+            }
+            else if (isSneaking)
+            {
+
+                player.transform.position += new Vector3(movement.x, movement.y, 0f) * sneakingSpeed * Time.deltaTime;
+            }
+            else
+            {
+
+                player.transform.position += new Vector3(movement.x, movement.y, 0f) * walkingSpeed * Time.deltaTime;
+            }
         }
-        else if (isSneaking)
-        {
-            player.transform.position += new Vector3(movement.x, movement.y, 0f) * sneakingSpeed * Time.deltaTime;
-        }
-        else
-        {
-            player.transform.position += new Vector3(movement.x, movement.y, 0f) * walkingSpeed * Time.deltaTime;
-        }
+
     }
 
     //Dash -----

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7015083625655629790}
   - component: {fileID: 3277843344353132818}
   - component: {fileID: 2037994063798804125}
+  - component: {fileID: 2534113014127897430}
+  - component: {fileID: 4440769238143024230}
   m_Layer: 0
   m_Name: GoblinArcher
   m_TagString: Untagged
@@ -27,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 630430723397123286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8203757222425231594}
@@ -56,7 +58,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &2037994063798804125
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -83,6 +85,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1113435, y: 0.01733765}
   m_EdgeRadius: 0
+--- !u!95 &2534113014127897430
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630430723397123286}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f0c8bc5044c012a4a831df692089a1d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4440769238143024230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630430723397123286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 158aa8982d4402249ad17fac1b716eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShotForce: 4
+  ShotPoint: {fileID: 2875369751680591041}
+  Arrow: {fileID: 7246794179892791394, guid: a3cff953292d7044b89125cad61ac751, type: 3}
 --- !u!1 &2693342833505455323
 GameObject:
   m_ObjectHideFlags: 0

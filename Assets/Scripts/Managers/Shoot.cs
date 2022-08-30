@@ -5,6 +5,10 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     HUD hud;
+    Animator playerAnimator;
+
+    [Header("Moveable Object")]
+    [SerializeField] GameObject player;
 
     bool fire;
     bool isFire;
@@ -16,10 +20,14 @@ public class Shoot : MonoBehaviour
     private void Awake()
     {
         hud = FindObjectOfType<HUD>();
+        playerAnimator = player.GetComponent<Animator>();
     }
+
     private void Update()
     {
         ButtonInput();
+
+        ShieldBlock();
 
         shootActivate();
         shootCost();
@@ -42,6 +50,9 @@ public class Shoot : MonoBehaviour
         {
             isFire = true;
 
+            playerAnimator.SetTrigger("Attack");
+
+
             print("isFire = true");
         }
         else if (Input.GetButtonUp("Fire1"))
@@ -49,6 +60,19 @@ public class Shoot : MonoBehaviour
             isFire = false;
             print("isFire = false");
         }
+    }
+
+    void ShieldBlock()
+    {
+        playerAnimator.SetBool("Blocking", false);
+        if (!isFire)
+        {
+            if (Input.GetButtonDown("Fire2"))
+            {
+                playerAnimator.SetBool("Blocking", true);
+            }
+        }
+       
     }
     void shootCost()
     {
