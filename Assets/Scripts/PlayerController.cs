@@ -12,8 +12,6 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer Weapon;
     public SpriteRenderer ShieldSprite;
 
-
-
     Animator animator;
 
     public Vector2 MovementVector;
