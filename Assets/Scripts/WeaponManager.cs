@@ -39,8 +39,9 @@ public class WeaponManager : MonoBehaviour
 
     }
 
-    [SerializeField] WeaponType CurrentWeapon = WeaponType.WT_Blunt;
-
+    #pragma warning disable 414
+    WeaponType CurrentWeapon;
+    #pragma warning restore 414
 
     public void Update()
     {
@@ -95,4 +96,5 @@ public class WeaponManager : MonoBehaviour
         PlayerAnimator.SetTrigger("Attack");
 
     }
+
 }
