@@ -4,23 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D Rigidbody;
-    public SpriteRenderer BodySprite;
-    public SpriteRenderer HeadSprite;
-    public SpriteRenderer HandSprite;
-    public SpriteRenderer HatSprite;
-    public SpriteRenderer Weapon;
-    public SpriteRenderer ShieldSprite;
-
-
-
+    Rigidbody2D Rigidbody;
     Animator animator;
 
     public Vector2 MovementVector;
-    public float MovementSpeed = 20f;
+    public float MovementSpeed = 2f;
 
 
-    bool Fired = false;
+ 
 
     void Start()
     {
@@ -34,19 +25,6 @@ public class PlayerController : MonoBehaviour
         MovementVector.y = Input.GetAxis("Vertical");
 
 
-        if (Input.GetButton("Fire1"))
-        {
-            if (Fired == false)
-            {
-                OnFire();
-                Fired = true;
-            }
-           
-        }
-        else
-        {
-            Fired = false;
-        }
 
     }
 
@@ -70,41 +48,10 @@ public class PlayerController : MonoBehaviour
         
     }
 
+   
 
-    void LateUpdate()
-    {
-        if (MovementVector.x > 0)
-        {
-            BodySprite.flipX = true;
-            HeadSprite.flipX = true;
-            HandSprite.flipX = true;
-            ShieldSprite.flipX = true;
-            HatSprite.flipX = true;
 
-        }
-        if (MovementVector.x < 0)
-        {
-            BodySprite.flipX = false;
-            HeadSprite.flipX = false;
-            HandSprite.flipX = false;
-            ShieldSprite.flipX = false;
-            HatSprite.flipX = false;
 
-        }
-    }
 
-    void OnFire()
-    {
-        animator.SetTrigger("Attack");
-        if (MovementVector.x > 0)
-        {
-            animator.SetBool("Flip", true);
-        }
-        if (MovementVector.x < 0)
-        {
-            animator.SetBool("Flip", false);
-        }
-        Debug.Log("Working");
-            
-    }
+
 }
