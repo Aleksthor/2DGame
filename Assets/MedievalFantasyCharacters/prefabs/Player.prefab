@@ -95,8 +95,8 @@ GameObject:
   - component: {fileID: 7033013316452478358}
   - component: {fileID: 3057187768033625967}
   - component: {fileID: 9131899388276151552}
-  - component: {fileID: 1901569636131400862}
   - component: {fileID: 1683833384199100759}
+  - component: {fileID: 8905979074190392921}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -171,31 +171,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.111545116, y: 0.023926169}
   m_EdgeRadius: 0
---- !u!114 &1901569636131400862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1467819397390074105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6fa5e5af6c69b241a5fb4f7a3f76672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BodySprite: {fileID: 1711372623022998495}
-  HeadSprite: {fileID: 1435878910305916527}
-  HandSprite: {fileID: 5002825451146851801}
-  HatSprite: {fileID: 3802393040579807088}
-  WeaponSprite: {fileID: 4013562452332951240}
-  ShieldSprite: {fileID: 4005061804591074885}
-  EffectsSprite: {fileID: 8354362680291076041}
-  Hand: {fileID: 4857860621234229157}
-  Shield: {fileID: 3262493154710872444}
-  Effects: {fileID: 3367318337178748463}
-  Weapon: {fileID: 6144955217785715130}
-  MovementVector: {x: 0, y: 0}
-  MovementSpeed: 1
 --- !u!95 &1683833384199100759
 Animator:
   serializedVersion: 4
@@ -216,6 +191,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8905979074190392921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467819397390074105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd2a1e5a4cbbe684782198f507fc86ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BodySprite: {fileID: 1711372623022998495}
+  HeadSprite: {fileID: 1435878910305916527}
+  HandSprite: {fileID: 5002825451146851801}
+  HatSprite: {fileID: 3802393040579807088}
+  WeaponSprite: {fileID: 4013562452332951240}
+  ShieldSprite: {fileID: 4005061804591074885}
+  EffectsSprite: {fileID: 8354362680291076041}
+  Hand: {fileID: 4857860621234229157}
+  Shield: {fileID: 3262493154710872444}
+  Effects: {fileID: 3367318337178748463}
+  Weapon: {fileID: 6144955217785715130}
+  MovementVector: {x: 0, y: 0}
+  MovementSpeed: 20
 --- !u!1 &3362073452011746423
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +541,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 4
   m_Sprite: {fileID: 5328446706732780171, guid: 6d56cb804572a5848ac43cb2c9fa5221, type: 3}
   m_Color: {r: 0.252047, g: 0.64128435, b: 0.9056604, a: 1}
   m_FlipX: 0
