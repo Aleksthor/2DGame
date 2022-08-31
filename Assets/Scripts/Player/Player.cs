@@ -5,17 +5,17 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Moveable Object")]
-    [SerializeField] GameObject player;
+    [SerializeField] GameObject playerObject;
     Animator playerAnimator;
 
     private void Awake()
     {
-        playerAnimator = player.GetComponent<Animator>();
+        playerAnimator = playerObject.GetComponent<Animator>();
     }
 
     public GameObject GetPlayer()
     {
-        return player;
+        return playerObject;
     }
 
     public Animator GetPlayerAnimator()

@@ -5,15 +5,22 @@ using UnityEngine;
 public class Animation : MonoBehaviour
 {
     Player player;
+    Animator animator;
     
 
     private void Awake()
     {
         player = FindObjectOfType<Player>();
+        
+    }
+
+    private void Start()
+    {
+        animator = player.GetPlayer().GetComponent<Animator>();
     }
 
     public void SetWalkingAnimation(bool value)
     {
-        player.GetPlayerAnimator().SetBool("Moving", value);
+        animator.SetBool("Moving", value);
     }
 }
