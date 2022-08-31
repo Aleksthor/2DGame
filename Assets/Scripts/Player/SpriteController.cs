@@ -5,7 +5,6 @@ using UnityEngine;
 public class SpriteController : MonoBehaviour
 {
     Rigidbody2D Rigidbody;
-    Animator animator;
     public SpriteRenderer BodySprite;
     public SpriteRenderer HeadSprite;
     public SpriteRenderer HandSprite;
@@ -25,7 +24,7 @@ public class SpriteController : MonoBehaviour
 
     bool CanTurn = true;
     #pragma warning disable 414
-    public bool CanMove = true;
+    bool CanMove = true;
     #pragma warning restore 414
 
 
@@ -144,6 +143,11 @@ public class SpriteController : MonoBehaviour
     {
         CanMove = true;
         CanTurn = true;
+    }
+
+    public bool GetCanMove()
+    {
+        return CanMove;
     }
 
 }

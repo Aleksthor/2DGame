@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    HUD hud;
-    Animator playerAnimator;
-
     #region Variables
-    [Header("Moveable Object")]
-    [SerializeField] GameObject player;
+    ButtonInput buttonInput;
+    HUD hud;
+    Player player;
+    Animation playerAnimation;
+    SpriteController spriteController;
 
     [Header("Movement Parameters")]
     [SerializeField] float walkingSpeed = 5;
@@ -19,11 +19,6 @@ public class Movement : MonoBehaviour
     [Header("HUD Elements")]
     [SerializeField] float staminaDrainSpeed = 150;
     [SerializeField] float staminaRegenSpeed = 50;
-
-    //Button Inputs
-    Vector2 movement;
-    bool dash;
-    bool sneak;
 
     //bools for checking
     bool isDashing = false;
@@ -35,9 +30,6 @@ public class Movement : MonoBehaviour
     #pragma warning disable 414
     float dashTransparity = 0.5f;
     #pragma warning restore 414
-
-    SpriteController spriteController;
-
     #endregion
 
 
@@ -47,15 +39,16 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         hud = FindObjectOfType<HUD>();
-        playerAnimator = player.GetComponent<Animator>();
-        spriteController = player.GetComponent<SpriteController>();
+        buttonInput = FindObjectOfType<ButtonInput>();
+        player = FindObjectOfType<Player>();
+        playerAnimation = FindObjectOfType<Animation>();
+        spriteController = FindObjectOfType<SpriteController>();
     }
 
 
     private void Update()
     {
         Animations();
-        ButtonInput();
         MovementSpeed();
 
         DashActivation();
@@ -71,54 +64,44 @@ public class Movement : MonoBehaviour
     //Animations 
     void Animations()
     {
-        if (movement.x == 0 && movement.y == 0)
+        if (buttonInput.GetMovementX() == 0 && buttonInput.GetMovementY() == 0)
         {
-            playerAnimator.SetBool("Moving", false);
+            playerAnimation.SetWalkingAnimation(false);
         }
         else
         {
-            playerAnimator.SetBool("Moving", true);
+            playerAnimation.SetWalkingAnimation(true);
         }
-    }
-
-    //Player Button Inputs
-    void ButtonInput()
-    {
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y = Input.GetAxis("Vertical");
-        dash = Input.GetButton("Jump");
-        sneak = Input.GetButton("Running");
     }
 
     //Movement Speed
     void MovementSpeed()
     {
-        if(spriteController.CanMove)
+        if(spriteController.GetCanMove())
         {
             if (isDashing)
             {
-                player.transform.position += new Vector3(movement.x, movement.y, 0f) * dashingSpeed * Time.deltaTime;
+                player.GetPlayer().transform.position += new Vector3(buttonInput.GetMovementX(), buttonInput.GetMovementY(), 0f) * dashingSpeed * Time.deltaTime;
 
             }
             else if (isSneaking)
             {
 
-                player.transform.position += new Vector3(movement.x, movement.y, 0f) * sneakingSpeed * Time.deltaTime;
+                player.GetPlayer().transform.position += new Vector3(buttonInput.GetMovementX(), buttonInput.GetMovementY(), 0f) * sneakingSpeed * Time.deltaTime;
             }
             else
             {
 
-                player.transform.position += new Vector3(movement.x, movement.y, 0f) * walkingSpeed * Time.deltaTime;
+                player.GetPlayer().transform.position += new Vector3(buttonInput.GetMovementX(), buttonInput.GetMovementY(), 0f) * walkingSpeed * Time.deltaTime;
             }
         }
-
     }
 
     //Dash -----
     void DashActivation()
     {
         //When Space is pressed down
-        if (dash)
+        if (buttonInput.GetDashInput())
         {
             if (isDashCooldown)
             {
@@ -184,7 +167,7 @@ public class Movement : MonoBehaviour
     //Run -----
     void Sneaking()
     {
-        if (sneak)
+        if (buttonInput.GetSneakInput())
         {
             isSneaking = true;
         }
