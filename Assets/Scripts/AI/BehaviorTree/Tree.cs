@@ -1,0 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+namespace BehaviorTree
+{
+    public abstract class Tree : MonoBehaviour
+    {
+        private Node Root = null;
+
+        private void Start()
+        {
+            Root = SetupTree();
+        }
+
+        private void Update()
+        {
+            if (Root != null)
+            {
+                Root.Evaluate();
+            }
+        }
+        protected abstract Node SetupTree();
+    }
+
+    
+
+
+}
+
