@@ -1,100 +1,82 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-
 
 namespace BehaviorTree
 {
     public enum NodeState
     {
-        NS_Running,
-        NS_Success,
-        NS_Failure
+        RUNNING,
+        SUCCESS,
+        FAILURE
     }
-
 
     public class Node
     {
-
-
-
-        // State of Node
         protected NodeState state;
 
+        public Node parent;
+        protected List<Node> children = new List<Node>();
 
-        public Node Parent;
-
-        // These children will be assigned in the constructor of the class, or else they’ll just be empty
-        protected List<Node> Children = new List<Node>();
-
-        private Dictionary<string, object> DataContext = new Dictionary<string, object>();
+        private Dictionary<string, object> _dataContext = new Dictionary<string, object>();
 
         public Node()
         {
-            Parent = null;
+            parent = null;
         }
-
-        public Node(List<Node> Childen)
+        public Node(List<Node> children)
         {
-            foreach(Node child in Children)
-            {
-                Attach(child);
-            }
+            foreach (Node child in children)
+                _Attach(child);
         }
 
-        private void Attach(Node node)
+        private void _Attach(Node node)
         {
-            node.Parent = this;
-            Children.Add(node);
+            node.parent = this;
+            children.Add(node);
         }
 
-
-        public virtual NodeState Evaluate() => NodeState.NS_Failure;
+        public virtual NodeState Evaluate() => NodeState.FAILURE;
 
         public void SetData(string key, object value)
         {
-            DataContext[key] = value;
+            _dataContext[key] = value;
         }
 
         public object GetData(string key)
         {
             object value = null;
-            if (DataContext.TryGetValue(key, out value))
+            if (_dataContext.TryGetValue(key, out value))
                 return value;
 
-            Node node = Parent;
+            Node node = parent;
             while (node != null)
             {
                 value = node.GetData(key);
                 if (value != null)
                     return value;
-                node = node.Parent;
-
-
+                node = node.parent;
             }
             return null;
         }
 
         public bool ClearData(string key)
         {
-            if (DataContext.ContainsKey(key))
+            if (_dataContext.ContainsKey(key))
             {
-                DataContext.Remove(key);
+                _dataContext.Remove(key);
                 return true;
             }
 
-            Node node = Parent;
-            while(node != null)
+            Node node = parent;
+            while (node != null)
             {
-                bool Cleared = node.ClearData(key);
-                if (Cleared)
+                bool cleared = node.ClearData(key);
+                if (cleared)
                     return true;
-                node = node.Parent;
+                node = node.parent;
             }
             return false;
         }
-
     }
 
 }
-

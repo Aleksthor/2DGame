@@ -98,7 +98,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: f0c8bc5044c012a4a831df692089a1d4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158aa8982d4402249ad17fac1b716eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShotForce: 4
+  ShotForce: 10
   ShotPoint: {fileID: 2875369751680591041}
   Arrow: {fileID: 7246794179892791394, guid: a3cff953292d7044b89125cad61ac751, type: 3}
 --- !u!1 &2693342833505455323
@@ -360,7 +360,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -434203430974283953, guid: 6934d4d76106cd14b86b5a6b2943c8fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -550,7 +550,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -775839812191765919, guid: d027dc086d684dd408bc6f270acc2fcf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

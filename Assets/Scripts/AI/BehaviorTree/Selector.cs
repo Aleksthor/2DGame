@@ -1,35 +1,35 @@
 using System.Collections.Generic;
 
-
 namespace BehaviorTree
 {
     public class Selector : Node
     {
         public Selector() : base() { }
-        public Selector(List<Node> Children) : base(Children) { }
+        public Selector(List<Node> children) : base(children) { }
 
         public override NodeState Evaluate()
         {
-
-            foreach (Node node in Children)
+            foreach (Node node in children)
             {
                 switch (node.Evaluate())
                 {
-                    case NodeState.NS_Failure:
+                    case NodeState.FAILURE:
                         continue;
-                    case NodeState.NS_Success:
-                        state = NodeState.NS_Success;
+                    case NodeState.SUCCESS:
+                        state = NodeState.SUCCESS;
                         return state;
-                    case NodeState.NS_Running:
-                        state = NodeState.NS_Running;
+                    case NodeState.RUNNING:
+                        state = NodeState.RUNNING;
                         return state;
                     default:
                         continue;
                 }
             }
 
-            state = NodeState.NS_Failure;
+            state = NodeState.FAILURE;
             return state;
         }
+
     }
+
 }
