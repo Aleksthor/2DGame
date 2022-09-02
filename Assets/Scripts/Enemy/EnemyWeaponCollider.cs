@@ -14,6 +14,8 @@ public class EnemyWeaponCollider : MonoBehaviour
 
     void Update()
     {
+
+        // A way for the arrow to get manager since it spawns without this variable
         if (playerHUD == null)
         {
             GameObject manager = GameObject.Find("Manager");
@@ -22,7 +24,7 @@ public class EnemyWeaponCollider : MonoBehaviour
         }
 
 
-
+        // Only damage the player once
         if (doDelay)
         {
             delayClock += Time.deltaTime;
@@ -43,6 +45,7 @@ public class EnemyWeaponCollider : MonoBehaviour
         {
 
             playerHUD.SetHealthValue(-damage);
+            Destroy(gameObject);
             doDelay = true;
 
         }
