@@ -18,7 +18,7 @@ public class LearningBT : Tree
             new Sequence(new List<Node>
             {
                 new TaskCheckPlayerInFOV(transform, playerTransform),
-                new TaskGoToTarget(transform, playerTransform),
+                new TaskGoToTargetShoot(transform, playerTransform),
             }),
             new TaskPatrol(transform, waypoints),
         }) ;

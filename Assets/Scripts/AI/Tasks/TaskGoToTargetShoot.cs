@@ -4,7 +4,7 @@ using UnityEngine;
 
 using BehaviorTree;
 
-public class TaskGoToTarget : Node
+public class TaskGoToTargetShoot : Node
 {
     private Transform transform;
     private Transform playerTransform;
@@ -15,7 +15,7 @@ public class TaskGoToTarget : Node
     private static float standStillClock = 0f;
     private Animator animator;
 
-    public TaskGoToTarget(Transform AgentTransform, Transform PlayerTransform)
+    public TaskGoToTargetShoot(Transform AgentTransform, Transform PlayerTransform)
     {
         transform = AgentTransform;
         animator = AgentTransform.GetComponent<Animator>();
@@ -32,6 +32,7 @@ public class TaskGoToTarget : Node
         {
             Debug.Log("StateFailure");
             ClearData("target");
+            animator.SetBool("Walking", false);
             state = NodeState.FAILURE;
             return state;
         }
@@ -51,7 +52,7 @@ public class TaskGoToTarget : Node
                 }
             }
 
-            if (!standStill && (transform.position - playerTransform.position).magnitude > 3f)
+            if (!standStill && (transform.position - playerTransform.position).magnitude > 5f)
             {
                 animator.SetBool("Walking", true);
                 transform.position = Vector2.MoveTowards(transform.position, target.position, LearningBT.speed * Time.deltaTime);
