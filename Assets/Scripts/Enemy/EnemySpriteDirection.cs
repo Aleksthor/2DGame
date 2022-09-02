@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoblinWarrior : MonoBehaviour
+public class EnemySpriteDirection : MonoBehaviour
 {
     [SerializeField] SpriteRenderer Body;
     [SerializeField] SpriteRenderer Head;
@@ -23,7 +23,8 @@ public class GoblinWarrior : MonoBehaviour
     private bool flipState = false;
     private bool flipLastDirection = false;
 
-
+    private Vector2 left = new Vector2(0.02f, 0.12f);
+    private Vector2 right = new Vector2(-0.02f, 0.12f);
 
     void Start()
     {
@@ -56,7 +57,7 @@ public class GoblinWarrior : MonoBehaviour
             HandRenderer.flipX = true;
             WeaponRenderer.flipX = true;
             EffectRenderer.flipX = true;
-            Weapon.transform.localPosition = new Vector2(Weapon.transform.localPosition.x * -1f, Weapon.transform.localPosition.y);
+            Weapon.transform.localPosition = right;
             Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x * -1f, Hand.transform.localPosition.y);
             Effect.transform.localPosition = new Vector2(Effect.transform.localPosition.x * -1f, Effect.transform.localPosition.y);
             Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z * -1f);
@@ -65,6 +66,7 @@ public class GoblinWarrior : MonoBehaviour
         }
         if (direction.x < 0f || !flipLastDirection)
         {
+            Weapon.transform.localPosition = left;
             Body.flipX = false;
             Head.flipX = false;
             FacialHair.flipX = false;

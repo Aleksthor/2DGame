@@ -30,7 +30,7 @@ public class TaskPatrol : Node
 
     public override NodeState Evaluate()
     {
-        
+        Debug.Log("Running");
         if (waiting)
         {
             waitCounter += Time.deltaTime;
@@ -43,9 +43,11 @@ public class TaskPatrol : Node
         }
         else
         {
+            animator.SetBool("Walking", true);
             Transform wp = waypoints[currentWaypointIndex];
-            if (Vector3.Distance(transform.position, wp.position) < 0.2f)
+            if (Vector2.Distance(transform.position, wp.position) < 0.2f)
             {
+                Debug.Log(wp);
                 transform.position = wp.position;
                 waitCounter = 0f;
                 waiting = true;

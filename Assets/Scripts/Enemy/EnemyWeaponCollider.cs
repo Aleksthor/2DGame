@@ -7,7 +7,7 @@ public class EnemyWeaponCollider : MonoBehaviour
 
     public HUD playerHUD;
     public float damage = 10f;
-    private float delay = 1f;
+    private float delay = 0.2f;
     private float delayClock = 0f;
     private bool doDelay = false;
     
@@ -45,8 +45,11 @@ public class EnemyWeaponCollider : MonoBehaviour
         {
 
             playerHUD.SetHealthValue(-damage);
-            Destroy(gameObject);
             doDelay = true;
+            if(gameObject.tag == "Arrow")
+            {
+                Destroy(gameObject);
+            }
 
         }
     }
