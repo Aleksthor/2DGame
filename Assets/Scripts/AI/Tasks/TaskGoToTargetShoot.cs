@@ -39,7 +39,7 @@ public class TaskGoToTargetShoot : Node
 
         if ((transform.position - playerTransform.position).magnitude > FOV)
         {
-            Debug.Log("StateFailure");
+
             ClearData("target");
             bowRotationScript.hasAgro = false;
             animator.SetBool("Walking", false);

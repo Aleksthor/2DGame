@@ -77,6 +77,12 @@ namespace BehaviorTree
             }
             return false;
         }
+
+
+        public Node GetChild(int index)
+        {
+            return children[index];
+        }
     }
 
 }

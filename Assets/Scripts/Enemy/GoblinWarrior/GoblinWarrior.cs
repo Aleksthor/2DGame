@@ -23,6 +23,8 @@ public class GoblinWarrior : MonoBehaviour
     private bool flipState = false;
     private bool flipLastDirection = false;
 
+
+
     void Start()
     {
         Frame1 = transform.position;
@@ -73,4 +75,6 @@ public class GoblinWarrior : MonoBehaviour
             flipLastDirection = false;
         }
     }
+
+
 }

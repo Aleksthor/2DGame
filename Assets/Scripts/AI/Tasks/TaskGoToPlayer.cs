@@ -11,6 +11,7 @@ public class TaskGoToPlayer : Node
     private Animator animator;
     private float walkSpeed;
     private float attackRange;
+   
 
     public TaskGoToPlayer(Transform AgentTransform, Transform PlayerTransform, float WalkSpeed, float AttackRange)
     {
@@ -19,6 +20,7 @@ public class TaskGoToPlayer : Node
         playerTransform = PlayerTransform;
         walkSpeed = WalkSpeed;
         attackRange = AttackRange;
+        
     }
 
     public override NodeState Evaluate()
@@ -43,6 +45,7 @@ public class TaskGoToPlayer : Node
             return state;
         }
 
+        
         animator.SetBool("Walking", true);
         transform.position = Vector2.MoveTowards(transform.position, target.position, walkSpeed * Time.deltaTime);
 

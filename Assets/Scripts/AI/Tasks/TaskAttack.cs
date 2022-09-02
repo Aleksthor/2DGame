@@ -9,8 +9,8 @@ public class TaskAttack : Node
     private Transform transform;
     private Transform playerTransform;
     private Animator animator;
-    private float attackSpeed;
-    private float attackClock = 0f;
+    public float attackSpeed;
+    public float attackClock = 0f;
     private float attackRange;
 
     public TaskAttack(Transform AgentTransform, Transform PlayerTransform, float AttackRange, float AttackSpeed)

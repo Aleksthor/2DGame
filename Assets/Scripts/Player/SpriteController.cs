@@ -16,7 +16,8 @@ public class SpriteController : MonoBehaviour
     public Transform Hand;
     public Transform Shield;
     public Transform Effects;
- 
+
+    public PolygonCollider2D weaponCollider;
 
     public Vector2 MovementVector;
   
@@ -27,6 +28,10 @@ public class SpriteController : MonoBehaviour
     bool CanMove = true;
     #pragma warning restore 414
 
+    void Start()
+    {
+        weaponCollider.enabled = false;
+    }
 
 
     void Update()
@@ -146,5 +151,15 @@ public class SpriteController : MonoBehaviour
     {
         return CanMove;
     }
+
+    public void ColliderOn()
+    {
+        weaponCollider.enabled = true;
+    }
+    public void ColliderOff()
+    {
+        weaponCollider.enabled = false;
+    }
+
 
 }

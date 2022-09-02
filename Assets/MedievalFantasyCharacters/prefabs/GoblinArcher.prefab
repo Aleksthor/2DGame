@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2534113014127897430}
   - component: {fileID: 4440769238143024230}
   - component: {fileID: 6144431920957448133}
+  - component: {fileID: 3860244677606729723}
+  - component: {fileID: 6178691925940678055}
   m_Layer: 0
   m_Name: GoblinArcher
   m_TagString: Untagged
@@ -133,12 +135,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0437847756a05de40b4114a54d396c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FOVRange: 10
+  StopRange: 2.5
+  MovementSpeed: 2
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   playerTransform: {fileID: 0}
   enemyBowRotationScript: {fileID: 4290834972995373594}
+--- !u!60 &3860244677606729723
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630430723397123286}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.06035658, y: 0.09033412}
+      - {x: -0.061046377, y: 0.08013711}
+      - {x: -0.08008193, y: 0.0806025}
+      - {x: -0.08031801, y: 0.069516376}
+      - {x: -0.09061886, y: 0.0699574}
+      - {x: -0.08990246, y: 0.059663195}
+      - {x: -0.10041643, y: 0.059762713}
+      - {x: -0.100254305, y: 0.03977199}
+      - {x: -0.09942385, y: -0.017630616}
+      - {x: -0.09945189, y: -0.04957203}
+      - {x: -0.08906303, y: -0.05100177}
+      - {x: -0.08854977, y: -0.08018531}
+      - {x: -0.08052307, y: -0.08019966}
+      - {x: -0.07980266, y: -0.0996314}
+      - {x: -0.05959812, y: -0.100739375}
+      - {x: -0.0600618, y: -0.1204639}
+      - {x: -0.050248303, y: -0.120274514}
+      - {x: -0.049879134, y: -0.15038514}
+      - {x: -0.060031567, y: -0.15016064}
+      - {x: -0.060272753, y: -0.16024195}
+      - {x: -0.009641467, y: -0.1608431}
+      - {x: -0.01103007, y: -0.13017294}
+      - {x: 0.0104950275, y: -0.13114826}
+      - {x: 0.010708172, y: -0.15944397}
+      - {x: 0.049312808, y: -0.16009635}
+      - {x: 0.05080226, y: -0.12069188}
+      - {x: 0.060696155, y: -0.12024114}
+      - {x: 0.060604315, y: -0.08003846}
+      - {x: 0.050507862, y: -0.08024659}
+      - {x: 0.04982487, y: -0.069902815}
+      - {x: 0.06036018, y: -0.06890349}
+      - {x: 0.05965674, y: -0.050063293}
+      - {x: 0.07047322, y: -0.050255973}
+      - {x: 0.070164904, y: -0.03007426}
+      - {x: 0.08014386, y: -0.02996626}
+      - {x: 0.0806638, y: -0.010397546}
+      - {x: 0.089779496, y: -0.010076299}
+      - {x: 0.0907203, y: 0.020087888}
+      - {x: 0.07992957, y: 0.02059425}
+      - {x: 0.08014443, y: 0.040157598}
+      - {x: 0.07043069, y: 0.04030117}
+      - {x: 0.06979849, y: 0.05975286}
+      - {x: 0.059935026, y: 0.060088996}
+      - {x: 0.06080068, y: 0.069823}
+      - {x: 0.049711924, y: 0.06946857}
+      - {x: 0.050812274, y: 0.08069743}
+      - {x: 0.040929057, y: 0.07973981}
+      - {x: 0.040600058, y: 0.091025986}
+--- !u!114 &6178691925940678055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630430723397123286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af92e51484655c540abff646ac6aa242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  weaponCollider: {fileID: 0}
 --- !u!1 &2693342833505455323
 GameObject:
   m_ObjectHideFlags: 0

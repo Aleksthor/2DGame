@@ -264,6 +264,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3776031044296543675}
   - component: {fileID: 7626121734132357996}
+  - component: {fileID: 2211332228057564833}
+  - component: {fileID: 6055100526073843666}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -338,6 +340,65 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &2211332228057564833
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4266465352300195416}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.030646063, y: 0.10011813}
+      - {x: 0.029602697, y: 0.10960952}
+      - {x: 0.020829894, y: 0.110721745}
+      - {x: 0.01970947, y: 0.12007428}
+      - {x: 0.0108154565, y: 0.12024552}
+      - {x: 0.01049588, y: 0.12919387}
+      - {x: 0.00057909824, y: 0.12998323}
+      - {x: -0.00046047196, y: 0.120555766}
+      - {x: -0.010314437, y: 0.11978091}
+      - {x: -0.010941002, y: 0.1105784}
+      - {x: -0.020077346, y: 0.1109532}
+      - {x: -0.02027628, y: 0.100077726}
+      - {x: -0.03024139, y: 0.100387424}
+      - {x: -0.03062882, y: 0.028837709}
+      - {x: -0.02024144, y: 0.029231181}
+      - {x: -0.019538019, y: 0.0004927218}
+      - {x: 0.030586367, y: 0.00010528846}
+      - {x: 0.029927004, y: 0.030006051}
+      - {x: 0.040241394, y: 0.030533465}
+      - {x: 0.03985396, y: 0.0990791}
+--- !u!114 &6055100526073843666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4266465352300195416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7cae2c3e67baf479f0e8f3d88fad5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHUD: {fileID: 0}
+  damage: 10
 --- !u!1 &4737071462365302555
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +666,8 @@ GameObject:
   - component: {fileID: 6938288898857915198}
   - component: {fileID: 1668383449134690655}
   - component: {fileID: 5194976129602308559}
+  - component: {fileID: 2938179862975070586}
+  - component: {fileID: 3094726074090879513}
   m_Layer: 0
   m_Name: GoblinWarrior
   m_TagString: Untagged
@@ -697,7 +760,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1668383449134690655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,3 +801,97 @@ MonoBehaviour:
   Hand: {fileID: 1087191409892271127}
   Weapon: {fileID: 3776031044296543675}
   Effect: {fileID: 8594982689050161527}
+--- !u!60 &2938179862975070586
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8836793857253708489}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.079782486, y: 0.04055641}
+      - {x: 0.079584695, y: 0.059095502}
+      - {x: 0.07042542, y: 0.060260512}
+      - {x: 0.069000244, y: 0.07020557}
+      - {x: 0.06074715, y: 0.070766516}
+      - {x: 0.06156359, y: 0.07837621}
+      - {x: 0.050730806, y: 0.080127165}
+      - {x: 0.05010462, y: 0.08891241}
+      - {x: 0.039111808, y: 0.089874856}
+      - {x: 0.039641865, y: 0.09958618}
+      - {x: 0.0209302, y: 0.09992183}
+      - {x: 0.020250898, y: 0.10836837}
+      - {x: -0.019153211, y: 0.10956177}
+      - {x: -0.019835368, y: 0.100502856}
+      - {x: -0.03979453, y: 0.10033072}
+      - {x: -0.03947753, y: 0.089660764}
+      - {x: -0.04947013, y: 0.08946736}
+      - {x: -0.049744785, y: 0.081055515}
+      - {x: -0.060017195, y: 0.08009784}
+      - {x: -0.06109599, y: 0.07110627}
+      - {x: -0.07079019, y: 0.07093179}
+      - {x: -0.0712107, y: 0.06088655}
+      - {x: -0.079080276, y: 0.060227655}
+      - {x: -0.08083057, y: 0.041135572}
+      - {x: -0.09060443, y: 0.040393043}
+      - {x: -0.090820126, y: 0.00021264562}
+      - {x: -0.08014768, y: -0.0005194396}
+      - {x: -0.0798839, y: -0.0508331}
+      - {x: -0.07008823, y: -0.050521158}
+      - {x: -0.07099389, y: -0.07131311}
+      - {x: -0.05937957, y: -0.07097947}
+      - {x: -0.06054549, y: -0.11934284}
+      - {x: -0.049759377, y: -0.120837264}
+      - {x: -0.049904905, y: -0.15116297}
+      - {x: -0.060044467, y: -0.15048672}
+      - {x: -0.059530247, y: -0.15944485}
+      - {x: -0.009197678, y: -0.16045164}
+      - {x: -0.010054866, y: -0.13098174}
+      - {x: 0.008986386, y: -0.12980562}
+      - {x: 0.010199934, y: -0.16022626}
+      - {x: 0.050865274, y: -0.16069731}
+      - {x: 0.049069308, y: -0.12117139}
+      - {x: 0.060237605, y: -0.1203714}
+      - {x: 0.05988858, y: -0.081233636}
+      - {x: 0.049762633, y: -0.08040477}
+      - {x: 0.049253657, y: -0.07169768}
+      - {x: 0.05938502, y: -0.07087971}
+      - {x: 0.0606493, y: -0.04984538}
+      - {x: 0.069838524, y: -0.050276916}
+      - {x: 0.06979904, y: -0.031613562}
+      - {x: 0.080127716, y: -0.03143513}
+      - {x: 0.07977505, y: -0.011397335}
+      - {x: 0.08949929, y: -0.011528181}
+      - {x: 0.09062123, y: 0.040185157}
+--- !u!114 &3094726074090879513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8836793857253708489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af92e51484655c540abff646ac6aa242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  damage: 10
+  weaponCollider: {fileID: 2211332228057564833}
