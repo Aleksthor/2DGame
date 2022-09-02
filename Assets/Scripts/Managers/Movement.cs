@@ -24,6 +24,9 @@ public class Movement : MonoBehaviour
     bool isDashing = false;
     bool isSneaking = false;
     bool isDashCooldown = false;
+    bool isShielding = false;
+    bool isAttacking = false;
+
 
     //Stamina Cooldown
     [SerializeField] float staminaCooldownPrecentage = 75f;
@@ -50,6 +53,8 @@ public class Movement : MonoBehaviour
     {
         Animations();
         MovementSpeed();
+        Attack();
+        Shield();
 
         DashActivation();
         DashRunning();
@@ -74,6 +79,41 @@ public class Movement : MonoBehaviour
         }
     }
 
+
+    // Attack 
+    void Attack()
+    {
+        if (buttonInput.GetAttackInput())
+        {
+            if (!isAttacking)
+            {
+                playerAnimation.TriggerAttackAnimation();
+            }         
+            isAttacking = true;
+        }
+        else
+        {
+            isAttacking = false;
+        }
+    }
+
+
+    // Shield
+
+    void Shield()
+    {
+        if(buttonInput.GetShieldInput())
+        {
+            playerAnimation.SetBlockingAnimation(true);
+            isShielding = true;
+        }
+        else
+        {
+            playerAnimation.SetBlockingAnimation(false);
+            isShielding = false;
+        }
+    }
+
     //Movement Speed
     void MovementSpeed()
     {
@@ -84,7 +124,7 @@ public class Movement : MonoBehaviour
                 player.GetPlayer().transform.position += new Vector3(buttonInput.GetMovementX(), buttonInput.GetMovementY(), 0f) * dashingSpeed * Time.deltaTime;
 
             }
-            else if (isSneaking)
+            else if (isSneaking || isShielding)
             {
 
                 player.GetPlayer().transform.position += new Vector3(buttonInput.GetMovementX(), buttonInput.GetMovementY(), 0f) * sneakingSpeed * Time.deltaTime;

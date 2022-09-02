@@ -9,12 +9,14 @@ public class TaskCheckPlayerInFOV : Node
     private Transform transform;
     private Animator animator;
     private Transform playerTransform;
+    private float FOV;
 
-    public TaskCheckPlayerInFOV(Transform AgentTransform, Transform PlayerTransform)
+    public TaskCheckPlayerInFOV(Transform AgentTransform, Transform PlayerTransform, float FOVRange)
     {
         transform = AgentTransform;
         animator = AgentTransform.GetComponent<Animator>();
         playerTransform = PlayerTransform;
+        FOV = FOVRange;
     }
 
     public override NodeState Evaluate()
@@ -24,8 +26,7 @@ public class TaskCheckPlayerInFOV : Node
         if (t == null)
         {
             
-
-            if ((transform.position - playerTransform.position).magnitude < 6f)
+            if ((transform.position - playerTransform.position).magnitude < FOV)
             {
                 parent.parent.SetData("target", playerTransform);
                 animator.SetBool("Walking", true);

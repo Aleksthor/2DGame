@@ -10,6 +10,8 @@ public class ButtonInput : MonoBehaviour
     Vector2 movement;
     bool dash;
     bool sneak;
+    bool shield;
+    bool attack;
 
 
     //--------------------
@@ -34,6 +36,8 @@ public class ButtonInput : MonoBehaviour
         movement.y = Input.GetAxis("Vertical");
         dash = Input.GetButton("Jump");
         sneak = Input.GetButton("Running");
+        shield = Input.GetButton("Fire2");
+        attack = Input.GetButton("Fire1");
     }
 
 
@@ -55,6 +59,14 @@ public class ButtonInput : MonoBehaviour
     public bool GetSneakInput()
     {
         return sneak;
+    }
+    public bool GetShieldInput()
+    {
+        return shield;
+    }
+    public bool GetAttackInput()
+    {
+        return attack;
     }
 
 }

@@ -23,4 +23,14 @@ public class Animation : MonoBehaviour
     {
         animator.SetBool("Moving", value);
     }
+
+    public void TriggerAttackAnimation()
+    {
+        animator.SetTrigger("Attack");
+    }
+
+    public void SetBlockingAnimation(bool value)
+    {
+        animator.SetBool("Blocking", value);
+    }
 }

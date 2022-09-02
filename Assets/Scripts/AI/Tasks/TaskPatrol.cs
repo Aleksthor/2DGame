@@ -10,13 +10,15 @@ public class TaskPatrol : Node
     private Transform transform;
     private Transform[] waypoints;
     private Animator animator;
+    private float walkSpeed;
 
-    public TaskPatrol(Transform agenttransform, Transform[] agentwaypoints)
+    public TaskPatrol(Transform agenttransform, Transform[] agentwaypoints, float WalkSpeed)
     {
         animator = agenttransform.GetComponent<Animator>();
         transform = agenttransform;
         waypoints = agentwaypoints;
         animator.SetBool("Walking", true);
+        walkSpeed = WalkSpeed;
     }
 
     private float waitTime = 3f;
@@ -55,7 +57,7 @@ public class TaskPatrol : Node
             }
             else
             {
-                transform.position = Vector2.MoveTowards(transform.position, wp.position, LearningBT.speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, wp.position, walkSpeed * Time.deltaTime);
                 
             }
 

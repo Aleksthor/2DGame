@@ -10,65 +10,78 @@ public class TaskGoToTargetShoot : Node
     private Transform playerTransform;
     private static float shootSpeed = 2f;
     private static float shootClock = 0f;
-    private bool standStill = false;
+    private bool walking = true;
     private static float standStillTimer = 1f;
     private static float standStillClock = 0f;
     private Animator animator;
+    private float FOV;
+    private float stopRange;
+    private float movementSpeed;
 
-    public TaskGoToTargetShoot(Transform AgentTransform, Transform PlayerTransform)
+    EnemyBowRotation bowRotationScript;
+
+    public TaskGoToTargetShoot(Transform AgentTransform, Transform PlayerTransform, EnemyBowRotation BowRotationScript,float FOVRange, float StopRange, float MovementSpeed)
     {
         transform = AgentTransform;
         animator = AgentTransform.GetComponent<Animator>();
         playerTransform = PlayerTransform;
+        bowRotationScript = BowRotationScript;
+        FOV = FOVRange;
+        stopRange = StopRange;
+        movementSpeed = MovementSpeed;
     }
 
     public override NodeState Evaluate()
     {
-        Debug.Log("Go To Target");
+        bowRotationScript.hasAgro = true;
         Transform target = (Transform)GetData("target");
 
 
-        if((transform.position - playerTransform.position).magnitude > LearningBT.FOVRange)
+        if ((transform.position - playerTransform.position).magnitude > FOV)
         {
             Debug.Log("StateFailure");
             ClearData("target");
+            bowRotationScript.hasAgro = false;
             animator.SetBool("Walking", false);
             state = NodeState.FAILURE;
             return state;
         }
 
-        if(Vector2.Distance(transform.position, playerTransform.position) > 1)
+
+
+        shootClock += Time.deltaTime;
+        if (shootClock > shootSpeed)
         {
-            if (!standStill)
-            {
-                shootClock += Time.deltaTime;
-                if (shootClock > shootSpeed)
-                {
-                    animator.SetTrigger("Attack");
-                    standStill = true;
-                    shootClock = 0f;
-                    state = NodeState.SUCCESS;
-                    return state;
-                }
-            }
+            animator.SetTrigger("Attack");
+            walking = false;
+            shootClock = 0f;
+            state = NodeState.SUCCESS;
+            return state;
+        }
 
-            if (!standStill && (transform.position - playerTransform.position).magnitude > 5f)
-            {
-                animator.SetBool("Walking", true);
-                transform.position = Vector2.MoveTowards(transform.position, target.position, LearningBT.speed * Time.deltaTime);
-            }
-            else
-            {
-                animator.SetBool("Walking", false);
 
+        if (walking && (transform.position - playerTransform.position).magnitude > stopRange)
+        {
+            animator.SetBool("Walking", true);
+            transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
+        }
+        
+        if(!walking)
+        {
+            animator.SetBool("Walking", false);
+
+            if((transform.position - playerTransform.position).magnitude > stopRange + 0.1f)
+            {
                 standStillClock += Time.deltaTime;
                 if (standStillClock > standStillTimer)
                 {
-                    standStill = false;
+                    walking = true;
                     standStillClock = 0f;
                 }
             }
+
         }
+
         state = NodeState.RUNNING;
         return state;
     }
