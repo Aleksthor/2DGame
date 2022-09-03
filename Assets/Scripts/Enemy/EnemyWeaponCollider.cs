@@ -6,10 +6,17 @@ public class EnemyWeaponCollider : MonoBehaviour
 {
 
     public HUD playerHUD;
+    public Movement movement;
     public float damage = 10f;
     private float delay = 0.2f;
     private float delayClock = 0f;
     private bool doDelay = false;
+
+
+    private void Awake()
+    {
+        movement = FindObjectOfType<Movement>();
+    }
     
 
     void Update()
@@ -43,8 +50,15 @@ public class EnemyWeaponCollider : MonoBehaviour
 
         if (other.tag == "Player" && !doDelay)
         {
-
-            playerHUD.SetHealthValue(-damage);
+            if(movement.isShielding)
+            {
+                playerHUD.SetHealthValue(-damage * 0.5f);
+            }
+            else
+            {
+                playerHUD.SetHealthValue(-damage);
+            }
+            
             doDelay = true;
             if(gameObject.tag == "Arrow")
             {

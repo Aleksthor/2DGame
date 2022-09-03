@@ -24,7 +24,7 @@ public class Movement : MonoBehaviour
     bool isDashing = false;
     bool isSneaking = false;
     bool isDashCooldown = false;
-    bool isShielding = false;
+    public bool isShielding = false;
     bool isAttacking = false;
 
 
