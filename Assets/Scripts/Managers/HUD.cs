@@ -31,6 +31,8 @@ public class HUD : MonoBehaviour
     [SerializeField] Color staminaFillColorCooldown = new(0.2636829f, 0.3584906f, 0.2313279f, 0.6f);
     Color staminaFillColor;
 
+    public Animator playerAnimator;
+
 
     private void Awake()
     {
@@ -109,6 +111,10 @@ public class HUD : MonoBehaviour
     public void SetHealthValue(float value)
     {
         healthSliderCurrent += value;
+        if (healthSliderCurrent <= 0)
+        {
+            playerAnimator.SetBool("Dead", true);
+        }
     }
 
     //Get Stamina
