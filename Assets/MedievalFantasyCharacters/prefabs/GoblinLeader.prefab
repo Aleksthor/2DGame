@@ -473,6 +473,9 @@ MonoBehaviour:
   playerHUD: {fileID: 0}
   movement: {fileID: 0}
   damage: 10
+  delay: 0.2
+  delayClock: 0
+  doDelay: 0
 --- !u!1 &4770604996690801669
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +501,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4770604996690801669}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.03, z: 0}
+  m_LocalPosition: {x: 0, y: -0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -657,6 +660,7 @@ GameObject:
   - component: {fileID: 4721920806708628863}
   - component: {fileID: 5486763441678837059}
   - component: {fileID: 6658573697450727346}
+  - component: {fileID: 1386548849887970439}
   m_Layer: 7
   m_Name: GoblinLeader
   m_TagString: Untagged
@@ -718,6 +722,8 @@ MonoBehaviour:
   health: 2
   weaponCollider: {fileID: 4910410392311390403}
   hit: 0
+  animator: {fileID: 0}
+  rigidBody: {fileID: 0}
 --- !u!114 &3388699055192858294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -758,6 +764,14 @@ MonoBehaviour:
   Hand: {fileID: 586302500584594032}
   Weapon: {fileID: 2369113401078714382}
   Effect: {fileID: 2274329640041127551}
+  Frame1: {x: 0, y: 0}
+  Frame2: {x: 0, y: 0}
+  direction: {x: 0, y: 0}
+  flipState: 0
+  flipLastDirection: 0
+  left: {x: 0.02, y: 0.12}
+  right: {x: -0.02, y: 0.12}
+  enemyCollider: {fileID: 0}
 --- !u!60 &4721920806708628863
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -888,3 +902,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.11102638, y: 0.059086494}
   m_EdgeRadius: 0
+--- !u!210 &1386548849887970439
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8117826962738489142}
+  m_Enabled: 1
+  m_SortingLayerID: -1103112865
+  m_SortingLayer: 2
+  m_SortingOrder: 0

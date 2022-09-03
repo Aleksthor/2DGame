@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1103112865
   m_SortingLayer: 2
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &2958322395707882809
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &3298873530303937890
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +253,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &4266465352300195416
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +339,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!60 &2211332228057564833
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -400,6 +400,9 @@ MonoBehaviour:
   playerHUD: {fileID: 0}
   movement: {fileID: 0}
   damage: 10
+  delay: 0.2
+  delayClock: 0
+  doDelay: 0
 --- !u!1 &4737071462365302555
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +486,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &8088846950942583545
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,7 +560,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1103112865
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 5138640049756449023, guid: c9db6a9c6c3a25649937fab8d5057333, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -568,7 +571,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &8750813897946609872
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,7 +597,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8750813897946609872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.03, z: 0}
+  m_LocalPosition: {x: 0, y: -0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -641,7 +644,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1103112865
   m_SortingLayer: 2
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: -2242348133456558416, guid: 67e11902f9a599344b5dc2f4b5a33db5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -652,7 +655,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &8836793857253708489
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,6 +672,7 @@ GameObject:
   - component: {fileID: 1373959132748244397}
   - component: {fileID: 2938179862975070586}
   - component: {fileID: 8167699308932955106}
+  - component: {fileID: 4012063803813651823}
   m_Layer: 7
   m_Name: GoblinWarrior
   m_TagString: Untagged
@@ -710,6 +714,8 @@ MonoBehaviour:
   health: 2
   weaponCollider: {fileID: 2211332228057564833}
   hit: 0
+  animator: {fileID: 0}
+  rigidBody: {fileID: 0}
 --- !u!114 &1668383449134690655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -750,6 +756,14 @@ MonoBehaviour:
   Hand: {fileID: 1087191409892271127}
   Weapon: {fileID: 3776031044296543675}
   Effect: {fileID: 8594982689050161527}
+  Frame1: {x: 0, y: 0}
+  Frame2: {x: 0, y: 0}
+  direction: {x: 0, y: 0}
+  flipState: 0
+  flipLastDirection: 0
+  left: {x: 0.02, y: 0.12}
+  right: {x: -0.02, y: 0.12}
+  enemyCollider: {fileID: 0}
 --- !u!50 &6938288898857915198
 Rigidbody2D:
   serializedVersion: 4
@@ -896,3 +910,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.12060362, y: 0.055149317}
   m_EdgeRadius: 0
+--- !u!210 &4012063803813651823
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8836793857253708489}
+  m_Enabled: 1
+  m_SortingLayerID: -1103112865
+  m_SortingLayer: 2
+  m_SortingOrder: 0
