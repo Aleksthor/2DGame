@@ -35,7 +35,7 @@ public class TaskCheckIfPlayerInAttackRange : Node
             state = NodeState.SUCCESS;
             return state;
         }
-        taskAttack.attackClock = taskAttack.attackSpeed;
+        
         state = NodeState.FAILURE;
         return state;
 

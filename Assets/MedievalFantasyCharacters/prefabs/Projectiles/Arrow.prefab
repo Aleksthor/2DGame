@@ -121,8 +121,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1103112865
+  m_SortingLayer: 2
   m_SortingOrder: 5
   m_Sprite: {fileID: -765150924802650856, guid: ef1b1625664d66746afc115a84128a2b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -150,6 +150,9 @@ MonoBehaviour:
   playerHUD: {fileID: 0}
   movement: {fileID: 0}
   damage: 5
+  delay: 0.2
+  delayClock: 0
+  doDelay: 0
 --- !u!114 &2792787679826187415
 MonoBehaviour:
   m_ObjectHideFlags: 0

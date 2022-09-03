@@ -31,13 +31,20 @@ public class SpriteController : MonoBehaviour
     bool CanTurn = true;
     #pragma warning disable 414
     bool CanMove = true;
-    #pragma warning restore 414
+#pragma warning restore 414
+
+    private Camera mainCam;
+
+
+    [SerializeField] GameObject EnergyBall;
+    [SerializeField] Transform ShotPoint;
 
     void Start()
     {
         weaponCollider.enabled = false;
         Animator animator = gameObject.GetComponent<Animator>();
         animator.SetInteger("WeaponType", StartingWeaponType);
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
 
@@ -166,6 +173,14 @@ public class SpriteController : MonoBehaviour
     public void ColliderOff()
     {
         weaponCollider.enabled = false;
+    }
+
+    public void SpawnEnergyBall()
+    {
+        Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
+
+        GameObject NewEnergyBall = Instantiate(EnergyBall, ShotPoint.position, Quaternion.Euler(0f, 0f, Vector2.Angle((Vector2)ShotPoint.position, (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition))));
+
     }
 
 

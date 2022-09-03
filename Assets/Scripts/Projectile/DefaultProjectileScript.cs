@@ -8,7 +8,7 @@ public class DefaultProjectileScript : MonoBehaviour
     {
         if (collider.tag == "Player" || collider.tag == "Enemy")
         {
-
+            
         }
         else
         {
