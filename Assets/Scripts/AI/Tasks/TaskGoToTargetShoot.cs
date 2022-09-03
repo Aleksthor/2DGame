@@ -47,7 +47,16 @@ public class TaskGoToTargetShoot : Node
             return state;
         }
 
+        if ((transform.position - playerTransform.position).magnitude < stopRange - 0.1)
+        {
+            animator.SetBool("Walking", true);
+            walking = true;
+            transform.position = Vector2.MoveTowards(transform.position, transform.position + (transform.position - target.position), movementSpeed * Time.deltaTime);
+         
 
+            state = NodeState.SUCCESS;
+            return state;
+        }
 
         shootClock += Time.deltaTime;
         if (shootClock > shootSpeed)
@@ -65,6 +74,7 @@ public class TaskGoToTargetShoot : Node
             animator.SetBool("Walking", true);
             transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
         }
+
         
         if(!walking)
         {
