@@ -398,6 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHUD: {fileID: 0}
+  movement: {fileID: 0}
   damage: 10
 --- !u!1 &4737071462365302555
 GameObject:
@@ -661,12 +662,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8399043195476598874}
-  - component: {fileID: 1373959132748244397}
-  - component: {fileID: 6938288898857915198}
+  - component: {fileID: 3094726074090879513}
   - component: {fileID: 1668383449134690655}
   - component: {fileID: 5194976129602308559}
+  - component: {fileID: 6938288898857915198}
+  - component: {fileID: 1373959132748244397}
   - component: {fileID: 2938179862975070586}
-  - component: {fileID: 3094726074090879513}
   - component: {fileID: 8167699308932955106}
   m_Layer: 0
   m_Name: GoblinWarrior
@@ -694,47 +695,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1373959132748244397
-Animator:
-  serializedVersion: 4
+--- !u!114 &3094726074090879513
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8836793857253708489}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e6e6f9eef35f47f499ae6cec6db345cb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!50 &6938288898857915198
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8836793857253708489}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 5
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af92e51484655c540abff646ac6aa242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  weaponCollider: {fileID: 2211332228057564833}
 --- !u!114 &1668383449134690655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,6 +749,47 @@ MonoBehaviour:
   Hand: {fileID: 1087191409892271127}
   Weapon: {fileID: 3776031044296543675}
   Effect: {fileID: 8594982689050161527}
+--- !u!50 &6938288898857915198
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8836793857253708489}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 5
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!95 &1373959132748244397
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8836793857253708489}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e6e6f9eef35f47f499ae6cec6db345cb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!60 &2938179862975070586
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -854,20 +869,6 @@ PolygonCollider2D:
       - {x: 0.07977505, y: -0.011397335}
       - {x: 0.08949929, y: -0.011528181}
       - {x: 0.09062123, y: 0.040185157}
---- !u!114 &3094726074090879513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8836793857253708489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af92e51484655c540abff646ac6aa242, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
-  weaponCollider: {fileID: 2211332228057564833}
 --- !u!61 &8167699308932955106
 BoxCollider2D:
   m_ObjectHideFlags: 0

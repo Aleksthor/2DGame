@@ -93,10 +93,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7033013316452478358}
+  - component: {fileID: 8905979074190392921}
   - component: {fileID: 3057187768033625967}
   - component: {fileID: 9131899388276151552}
   - component: {fileID: 1683833384199100759}
-  - component: {fileID: 8905979074190392921}
   - component: {fileID: 5057567540010451976}
   m_Layer: 0
   m_Name: Player
@@ -125,6 +125,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8905979074190392921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467819397390074105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd2a1e5a4cbbe684782198f507fc86ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BodySprite: {fileID: 1711372623022998495}
+  HeadSprite: {fileID: 1435878910305916527}
+  HandSprite: {fileID: 5002825451146851801}
+  HatSprite: {fileID: 3802393040579807088}
+  WeaponSprite: {fileID: 4013562452332951240}
+  ShieldSprite: {fileID: 4005061804591074885}
+  EffectsSprite: {fileID: 8354362680291076041}
+  Hand: {fileID: 4857860621234229157}
+  Shield: {fileID: 3262493154710872444}
+  Effects: {fileID: 3367318337178748463}
+  weaponCollider: {fileID: 800437050351557876}
+  MovementVector: {x: 0, y: 0}
+  StartingWeaponType: 3
 --- !u!50 &3057187768033625967
 Rigidbody2D:
   serializedVersion: 4
@@ -192,29 +217,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8905979074190392921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1467819397390074105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd2a1e5a4cbbe684782198f507fc86ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BodySprite: {fileID: 1711372623022998495}
-  HeadSprite: {fileID: 1435878910305916527}
-  HandSprite: {fileID: 5002825451146851801}
-  HatSprite: {fileID: 3802393040579807088}
-  WeaponSprite: {fileID: 4013562452332951240}
-  ShieldSprite: {fileID: 4005061804591074885}
-  EffectsSprite: {fileID: 8354362680291076041}
-  Hand: {fileID: 4857860621234229157}
-  Shield: {fileID: 3262493154710872444}
-  Effects: {fileID: 3367318337178748463}
-  MovementVector: {x: 0, y: 0}
 --- !u!60 &5057567540010451976
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -690,7 +692,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -5287789555553424294, guid: 08823ee942be30c40b83838fa7aa20d0, type: 3}
+  m_Sprite: {fileID: 8573549099317436776, guid: 48573bf416a19fd4ba7e3611745c3be4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -718,7 +720,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 0.32, y: 0.64}
     newSize: {x: 0.32, y: 0.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -726,27 +728,26 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.030199792, y: 0.09995382}
-      - {x: 0.02989271, y: 0.110001706}
-      - {x: 0.019919608, y: 0.110182695}
-      - {x: 0.01954704, y: 0.1198914}
-      - {x: 0.0100166565, y: 0.119972154}
-      - {x: 0.009807271, y: 0.12983102}
-      - {x: -0.000080973376, y: 0.13014093}
-      - {x: -0.0005674334, y: 0.119844764}
-      - {x: -0.010118162, y: 0.11975485}
-      - {x: -0.0100043565, y: 0.11006054}
-      - {x: -0.019729078, y: 0.110139884}
-      - {x: -0.01973912, y: 0.10018613}
-      - {x: -0.029961182, y: 0.10036117}
-      - {x: -0.030341594, y: 0.029793616}
-      - {x: -0.019867726, y: 0.029966181}
-      - {x: -0.01963721, y: -0.00061681867}
-      - {x: 0.020181395, y: -0.0013181418}
-      - {x: 0.029480126, y: 0.00044728816}
-      - {x: 0.030028353, y: 0.029751869}
-      - {x: 0.039967746, y: 0.02916779}
-      - {x: 0.039726365, y: 0.10000496}
+    - - {x: 0.02, y: 0.06}
+      - {x: 0.01, y: 0.06}
+      - {x: 0.01, y: 0.07}
+      - {x: 0, y: 0.07}
+      - {x: 0, y: 0.08}
+      - {x: 0, y: 0.08}
+      - {x: -0.01, y: 0.08}
+      - {x: -0.01, y: 0.07}
+      - {x: -0.02, y: 0.07}
+      - {x: -0.02, y: 0.06}
+      - {x: -0.03, y: 0.06}
+      - {x: -0.03, y: 0}
+      - {x: -0.03, y: -0.02}
+      - {x: -0.04, y: -0.02}
+      - {x: -0.04, y: -0.04}
+      - {x: 0, y: -0.04}
+      - {x: 0.03, y: -0.04}
+      - {x: 0.03, y: -0.02}
+      - {x: 0.02, y: -0.02}
+      - {x: 0.02, y: 0.01}
 --- !u!114 &3895720241996056725
 MonoBehaviour:
   m_ObjectHideFlags: 0

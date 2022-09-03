@@ -6,12 +6,12 @@ public class Animation : MonoBehaviour
 {
     Player player;
     Animator animator;
-    
+
 
     private void Awake()
     {
         player = FindObjectOfType<Player>();
-        
+
     }
 
     private void Start()
@@ -32,5 +32,10 @@ public class Animation : MonoBehaviour
     public void SetBlockingAnimation(bool value)
     {
         animator.SetBool("Blocking", value);
+    }
+
+    public void SetDashingAnimation(bool value)
+    {
+        animator.SetBool("Dashing", value);
     }
 }

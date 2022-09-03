@@ -8,52 +8,39 @@ public class WeaponManager : MonoBehaviour
 {
     [SerializeField] Weapon weapon1;
     [SerializeField] Weapon weapon2;
+    [SerializeField] Weapon weapon3;
     [SerializeField] SpriteRenderer playerWeaponRenderer;
     [SerializeField] Transform weaponTransform;
     [SerializeField] Animator animator;
-    [SerializeField] PolygonCollider2D weaponCollider;
+    [SerializeField] PolygonCollider2D playerWeaponCollider;
 
     Vector2 clubPos = new Vector2(0.01f, 0.1f);
     Vector2 daggerPos = new Vector2(0.01f, 0.05f);
+    Vector2 swordPos = new Vector2(0.01f, 0.1f);
+    Vector3 staffPos = new Vector2(0.01f, 0.1f);
 
-    
-
-
-    // Debug Purposes
-
-    private float swapTime = 2f;
-    private float swapClock = 0f;
-    private int currentWeapon = 0;
 
 
     // Debug purposes in Update
     void Update()
     {
 
-        Debug.Log("Running");
-        swapClock += Time.deltaTime;
-
-        if(swapClock > swapTime)
+        if(Input.GetButton("1"))
         {
-            swapClock = 0f;
-            currentWeapon++;
-            currentWeapon = currentWeapon % 2;
-            switch(currentWeapon)
-            {
-                case 0:
-                    Debug.Log("0");
-                    ChangeWeapon(weapon1);
-                    break;
-                case 1:
-                    Debug.Log("1");
-                    ChangeWeapon(weapon2);
-                    break;
-                default:
-                    break;
-            }
-
+            ChangeWeapon(weapon1);
         }
-        Debug.Log(currentWeapon);
+
+
+        if (Input.GetButton("2"))
+        {
+            ChangeWeapon(weapon2);
+        }
+
+        if (Input.GetButton("3"))
+        {
+            ChangeWeapon(weapon3);
+        }
+
     }
 
 
@@ -61,7 +48,20 @@ public class WeaponManager : MonoBehaviour
     public void ChangeWeapon(Weapon weapon)
     {
         playerWeaponRenderer.sprite = weapon.itemSprite;
-        
+
+        var weaponPoints = playerWeaponCollider.points;
+        int totalPoints = weaponPoints.Length;
+
+        // Change my weapon points
+        for (int i = 0; i < totalPoints; i++)
+        {
+            weaponPoints[i].x = (float)weapon.colliderPointX[i];
+            weaponPoints[i].y = (float)weapon.colliderPointY[i];
+        }
+
+        playerWeaponCollider.points = weaponPoints;
+
+
         switch ((int)weapon.weaponType)
         {
             case 0:
@@ -71,6 +71,14 @@ public class WeaponManager : MonoBehaviour
             case 1:
                 weaponTransform.localPosition = daggerPos;
                 animator.SetInteger("WeaponType", 1);
+                break;
+            case 2:
+                weaponTransform.localPosition = swordPos;
+                animator.SetInteger("WeaponType", 2);
+                break;
+            case 3:
+                weaponTransform.localPosition = staffPos;
+                animator.SetInteger("WeaponType", 3);
                 break;
             default:
                 break;

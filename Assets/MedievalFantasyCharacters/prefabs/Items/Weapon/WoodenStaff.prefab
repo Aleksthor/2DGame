@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7611185109540608903
+--- !u!1 &5322121606251291780
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,84 +8,84 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4801961964784631666}
-  - component: {fileID: -610171975676056864}
+  - component: {fileID: 4340578114482267060}
+  - component: {fileID: -7806771442317623355}
   m_Layer: 0
-  m_Name: Wooden Club 1
+  m_Name: WoodenStaff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4801961964784631666
+--- !u!4 &4340578114482267060
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7611185109540608903}
+  m_GameObject: {fileID: 5322121606251291780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.6635857, y: -0.3607123, z: 0.31964248}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-610171975676056864
+--- !u!114 &-7806771442317623355
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7611185109540608903}
+  m_GameObject: {fileID: 5322121606251291780}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7e4894514823f0429dec3d40e818eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: -5287789555553424294, guid: 08823ee942be30c40b83838fa7aa20d0, type: 3}
-  itemName: Wooden Club
-  weaponType: 0
+  itemSprite: {fileID: 8573549099317436776, guid: 48573bf416a19fd4ba7e3611745c3be4, type: 3}
+  itemName: WoodenStaff
+  weaponType: 3
   colliderPointX:
   - 0.03
   - 0.03
-  - 0.02
-  - 0.02
+  - 0.04
+  - 0.04
   - 0.01
   - 0.01
-  - 0
-  - 0
   - -0.01
   - -0.01
   - -0.02
   - -0.02
+  - -0.04
+  - -0.04
   - -0.03
   - -0.03
   - -0.02
-  - -0.02
-  - 0.03
-  - 0.03
-  - 0.04
-  - 0.04
+  - -0.01
+  - 0
+  - 0.01
+  - 0.02
+  - 0.02
   colliderPointY:
-  - 0.1
-  - 0.11
-  - 0.11
+  - 0.09
   - 0.12
   - 0.12
-  - 0.13
-  - 0.13
-  - 0.12
-  - 0.12
+  - 0.16
+  - 0.16
+  - 0.17
+  - 0.17
+  - 0.14
+  - 0.14
+  - 0.15
+  - 0.15
   - 0.11
   - 0.11
-  - 0.1
-  - 0.1
-  - 0.03
-  - 0.03
-  - 0
-  - 0
-  - 0.03
-  - 0.03
-  - 0.1
+  - 0.08
+  - 0.08
+  - 0.08
+  - 0.08
+  - 0.08
+  - 0.08
+  - 0.09

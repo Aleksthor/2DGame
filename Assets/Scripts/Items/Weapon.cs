@@ -11,12 +11,14 @@ public class Weapon : Item
     {
         Club,
         Dagger,
-        Sword
+        Sword,
+        Staff
     };
 
     public WeaponType weaponType;
+    public double[] colliderPointX;
+    public double[] colliderPointY;
 
-    public PolygonCollider2D weaponCollider;
 
 
 

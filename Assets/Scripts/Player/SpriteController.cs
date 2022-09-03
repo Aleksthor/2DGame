@@ -20,6 +20,8 @@ public class SpriteController : MonoBehaviour
     public PolygonCollider2D weaponCollider;
 
     public Vector2 MovementVector;
+
+    public int StartingWeaponType;
   
     bool FlipLastInput = false;
 
@@ -31,6 +33,8 @@ public class SpriteController : MonoBehaviour
     void Start()
     {
         weaponCollider.enabled = false;
+        Animator animator = gameObject.GetComponent<Animator>();
+        animator.SetInteger("WeaponType", StartingWeaponType);
     }
 
 

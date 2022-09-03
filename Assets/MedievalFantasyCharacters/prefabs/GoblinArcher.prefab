@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7015083625655629790}
-  - component: {fileID: 3277843344353132818}
-  - component: {fileID: 2534113014127897430}
-  - component: {fileID: 4440769238143024230}
-  - component: {fileID: 6144431920957448133}
-  - component: {fileID: 3860244677606729723}
   - component: {fileID: 6178691925940678055}
+  - component: {fileID: 6144431920957448133}
+  - component: {fileID: 2534113014127897430}
+  - component: {fileID: 3277843344353132818}
+  - component: {fileID: 4440769238143024230}
+  - component: {fileID: 3860244677606729723}
+  - component: {fileID: 8712569859720369485}
   m_Layer: 0
   m_Name: GoblinArcher
   m_TagString: Untagged
@@ -40,48 +41,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &3277843344353132818
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 630430723397123286}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 5
-  m_AngularDrag: 2
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!95 &2534113014127897430
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 630430723397123286}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f0c8bc5044c012a4a831df692089a1d4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4440769238143024230
+--- !u!114 &6178691925940678055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,12 +50,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 630430723397123286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 158aa8982d4402249ad17fac1b716eae, type: 3}
+  m_Script: {fileID: 11500000, guid: af92e51484655c540abff646ac6aa242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShotForce: 10
-  ShotPoint: {fileID: 2875369751680591041}
-  Arrow: {fileID: 7246794179892791394, guid: a3cff953292d7044b89125cad61ac751, type: 3}
+  health: 1
+  weaponCollider: {fileID: 0}
 --- !u!114 &6144431920957448133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +76,62 @@ MonoBehaviour:
   - {fileID: 0}
   playerTransform: {fileID: 0}
   enemyBowRotationScript: {fileID: 4290834972995373594}
+--- !u!95 &2534113014127897430
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630430723397123286}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f0c8bc5044c012a4a831df692089a1d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &3277843344353132818
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630430723397123286}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 5
+  m_AngularDrag: 2
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &4440769238143024230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630430723397123286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 158aa8982d4402249ad17fac1b716eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShotForce: 10
+  ShotPoint: {fileID: 2875369751680591041}
+  Arrow: {fileID: 7246794179892791394, guid: a3cff953292d7044b89125cad61ac751, type: 3}
 --- !u!60 &3860244677606729723
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -190,20 +205,32 @@ PolygonCollider2D:
       - {x: 0.050812274, y: 0.08069743}
       - {x: 0.040929057, y: 0.07973981}
       - {x: 0.040600058, y: 0.091025986}
---- !u!114 &6178691925940678055
-MonoBehaviour:
+--- !u!61 &8712569859720369485
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630430723397123286}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af92e51484655c540abff646ac6aa242, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
-  weaponCollider: {fileID: 0}
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000008195639, y: -0.1348927}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.123197645, y: 0.050563157}
+  m_EdgeRadius: 0
 --- !u!1 &2693342833505455323
 GameObject:
   m_ObjectHideFlags: 0

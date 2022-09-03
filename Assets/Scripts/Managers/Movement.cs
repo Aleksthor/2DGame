@@ -20,6 +20,9 @@ public class Movement : MonoBehaviour
     [SerializeField] float staminaDrainSpeed = 150;
     [SerializeField] float staminaRegenSpeed = 50;
 
+    [Header("Player Hitbox for i-frames")]
+    [SerializeField] PolygonCollider2D playerCollider;
+
     //bools for checking
     bool isDashing = false;
     bool isSneaking = false;
@@ -145,15 +148,21 @@ public class Movement : MonoBehaviour
         {
             if (isDashCooldown)
             {
+                playerCollider.enabled = true;
+                playerAnimation.SetDashingAnimation(false);
                 isDashing = false;
             }
             else
             {
+                playerCollider.enabled = false;
+                playerAnimation.SetDashingAnimation(true);
                 isDashing = true;
             }
         }
         else
         {
+            playerCollider.enabled = true;
+            playerAnimation.SetDashingAnimation(false);
             isDashing = false;
         }
     }

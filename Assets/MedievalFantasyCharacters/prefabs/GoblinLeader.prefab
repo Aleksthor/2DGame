@@ -471,6 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHUD: {fileID: 0}
+  movement: {fileID: 0}
   damage: 10
 --- !u!1 &4770604996690801669
 GameObject:
@@ -651,9 +652,9 @@ GameObject:
   - component: {fileID: 8721669908080753825}
   - component: {fileID: 5589595040736762825}
   - component: {fileID: 5841219797463277281}
-  - component: {fileID: 4721920806708628863}
   - component: {fileID: 3388699055192858294}
   - component: {fileID: 1660450454407356178}
+  - component: {fileID: 4721920806708628863}
   - component: {fileID: 5486763441678837059}
   - component: {fileID: 6658573697450727346}
   m_Layer: 0
@@ -714,8 +715,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af92e51484655c540abff646ac6aa242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 2
   weaponCollider: {fileID: 4910410392311390403}
+--- !u!114 &3388699055192858294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8117826962738489142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99e03695110125479803fee021168a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 1.2
+  attackRange: 2
+  FOV: 6
+  MovementSpeed: 1
+  waypoints: []
+  playerTransform: {fileID: 0}
+--- !u!114 &1660450454407356178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8117826962738489142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4d120e12eecb843a1ad924dcba2862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Body: {fileID: 4463281656436800350}
+  Head: {fileID: 6937948864280924026}
+  Hat: {fileID: 8575701102418022953}
+  FacialHair: {fileID: 882145780824996045}
+  HandRenderer: {fileID: 1368545090651187178}
+  WeaponRenderer: {fileID: 4714542389091736441}
+  EffectRenderer: {fileID: 4197495339359724341}
+  Hand: {fileID: 586302500584594032}
+  Weapon: {fileID: 2369113401078714382}
+  Effect: {fileID: 2274329640041127551}
 --- !u!60 &4721920806708628863
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -799,46 +840,6 @@ PolygonCollider2D:
       - {x: 0.09006847, y: -0.00007687247}
       - {x: 0.08991076, y: 0.050451394}
       - {x: 0.080960676, y: 0.0510473}
---- !u!114 &3388699055192858294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8117826962738489142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99e03695110125479803fee021168a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackSpeed: 1.2
-  attackRange: 2
-  FOV: 6
-  MovementSpeed: 1
-  waypoints: []
-  playerTransform: {fileID: 0}
---- !u!114 &1660450454407356178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8117826962738489142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d4d120e12eecb843a1ad924dcba2862, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Body: {fileID: 4463281656436800350}
-  Head: {fileID: 6937948864280924026}
-  Hat: {fileID: 8575701102418022953}
-  FacialHair: {fileID: 882145780824996045}
-  HandRenderer: {fileID: 1368545090651187178}
-  WeaponRenderer: {fileID: 4714542389091736441}
-  EffectRenderer: {fileID: 4197495339359724341}
-  Hand: {fileID: 586302500584594032}
-  Weapon: {fileID: 2369113401078714382}
-  Effect: {fileID: 2274329640041127551}
 --- !u!50 &5486763441678837059
 Rigidbody2D:
   serializedVersion: 4
