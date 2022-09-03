@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7611185109540608903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4801961964784631666}
+  - component: {fileID: -610171975676056864}
+  - component: {fileID: -114024708977939506}
+  m_Layer: 0
+  m_Name: Wooden Club 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4801961964784631666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7611185109540608903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.6635857, y: -0.3607123, z: 0.31964248}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-610171975676056864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7611185109540608903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e4894514823f0429dec3d40e818eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: -5287789555553424294, guid: 08823ee942be30c40b83838fa7aa20d0, type: 3}
+  itemName: Wooden Club
+  weaponType: 0
+  weaponCollider: {fileID: -114024708977939506}
+--- !u!60 &-114024708977939506
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7611185109540608903}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.030199792, y: 0.09995382}
+      - {x: 0.02989271, y: 0.110001706}
+      - {x: 0.019919608, y: 0.110182695}
+      - {x: 0.01954704, y: 0.1198914}
+      - {x: 0.0100166565, y: 0.119972154}
+      - {x: 0.009807271, y: 0.12983102}
+      - {x: -0.000080973376, y: 0.13014093}
+      - {x: -0.0005674334, y: 0.119844764}
+      - {x: -0.010118162, y: 0.11975485}
+      - {x: -0.0100043565, y: 0.11006054}
+      - {x: -0.019729078, y: 0.110139884}
+      - {x: -0.01973912, y: 0.10018613}
+      - {x: -0.029961182, y: 0.10036117}
+      - {x: -0.030341594, y: 0.029793616}
+      - {x: -0.019867726, y: 0.029966181}
+      - {x: -0.01963721, y: -0.00061681867}
+      - {x: 0.020181395, y: -0.0013181418}
+      - {x: 0.029480126, y: 0.00044728816}
+      - {x: 0.030028353, y: 0.029751869}
+      - {x: 0.039967746, y: 0.02916779}
+      - {x: 0.039726365, y: 0.10000496}
