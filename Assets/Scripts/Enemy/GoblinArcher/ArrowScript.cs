@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ArrowScript : MonoBehaviour
 {
-    float TimeLived = 0f;
+    [Header("Private variables")]
+    [SerializeField] float TimeLived = 0f;
 
     // Update is called once per frame
     void Update()

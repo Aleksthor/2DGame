@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySpriteDirection : MonoBehaviour
 {
+    [Header("Enemy Sprite & Transform References")]
     [SerializeField] SpriteRenderer Body;
     [SerializeField] SpriteRenderer Head;
     [SerializeField] SpriteRenderer Hat;
@@ -16,16 +17,22 @@ public class EnemySpriteDirection : MonoBehaviour
     [SerializeField] Transform Weapon;
     [SerializeField] Transform Effect;
 
-
+    [Header("Private Varaibles")]
+    [SerializeField]
     private Vector2 Frame1;
+    [SerializeField]
     private Vector2 Frame2;
+    [SerializeField]
     private Vector2 direction;
+    [SerializeField]
     private bool flipState = false;
+    [SerializeField]
     private bool flipLastDirection = false;
-
+    [SerializeField]
     private Vector2 left = new Vector2(0.02f, 0.12f);
+    [SerializeField]
     private Vector2 right = new Vector2(-0.02f, 0.12f);
-
+    [SerializeField]
     private EnemyCollider enemyCollider;
 
 

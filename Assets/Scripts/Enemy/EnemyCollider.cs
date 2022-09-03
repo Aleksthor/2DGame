@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class EnemyCollider : MonoBehaviour
 {
+    [Header("Enemy Health")]
     public float health = 1;
 
-
+    [Header("Enemy Weapon Collider")]
     public PolygonCollider2D weaponCollider;
 
+    [Header("Private Variables")]
     public bool hit = false;
+    [SerializeField]
     private Animator animator;
+    [SerializeField]
     private Rigidbody2D rigidBody;
 
 

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpriteController : MonoBehaviour
 {
+    [Header("Sprite & Tranform References")]
+    [SerializeField]
     Rigidbody2D Rigidbody;
     public SpriteRenderer BodySprite;
     public SpriteRenderer HeadSprite;
@@ -19,6 +21,7 @@ public class SpriteController : MonoBehaviour
 
     public PolygonCollider2D weaponCollider;
 
+    [Header("Private Variables")]
     public Vector2 MovementVector;
 
     public int StartingWeaponType;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBowRotation : MonoBehaviour
 {
-
+    [Header("Sprite and Transform References")]
     [SerializeField] Transform Player;
     [SerializeField] Transform Pivot;
     [SerializeField] Transform Hand;
@@ -19,13 +19,18 @@ public class EnemyBowRotation : MonoBehaviour
 
     GameObject Parent;
 
-
+    [Header("Private Variables")]
+    [SerializeField]
     public bool hasAgro = false;
-
+    [SerializeField]
     private Vector2 Frame1;
+    [SerializeField]
     private Vector2 Frame2;
+    [SerializeField]
     private Vector2 direction;
+    [SerializeField]
     private bool flipState = false;
+    [SerializeField]
     private bool flipLastDirection = false;
 
     void Start()

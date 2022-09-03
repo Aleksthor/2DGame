@@ -6,9 +6,11 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
+    [Header("Weapon Slots")]
     [SerializeField] Weapon weapon1;
     [SerializeField] Weapon weapon2;
     [SerializeField] Weapon weapon3;
+    [Header("Player References")]
     [SerializeField] SpriteRenderer playerWeaponRenderer;
     [SerializeField] Transform weaponTransform;
     [SerializeField] Animator animator;

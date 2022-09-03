@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 7015083625655629790}
   - component: {fileID: 6178691925940678055}
   - component: {fileID: 6144431920957448133}
+  - component: {fileID: 4440769238143024230}
   - component: {fileID: 2534113014127897430}
   - component: {fileID: 3277843344353132818}
-  - component: {fileID: 4440769238143024230}
   - component: {fileID: 3860244677606729723}
   - component: {fileID: 8712569859720369485}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GoblinArcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,6 +55,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   weaponCollider: {fileID: 0}
+  hit: 0
+  animator: {fileID: 0}
+  rigidBody: {fileID: 0}
 --- !u!114 &6144431920957448133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,7 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FOVRange: 10
-  StopRange: 2.5
+  StopRange: 5
   MovementSpeed: 2
   waypoints:
   - {fileID: 0}
@@ -76,6 +79,21 @@ MonoBehaviour:
   - {fileID: 0}
   playerTransform: {fileID: 0}
   enemyBowRotationScript: {fileID: 4290834972995373594}
+--- !u!114 &4440769238143024230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630430723397123286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 158aa8982d4402249ad17fac1b716eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShotForce: 10
+  ShotPoint: {fileID: 2875369751680591041}
+  Arrow: {fileID: 7246794179892791394, guid: a3cff953292d7044b89125cad61ac751, type: 3}
 --- !u!95 &2534113014127897430
 Animator:
   serializedVersion: 4
@@ -117,21 +135,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4440769238143024230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 630430723397123286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 158aa8982d4402249ad17fac1b716eae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShotForce: 10
-  ShotPoint: {fileID: 2875369751680591041}
-  Arrow: {fileID: 7246794179892791394, guid: a3cff953292d7044b89125cad61ac751, type: 3}
 --- !u!60 &3860244677606729723
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -301,8 +304,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1103112865
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: -415446080585258355, guid: 10e77d711a4372a4b8679362511b9d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -385,8 +388,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1103112865
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -8117470015809672891, guid: 0eba768b5091f8e439f54757ba9bf338, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -469,8 +472,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1103112865
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -553,8 +556,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1103112865
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: -434203430974283953, guid: 6934d4d76106cd14b86b5a6b2943c8fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -640,8 +643,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1103112865
+  m_SortingLayer: 2
   m_SortingOrder: 3
   m_Sprite: {fileID: 5138640049756449023, guid: c9db6a9c6c3a25649937fab8d5057333, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -677,6 +680,11 @@ MonoBehaviour:
   HandRenderer: {fileID: 2821031761760042366}
   BowRenderer: {fileID: 6505190829311754442}
   hasAgro: 0
+  Frame1: {x: 0, y: 0}
+  Frame2: {x: 0, y: 0}
+  direction: {x: 0, y: 0}
+  flipState: 0
+  flipLastDirection: 0
 --- !u!1 &7403082345398395078
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,8 +757,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1103112865
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -775839812191765919, guid: d027dc086d684dd408bc6f270acc2fcf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -833,8 +841,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1103112865
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 6491123365240102522, guid: dae17410b0fd1b245a04a2fe49f0f7d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

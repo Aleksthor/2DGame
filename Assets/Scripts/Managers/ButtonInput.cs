@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class ButtonInput : MonoBehaviour
 {
+
     SpriteController spriteController;
     Animation playerAnimator;
 
+    [Header("Private Variables")]
+    [SerializeField]
     Vector2 movement;
+    [SerializeField]
     bool dash;
+    [SerializeField]
     bool sneak;
+    [SerializeField]
     bool shield;
+    [SerializeField]
     bool attack;
 
 

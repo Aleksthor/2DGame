@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1103112865
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -154,8 +154,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1103112865
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 6491123365240102522, guid: dae17410b0fd1b245a04a2fe49f0f7d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -240,8 +240,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1103112865
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -4556188371526533135, guid: d027dc086d684dd408bc6f270acc2fcf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -326,8 +326,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1103112865
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -5287789555553424294, guid: 08823ee942be30c40b83838fa7aa20d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -470,8 +470,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1103112865
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -555,8 +555,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1103112865
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 5138640049756449023, guid: c9db6a9c6c3a25649937fab8d5057333, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -639,8 +639,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1103112865
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: -2242348133456558416, guid: 67e11902f9a599344b5dc2f4b5a33db5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 1373959132748244397}
   - component: {fileID: 2938179862975070586}
   - component: {fileID: 8167699308932955106}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GoblinWarrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -709,6 +709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   weaponCollider: {fileID: 2211332228057564833}
+  hit: 0
 --- !u!114 &1668383449134690655
 MonoBehaviour:
   m_ObjectHideFlags: 0

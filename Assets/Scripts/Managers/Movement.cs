@@ -24,17 +24,23 @@ public class Movement : MonoBehaviour
     [SerializeField] PolygonCollider2D playerCollider;
 
     //bools for checking
+    [Header("Private Variables")]
+    [SerializeField]
     bool isDashing = false;
+    [SerializeField]
     bool isSneaking = false;
+    [SerializeField]
     bool isDashCooldown = false;
+    [SerializeField]
     public bool isShielding = false;
+    [SerializeField]
     bool isAttacking = false;
 
 
     //Stamina Cooldown
     [SerializeField] float staminaCooldownPrecentage = 75f;
     #pragma warning disable 414
-    float dashTransparity = 0.5f;
+    [SerializeField] float dashTransparity = 0.5f;
     #pragma warning restore 414
     #endregion
 

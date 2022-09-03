@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class WeaponCollider : MonoBehaviour
 {
+    [Header("Weapon Variables")]
     public float damage = 1f;
     public float knockBackForce = 50f;
 
-    private float attackDelay = 0.5f;
-    private float attackClock = 0f;
-    private bool attack = false;
+    [Header("Private Variables")]
+    [SerializeField] private float attackDelay = 0.5f;
+    [SerializeField] private float attackClock = 0f;
+    [SerializeField] private bool attack = false;
 
     void Update()
     {
