@@ -46,8 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon1: {fileID: -4886502755690424945, guid: fd24b7e87b4230a499cd012b5389a283, type: 3}
   weapon2: {fileID: -610171975676056864, guid: 7e596e2f294f85c499206beb8b68263d, type: 3}
+  weapon3: {fileID: 0}
   playerWeaponRenderer: {fileID: 0}
   weaponTransform: {fileID: 0}
+  animator: {fileID: 0}
+  playerWeaponCollider: {fileID: 0}
 --- !u!1 &1579662712790032619
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,6 +138,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b052f764c39c0b048ba7b00e28412cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2065807912424789701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5054720421778664845}
+  - component: {fileID: 6984774817188864681}
+  m_Layer: 0
+  m_Name: SpriteManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5054720421778664845
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065807912424789701}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2076017503924805235}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6984774817188864681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065807912424789701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb67225eabcbf94d8ff0176e5e6dd44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2076017503506540631
@@ -231,7 +278,14 @@ MonoBehaviour:
   dashingSpeed: 12
   staminaDrainSpeed: 200
   staminaRegenSpeed: 35
+  playerCollider: {fileID: 0}
+  isDashing: 0
+  isSneaking: 0
+  isDashCooldown: 0
+  isShielding: 0
+  isAttacking: 0
   staminaCooldownPrecentage: 75
+  dashTransparity: 0.5
 --- !u!1 &2076017503924805244
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +321,7 @@ Transform:
   - {fileID: 1731342078765134322}
   - {fileID: 6056338782508945652}
   - {fileID: 734752292314014391}
+  - {fileID: 5054720421778664845}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -326,6 +381,7 @@ MonoBehaviour:
   staminaFill: {fileID: 0}
   staminaFillColorDefault: {r: 0.3645027, g: 0.8584906, b: 0.1976148, a: 0.6}
   staminaFillColorCooldown: {r: 0.2636829, g: 0.3584906, b: 0.2313279, a: 0.6}
+  playerAnimator: {fileID: 0}
 --- !u!1 &2219547793251325249
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,3 +426,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea531e3ab85a974b8c0a9778f65df07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {x: 0, y: 0}
+  dash: 0
+  sneak: 0
+  shield: 0
+  attack: 0

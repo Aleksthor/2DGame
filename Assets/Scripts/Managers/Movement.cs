@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     HUD hud;
     Player player;
     Animation playerAnimation;
-    SpriteController spriteController;
+    LocalPlayerScript localPlayerScript;
 
     [Header("Movement Parameters")]
     [SerializeField] float walkingSpeed = 5;
@@ -54,7 +54,7 @@ public class Movement : MonoBehaviour
         buttonInput = FindObjectOfType<ButtonInput>();
         player = FindObjectOfType<Player>();
         playerAnimation = FindObjectOfType<Animation>();
-        spriteController = FindObjectOfType<SpriteController>();
+        localPlayerScript = FindObjectOfType<LocalPlayerScript>();
     }
 
 
@@ -126,7 +126,7 @@ public class Movement : MonoBehaviour
     //Movement Speed
     void MovementSpeed()
     {
-        if(spriteController.GetCanMove())
+        if(localPlayerScript.GetCanMove())
         {
             if (isDashing)
             {

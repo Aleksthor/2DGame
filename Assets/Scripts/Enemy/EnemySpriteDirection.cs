@@ -33,14 +33,14 @@ public class EnemySpriteDirection : MonoBehaviour
     [SerializeField]
     private Vector2 right = new Vector2(-0.02f, 0.12f);
     [SerializeField]
-    private EnemyCollider enemyCollider;
+    private LocalEnemyScript localEnemyScript;
 
 
     void Start()
     {
         Frame1 = transform.position;
 
-        enemyCollider = gameObject.GetComponent<EnemyCollider>();
+        localEnemyScript = gameObject.GetComponent<LocalEnemyScript>();
 
     }
 
@@ -62,7 +62,7 @@ public class EnemySpriteDirection : MonoBehaviour
             direction = Frame2 - Frame1;
             flipState = true;
         }
-        if (enemyCollider.hit)
+        if (localEnemyScript.hit)
         { 
             if (flipLastDirection)
             {
@@ -96,7 +96,7 @@ public class EnemySpriteDirection : MonoBehaviour
 
         // flip mechanism
 
-        if ((direction.x > 0f || flipLastDirection) && !enemyCollider.hit)
+        if ((direction.x > 0f || flipLastDirection) && !localEnemyScript.hit)
         {
             Body.flipX = true;
             Head.flipX = true;
@@ -112,7 +112,7 @@ public class EnemySpriteDirection : MonoBehaviour
 
             flipLastDirection = true;
         }
-        if ((direction.x < 0f || !flipLastDirection) && !enemyCollider.hit)
+        if ((direction.x < 0f || !flipLastDirection) && !localEnemyScript.hit)
         {
             Weapon.transform.localPosition = left;
             Body.flipX = false;

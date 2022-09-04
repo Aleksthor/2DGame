@@ -35,11 +35,11 @@ public class WeaponCollider : MonoBehaviour
         if(other.tag == "Enemy" && !attack)
         {
             attack = true;
-            EnemyCollider enemyCollider = other.GetComponent<EnemyCollider>();
-            if(enemyCollider != null)
+            LocalEnemyScript localEnemyScript = other.GetComponent<LocalEnemyScript>();
+            if(localEnemyScript != null)
             {
-                Vector2 direction = (enemyCollider.transform.position - gameObject.transform.position).normalized;
-                enemyCollider.Hit(damage, direction , knockBackForce);
+                Vector2 direction = (localEnemyScript.transform.position - gameObject.transform.position).normalized;
+                localEnemyScript.Hit(damage, direction , knockBackForce);
             }         
         }
     }

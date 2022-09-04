@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCollider : MonoBehaviour
+public class LocalEnemyScript : MonoBehaviour
 {
     [Header("Enemy Health")]
     public float health = 1;

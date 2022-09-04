@@ -5,7 +5,7 @@ using UnityEngine;
 public class ButtonInput : MonoBehaviour
 {
 
-    SpriteController spriteController;
+    LocalPlayerScript localPlayerScript;
     Animation playerAnimator;
 
     [Header("Private Variables")]
@@ -25,7 +25,7 @@ public class ButtonInput : MonoBehaviour
 
     private void Awake()
     {
-        spriteController = FindObjectOfType<SpriteController>();
+        localPlayerScript = FindObjectOfType<LocalPlayerScript>();
         playerAnimator = FindObjectOfType<Animation>();
     }
     private void Update()

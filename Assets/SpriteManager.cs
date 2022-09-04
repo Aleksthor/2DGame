@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpriteController : MonoBehaviour
+public class SpriteManager : MonoBehaviour
 {
+
+
+
     [Header("Sprite & Tranform References")]
-    [SerializeField]
-    Rigidbody2D Rigidbody;
     public SpriteRenderer BodySprite;
     public SpriteRenderer HeadSprite;
     public SpriteRenderer HandSprite;
@@ -19,47 +20,25 @@ public class SpriteController : MonoBehaviour
     public Transform Shield;
     public Transform Effects;
 
-    public PolygonCollider2D weaponCollider;
-
-    [Header("Private Variables")]
-    public Vector2 MovementVector;
-
-    public int StartingWeaponType;
-  
     bool FlipLastInput = false;
 
-    bool CanTurn = true;
-    #pragma warning disable 414
-    bool CanMove = true;
-#pragma warning restore 414
 
-    private Camera mainCam;
+    [SerializeField]
+    ButtonInput buttonInput;
+    [SerializeField]
+    LocalPlayerScript localPlayerScript;
 
-
-    [SerializeField] GameObject EnergyBall;
-    [SerializeField] Transform ShotPoint;
-
-    void Start()
+    private void Start()
     {
-        weaponCollider.enabled = false;
-        Animator animator = gameObject.GetComponent<Animator>();
-        animator.SetInteger("WeaponType", StartingWeaponType);
-        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        buttonInput = FindObjectOfType<ButtonInput>();
+        localPlayerScript = FindObjectOfType<LocalPlayerScript>();
     }
-
-
-    void Update()
-    {
-        MovementVector.x = Input.GetAxis("Horizontal");
-        MovementVector.y = Input.GetAxis("Vertical");
-    }
-
 
     void LateUpdate()
     {
-        if (CanTurn)
+        if (localPlayerScript.GetCanTurn())
         {
-            if (MovementVector.x > 0 || FlipLastInput)
+            if (buttonInput.GetMovementX() > 0 || FlipLastInput)
             {
 
                 BodySprite.flipX = true;
@@ -79,7 +58,7 @@ public class SpriteController : MonoBehaviour
 
                 FlipLastInput = true;
             }
-            if (MovementVector.x < 0 || !FlipLastInput)
+            if (buttonInput.GetMovementX() < 0 || !FlipLastInput)
             {
                 BodySprite.flipX = false;
                 HeadSprite.flipX = false;
@@ -145,43 +124,6 @@ public class SpriteController : MonoBehaviour
         }
     }
 
-
-
-
-    public void StartAttack()
-    {
-        CanMove = false;
-        CanTurn = false;
-    }
-
-
-    public void StopAttack()
-    {
-        CanMove = true;
-        CanTurn = true;
-    }
-
-    public bool GetCanMove()
-    {
-        return CanMove;
-    }
-
-    public void ColliderOn()
-    {
-        weaponCollider.enabled = true;
-    }
-    public void ColliderOff()
-    {
-        weaponCollider.enabled = false;
-    }
-
-    public void SpawnEnergyBall()
-    {
-        Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
-
-        GameObject NewEnergyBall = Instantiate(EnergyBall, ShotPoint.position, Quaternion.Euler(0f, 0f, Vector2.Angle((Vector2)ShotPoint.position, (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition))));
-
-    }
 
 
 }

@@ -21,6 +21,22 @@ public class WeaponManager : MonoBehaviour
     Vector2 swordPos = new Vector2(0.01f, 0.1f);
     Vector3 staffPos = new Vector2(0.01f, 0.1f);
 
+    [Header("Current Weapon Info")]
+    public float damage;
+    [SerializeField] float knockBackForce;
+    public float force;
+
+    [Header("Private Variables")]
+    [SerializeField] private WeaponCollider weaponCollider;
+
+    void Awake()
+    {
+        weaponCollider = FindObjectOfType<WeaponCollider>();
+        weaponCollider.damage = damage;
+        weaponCollider.knockBackForce = knockBackForce;
+    }
+
+
 
 
     // Debug purposes in Update
@@ -53,6 +69,10 @@ public class WeaponManager : MonoBehaviour
 
         var weaponPoints = playerWeaponCollider.points;
         int totalPoints = weaponPoints.Length;
+
+        damage = weapon.damage;
+        knockBackForce = weapon.knockBackForce;
+        force = weapon.force;
 
         // Change my weapon points
         for (int i = 0; i < totalPoints; i++)
