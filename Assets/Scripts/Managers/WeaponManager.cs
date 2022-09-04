@@ -23,7 +23,7 @@ public class WeaponManager : MonoBehaviour
 
     [Header("Current Weapon Info")]
     public float damage;
-    [SerializeField] float knockBackForce;
+    public float knockBackForce;
     public float force;
 
     [Header("Private Variables")]

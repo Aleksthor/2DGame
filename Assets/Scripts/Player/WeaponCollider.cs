@@ -13,6 +13,13 @@ public class WeaponCollider : MonoBehaviour
     [SerializeField] private float attackClock = 0f;
     [SerializeField] private bool attack = false;
 
+    private WeaponManager weaponManager;
+
+    void Start()
+    {
+        weaponManager = FindObjectOfType<WeaponManager>();
+    }
+
     void Update()
     {
         if(attack)
@@ -35,6 +42,9 @@ public class WeaponCollider : MonoBehaviour
         if(other.tag == "Enemy" && !attack)
         {
             attack = true;
+            damage = weaponManager.damage;
+            knockBackForce = weaponManager.knockBackForce;
+
             LocalEnemyScript localEnemyScript = other.GetComponent<LocalEnemyScript>();
             if(localEnemyScript != null)
             {

@@ -32,8 +32,8 @@ public class LocalEnemyScript : MonoBehaviour
     {
         animator.SetTrigger("Hit");
         hit = true;
-        rigidBody.AddForce(ImpactDirection * Force);
         health = health - Damage;
+        rigidBody.AddForce(ImpactDirection * Force);
 
     }
 
