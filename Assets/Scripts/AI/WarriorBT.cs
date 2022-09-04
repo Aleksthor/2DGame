@@ -16,7 +16,14 @@ public class WarriorBT : Tree
    
     public UnityEngine.Transform playerTransform;
 
-   
+    public void Awake()
+    {
+        if (playerTransform == null)
+        {
+            UnityEngine.GameObject player = UnityEngine.GameObject.Find("Player");
+            playerTransform = player.transform;
+        }
+    }
 
     protected override Node SetupTree()
     {

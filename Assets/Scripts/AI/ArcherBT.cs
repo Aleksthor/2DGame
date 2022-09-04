@@ -19,6 +19,15 @@ public class ArcherBT : Tree
 
     public EnemyBowRotation enemyBowRotationScript;
 
+    public void Awake()
+    {
+        if (playerTransform == null)
+        {
+            UnityEngine.GameObject player = UnityEngine.GameObject.Find("Player");
+            playerTransform = player.transform;
+        }
+    }
+
 
     protected override Node SetupTree()
     {

@@ -33,10 +33,18 @@ public class EnemyBowRotation : MonoBehaviour
     [SerializeField]
     private bool flipLastDirection = false;
 
+    private GameObject player;
+
     void Start()
     {
         Parent = transform.parent.gameObject;
         Frame1 = Parent.transform.position;
+
+        if (Player == null)
+        {
+            player = GameObject.Find("Player");
+            Player = player.transform;
+        }
     }
     
 
