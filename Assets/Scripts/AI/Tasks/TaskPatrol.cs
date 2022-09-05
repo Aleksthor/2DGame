@@ -30,7 +30,7 @@ public class TaskPatrol : Node
 
     public override NodeState Evaluate()
     {
-
+        
         if (waiting)
         {
             waitCounter += Time.deltaTime;

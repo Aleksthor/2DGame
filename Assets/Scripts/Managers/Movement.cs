@@ -55,6 +55,7 @@ public class Movement : MonoBehaviour
         player = FindObjectOfType<Player>();
         playerAnimation = FindObjectOfType<Animation>();
         localPlayerScript = player.GetPlayer().GetComponent<LocalPlayerScript>();
+        playerCollider = player.GetPlayer().GetComponent<PolygonCollider2D>();
     }
 
 

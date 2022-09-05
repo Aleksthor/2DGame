@@ -20,23 +20,22 @@ public class ArcherBT : Tree
 
     public void Awake()
     {
-        if (playerTransform == null)
-        {
-            UnityEngine.GameObject player = UnityEngine.GameObject.Find("Player");
-            playerTransform = player.transform;
-            enemyStats = gameObject.GetComponent<EnemyStats>();
-            enemyBowRotationScript = gameObject.transform.Find("Hand").GetComponent<EnemyBowRotation>();
+        UnityEngine.Debug.Log("Awake Start");
+        UnityEngine.GameObject player = UnityEngine.GameObject.Find("Player");
+        playerTransform = player.transform;
+        enemyStats = gameObject.GetComponent<EnemyStats>();
+        enemyBowRotationScript = gameObject.transform.Find("Hand").GetComponent<EnemyBowRotation>();
+        UnityEngine.Debug.Log("Awake End");
 
-        }
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         if (taskGoToTargetShoot == null)
         {
             taskGoToTargetShoot = (TaskGoToTargetShoot)Root.GetChild(0).GetChild(1);
         }
-      
+
     }
 
 
