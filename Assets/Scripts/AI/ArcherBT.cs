@@ -12,12 +12,11 @@ public class ArcherBT : Tree
 
 
     public UnityEngine.Transform[] waypoints;
+    private UnityEngine.Transform playerTransform;
+    private EnemyBowRotation enemyBowRotationScript;
 
-
-    public UnityEngine.Transform playerTransform;
-
-
-    public EnemyBowRotation enemyBowRotationScript;
+    private EnemyStats enemyStats;
+    private TaskGoToTargetShoot taskGoToTargetShoot;
 
     public void Awake()
     {
@@ -25,7 +24,19 @@ public class ArcherBT : Tree
         {
             UnityEngine.GameObject player = UnityEngine.GameObject.Find("Player");
             playerTransform = player.transform;
+            enemyStats = gameObject.GetComponent<EnemyStats>();
+            enemyBowRotationScript = gameObject.transform.Find("Hand").GetComponent<EnemyBowRotation>();
+
         }
+    }
+
+    public void Update()
+    {
+        if (taskGoToTargetShoot == null)
+        {
+            taskGoToTargetShoot = (TaskGoToTargetShoot)Root.GetChild(0).GetChild(1);
+        }
+      
     }
 
 

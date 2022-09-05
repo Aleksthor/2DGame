@@ -34,12 +34,6 @@ public class SpriteManager : MonoBehaviour
     void Awake()
     {
         player = FindObjectOfType<Player>();
-    }
-
-    private void Start()
-    {
-        buttonInput = FindObjectOfType<ButtonInput>();
-        localPlayerScript = FindObjectOfType<LocalPlayerScript>();
         playerObject = player.GetPlayer();
 
         BodySprite = playerObject.transform.Find("Body").GetComponent<SpriteRenderer>();
@@ -53,6 +47,25 @@ public class SpriteManager : MonoBehaviour
         Hand = playerObject.transform.Find("Hand").GetComponent<Transform>();
         Shield = playerObject.transform.Find("Shield").GetComponent<Transform>();
         Effects = playerObject.transform.Find("Effects").GetComponent<Transform>();
+    }
+
+    private void Start()
+    {
+        buttonInput = FindObjectOfType<ButtonInput>();
+        localPlayerScript = playerObject.GetComponent<LocalPlayerScript>();
+        //playerObject = player.GetPlayer();
+
+        //BodySprite = playerObject.transform.Find("Body").GetComponent<SpriteRenderer>();
+        //HeadSprite = playerObject.transform.Find("Head").GetComponent<SpriteRenderer>();
+        //HandSprite = playerObject.transform.Find("Hand").GetComponent<SpriteRenderer>();
+        //HatSprite = playerObject.transform.Find("Head").transform.Find("Hat").GetComponent<SpriteRenderer>();
+        //WeaponSprite = playerObject.transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>();
+        //ShieldSprite = playerObject.transform.Find("Shield").GetComponent<SpriteRenderer>();
+        //EffectsSprite = playerObject.transform.Find("Effects").GetComponent<SpriteRenderer>();
+
+        //Hand = playerObject.transform.Find("Hand").GetComponent<Transform>();
+        //Shield = playerObject.transform.Find("Shield").GetComponent<Transform>();
+        //Effects = playerObject.transform.Find("Effects").GetComponent<Transform>();
     }
 
     void LateUpdate()

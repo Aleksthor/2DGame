@@ -1538,11 +1538,6 @@ Transform:
   m_Father: {fileID: 378233928}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1057434084 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6086259455824825333, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
-  m_PrefabInstance: {fileID: 1981495597}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1074657183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9288,7 +9283,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 800437050351557876, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.64
+      value: 0.32
       objectReference: {fileID: 0}
     - target: {fileID: 800437050351557876, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
@@ -9601,18 +9596,6 @@ PrefabInstance:
     - target: {fileID: 8905979074190392921, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
       propertyPath: ShotForce
       value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8905979074190392921, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
-      propertyPath: ShotPoint
-      value: 
-      objectReference: {fileID: 1057434084}
-    - target: {fileID: 8905979074190392921, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
-      propertyPath: EnergyBall
-      value: 
-      objectReference: {fileID: 710600009353945899, guid: 64ff3aeadafc4d94eabd5a4d8fb62cd8, type: 3}
-    - target: {fileID: 8905979074190392921, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
-      propertyPath: StartingWeaponType
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1901569636131400862, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
@@ -10009,7 +9992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4197495339359724341, guid: 91b5187e4e50a5049a8deedc8da67443, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4463281656436800350, guid: 91b5187e4e50a5049a8deedc8da67443, type: 3}
       propertyPath: m_SortingLayer

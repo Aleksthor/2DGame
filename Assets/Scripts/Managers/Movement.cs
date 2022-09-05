@@ -54,7 +54,7 @@ public class Movement : MonoBehaviour
         buttonInput = FindObjectOfType<ButtonInput>();
         player = FindObjectOfType<Player>();
         playerAnimation = FindObjectOfType<Animation>();
-        localPlayerScript = FindObjectOfType<LocalPlayerScript>();
+        localPlayerScript = player.GetComponent<LocalPlayerScript>();
     }
 
 
