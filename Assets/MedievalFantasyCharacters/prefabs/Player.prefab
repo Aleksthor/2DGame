@@ -137,23 +137,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2a1e5a4cbbe684782198f507fc86ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rigidbody: {fileID: 0}
-  BodySprite: {fileID: 1711372623022998495}
-  HeadSprite: {fileID: 1435878910305916527}
-  HandSprite: {fileID: 5002825451146851801}
-  HatSprite: {fileID: 3802393040579807088}
-  WeaponSprite: {fileID: 4013562452332951240}
-  ShieldSprite: {fileID: 4005061804591074885}
-  EffectsSprite: {fileID: 8354362680291076041}
-  Hand: {fileID: 4857860621234229157}
-  Shield: {fileID: 3262493154710872444}
-  Effects: {fileID: 3367318337178748463}
   weaponCollider: {fileID: 800437050351557876}
   MovementVector: {x: 0, y: 0}
-  StartingWeaponType: 3
+  StartingWeaponType: 1
   EnergyBall: {fileID: 710600009353945899, guid: 64ff3aeadafc4d94eabd5a4d8fb62cd8, type: 3}
-  ShotForce: 4
-  ShotPoint: {fileID: 0}
+  ShotPoint: {fileID: 6086259455824825333}
 --- !u!50 &3057187768033625967
 Rigidbody2D:
   serializedVersion: 4
