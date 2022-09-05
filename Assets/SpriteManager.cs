@@ -7,18 +7,18 @@ public class SpriteManager : MonoBehaviour
 
 
 
-    [Header("Sprite & Tranform References")]
-    public SpriteRenderer BodySprite;
-    public SpriteRenderer HeadSprite;
-    public SpriteRenderer HandSprite;
-    public SpriteRenderer HatSprite;
-    public SpriteRenderer WeaponSprite;
-    public SpriteRenderer ShieldSprite;
-    public SpriteRenderer EffectsSprite;
 
-    public Transform Hand;
-    public Transform Shield;
-    public Transform Effects;
+    private SpriteRenderer BodySprite;
+    private SpriteRenderer HeadSprite;
+    private SpriteRenderer HandSprite;
+    private SpriteRenderer HatSprite;
+    private SpriteRenderer WeaponSprite;
+    private SpriteRenderer ShieldSprite;
+    private SpriteRenderer EffectsSprite;
+
+    private Transform Hand;
+    private Transform Shield;
+    private Transform Effects;
 
     bool FlipLastInput = false;
 
@@ -28,10 +28,31 @@ public class SpriteManager : MonoBehaviour
     [SerializeField]
     LocalPlayerScript localPlayerScript;
 
+    private Player player;
+    private GameObject playerObject;
+
+    void Awake()
+    {
+        player = FindObjectOfType<Player>();
+    }
+
     private void Start()
     {
         buttonInput = FindObjectOfType<ButtonInput>();
         localPlayerScript = FindObjectOfType<LocalPlayerScript>();
+        playerObject = player.GetPlayer();
+
+        BodySprite = playerObject.transform.Find("Body").GetComponent<SpriteRenderer>();
+        HeadSprite = playerObject.transform.Find("Head").GetComponent<SpriteRenderer>();
+        HandSprite = playerObject.transform.Find("Hand").GetComponent<SpriteRenderer>();
+        HatSprite = playerObject.transform.Find("Head").transform.Find("Hat").GetComponent<SpriteRenderer>();
+        WeaponSprite = playerObject.transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>();
+        ShieldSprite = playerObject.transform.Find("Shield").GetComponent<SpriteRenderer>();
+        EffectsSprite = playerObject.transform.Find("Effects").GetComponent<SpriteRenderer>();
+
+        Hand = playerObject.transform.Find("Hand").GetComponent<Transform>();
+        Shield = playerObject.transform.Find("Shield").GetComponent<Transform>();
+        Effects = playerObject.transform.Find("Effects").GetComponent<Transform>();
     }
 
     void LateUpdate()
