@@ -470,7 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7cae2c3e67baf479f0e8f3d88fad5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHUD: {fileID: 0}
+  player: {fileID: 0}
   movement: {fileID: 0}
   damage: 10
   delay: 0.2
@@ -663,7 +663,7 @@ GameObject:
   - component: {fileID: 1386548849887970439}
   m_Layer: 7
   m_Name: GoblinLeader
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -724,6 +724,7 @@ MonoBehaviour:
   hit: 0
   animator: {fileID: 0}
   rigidBody: {fileID: 0}
+  speedMultiplier: 1
 --- !u!114 &3388699055192858294
 MonoBehaviour:
   m_ObjectHideFlags: 0

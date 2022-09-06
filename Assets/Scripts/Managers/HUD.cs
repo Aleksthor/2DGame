@@ -8,21 +8,21 @@ using System;
 public class HUD : MonoBehaviour
 {
     [Header("Health Slider")]
-    [SerializeField] Slider healthSlider;
-    [SerializeField] float healthSliderMaxValue = 50;
-    [SerializeField] float healthSliderCurrent;
+    public Slider healthSlider;
+    public float healthSliderMaxValue = 50;
+    public float healthSliderCurrent;
     int healthSliderSize;
 
     [Header("Stamina Slider")]
-    [SerializeField] Slider staminaSlider;
-    [SerializeField] float staminaSliderMaxValue = 100;
-    [SerializeField] float staminaSliderCurrent;
+    public Slider staminaSlider;
+    public float staminaSliderMaxValue = 100;
+    public float staminaSliderCurrent;
     int staminaSliderSize;
 
-    [Header("Magic Slider")]
-    [SerializeField] Slider magicSlider;
-    [SerializeField] float magicSliderMaxValue = 20;
-    [SerializeField] float magicSliderCurrent;
+    [Header("Mana Slider")]
+    public Slider magicSlider;
+    public float magicSliderMaxValue = 20;
+    public float magicSliderCurrent;
     int magicSliderSize;
 
     [Header("Stamina Fill")]
@@ -111,10 +111,6 @@ public class HUD : MonoBehaviour
     public void SetHealthValue(float value)
     {
         healthSliderCurrent += value;
-        if (healthSliderCurrent <= 0)
-        {
-            playerAnimator.SetBool("Dead", true);
-        }
     }
 
     //Get Stamina

@@ -22,7 +22,7 @@ public class WeaponManager : MonoBehaviour
     Vector3 staffPos = new Vector2(0.01f, 0.1f);
 
     [Header("Current Weapon Info")]
-    public float damage;
+    public float damage = 1f;
     public float knockBackForce;
     public float force;
 

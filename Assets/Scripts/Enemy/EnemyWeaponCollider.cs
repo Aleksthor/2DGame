@@ -5,35 +5,27 @@ using UnityEngine;
 public class EnemyWeaponCollider : MonoBehaviour
 {
     [Header("Reference to Managers")]
-    public HUD playerHUD;
+    public Player player;
     public Movement movement;
     [Header("Attack Variables")]
     public float damage = 10f;
     [Header("Private Variabels")]
-    [SerializeField]
-    private float delay = 0.2f;
-    [SerializeField]
-    private float delayClock = 0f;
-    [SerializeField]
-    private bool doDelay = false;
+    [SerializeField]  private float delay = 0.2f;
+    [SerializeField]  private float delayClock = 0f;
+    [SerializeField]  private bool doDelay = false;
 
 
     private void Awake()
     {
         movement = FindObjectOfType<Movement>();
+        player = FindObjectOfType<Player>();
     }
     
 
     void Update()
     {
 
-        // A way for the arrow to get manager since it spawns without this variable
-        if (playerHUD == null)
-        {
-            GameObject manager = GameObject.Find("Manager");
-            GameObject HUDManager = manager.transform.Find("HUDManager").gameObject;
-            playerHUD = HUDManager.GetComponent<HUD>();
-        }
+
 
 
         // Only damage the player once
@@ -55,14 +47,9 @@ public class EnemyWeaponCollider : MonoBehaviour
 
         if (other.tag == "Player" && !doDelay)
         {
-            if(movement.isShielding)
-            {
-                playerHUD.SetHealthValue(-damage * 0.5f);
-            }
-            else
-            {
-                playerHUD.SetHealthValue(-damage);
-            }
+
+            player.Hit(damage);
+
             
             doDelay = true;
             if(gameObject.tag == "Arrow")

@@ -11,7 +11,7 @@ public class ArcherBT : Tree
     public float MovementSpeed = 2f;
 
 
-    public UnityEngine.Transform[] waypoints;
+
     private UnityEngine.Transform playerTransform;
     private EnemyBowRotation enemyBowRotationScript;
 
@@ -49,7 +49,7 @@ public class ArcherBT : Tree
                 new TaskCheckPlayerInFOV(transform, playerTransform, FOVRange),
                 new TaskGoToTargetShoot(transform, playerTransform, enemyBowRotationScript, FOVRange, StopRange, MovementSpeed),
             }),
-            new TaskPatrol(transform, waypoints, MovementSpeed),
+            new TaskPatrol(transform, MovementSpeed),
         });
 
         return root;

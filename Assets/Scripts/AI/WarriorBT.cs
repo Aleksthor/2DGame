@@ -11,7 +11,7 @@ public class WarriorBT : Tree
     public float FOV = 6f;
     public float MovementSpeed = 2f;
 
-    public UnityEngine.Transform[] waypoints;
+
     public UnityEngine.Transform playerTransform;
     private LocalEnemyScript localEnemyScript;
     private TaskGoToPlayer taskGoToPlayer;
@@ -49,7 +49,7 @@ public class WarriorBT : Tree
                 new TaskCheckPlayerInFOV(transform, playerTransform, FOV),
                 new TaskGoToPlayer(transform, playerTransform, MovementSpeed, attackRange),
             }),
-            new TaskPatrol(transform, waypoints, MovementSpeed),
+            new TaskPatrol(transform, MovementSpeed),
             
         });
 

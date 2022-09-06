@@ -16,6 +16,7 @@ public class LocalEnemyScript : MonoBehaviour
     private Animator animator;
     [SerializeField]
     private Rigidbody2D rigidBody;
+    private Player player;
 
     private bool damaged = false;
     private float iFramesLength = 0.5f;
@@ -29,12 +30,18 @@ public class LocalEnemyScript : MonoBehaviour
 
     public float speedMultiplier = 1f;
 
+    public GameObject MageOrb;
+    private Transform orbSpawnPoint;
+    private Transform playerTransform;
+
     void Start()
     {
-        if (weaponCollider != null)
-        {
-            weaponCollider.enabled = false;
-        }
+        weaponCollider = transform.Find("Hand").transform.Find("Weapon").GetComponent<PolygonCollider2D>();
+        weaponCollider.enabled = false;
+
+        player = FindObjectOfType<Player>();
+
+
         animator = gameObject.GetComponent<Animator>();
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
     }
@@ -126,5 +133,22 @@ public class LocalEnemyScript : MonoBehaviour
     public float GetSpeedMultiplier()
     {
         return speedMultiplier;
+    }
+
+
+    public void SpawnOrb()
+    {
+        if (orbSpawnPoint == null)
+        {
+            orbSpawnPoint = transform.Find("Hand").transform.Find("SpawnPoint").transform;
+        }
+        if (playerTransform == null)
+        {
+            playerTransform = player.GetPlayer().transform;
+        }
+
+        GameObject NewOrb = Instantiate(MageOrb, orbSpawnPoint.position, orbSpawnPoint.rotation);
+        NewOrb.GetComponent<Rigidbody2D>().velocity = (playerTransform.position - transform.position).normalized * 10f;
+
     }
 }

@@ -155,20 +155,20 @@ public class Movement : MonoBehaviour
         {
             if (isDashCooldown)
             {
-                playerCollider.enabled = true;
+                
                 playerAnimation.SetDashingAnimation(false);
                 isDashing = false;
             }
             else
             {
-                playerCollider.enabled = false;
+                
                 playerAnimation.SetDashingAnimation(true);
                 isDashing = true;
             }
         }
         else
         {
-            playerCollider.enabled = true;
+            
             playerAnimation.SetDashingAnimation(false);
             isDashing = false;
         }
@@ -178,21 +178,21 @@ public class Movement : MonoBehaviour
         if (isDashing)
         {
             //Reduce Stamina Parameter
-            hud.SetStaminaValue(-staminaDrainSpeed * Time.deltaTime);
+            player.SetStaminaValue(-staminaDrainSpeed * Time.deltaTime);
 
             //Set player invisible
-            //player.SetActive(false);
+            playerCollider.enabled = false;
         }
         else
         {
             //Refill Stramina Parameter if stamina isn't full
             if (hud.GetCurrentStaminaValue() < hud.GetMaxStaminaValue())
             {
-                hud.SetStaminaValue(staminaRegenSpeed * Time.deltaTime);
+                player.SetStaminaValue(staminaRegenSpeed * Time.deltaTime);
             }
 
             //Set player visible
-            //player.SetActive(true);
+            playerCollider.enabled = true;
         }
     }
     void DashCooldown()

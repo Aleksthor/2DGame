@@ -8,24 +8,29 @@ public class TaskPatrol : Node
 {
 
     private Transform transform;
-    private Transform[] waypoints;
     private Animator animator;
     private float walkSpeed;
 
-    public TaskPatrol(Transform agenttransform, Transform[] agentwaypoints, float WalkSpeed)
+    public TaskPatrol(Transform agenttransform, float WalkSpeed)
     {
         animator = agenttransform.GetComponent<Animator>();
         transform = agenttransform;
-        waypoints = agentwaypoints;
         animator.SetBool("Walking", true);
         walkSpeed = WalkSpeed;
+        startPos = transform.position; 
     }
 
     private float waitTime = 3f;
     private float waitCounter = 0f;
-    private bool waiting = false;
+    private bool waiting = true;
 
-    private int currentWaypointIndex = 0;
+    private float walkTime = 5f;
+    private float walkCounter = 0f;
+
+    private Vector2 startPos;
+    private Vector2 nextwp;
+
+
 
 
     public override NodeState Evaluate()
@@ -33,36 +38,46 @@ public class TaskPatrol : Node
         
         if (waiting)
         {
+            nextwp.x = startPos.x + Random.Range(-2.0f, 2.0f);
+            nextwp.y = startPos.y + Random.Range(-2.0f, 2.0f);
+            walkCounter = 0f;
+
             waitCounter += Time.deltaTime;
             if (waitCounter > waitTime)
             {
                 waiting = false;
+                waitCounter = 0f;
                 animator.SetBool("Walking", true);
             }
             
         }
         else
         {
+            walkCounter += UnityEngine.Time.deltaTime;
+
+
             animator.SetBool("Walking", true);
-            Transform wp = waypoints[currentWaypointIndex];
-            if (Vector2.Distance(transform.position, wp.position) < 0.2f)
+            if (Vector2.Distance(transform.position, nextwp) < 0.2f)
             {
 
-                transform.position = wp.position;
+                transform.position = nextwp;
                 waitCounter = 0f;
                 waiting = true;
 
                 // Genious Code under here
-                currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
                 animator.SetBool("Walking", false);
                 
             }
             else
             {
-                transform.position = Vector2.MoveTowards(transform.position, wp.position, walkSpeed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, nextwp, walkSpeed * Time.deltaTime);
                 
             }
-
+            if (walkCounter > walkTime)
+            {
+                waiting = true;
+                animator.SetBool("Walking", false);
+            }
 
         }
         state = NodeState.RUNNING;
