@@ -21,6 +21,7 @@ public class TaskGoToTargetShoot : Node
     public float speedMultiplier = 1f;
 
     EnemyBowRotation bowRotationScript;
+    LocalEnemyScript localEnemyScript;
 
     public TaskGoToTargetShoot(Transform AgentTransform, Transform PlayerTransform, EnemyBowRotation BowRotationScript,float FOVRange, float StopRange, float MovementSpeed)
     {
@@ -31,6 +32,7 @@ public class TaskGoToTargetShoot : Node
         FOV = FOVRange;
         stopRange = StopRange;
         movementSpeed = MovementSpeed;
+        localEnemyScript = transform.GetComponent<LocalEnemyScript>();
     }
 
     public override NodeState Evaluate()
@@ -77,7 +79,7 @@ public class TaskGoToTargetShoot : Node
             return state;
         }
 
-        if ((transform.position - playerTransform.position).magnitude < stopRange - 0.1)
+        if ((transform.position - playerTransform.position).magnitude < stopRange && !localEnemyScript.hit)
         {
             animator.SetBool("Walking", true);
             walking = true;
@@ -89,7 +91,7 @@ public class TaskGoToTargetShoot : Node
         }
 
 
-        if (walking && (transform.position - playerTransform.position).magnitude > stopRange)
+        if (walking && (transform.position - playerTransform.position).magnitude > stopRange && !localEnemyScript.hit)
         {
             animator.SetBool("Walking", true);
             transform.position = Vector2.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime * speedMultiplier);

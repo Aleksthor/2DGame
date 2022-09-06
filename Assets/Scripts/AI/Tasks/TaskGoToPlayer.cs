@@ -12,7 +12,8 @@ public class TaskGoToPlayer : Node
     private float walkSpeed;
     private float attackRange;
 
-    public float speedMultiplier = 1f;
+    public float speedMultiplier = 1f;    
+    LocalEnemyScript localEnemyScript;
    
 
     public TaskGoToPlayer(Transform AgentTransform, Transform PlayerTransform, float WalkSpeed, float AttackRange)
@@ -22,7 +23,8 @@ public class TaskGoToPlayer : Node
         playerTransform = PlayerTransform;
         walkSpeed = WalkSpeed;
         attackRange = AttackRange;
-        
+        localEnemyScript = transform.GetComponent<LocalEnemyScript>();
+
     }
 
     public override NodeState Evaluate()
@@ -46,10 +48,17 @@ public class TaskGoToPlayer : Node
             state = NodeState.SUCCESS;
             return state;
         }
+        if (!localEnemyScript.hit)
+        {
 
-        
-        animator.SetBool("Walking", true);
-        transform.position = Vector2.MoveTowards(transform.position, target.position, walkSpeed * Time.deltaTime * speedMultiplier);
+            animator.SetBool("Walking", true);
+            transform.position = Vector2.MoveTowards(transform.position, target.position, walkSpeed * Time.deltaTime * speedMultiplier);
+        }
+        else
+        {
+            animator.SetBool("Walking", false);
+        }
+
 
 
         state = NodeState.RUNNING;
