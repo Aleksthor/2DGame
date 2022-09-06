@@ -8,7 +8,7 @@ public class TaskGoToTargetShoot : Node
 {
     private Transform transform;
     private Transform playerTransform;
-    private static float shootSpeed = 2f;
+    private static float shootSpeed = 3f;
     private static float shootClock = 0f;
     private bool walking = true;
     private static float standStillTimer = 1f;

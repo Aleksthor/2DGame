@@ -12,6 +12,7 @@ public class TaskAttack : Node
     public float attackSpeed;
     public float attackClock = 0f;
     private float attackRange;
+    private bool attack = false;
 
     public TaskAttack(Transform AgentTransform, Transform PlayerTransform, float AttackRange, float AttackSpeed)
     {
@@ -23,29 +24,35 @@ public class TaskAttack : Node
         playerTransform = PlayerTransform;
     }
 
+    void FixedUpdate()
+    {
+        if (attack)
+        {
+            attackClock += Time.fixedDeltaTime;
+            if (attackClock > attackSpeed)
+            {
+                attack = false;
+                attackClock = 0f;
+            }
+        }
+    }
+
     public override NodeState Evaluate()
     {
         object t = GetData("target");
         if (t != null)
         {
-            if ((transform.position - playerTransform.position).magnitude > attackRange)
+
+
+
+            if (!attack && (transform.position - playerTransform.position).magnitude < attackRange)
             {
-                attackClock = attackSpeed;
+                animator.SetTrigger("Attack");
+                attackClock = 0f;
+                attack = true;
             }
-            else
-            {
-                attackClock += Time.deltaTime;
-
-                if (attackClock > attackSpeed && (transform.position - playerTransform.position).magnitude < attackRange)
-                {
-                    animator.SetTrigger("Attack");
-                    attackClock = 0f;
-                }
 
 
-                state = NodeState.RUNNING;
-                return state;
-            }  
 
             state = NodeState.RUNNING;
             return state;
