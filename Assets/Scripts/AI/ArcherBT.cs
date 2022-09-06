@@ -15,17 +15,17 @@ public class ArcherBT : Tree
     private UnityEngine.Transform playerTransform;
     private EnemyBowRotation enemyBowRotationScript;
 
-    private EnemyStats enemyStats;
+    private LocalEnemyScript localEnemyScript;
     private TaskGoToTargetShoot taskGoToTargetShoot;
 
     public void Awake()
     {
-        UnityEngine.Debug.Log("Awake Start");
+
         UnityEngine.GameObject player = UnityEngine.GameObject.Find("Player");
         playerTransform = player.transform;
-        enemyStats = gameObject.GetComponent<EnemyStats>();
+        localEnemyScript = gameObject.GetComponent<LocalEnemyScript>();
         enemyBowRotationScript = gameObject.transform.Find("Hand").GetComponent<EnemyBowRotation>();
-        UnityEngine.Debug.Log("Awake End");
+
 
     }
 
@@ -34,6 +34,7 @@ public class ArcherBT : Tree
         if (taskGoToTargetShoot == null)
         {
             taskGoToTargetShoot = (TaskGoToTargetShoot)Root.GetChild(0).GetChild(1);
+            taskGoToTargetShoot.speedMultiplier = localEnemyScript.GetSpeedMultiplier();
         }
 
     }

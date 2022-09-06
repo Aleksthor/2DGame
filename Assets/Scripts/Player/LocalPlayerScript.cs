@@ -14,7 +14,9 @@ public class LocalPlayerScript : MonoBehaviour
     bool CanTurn = true;
     #pragma warning disable 414
     bool CanMove = true;
-    #pragma warning restore 414
+#pragma warning restore 414
+
+    private bool Attack = false;
 
     private Camera mainCam;
     Rigidbody2D Rigidbody;
@@ -30,6 +32,7 @@ public class LocalPlayerScript : MonoBehaviour
         animator.SetInteger("WeaponType", StartingWeaponType);
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         weaponManager = FindObjectOfType<WeaponManager>();
+
     }
 
 
@@ -37,14 +40,20 @@ public class LocalPlayerScript : MonoBehaviour
     {
         MovementVector.x = Input.GetAxis("Horizontal");
         MovementVector.y = Input.GetAxis("Vertical");
+
+
     }
 
-
+    public bool GetAttack()
+    {
+        return Attack;
+    }
     
 
 
     public void StartAttack()
     {
+        Attack = true;
         CanMove = false;
         CanTurn = false;
     }
@@ -52,6 +61,7 @@ public class LocalPlayerScript : MonoBehaviour
 
     public void StopAttack()
     {
+        Attack = false;
         CanMove = true;
         CanTurn = true;
     }
@@ -77,7 +87,9 @@ public class LocalPlayerScript : MonoBehaviour
 
     public void SpawnEnergyBall()
     {
-        Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
+
+        Debug.Log(ShotPoint.position);
+        Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
 
         GameObject NewEnergyBall = Instantiate(EnergyBall, ShotPoint.position, Quaternion.Euler(0f, 0f, Vector2.Angle((Vector2)ShotPoint.position, (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition))));
 

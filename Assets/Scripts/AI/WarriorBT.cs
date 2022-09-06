@@ -12,17 +12,26 @@ public class WarriorBT : Tree
     public float MovementSpeed = 2f;
 
     public UnityEngine.Transform[] waypoints;
-
-   
     public UnityEngine.Transform playerTransform;
+    private LocalEnemyScript localEnemyScript;
+    private TaskGoToPlayer taskGoToPlayer;
 
     public void Awake()
     {
-        if (playerTransform == null)
-        {
-            UnityEngine.GameObject player = UnityEngine.GameObject.Find("Player");
-            playerTransform = player.transform;
-        }
+
+        UnityEngine.GameObject player = UnityEngine.GameObject.Find("Player");
+        playerTransform = player.transform;
+        localEnemyScript = gameObject.GetComponent<LocalEnemyScript>();
+
+    }
+
+    public void FixedUpdate()
+    {
+
+        taskGoToPlayer = (TaskGoToPlayer)Root.GetChild(1).GetChild(1);
+        taskGoToPlayer.speedMultiplier = localEnemyScript.GetSpeedMultiplier();
+
+
     }
 
     protected override Node SetupTree()

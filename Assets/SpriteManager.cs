@@ -30,6 +30,10 @@ public class SpriteManager : MonoBehaviour
 
     private Player player;
     private GameObject playerObject;
+    private Transform PivotPoint;
+    private GameObject HandObject;
+
+    private Camera mainCam;
 
     void Awake()
     {
@@ -47,26 +51,20 @@ public class SpriteManager : MonoBehaviour
         Hand = playerObject.transform.Find("Hand").GetComponent<Transform>();
         Shield = playerObject.transform.Find("Shield").GetComponent<Transform>();
         Effects = playerObject.transform.Find("Effects").GetComponent<Transform>();
+
+        HandObject = playerObject.transform.Find("Hand").gameObject;
+        PivotPoint = playerObject.transform.Find("PivotPoint").GetComponent<Transform>();
     }
 
     private void Start()
     {
         buttonInput = FindObjectOfType<ButtonInput>();
         localPlayerScript = playerObject.GetComponent<LocalPlayerScript>();
-        //playerObject = player.GetPlayer();
 
-        //BodySprite = playerObject.transform.Find("Body").GetComponent<SpriteRenderer>();
-        //HeadSprite = playerObject.transform.Find("Head").GetComponent<SpriteRenderer>();
-        //HandSprite = playerObject.transform.Find("Hand").GetComponent<SpriteRenderer>();
-        //HatSprite = playerObject.transform.Find("Head").transform.Find("Hat").GetComponent<SpriteRenderer>();
-        //WeaponSprite = playerObject.transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>();
-        //ShieldSprite = playerObject.transform.Find("Shield").GetComponent<SpriteRenderer>();
-        //EffectsSprite = playerObject.transform.Find("Effects").GetComponent<SpriteRenderer>();
-
-        //Hand = playerObject.transform.Find("Hand").GetComponent<Transform>();
-        //Shield = playerObject.transform.Find("Shield").GetComponent<Transform>();
-        //Effects = playerObject.transform.Find("Effects").GetComponent<Transform>();
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
+
+
 
     void LateUpdate()
     {
@@ -156,6 +154,12 @@ public class SpriteManager : MonoBehaviour
 
 
         }
+
+
+        //if (localPlayerScript.GetAttack())
+        //{
+
+        //}
     }
 
 

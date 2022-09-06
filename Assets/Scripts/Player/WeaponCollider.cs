@@ -7,11 +7,8 @@ public class WeaponCollider : MonoBehaviour
     [Header("Weapon Variables")]
     public float damage = 1f;
     public float knockBackForce = 50f;
+    public float speedMultiplier = 1f;
 
-    [Header("Private Variables")]
-    [SerializeField] private float attackDelay = 0.5f;
-    [SerializeField] private float attackClock = 0f;
-    [SerializeField] private bool attack = false;
 
     private WeaponManager weaponManager;
 
@@ -20,28 +17,14 @@ public class WeaponCollider : MonoBehaviour
         weaponManager = FindObjectOfType<WeaponManager>();
     }
 
-    void Update()
-    {
-        if(attack)
-        {
-            attackClock += Time.deltaTime;
 
-            if(attackClock > attackDelay)
-            {
-                attackClock = 0f;
-                attack = false;
-            }
-        }
-
-    }
 
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {     
-        if(other.tag == "Enemy" && !attack)
+        if(other.tag == "Enemy")
         {
-            attack = true;
             damage = weaponManager.damage;
             knockBackForce = weaponManager.knockBackForce;
 
@@ -49,7 +32,7 @@ public class WeaponCollider : MonoBehaviour
             if(localEnemyScript != null)
             {
                 Vector2 direction = (localEnemyScript.transform.position - gameObject.transform.position).normalized;
-                localEnemyScript.Hit(damage, direction , knockBackForce);
+                localEnemyScript.Hit(damage, direction , knockBackForce, speedMultiplier);
             }         
         }
     }
