@@ -6,32 +6,43 @@ public class LocalPlayerScript : MonoBehaviour
 {
     
     
-    public PolygonCollider2D weaponCollider;
-    public Vector2 MovementVector;
-    public int StartingWeaponType;
-  
+    private PolygonCollider2D weaponCollider;
+    private Rigidbody2D Rigidbody;
+    private Camera mainCam;
+    private WeaponManager weaponManager;
+
 
     bool CanTurn = true;
     #pragma warning disable 414
     bool CanMove = true;
-#pragma warning restore 414
+    #pragma warning restore 414
 
     private bool Attack = false;
+    public Vector2 MovementVector;
+    public int StartingWeaponType;
 
-    private Camera mainCam;
-    Rigidbody2D Rigidbody;
 
-    [SerializeField] GameObject EnergyBall;
-    [SerializeField] Transform ShotPoint;
-    WeaponManager weaponManager;
+    // Link up where we spawn our shots and our projectiles
+
+    public Transform ShotPoint;
+
+    [Header("Projectiles")]
+    public GameObject EnergyBall;
+
+
 
     void Start()
     {
-        weaponCollider.enabled = false;
-        Animator animator = gameObject.GetComponent<Animator>();
-        animator.SetInteger("WeaponType", StartingWeaponType);
+
+        weaponCollider = transform.Find("Hand").transform.Find("Weapon").GetComponent<PolygonCollider2D>();
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         weaponManager = FindObjectOfType<WeaponManager>();
+        Animator animator = gameObject.GetComponent<Animator>();
+
+
+        weaponCollider.enabled = false;
+        animator.SetInteger("WeaponType", StartingWeaponType);
+
 
     }
 

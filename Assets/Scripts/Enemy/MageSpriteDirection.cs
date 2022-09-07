@@ -12,38 +12,24 @@ public class MageSpriteDirection : MonoBehaviour
     [SerializeField] SpriteRenderer HandRenderer;
     [SerializeField] SpriteRenderer WeaponRenderer;
     [SerializeField] SpriteRenderer EffectRenderer;
-
     [SerializeField] Transform Hand;
     [SerializeField] Transform Weapon;
     [SerializeField] Transform Effect;
 
-    [Header("Private Varaibles")]
-    [SerializeField]
-    private Vector2 Frame1;
-    [SerializeField]
-    private Vector2 Frame2;
-    [SerializeField]
+
+    // save the direction to the player, always rotate towards player
+
     private Vector2 direction;
-
-
-
-
-    [SerializeField]
     private bool flipLastDirection = false;
-    [SerializeField]
     private Vector2 left = new Vector2(0.02f, 0.12f);
-    [SerializeField]
     private Vector2 right = new Vector2(-0.02f, 0.12f);
-    [SerializeField]
     private LocalEnemyScript localEnemyScript;
     private Transform playerTransform;
     private Player player;
 
 
     void Start()
-    {
-        Frame1 = transform.position;
-
+    { 
         localEnemyScript = gameObject.GetComponent<LocalEnemyScript>();
         player = FindObjectOfType<Player>();
         playerTransform = player.GetPlayer().transform;

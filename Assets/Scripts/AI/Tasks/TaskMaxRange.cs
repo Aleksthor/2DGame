@@ -21,6 +21,7 @@ public class TaskMaxRange : Node
 
     public override NodeState Evaluate()
     {
+        // If player is close then the specified range
 
         if ((transform.position - playerTransform.position).magnitude < maxRange)
         {

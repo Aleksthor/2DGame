@@ -54,12 +54,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af92e51484655c540abff646ac6aa242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 30
   weaponCollider: {fileID: 0}
   hit: 0
   animator: {fileID: 0}
   rigidBody: {fileID: 0}
   speedMultiplier: 1
+  MageOrb: {fileID: 0}
+  MageShard: {fileID: 0}
 --- !u!114 &6144431920957448133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,10 +77,6 @@ MonoBehaviour:
   FOVRange: 10
   StopRange: 5
   MovementSpeed: 2
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &4440769238143024230
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,11 +10,13 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] Weapon weapon1;
     [SerializeField] Weapon weapon2;
     [SerializeField] Weapon weapon3;
-    [Header("Player References")]
-    [SerializeField] SpriteRenderer playerWeaponRenderer;
-    [SerializeField] Transform weaponTransform;
-    [SerializeField] Animator animator;
-    [SerializeField] PolygonCollider2D playerWeaponCollider;
+
+    // Player components
+    private SpriteRenderer playerWeaponRenderer;
+    private Transform weaponTransform;
+    private Animator animator;
+    private PolygonCollider2D playerWeaponCollider;
+    private Player player;
 
     Vector2 clubPos = new Vector2(0.01f, 0.1f);
     Vector2 daggerPos = new Vector2(0.01f, 0.05f);
@@ -26,14 +28,27 @@ public class WeaponManager : MonoBehaviour
     public float knockBackForce;
     public float force;
 
-    [Header("Private Variables")]
-    [SerializeField] private WeaponCollider weaponCollider;
+
+    private WeaponCollider weaponCollider;
 
     void Awake()
     {
+        // access the script of the player weapon and initialize values
         weaponCollider = FindObjectOfType<WeaponCollider>();
         weaponCollider.damage = damage;
         weaponCollider.knockBackForce = knockBackForce;
+        player = FindObjectOfType<Player>();
+
+    }
+
+    void Start()
+    {
+
+        // Getters
+        playerWeaponRenderer = player.GetPlayer().transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>();
+        weaponTransform = player.GetPlayer().transform.Find("Hand").transform.Find("Weapon").GetComponent<Transform>();
+        animator = player.GetPlayer().GetComponent<Animator>();
+        playerWeaponCollider = player.GetPlayer().transform.Find("Hand").transform.Find("Weapon").GetComponent<PolygonCollider2D>();
     }
 
 

@@ -16,6 +16,8 @@ public class TaskWait : Node
 
     public override NodeState Evaluate()
     {
+        // Wait for the amount of time then go on to the next step for a single frame
+
         waitClock += Time.deltaTime;
         if (waitClock < waitTime)
         {

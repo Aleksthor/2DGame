@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af92e51484655c540abff646ac6aa242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 200
   weaponCollider: {fileID: 0}
   hit: 0
   animator: {fileID: 0}
@@ -223,7 +223,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!210 &5009717146299874571
 SortingGroup:
   m_ObjectHideFlags: 0

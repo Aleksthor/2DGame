@@ -37,6 +37,10 @@ public class TaskGoToTargetShoot : Node
 
     public override NodeState Evaluate()
     {
+
+
+
+
         bowRotationScript.hasAgro = true;
         Transform target = (Transform)GetData("target");
 

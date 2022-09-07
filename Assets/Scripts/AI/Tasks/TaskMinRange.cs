@@ -22,6 +22,7 @@ public class TaskMinRange : Node
 
     public override NodeState Evaluate()
     {
+        // Is the player further away than the specified Range
 
         if ((transform.position - playerTransform.position).magnitude > minRange)
         {

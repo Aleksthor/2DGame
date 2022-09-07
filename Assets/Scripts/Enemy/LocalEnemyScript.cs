@@ -7,31 +7,37 @@ public class LocalEnemyScript : MonoBehaviour
     [Header("Enemy Health")]
     public float health = 1;
 
-    [Header("Enemy Weapon Collider")]
-    public PolygonCollider2D weaponCollider;
-
-    [Header("Private Variables")]
+    // Are we playing our Hit animation, if so do NOTHING
     public bool hit = false;
-    [SerializeField]
+
+
+    // Other Components On gameObject
+    private PolygonCollider2D weaponCollider;
     private Animator animator;
-    [SerializeField]
     private Rigidbody2D rigidBody;
+
+    // Player Manager
     private Player player;
 
+
+    // Iframes when hit
     private bool damaged = false;
-    private float iFramesLength = 0.5f;
+    private float iFramesLength = 0.3f;
     private float iFrameClock = 0f;
 
+    // If enemy is slowed reset after 3 seconds
     private bool resetSpeed = false;
     private bool resetAgain = false;
     private float resetSpeedTime = 3f;
     private float resetSpeedClock = 0f;
-
-
     public float speedMultiplier = 1f;
 
+    // References to the projectiles
+    [Header("Projectiles")]
     public GameObject MageOrb;
     public GameObject MageShard;
+
+    // References for shooting
     private Transform orbSpawnPoint;
     private Transform playerTransform;
 

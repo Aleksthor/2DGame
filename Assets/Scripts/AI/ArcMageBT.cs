@@ -41,7 +41,7 @@ public class ArcMageBT : Tree
             new Sequence(new List<Node>
             {
                 new TaskMaxRange(transform, playerTransform, 5),
-                new TaskWalkAway(transform, playerTransform, MovementSpeed),
+                new TaskWalkAway(transform, playerTransform, MovementSpeed, 4.9f),
             }),
             new Sequence(new List<Node>
             {

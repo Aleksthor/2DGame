@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class EnemyWeaponCollider : MonoBehaviour
 {
-    [Header("Reference to Managers")]
-    public Player player;
-    public Movement movement;
+
+    private Player player;
+    private Movement movement;
+
     [Header("Attack Variables")]
     public float damage = 10f;
-    [Header("Private Variabels")]
-    [SerializeField]  private float delay = 0.2f;
-    [SerializeField]  private float delayClock = 0f;
-    [SerializeField]  private bool doDelay = false;
+
+    private float delay = 0.2f;
+    private float delayClock = 0f;
+    private bool doDelay = false;
 
 
     private void Awake()
