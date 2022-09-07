@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1b0c2b27bf066c54b9f189080a9f07f5
+guid: 1b05ede22d000be4c9f13bf173a61003
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,118 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_Helmet_OnTop_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 240
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d51f2d2e48dc88f4594936d97b1c2305
-      internalID: -491120725
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_OnTop_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 240
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c16dbe893ca88284cb5a4245abc2d9e1
-      internalID: 1388149865
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_OnTop_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 240
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 53f18284405f5294c83d17816acb2946
-      internalID: -1973952833
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_OnTop_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 240
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5ab05b7864c2f4042bb574bff5ac7563
-      internalID: 80963178
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_OnTop_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 240
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3305c4f28f2153f46b7c390a14bd3ffe
-      internalID: 954619856
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_OnTop_5
+      name: Human_EyeShadow_0
       rect:
         serializedVersion: 2
         x: 160
-        y: 240
+        y: 96
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,41 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a8923539f581fe40b667422ef85c8f2
-      internalID: 1197466266
+      spriteID: 9ada9baec0c68bd449ba89e72b1b6923
+      internalID: 881146415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Helmet_OnTop_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 240
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae9de8461eb00054ab56b6ea91e7d901
-      internalID: -697369632
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_OnTop_7
+      name: Human_EyeShadow_1
       rect:
         serializedVersion: 2
         x: 224
-        y: 240
+        y: 96
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4641c9ff14b626842b23d6725f2a58ae
-      internalID: 310462578
+      spriteID: 93690781c4c25a24e8ad7d982ec5c458
+      internalID: -894442435
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Helmet_OnTop_8
+      name: Human_EyeShadow_2
       rect:
         serializedVersion: 2
         x: 256
-        y: 240
+        y: 96
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,20 +160,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 114fe5023209f44429d85c0be10e95d2
-      internalID: 194600570
+      spriteID: fc3c7314a91f154458b3973eaa0ce467
+      internalID: 724967018
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Helmet_OnTop_9
+      name: Human_EyeShadow_3
       rect:
         serializedVersion: 2
         x: 288
-        y: 240
+        y: 96
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,20 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba79433c8135008468cf950ca0c78e31
-      internalID: -1031191069
+      spriteID: a61596bfdaa60a641965d2530db618a1
+      internalID: -187941958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Helmet_OnTop_10
+      name: Human_EyeShadow_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
+        x: 128
+        y: 64
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,20 +202,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af941774e6d5641419f826419e4f9a30
-      internalID: -578044176
+      spriteID: 1df63e07675ac664996ea10534d631ed
+      internalID: -1766615363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Helmet_OnTop_11
+      name: Human_EyeShadow_5
       rect:
         serializedVersion: 2
-        x: 32
-        y: 192
+        x: 160
+        y: 64
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,8 +223,197 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d89c57b6250a3d4d9c807a0d1f1e61b
-      internalID: -683694471
+      spriteID: 7ccd5d5464ba81a4a9e4ce6f7d62353e
+      internalID: 1000211344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_EyeShadow_6
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b1de7eb12e3cf145b8528c2453aed72
+      internalID: -1369505163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_EyeShadow_7
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a563878157df340a073b19ad76bbc9
+      internalID: 1648223176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_EyeShadow_8
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bdc09cff0765e148ab5ec6a1228b6aa
+      internalID: 959102708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_EyeShadow_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8f7cdb8ed2cb264bb42342d41e828be
+      internalID: -1985390525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_EyeShadow_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 238410a4ba545fa419b9b7b457416d05
+      internalID: -1792970759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_EyeShadow_11
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c2e6fe999927fb4fa50456b37a5cd6b
+      internalID: -732671356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_EyeShadow_12
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c224f445ceca2b54781ad403c0907769
+      internalID: 1748903335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_EyeShadow_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3eafe5145b04b340badbc9eef97a453
+      internalID: -1286914067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_EyeShadow_14
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be5c7aa75a275bb4eb3c26d1fa5d4365
+      internalID: 1614093411
       vertices: []
       indices: 
       edges: []
@@ -366,18 +429,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Character_Helmet_OnTop_9: -1031191069
-      Character_Helmet_OnTop_11: -683694471
-      Character_Helmet_OnTop_1: 1388149865
-      Character_Helmet_OnTop_7: 310462578
-      Character_Helmet_OnTop_8: 194600570
-      Character_Helmet_OnTop_4: 954619856
-      Character_Helmet_OnTop_6: -697369632
-      Character_Helmet_OnTop_2: -1973952833
-      Character_Helmet_OnTop_0: -491120725
-      Character_Helmet_OnTop_10: -578044176
-      Character_Helmet_OnTop_3: 80963178
-      Character_Helmet_OnTop_5: 1197466266
+      Human_EyeShadow_8: 959102708
+      Human_EyeShadow_7: 1648223176
+      Human_EyeShadow_10: -1792970759
+      Human_EyeShadow_12: 1748903335
+      Human_EyeShadow_3: -187941958
+      Human_EyeShadow_14: 1614093411
+      Human_EyeShadow_4: -1766615363
+      Human_EyeShadow_13: -1286914067
+      Human_EyeShadow_9: -1985390525
+      Human_EyeShadow_11: -732671356
+      Human_EyeShadow_5: 1000211344
+      Human_EyeShadow_0: 881146415
+      Human_EyeShadow_1: -894442435
+      Human_EyeShadow_6: -1369505163
+      Human_EyeShadow_2: 724967018
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

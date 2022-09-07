@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f689daf8935488f449b8b452c2fdb518
+guid: 47a10e4e8470e87438e62dbfc7b129cb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,55 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_Helmet_HairDecor_0
+      name: Human_Nose_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15b751a0e7161c44296ab9a21ff5f12c
+      internalID: -129186336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Nose_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23feedf2d1fe7ad43a8e528450db9301
+      internalID: -277422355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Nose_2
       rect:
         serializedVersion: 2
         x: 64
-        y: 240
+        y: 96
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +160,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3176d48dcf10bd94aacdec8013a9c3f1
-      internalID: 1365779280
+      spriteID: 3b9c832b0dc3baf46b451fdf4693c0e3
+      internalID: 113990957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Helmet_HairDecor_1
+      name: Human_Nose_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e136218b2b508954aa5aade1a22ae8bf
+      internalID: 1544262812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Nose_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f5c2b28c199b614ebd19479a0083531
+      internalID: 27005339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Nose_5
       rect:
         serializedVersion: 2
         x: 160
-        y: 240
+        y: 96
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +223,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dea63bf8c0124945a0fa3f274da5a58
-      internalID: -1755218666
+      spriteID: 5ffb7364a350fd3419aaffd4f705bc7a
+      internalID: 2079828153
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Helmet_HairDecor_2
+      name: Human_Nose_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d7bd0e021e1ddb4e893c1bd8b12a870
+      internalID: -383236007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Nose_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deeb00bc95100624bba43c3456e7766a
+      internalID: 1162256586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Nose_8
       rect:
         serializedVersion: 2
         x: 256
-        y: 240
+        y: 96
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +286,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f44a1f014163b8845ad1d7edac238cbe
-      internalID: 1188781564
+      spriteID: 6276d1534b079e84cbc03f0725a2e352
+      internalID: 50081028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Helmet_HairDecor_3
+      name: Human_Nose_9
       rect:
         serializedVersion: 2
-        x: 352
-        y: 240
+        x: 288
+        y: 96
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +307,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 492cce60ab803274390d06fbecfac71a
-      internalID: -988743553
+      spriteID: 4779cb973eb7a324b8aca6c1f6995608
+      internalID: 1473589375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Helmet_HairDecor_4
+      name: Human_Nose_10
       rect:
         serializedVersion: 2
-        x: 64
-        y: 192
+        x: 0
+        y: 64
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,71 +328,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 119f831578eb4e94da26de8a093fba80
-      internalID: -1605225821
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_HairDecor_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 192
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b31ea31b2a664f4bbc59c1d1c1be107
-      internalID: 1147332628
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_HairDecor_6
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 192
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 485ff42bdcb114d499bc93e1088d022a
-      internalID: -585429108
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_HairDecor_7
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 192
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 72af1490983381247a7f5a91ce54c994
-      internalID: -1383379099
+      spriteID: 80dbb28e353dff04599d7a5aa0af2650
+      internalID: -1863151384
       vertices: []
       indices: 
       edges: []
@@ -282,14 +345,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Character_Helmet_HairDecor_5: 1147332628
-      Character_Helmet_HairDecor_1: -1755218666
-      Character_Helmet_HairDecor_4: -1605225821
-      Character_Helmet_HairDecor_7: -1383379099
-      Character_Helmet_HairDecor_3: -988743553
-      Character_Helmet_HairDecor_0: 1365779280
-      Character_Helmet_HairDecor_6: -585429108
-      Character_Helmet_HairDecor_2: 1188781564
+      Human_Nose_9: 1473589375
+      Human_Nose_0: -129186336
+      Human_Nose_5: 2079828153
+      Human_Nose_1: -277422355
+      Human_Nose_10: -1863151384
+      Human_Nose_6: -383236007
+      Human_Nose_3: 1544262812
+      Human_Nose_2: 113990957
+      Human_Nose_7: 1162256586
+      Human_Nose_8: 50081028
+      Human_Nose_4: 27005339
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
