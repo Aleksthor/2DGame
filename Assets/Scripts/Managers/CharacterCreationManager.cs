@@ -6,6 +6,21 @@ using TMPro;
 
 public class CharacterCreationManager : MonoBehaviour
 {
+    [System.Serializable]
+    class HeadSprite
+    {
+        [SerializeField] Sprite Head_Face_Top;
+        [SerializeField] Sprite Head_Face_Bottom;
+        [SerializeField] Sprite Head_Eye;
+        [SerializeField] Sprite Head_Eyebrow;
+        [SerializeField] Sprite Head_Mouth;
+        [SerializeField] Sprite Head_Ear;
+        [SerializeField] Sprite Head_Nose;
+    };
+
+    [Header("Sprite List")]
+    [SerializeField] List<HeadSprite> headSprites = new List<HeadSprite>();
+
     #region Sliders
     [Header("Head Sliders")]
     [SerializeField] Slider head_main_color_R;
@@ -69,6 +84,10 @@ public class CharacterCreationManager : MonoBehaviour
     Color color_Head_Top;
     #endregion
 
+
+    //----------------------------------------------------------------------
+
+
     private void Awake()
     {
         #region Color Setup
@@ -105,6 +124,7 @@ public class CharacterCreationManager : MonoBehaviour
         #endregion
 
         #endregion
+
     }
 
     private void Update()

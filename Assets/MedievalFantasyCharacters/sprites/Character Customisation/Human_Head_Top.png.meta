@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b4646b0d625a42047a648ea49cb9a6c2
+guid: 0e94ec7bf16350f4a8caa6b8430e3da2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_Helmet_Hair_0
+      name: Human_Head_Top_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 240
+        x: 0
+        y: 96
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89bd69c6a023f624fbffef5a3c7d679f
-      internalID: 483186802
+      spriteID: 9ac18ef4c594e9d419407c8ba179e35e
+      internalID: -594283186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Helmet_Hair_1
+      name: Human_Head_Top_1
       rect:
         serializedVersion: 2
-        x: 160
-        y: 240
+        x: 32
+        y: 96
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,230 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce5a6d7f9b6e5b44e983ef0a0c63296a
-      internalID: -564006061
+      spriteID: 06e637e8e493af041bfffa99d0842b0d
+      internalID: 322311862
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Helmet_Hair_2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 240
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2671990de8a6324ab1890dd839f4d25
-      internalID: 443866286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_Hair_3
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 240
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 250480d958171b94d8e3eff2443518e5
-      internalID: 1438524242
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_Hair_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 192
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d46b84720fbc3834f9a1a8e49f22126b
-      internalID: 1198564843
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_Hair_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 192
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a720e4a14e8330d4ebe255b2e9ad73fe
-      internalID: -1829925250
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_Hair_6
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 192
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cbc819bf06177194b83703385e1af6ec
-      internalID: 869542254
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_Hair_7
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 192
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9756de44a62e7544690b8db340f77993
-      internalID: -1434145515
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_Hair_8
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 144
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bb4d702a53c118b488d14c4a0a611ffa
-      internalID: -2122828062
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_Hair_9
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 144
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fce4733e49df52a408adc4e8681ccdfd
-      internalID: 1853900457
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_Hair_10
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 144
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c62fac6d869078041907b67006cda73a
-      internalID: 644111985
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_Hair_11
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 144
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9334655e662cad94ea8e10ee097d25b4
-      internalID: -514102939
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Helmet_Hair_12
+      name: Human_Head_Top_2
       rect:
         serializedVersion: 2
         x: 64
         y: 96
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -370,20 +160,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 562f776b9d2db9341a4a8c617c1c26c1
-      internalID: 1495798050
+      spriteID: b3fc7cbb1e8d16c4ba658f4122c53e4b
+      internalID: 78004587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Helmet_Hair_13
+      name: Human_Head_Top_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17b3cbd89b7f9fe479b92129094cb17e
+      internalID: 2027863255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15ad5dcd4c4d39e4d8f5b8f9ddfc2989
+      internalID: -1326538955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_5
       rect:
         serializedVersion: 2
         x: 160
         y: 96
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -391,20 +223,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8213cef5bfab7884c8d3d183628b16d1
-      internalID: 1717263673
+      spriteID: a2686876916e79b4ebcc98422be157b2
+      internalID: -1772525057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Helmet_Hair_14
+      name: Human_Head_Top_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18512c1d377dd394a946c540bfb75e2d
+      internalID: -1260944329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 400f24963f22b6b4091def606bac7696
+      internalID: 1555803321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_8
       rect:
         serializedVersion: 2
         x: 256
         y: 96
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,20 +286,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbb959c05a25ce14cb3a1ee824b6785a
-      internalID: 101904178
+      spriteID: 9d905066904a23d4d8dccafc9f7947a6
+      internalID: 2091153444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Helmet_Hair_15
+      name: Human_Head_Top_9
       rect:
         serializedVersion: 2
-        x: 352
+        x: 288
         y: 96
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -433,20 +307,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb728d514c92c004f967fd529f8a032f
-      internalID: -528926376
+      spriteID: bc1308b3e367a5b468f2fe4271841e53
+      internalID: 1307454568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Helmet_Hair_16
+      name: Human_Head_Top_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f089668234b461f43b6dfaa0ae8a93d0
+      internalID: -679434371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab1e565f2cec5914eb27aeb6c21e0d88
+      internalID: -1390946086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_12
       rect:
         serializedVersion: 2
         x: 64
-        y: 48
+        y: 64
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -454,20 +370,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5504287346c514440813dfc52598c7c9
-      internalID: -1876323153
+      spriteID: 5d494814fec977b42af2dc4634c1970f
+      internalID: 1975641463
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Helmet_Hair_17
+      name: Human_Head_Top_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f5e2ac90edb4f34887ce2a3090085e6
+      internalID: 539348160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfb972ab1f6efe942b3cb2273b503f23
+      internalID: 543852097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_15
       rect:
         serializedVersion: 2
         x: 160
-        y: 48
+        y: 64
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -475,20 +433,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b8597eeed3e8e14e9190c13b85d558b
-      internalID: 438348653
+      spriteID: 8351b2c70142ae04ead0429e30209377
+      internalID: 1782390221
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Helmet_Hair_18
+      name: Human_Head_Top_16
       rect:
         serializedVersion: 2
-        x: 320
-        y: 0
+        x: 192
+        y: 64
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -496,20 +454,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e85545c48251944f834374507667a84
-      internalID: -1343579908
+      spriteID: 6e224b02b81ea6e47902ff52a019f8e4
+      internalID: -1769928588
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Helmet_Hair_19
+      name: Human_Head_Top_17
       rect:
         serializedVersion: 2
-        x: 352
-        y: 0
+        x: 224
+        y: 64
         width: 32
-        height: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -517,8 +475,260 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df3cb59fe37e7644185e0b8eea4a202f
-      internalID: -1521846436
+      spriteID: e1e252848f6d33a46a991f857ca6492f
+      internalID: -1777572089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_18
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f25b7208d7b6f4a408625a4130755abc
+      internalID: -1292164147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_19
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02f893eb152d53946998a5fccdae185f
+      internalID: -1402614157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d942a678e37353a40a72e90d8655cee6
+      internalID: -1581689961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89ed3a389f216f94297d3f1faad1557a
+      internalID: 1823392505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f15c5075870dcb43a467e778f2b897f
+      internalID: 197890574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_23
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6f3140472cf4a04fa12790d3554ab6d
+      internalID: 2006214563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_24
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0497fe975f01a444973dd4f6c58a737
+      internalID: 1270132953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_25
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e46c5ac28ef4c1149b205ab3402d20b5
+      internalID: 239967415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_26
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fe9c2ea5317fd34e8deecdeeb38392f
+      internalID: -1735629531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_27
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5388ccbaa3080594ea846eb1445afb29
+      internalID: 462646761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_28
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aff7691933e99c489e7336681b4bfbf
+      internalID: -435404172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_Head_Top_29
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36cb2ce92a901944f8f6176857e442b1
+      internalID: -2073850525
       vertices: []
       indices: 
       edges: []
@@ -534,26 +744,36 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Character_Helmet_Hair_14: 101904178
-      Character_Helmet_Hair_13: 1717263673
-      Character_Helmet_Hair_16: -1876323153
-      Character_Helmet_Hair_19: -1521846436
-      Character_Helmet_Hair_0: 483186802
-      Character_Helmet_Hair_8: -2122828062
-      Character_Helmet_Hair_7: -1434145515
-      Character_Helmet_Hair_3: 1438524242
-      Character_Helmet_Hair_15: -528926376
-      Character_Helmet_Hair_17: 438348653
-      Character_Helmet_Hair_18: -1343579908
-      Character_Helmet_Hair_10: 644111985
-      Character_Helmet_Hair_2: 443866286
-      Character_Helmet_Hair_1: -564006061
-      Character_Helmet_Hair_9: 1853900457
-      Character_Helmet_Hair_11: -514102939
-      Character_Helmet_Hair_6: 869542254
-      Character_Helmet_Hair_5: -1829925250
-      Character_Helmet_Hair_4: 1198564843
-      Character_Helmet_Hair_12: 1495798050
+      Human_Head_Top_14: 543852097
+      Human_Head_Top_18: -1292164147
+      Human_Head_Top_19: -1402614157
+      Human_Head_Top_28: -435404172
+      Human_Head_Top_25: 239967415
+      Human_Head_Top_9: 1307454568
+      Human_Head_Top_20: -1581689961
+      Human_Head_Top_23: 2006214563
+      Human_Head_Top_22: 197890574
+      Human_Head_Top_15: 1782390221
+      Human_Head_Top_6: -1260944329
+      Human_Head_Top_3: 2027863255
+      Human_Head_Top_1: 322311862
+      Human_Head_Top_27: 462646761
+      Human_Head_Top_4: -1326538955
+      Human_Head_Top_12: 1975641463
+      Human_Head_Top_24: 1270132953
+      Human_Head_Top_10: -679434371
+      Human_Head_Top_11: -1390946086
+      Human_Head_Top_0: -594283186
+      Human_Head_Top_13: 539348160
+      Human_Head_Top_5: -1772525057
+      Human_Head_Top_26: -1735629531
+      Human_Head_Top_16: -1769928588
+      Human_Head_Top_21: 1823392505
+      Human_Head_Top_29: -2073850525
+      Human_Head_Top_2: 78004587
+      Human_Head_Top_8: 2091153444
+      Human_Head_Top_7: 1555803321
+      Human_Head_Top_17: -1777572089
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
