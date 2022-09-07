@@ -31,6 +31,7 @@ public class LocalEnemyScript : MonoBehaviour
     public float speedMultiplier = 1f;
 
     public GameObject MageOrb;
+    public GameObject MageShard;
     private Transform orbSpawnPoint;
     private Transform playerTransform;
 
@@ -150,5 +151,20 @@ public class LocalEnemyScript : MonoBehaviour
         GameObject NewOrb = Instantiate(MageOrb, orbSpawnPoint.position, orbSpawnPoint.rotation);
         NewOrb.GetComponent<Rigidbody2D>().velocity = (playerTransform.position - transform.position).normalized * 10f;
 
+    }
+
+    public void SpawnShard()
+    {
+        if (orbSpawnPoint == null)
+        {
+            orbSpawnPoint = transform.Find("Hand").transform.Find("SpawnPoint").transform;
+        }
+        if (playerTransform == null)
+        {
+            playerTransform = player.GetPlayer().transform;
+        }
+
+        GameObject NewOrb = Instantiate(MageShard, orbSpawnPoint.position, orbSpawnPoint.rotation);
+        NewOrb.GetComponent<Rigidbody2D>().velocity = (playerTransform.position - transform.position).normalized * 10f;
     }
 }

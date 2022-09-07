@@ -47,7 +47,7 @@ public class WarriorBT : Tree
             new Sequence(new List<Node>
             {
                 new TaskCheckPlayerInFOV(transform, playerTransform, FOV),
-                new TaskGoToPlayer(transform, playerTransform, MovementSpeed, attackRange),
+                new TaskGoToPlayer(transform, playerTransform, MovementSpeed),
             }),
             new TaskPatrol(transform, MovementSpeed),
             
