@@ -169,11 +169,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2a1e5a4cbbe684782198f507fc86ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponCollider: {fileID: 800437050351557876}
   MovementVector: {x: 0, y: 0}
   StartingWeaponType: 1
-  EnergyBall: {fileID: 710600009353945899, guid: 64ff3aeadafc4d94eabd5a4d8fb62cd8, type: 3}
   ShotPoint: {fileID: 6086259455824825333}
+  EnergyBall: {fileID: 710600009353945899, guid: 64ff3aeadafc4d94eabd5a4d8fb62cd8, type: 3}
 --- !u!50 &3057187768033625967
 Rigidbody2D:
   serializedVersion: 4
@@ -686,7 +685,7 @@ GameObject:
   - component: {fileID: 3895720241996056725}
   m_Layer: 0
   m_Name: Weapon
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

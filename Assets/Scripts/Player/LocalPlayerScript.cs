@@ -99,7 +99,6 @@ public class LocalPlayerScript : MonoBehaviour
     public void SpawnEnergyBall()
     {
 
-        Debug.Log(ShotPoint.position);
         Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
 
         GameObject NewEnergyBall = Instantiate(EnergyBall, ShotPoint.position, ShotPoint.rotation);
