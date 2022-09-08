@@ -102,7 +102,8 @@ public class LocalPlayerScript : MonoBehaviour
         Debug.Log(ShotPoint.position);
         Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
 
-        GameObject NewEnergyBall = Instantiate(EnergyBall, ShotPoint.position, Quaternion.Euler(0f, 0f, Vector2.Angle((Vector2)ShotPoint.position, (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition))));
+        GameObject NewEnergyBall = Instantiate(EnergyBall, ShotPoint.position, ShotPoint.rotation);
+        NewEnergyBall.transform.right = direction * -1f;
 
         NewEnergyBall.GetComponent<WeaponCollider>().damage = weaponManager.damage;
 
