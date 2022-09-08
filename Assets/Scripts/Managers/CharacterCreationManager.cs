@@ -22,6 +22,28 @@ public class CharacterCreationManager : MonoBehaviour
         [SerializeField] Sprite Head_FacialHair;
     };
 
+    #region Displays
+    [Header("Displays")]
+    [SerializeField] GameObject displayPrefab;
+
+    [SerializeField] GameObject Display_HeadTop;
+    [SerializeField] GameObject Display_HeadBottom;
+    [SerializeField] GameObject Display_Ear;
+
+    [SerializeField] GameObject Display_Hair;
+    [SerializeField] GameObject Display_Facialhair;
+
+    [SerializeField] GameObject Display_Eye;
+    [SerializeField] GameObject Display_Eyebrow;
+    [SerializeField] GameObject Display_Mouth;
+    [SerializeField] GameObject Display_Nose;
+    #endregion
+
+    #region GameObject List
+    [Header("GameObject List")]
+    [SerializeField] List<GameObject> GO_Head_Top_List = new List<GameObject>();
+    #endregion
+
     #region Setup - Sprite List
     [Header("Sprite List")]
     [SerializeField] List<Sprite> face_top = new List<Sprite>();
@@ -153,8 +175,20 @@ public class CharacterCreationManager : MonoBehaviour
     Color color_Head_Facialhair;
     #endregion
 
+    #region Bools
+    bool headTop;
+    bool headBottom;
+    bool ear;
+    bool hair;
+    bool facialhair;
+    bool eye;
+    bool eyebrow;
+    bool mouth;
+    bool nose;
+    #endregion
 
-    //----------------------------------------------------------------------
+
+    //--------------------
 
 
     private void Awake()
@@ -207,15 +241,127 @@ public class CharacterCreationManager : MonoBehaviour
         #endregion
         #endregion
     }
+    private void Start()
+    {
+        headTop = false;
+        headTop = false;
+        headBottom = false;
+        ear = false;
+        hair = false;
+        facialhair = false;
+        eye = false;
+        eyebrow = false;
+        mouth = false;
+        nose = false;
+
+        SetDisplayItems();
+    }
     private void Update()
     {
         UpdateColors();
+        UpdateDisplayColors();
+
         UpdateMainImage();
+
+        UpdateDisplayPanelVisibility();
+        DisplayButton_Clicked();
     }
 
 
-    //----------------------------------------------------------------------
+    //--------------------
 
+
+    void SetDisplayItems()
+    {
+        //Face Top
+        for (int i = 0; i < face_top.Count; i++)
+        {
+            GO_Head_Top_List.Add(displayPrefab);
+        }
+
+        for (int i = 0; i < GO_Head_Top_List.Count; i++)
+        {
+            GO_Head_Top_List[i].GetComponent<Image>().sprite = face_top[i];
+
+            (Instantiate(GO_Head_Top_List[i], new Vector3(0, 0, 0), Quaternion.identity)).transform.parent = Display_HeadTop.transform;
+        }
+
+        //Face Bottom
+        for (int i = 0; i < face_bottom.Count; i++)
+        {
+            displayPrefab.GetComponent<Image>().sprite = face_bottom[i];
+
+            (Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject).transform.parent = Display_HeadBottom.transform;
+        }
+
+        //Ear
+        for (int i = 0; i < face_ear.Count; i++)
+        {
+            displayPrefab.GetComponent<Image>().sprite = face_ear[i];
+
+            (Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject).transform.parent = Display_Ear.transform;
+        }
+
+        //Hair
+        for (int i = 0; i < face_hair.Count; i++)
+        {
+            displayPrefab.GetComponent<Image>().sprite = face_hair[i];
+
+            (Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject).transform.parent = Display_Hair.transform;
+        }
+
+        //Facialhair
+        for (int i = 0; i < face_facialhair.Count; i++)
+        {
+            displayPrefab.GetComponent<Image>().sprite = face_facialhair[i];
+
+            (Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject).transform.parent = Display_Facialhair.transform;
+        }
+
+        //Eye
+        for (int i = 0; i < face_eye.Count; i++)
+        {
+            displayPrefab.GetComponent<Image>().sprite = face_eye[i];
+
+            (Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject).transform.parent = Display_Eye.transform;
+        }
+
+        //Eyebrow
+        for (int i = 0; i < face_eyebrow.Count; i++)
+        {
+            displayPrefab.GetComponent<Image>().sprite = face_eyebrow[i];
+
+            (Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject).transform.parent = Display_Eyebrow.transform;
+        }
+
+        //Mouth
+        for (int i = 0; i < face_mouth.Count; i++)
+        {
+            displayPrefab.GetComponent<Image>().sprite = face_mouth[i];
+
+            (Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject).transform.parent = Display_Mouth.transform;
+        }
+
+        //Nose
+        for (int i = 0; i < face_nose.Count; i++)
+        {
+            displayPrefab.GetComponent<Image>().sprite = face_nose[i];
+
+            (Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject).transform.parent = Display_Nose.transform;
+        }
+    }
+
+    public void DisplayButton_Clicked()
+    {
+        for (int i = 0; i < face_top.Count; i++)
+        {
+            GO_Head_Top_List[i].GetComponent<Button>().onClick.AddListener(ChangeCharacterSprite);
+        }
+    }
+    void ChangeCharacterSprite()
+    {
+        print("A Button is clicked");
+    }
 
     void UpdateMainImage()
     {
@@ -317,8 +463,76 @@ public class CharacterCreationManager : MonoBehaviour
         Head_facialhair.color = color_Head_Facialhair;
     }
 
+    void UpdateDisplayColors()
+    {
+        //Update Display Sprite colors
+        for (int i = 0; i < face_top.Count; i++)
+        {
+            GO_Head_Top_List[i].GetComponent<Image>().color = color_Head_Face;
+
+
+            if (GO_Head_Top_List[i].GetComponent<Image>().color == color_Head_Face)
+            {
+                //print("It works: " + GO_Head_Top_List[i].GetComponent<Image>().color);
+            }
+
+        }
+    }
+
+    void UpdateDisplayPanelVisibility()
+    {
+        if (headTop)
+            Display_HeadTop.SetActive(true);
+        else
+            Display_HeadTop.SetActive(false);
+
+        if (headBottom)
+            Display_HeadBottom.SetActive(true);
+        else
+            Display_HeadBottom.SetActive(false);
+
+        if (ear)
+            Display_Ear.SetActive(true);
+        else
+            Display_Ear.SetActive(false);
+
+        if (hair)
+            Display_Hair.SetActive(true);
+        else
+            Display_Hair.SetActive(false);
+
+        if (facialhair)
+            Display_Facialhair.SetActive(true);
+        else
+            Display_Facialhair.SetActive(false);
+
+        if (eye)
+            Display_Eye.SetActive(true);
+        else
+            Display_Eye.SetActive(false);
+
+        if (eyebrow)
+            Display_Eyebrow.SetActive(true);
+        else
+            Display_Eyebrow.SetActive(false);
+
+        if (mouth)
+            Display_Mouth.SetActive(true);
+        else
+            Display_Mouth.SetActive(false);
+
+        if (nose)
+            Display_Nose.SetActive(true);
+        else
+            Display_Nose.SetActive(false);
+    }
+
+
+    //--------------------
+
+
     #region Color on handle of slider changes with value once clicked and dragged
-   
+
     #region Head Face
     public void Head_Face_handleColor_R()
     {
@@ -437,4 +651,136 @@ public class CharacterCreationManager : MonoBehaviour
     #endregion
 
     #endregion
+
+
+    //--------------------
+
+
+    //Buttons
+    public void HeadTopButton()
+    {
+        headTop = true;
+        headBottom = false;
+        ear = false;
+        hair = false;
+        facialhair = false;
+        eye = false;
+        eyebrow = false;
+        mouth = false;
+        nose = false;
+
+        print("HeadTopButton - Clicked");
+    }
+    public void HeadButtomButton()
+    {
+        headTop = false;
+        headBottom = true;
+        ear = false;
+        hair = false;
+        facialhair = false;
+        eye = false;
+        eyebrow = false;
+        mouth = false;
+        nose = false;
+
+        print("HeadButtomButton - Clicked");
+    }
+    public void EarButton()
+    {
+        headTop = false;
+        headBottom = false;
+        ear = true;
+        hair = false;
+        facialhair = false;
+        eye = false;
+        eyebrow = false;
+        mouth = false;
+        nose = false;
+
+        print("EarButton - Clicked");
+    }
+    public void HairButton()
+    {
+        headTop = false;
+        headBottom = false;
+        ear = false;
+        hair = true;
+        facialhair = false;
+        eye = false;
+        eyebrow = false;
+        mouth = false;
+        nose = false;
+
+        print("HairButton - Clicked");
+    }
+    public void FacialhairButton()
+    {
+        headTop = false;
+        headBottom = false;
+        ear = false;
+        hair = false;
+        facialhair = true;
+        eye = false;
+        eyebrow = false;
+        mouth = false;
+        nose = false;
+
+        print("FacialhairButton - Clicked");
+    }
+    public void EyeButton()
+    {
+        headTop = false;
+        headBottom = false;
+        ear = false;
+        hair = false;
+        facialhair = false;
+        eye = true;
+        eyebrow = false;
+        mouth = false;
+        nose = false;
+
+        print("EyeButton - Clicked");
+    }
+    public void EyebrowButton()
+    {
+        headTop = false;
+        headBottom = false;
+        ear = false;
+        hair = false;
+        facialhair = false;
+        eye = false;
+        eyebrow = true;
+        mouth = false;
+        nose = false;
+
+        print("EyebrowButton - Clicked");
+    }
+    public void MouthButton()
+    {
+        headTop = false;
+        headBottom = false;
+        ear = false;
+        hair = false;
+        facialhair = false;
+        eye = false;
+        eyebrow = false;
+        mouth = true;
+        nose = false;
+
+        print("MouthButton - Clicked");
+    }
+    public void NoseButton()
+    {
+        headTop = false;
+        headBottom = false;
+        ear = false;
+        hair = false;
+        facialhair = false;
+        eye = false;
+        eyebrow = false;
+        mouth = false;
+        nose = true;
+
+        print("NoseButton - Clicked");
+    }
 }
