@@ -21,7 +21,10 @@ public class Weapon : Item
     public WeaponType weaponType;
     public float damage;
     public float knockBackForce;
+
+    [Header("Magic Variables")]
     public float force;
+    public float manaCost;
 
 
     [Header("Weapon Collider Points")]

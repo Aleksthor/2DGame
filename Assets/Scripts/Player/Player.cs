@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     Animator playerAnimator;
     HUD playerHUD;
     Movement movementManager;
+    
 
 
     [Header("Health Stats")]
@@ -102,6 +103,15 @@ public class Player : MonoBehaviour
     public void SetStaminaValue(float value)
     {
         stamina += value;
+    }
+
+    public void SetManaValue(float value)
+    {
+        mana += value;
+    }
+    public float GetManaValue()
+    {
+        return mana;
     }
 }
 
