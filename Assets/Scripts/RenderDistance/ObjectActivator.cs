@@ -8,8 +8,8 @@ public class ObjectActivator : MonoBehaviour
     // Variables
     [SerializeField] private float renderDistance;
 
-    [SerializeField] private GameObject playerObject;
-    [SerializeField] private Player player;
+    private GameObject playerObject;
+    private Player player;
     public List<GameObject> activatorObjects;
 
     void Awake()
@@ -38,13 +38,14 @@ public class ObjectActivator : MonoBehaviour
                 {
 
                     activatorObjects[i].SetActive(false);
+                    activatorObjects[i].GetComponent<EnemySpawner>().ResetPosition();
 
                 }
                 else
                 {
 
                     activatorObjects[i].SetActive(true);
-                    activatorObjects[i].GetComponent<EnemySpawner>().StartCoroutine();
+                    
 
                 }
 

@@ -6,6 +6,7 @@ public class LocalEnemyScript : MonoBehaviour
 {
     [Header("Enemy Health")]
     public float health = 1;
+    public float maxHealth;
 
     // Are we playing our Hit animation, if so do NOTHING
     public bool hit = false;
@@ -51,6 +52,9 @@ public class LocalEnemyScript : MonoBehaviour
 
         animator = gameObject.GetComponent<Animator>();
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
+
+
+        maxHealth = health;
     }
     
 

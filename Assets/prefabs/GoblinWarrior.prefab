@@ -397,12 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7cae2c3e67baf479f0e8f3d88fad5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  movement: {fileID: 0}
   damage: 7.5
-  delay: 0.2
-  delayClock: 0
-  doDelay: 0
 --- !u!1 &4737071462365302555
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,10 +707,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 35
-  weaponCollider: {fileID: 2211332228057564833}
+  maxHealth: 35
   hit: 0
-  animator: {fileID: 0}
-  rigidBody: {fileID: 0}
   speedMultiplier: 1
   MageOrb: {fileID: 0}
   MageShard: {fileID: 0}
@@ -758,18 +751,6 @@ MonoBehaviour:
   Hand: {fileID: 1087191409892271127}
   Weapon: {fileID: 3776031044296543675}
   Effect: {fileID: 8594982689050161527}
-  Frame1: {x: 0, y: 0}
-  Frame2: {x: 0, y: 0}
-  direction: {x: 0, y: 0}
-  flipState: 0
-  flipped: 0
-  stayFlipped: 0
-  flipClock: 0
-  flipTimer: 1
-  flipLastDirection: 0
-  left: {x: 0.02, y: 0.12}
-  right: {x: -0.02, y: 0.12}
-  localEnemyScript: {fileID: 0}
 --- !u!50 &6938288898857915198
 Rigidbody2D:
   serializedVersion: 4

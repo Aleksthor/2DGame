@@ -26,7 +26,11 @@ public class WeaponManager : MonoBehaviour
     [Header("Current Weapon Info")]
     public float damage = 1f;
     public float knockBackForce;
+
+    [Header("Magic Info")]
     public float force;
+    public float manaCost;
+
 
 
     private WeaponCollider weaponCollider;
@@ -88,6 +92,7 @@ public class WeaponManager : MonoBehaviour
         damage = weapon.damage;
         knockBackForce = weapon.knockBackForce;
         force = weapon.force;
+        manaCost = weapon.manaCost;
 
         // Change my weapon points
         for (int i = 0; i < totalPoints; i++)

@@ -169,8 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2a1e5a4cbbe684782198f507fc86ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementVector: {x: 0, y: 0}
-  StartingWeaponType: 1
+  StartingWeaponType: 2
   ShotPoint: {fileID: 6086259455824825333}
   EnergyBall: {fileID: 710600009353945899, guid: 64ff3aeadafc4d94eabd5a4d8fb62cd8, type: 3}
 --- !u!50 &3057187768033625967
@@ -746,7 +745,7 @@ SpriteRenderer:
   m_SortingLayerID: -1103112865
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5287789555553424294, guid: 08823ee942be30c40b83838fa7aa20d0, type: 3}
+  m_Sprite: {fileID: -3753825769889500098, guid: 41472c987a1935e499a2719fe4f07224, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -782,17 +781,17 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.02, y: 0.06}
-      - {x: 0.01, y: 0.06}
-      - {x: 0.01, y: 0.07}
-      - {x: 0, y: 0.07}
-      - {x: 0, y: 0.08}
-      - {x: 0, y: 0.08}
-      - {x: -0.01, y: 0.08}
-      - {x: -0.01, y: 0.07}
-      - {x: -0.02, y: 0.07}
-      - {x: -0.02, y: 0.06}
-      - {x: -0.03, y: 0.06}
+    - - {x: 0.02, y: 0.14}
+      - {x: 0.01, y: 0.14}
+      - {x: 0.01, y: 0.15}
+      - {x: 0, y: 0.15}
+      - {x: 0, y: 0.16}
+      - {x: 0, y: 0.16}
+      - {x: -0.01, y: 0.16}
+      - {x: -0.01, y: 0.15}
+      - {x: -0.02, y: 0.15}
+      - {x: -0.02, y: 0.14}
+      - {x: -0.03, y: 0.14}
       - {x: -0.03, y: 0}
       - {x: -0.03, y: -0.02}
       - {x: -0.04, y: -0.02}

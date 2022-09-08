@@ -10,15 +10,12 @@ public class LocalPlayerScript : MonoBehaviour
     private Rigidbody2D Rigidbody;
     private Camera mainCam;
     private WeaponManager weaponManager;
-
+    private Player player;
 
     bool CanTurn = true;
-    #pragma warning disable 414
     bool CanMove = true;
-    #pragma warning restore 414
 
     private bool Attack = false;
-    public Vector2 MovementVector;
     public int StartingWeaponType;
 
 
@@ -29,6 +26,10 @@ public class LocalPlayerScript : MonoBehaviour
     [Header("Projectiles")]
     public GameObject EnergyBall;
 
+    void Awake()
+    {
+        player = FindObjectOfType<Player>();
+    }
 
 
     void Start()
@@ -47,13 +48,7 @@ public class LocalPlayerScript : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        MovementVector.x = Input.GetAxis("Horizontal");
-        MovementVector.y = Input.GetAxis("Vertical");
 
-
-    }
 
     public bool GetAttack()
     {
@@ -98,16 +93,26 @@ public class LocalPlayerScript : MonoBehaviour
 
     public void SpawnEnergyBall()
     {
+        if(player.GetManaValue() < weaponManager.manaCost)
+        {
 
-        Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
-
-        GameObject NewEnergyBall = Instantiate(EnergyBall, ShotPoint.position, ShotPoint.rotation);
-        NewEnergyBall.transform.right = direction * -1f;
-
-        NewEnergyBall.GetComponent<WeaponCollider>().damage = weaponManager.damage;
+        }
+        else
+        {
+            player.SetManaValue(-weaponManager.manaCost);
 
 
-        NewEnergyBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * weaponManager.force;
+            Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
+
+            GameObject NewEnergyBall = Instantiate(EnergyBall, ShotPoint.position, ShotPoint.rotation);
+            NewEnergyBall.transform.right = direction * -1f;
+
+            NewEnergyBall.GetComponent<WeaponCollider>().damage = weaponManager.damage;
+
+
+            NewEnergyBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * weaponManager.force;
+        }
+
 
     }
 

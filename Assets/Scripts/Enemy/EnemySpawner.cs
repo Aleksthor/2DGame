@@ -29,12 +29,26 @@ public class EnemySpawner : MonoBehaviour
         
     }
 
-    public void StartCoroutine()
+    public void ResetPosition()
     {
-        StartCoroutine("CheckEnemies");
+
+        float X = transform.position.x + Random.Range(-2f, 2f);
+        float Y = transform.position.y + Random.Range(-2f, 2f);
+        for (int i = enemies.Count - 1; i > -1; i--)
+        {
+            if (enemies[i] == null)
+            {
+                enemies.RemoveAt(i);
+            }
+            else
+            {
+                enemies[i].transform.position = new Vector2(X, Y);
+                enemies[i].GetComponent<LocalEnemyScript>().health = enemies[i].GetComponent<LocalEnemyScript>().maxHealth;
+            }
+            
+        }
+
     }
-
-
 
     IEnumerator CheckEnemies()
     {

@@ -56,10 +56,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 200
-  weaponCollider: {fileID: 0}
+  maxHealth: 200
   hit: 0
-  animator: {fileID: 0}
-  rigidBody: {fileID: 0}
   speedMultiplier: 1
   MageOrb: {fileID: 8919191057245788580, guid: 6aba79173167a3d42938fe05256cab86, type: 3}
   MageShard: {fileID: 3269026680114006147, guid: 7839f896486c51747be44a2f0c5efbdc, type: 3}
@@ -196,13 +194,6 @@ MonoBehaviour:
   Hand: {fileID: 2983235382096324755}
   Weapon: {fileID: 6743321339887682035}
   Effect: {fileID: 1647783634198543549}
-  Frame1: {x: 0, y: 0}
-  Frame2: {x: 0, y: 0}
-  direction: {x: 0, y: 0}
-  flipLastDirection: 0
-  left: {x: 0.02, y: 0.12}
-  right: {x: -0.02, y: 0.12}
-  localEnemyScript: {fileID: 0}
 --- !u!50 &1076491570000878254
 Rigidbody2D:
   serializedVersion: 4
