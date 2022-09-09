@@ -96,15 +96,6 @@ public class WeaponManager : MonoBehaviour
         force = weapon.force;
         manaCost = weapon.manaCost;
 
-        // Change my weapon points
-        for (int i = 0; i < totalPoints; i++)
-        {
-            weaponPoints[i].x = (float)weapon.colliderPointX[i];
-            weaponPoints[i].y = (float)weapon.colliderPointY[i];
-        }
-
-        playerWeaponCollider.points = weaponPoints;
-
 
         switch ((int)weapon.weaponType)
         {
@@ -124,8 +115,21 @@ public class WeaponManager : MonoBehaviour
                 weaponTransform.localPosition = staffPos;
                 animator.SetInteger("WeaponType", 3);
                 break;
+            case 4:
+                weaponTransform.localPosition = wandPos;
+                animator.SetInteger("WeaponType", 4);
+                break;
             default:
                 break;
         }
+
+        // Change my weapon points
+        for (int i = 0; i < totalPoints; i++)
+        {
+            weaponPoints[i].x = (float)weapon.colliderPointX[i];
+            weaponPoints[i].y = (float)weapon.colliderPointY[i];
+        }
+
+        playerWeaponCollider.points = weaponPoints;
     }
 }

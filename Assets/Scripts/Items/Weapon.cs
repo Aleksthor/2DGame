@@ -13,7 +13,8 @@ public class Weapon : Item
         Club,
         Dagger,
         Sword,
-        Staff
+        Staff, 
+        Wand
     };
 
 
