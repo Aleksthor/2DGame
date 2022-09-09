@@ -38,4 +38,9 @@ public class Animation : MonoBehaviour
     {
         animator.SetBool("Dashing", value);
     }
+
+    public void SetWalkingSpeedAnimation(Vector2 InputVector)
+    {
+        animator.SetFloat("MovementSpeed", InputVector.magnitude);
+    }
 }

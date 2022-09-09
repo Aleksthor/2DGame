@@ -21,7 +21,9 @@ public class WeaponManager : MonoBehaviour
     Vector2 clubPos = new Vector2(0.01f, 0.1f);
     Vector2 daggerPos = new Vector2(0.01f, 0.05f);
     Vector2 swordPos = new Vector2(0.01f, 0.1f);
-    Vector3 staffPos = new Vector2(0.01f, 0.1f);
+    Vector2 staffPos = new Vector2(0.01f, 0.1f);
+    Vector2 wandPos = new Vector2(0.01f, 0.05f);
+
 
     [Header("Current Weapon Info")]
     public float damage = 1f;
