@@ -41,6 +41,7 @@ public class ButtonInput : MonoBehaviour
     {
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
+        playerAnimator.SetWalkingSpeedAnimation(movement);
         dash = Input.GetButton("Jump");
         sneak = Input.GetButton("Running");
         shield = Input.GetButton("Fire2");

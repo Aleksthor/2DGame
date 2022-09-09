@@ -37,6 +37,17 @@ public class TaskAttack : Node
                 animator.SetTrigger("Attack");
                 attackClock = 0f;
                 attack = true;
+                
+                EnemySpriteDirection esp = transform.GetComponent<EnemySpriteDirection>();
+                if(playerTransform.position.x - transform.position.x < 0)
+                {
+                    esp.Flip(false);
+                }
+                else
+                {
+                    esp.Flip(true);
+                }
+
             }
 
 

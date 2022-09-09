@@ -21,7 +21,9 @@ public class WeaponManager : MonoBehaviour
     Vector2 clubPos = new Vector2(0.01f, 0.1f);
     Vector2 daggerPos = new Vector2(0.01f, 0.05f);
     Vector2 swordPos = new Vector2(0.01f, 0.1f);
-    Vector3 staffPos = new Vector2(0.01f, 0.1f);
+    Vector2 staffPos = new Vector2(0.01f, 0.1f);
+    Vector2 wandPos = new Vector2(0.01f, 0.05f);
+
 
     [Header("Current Weapon Info")]
     public float damage = 1f;
@@ -94,15 +96,6 @@ public class WeaponManager : MonoBehaviour
         force = weapon.force;
         manaCost = weapon.manaCost;
 
-        // Change my weapon points
-        for (int i = 0; i < totalPoints; i++)
-        {
-            weaponPoints[i].x = (float)weapon.colliderPointX[i];
-            weaponPoints[i].y = (float)weapon.colliderPointY[i];
-        }
-
-        playerWeaponCollider.points = weaponPoints;
-
 
         switch ((int)weapon.weaponType)
         {
@@ -122,8 +115,21 @@ public class WeaponManager : MonoBehaviour
                 weaponTransform.localPosition = staffPos;
                 animator.SetInteger("WeaponType", 3);
                 break;
+            case 4:
+                weaponTransform.localPosition = wandPos;
+                animator.SetInteger("WeaponType", 4);
+                break;
             default:
                 break;
         }
+
+        // Change my weapon points
+        for (int i = 0; i < totalPoints; i++)
+        {
+            weaponPoints[i].x = (float)weapon.colliderPointX[i];
+            weaponPoints[i].y = (float)weapon.colliderPointY[i];
+        }
+
+        playerWeaponCollider.points = weaponPoints;
     }
 }

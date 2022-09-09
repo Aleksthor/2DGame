@@ -25,6 +25,7 @@ public class LocalPlayerScript : MonoBehaviour
 
     [Header("Projectiles")]
     public GameObject EnergyBall;
+    public GameObject MagicBall;
 
     void Awake()
     {
@@ -82,6 +83,16 @@ public class LocalPlayerScript : MonoBehaviour
         return CanTurn;
     }
 
+    public void CanTurnOff()
+    {
+        CanTurn = false;
+    }
+
+    public void CanTurnOn()
+    {
+        CanTurn = true;
+    }
+
     public void ColliderOn()
     {
         weaponCollider.enabled = true;
@@ -115,6 +126,28 @@ public class LocalPlayerScript : MonoBehaviour
 
 
     }
+    public void SpawnMagicBall()
+    {
+        if (player.GetManaValue() < weaponManager.manaCost)
+        {
+
+        }
+        else
+        {
+            player.SetManaValue(-weaponManager.manaCost);
 
 
-}
+            Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
+
+            GameObject NewMagicBall = Instantiate(MagicBall, ShotPoint.position, ShotPoint.rotation);
+            NewMagicBall.transform.right = direction * -1f;
+
+            NewMagicBall.GetComponent<WeaponCollider>().damage = weaponManager.damage;
+
+
+            NewMagicBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * weaponManager.force;
+        }
+    }
+
+
+    }
