@@ -42,6 +42,16 @@ public class CharacterCreationManager : MonoBehaviour
     #region GameObject List
     [Header("GameObject List")]
     [SerializeField] List<GameObject> GO_Head_Top_List = new List<GameObject>();
+    [SerializeField] List<GameObject> GO_Head_Bottom_List = new List<GameObject>();
+    [SerializeField] List<GameObject> GO_Ear_List = new List<GameObject>();
+
+    [SerializeField] List<GameObject> GO_Hair_List = new List<GameObject>();
+    [SerializeField] List<GameObject> GO_Facialhair_List = new List<GameObject>();
+
+    [SerializeField] List<GameObject> GO_Eye_List = new List<GameObject>();
+    [SerializeField] List<GameObject> GO_Eyebrow_List = new List<GameObject>();
+    [SerializeField] List<GameObject> GO_Mouth_List = new List<GameObject>();
+    [SerializeField] List<GameObject> GO_Nose_List = new List<GameObject>();
     #endregion
 
     #region Setup - Sprite List
@@ -61,8 +71,8 @@ public class CharacterCreationManager : MonoBehaviour
 
     #region GameObjects CharacterView
     [Header("GameObjects CharacterView")]
-    [SerializeField] GameObject Head_face_top_GO;
-    [SerializeField] GameObject Head_face_bottom_GO;
+    public GameObject Head_face_top_GO;
+    public GameObject Head_face_bottom_GO;
     [SerializeField] GameObject Head_ear_GO;
 
     [SerializeField] GameObject Head_hair_GO;
@@ -150,17 +160,17 @@ public class CharacterCreationManager : MonoBehaviour
 
     #region Images
     [Header("Images")]
-    [SerializeField] Image Head_face_top;
-    [SerializeField] Image Head_face_bottom;
-    [SerializeField] Image Head_ear;
+    public Image Head_face_top;
+    public Image Head_face_bottom;
+    public Image Head_ear;
 
-    [SerializeField] Image Head_hair;
-    [SerializeField] Image Head_facialhair;
+    public Image Head_hair;
+    public Image Head_facialhair;
 
-    [SerializeField] Image Head_eye;
-    [SerializeField] Image Head_eyebrow;
-    [SerializeField] Image Head_mouth;
-    [SerializeField] Image Head_nose;
+    public Image Head_eye;
+    public Image Head_eyebrow;
+    public Image Head_mouth;
+    public Image Head_nose;
     #endregion
 
     #region Colors
@@ -176,15 +186,15 @@ public class CharacterCreationManager : MonoBehaviour
     #endregion
 
     #region Bools
-    bool headTop;
-    bool headBottom;
-    bool ear;
-    bool hair;
-    bool facialhair;
-    bool eye;
-    bool eyebrow;
-    bool mouth;
-    bool nose;
+    public bool headTop;
+    public bool headBottom;
+    public bool ear;
+    public bool hair;
+    public bool facialhair;
+    public bool eye;
+    public bool eyebrow;
+    public bool mouth;
+    public bool nose;
     #endregion
 
 
@@ -255,6 +265,7 @@ public class CharacterCreationManager : MonoBehaviour
         nose = false;
 
         SetDisplayItems();
+        SetStartImages();
     }
     private void Update()
     {
@@ -264,106 +275,145 @@ public class CharacterCreationManager : MonoBehaviour
         UpdateMainImage();
 
         UpdateDisplayPanelVisibility();
-        DisplayButton_Clicked();
+        //DisplayButton_Clicked();
     }
 
 
     //--------------------
 
 
+    public void ChangeImage(Sprite sprite)
+    {
+        if (headTop)
+        {
+            Head_face_top.sprite = sprite;
+        }
+
+        if (headBottom)
+        {
+            Head_face_bottom.sprite = sprite;
+        }
+
+        if (ear)
+        {
+            Head_ear.sprite = sprite;
+        }
+
+        if (hair)
+        {
+            Head_hair.sprite = sprite;
+        }
+
+        if (facialhair)
+        {
+            Head_facialhair.sprite = sprite;
+        }
+
+        if (eye)
+        {
+            Head_eye.sprite = sprite;
+        }
+
+        if (eyebrow)
+        {
+            Head_eyebrow.sprite = sprite;
+        }
+
+        if (mouth)
+        {
+            Head_mouth.sprite = sprite;
+        }
+
+        if (nose)
+        {
+            Head_nose.sprite = sprite;
+        }
+    }
+
     void SetDisplayItems()
     {
         //Face Top
         for (int i = 0; i < face_top.Count; i++)
         {
-            GO_Head_Top_List.Add(displayPrefab);
-        }
+            GO_Head_Top_List.Add(Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity));
+            GO_Head_Top_List[i].transform.parent = Display_HeadTop.transform;
 
-        for (int i = 0; i < GO_Head_Top_List.Count; i++)
-        {
             GO_Head_Top_List[i].GetComponent<Image>().sprite = face_top[i];
-
-            (Instantiate(GO_Head_Top_List[i], new Vector3(0, 0, 0), Quaternion.identity)).transform.parent = Display_HeadTop.transform;
         }
 
         //Face Bottom
         for (int i = 0; i < face_bottom.Count; i++)
         {
-            displayPrefab.GetComponent<Image>().sprite = face_bottom[i];
+            GO_Head_Bottom_List.Add(Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity));
+            GO_Head_Bottom_List[i].transform.parent = Display_HeadBottom.transform;
 
-            (Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject).transform.parent = Display_HeadBottom.transform;
+            GO_Head_Bottom_List[i].GetComponent<Image>().sprite = face_bottom[i];
         }
 
         //Ear
         for (int i = 0; i < face_ear.Count; i++)
         {
-            displayPrefab.GetComponent<Image>().sprite = face_ear[i];
+            GO_Ear_List.Add(Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity));
+            GO_Ear_List[i].transform.parent = Display_Ear.transform;
 
-            (Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject).transform.parent = Display_Ear.transform;
+            GO_Ear_List[i].GetComponent<Image>().sprite = face_ear[i];
         }
 
         //Hair
         for (int i = 0; i < face_hair.Count; i++)
         {
-            displayPrefab.GetComponent<Image>().sprite = face_hair[i];
+            GO_Hair_List.Add(Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity));
+            GO_Hair_List[i].transform.parent = Display_Hair.transform;
 
-            (Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject).transform.parent = Display_Hair.transform;
+            GO_Hair_List[i].GetComponent<Image>().sprite = face_hair[i];
         }
 
         //Facialhair
         for (int i = 0; i < face_facialhair.Count; i++)
         {
-            displayPrefab.GetComponent<Image>().sprite = face_facialhair[i];
+            GO_Facialhair_List.Add(Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity));
+            GO_Facialhair_List[i].transform.parent = Display_Facialhair.transform;
 
-            (Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject).transform.parent = Display_Facialhair.transform;
+            GO_Facialhair_List[i].GetComponent<Image>().sprite = face_facialhair[i];
         }
 
         //Eye
         for (int i = 0; i < face_eye.Count; i++)
         {
-            displayPrefab.GetComponent<Image>().sprite = face_eye[i];
+            GO_Eye_List.Add(Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity));
+            GO_Eye_List[i].transform.parent = Display_Eye.transform;
 
-            (Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject).transform.parent = Display_Eye.transform;
+            GO_Eye_List[i].GetComponent<Image>().sprite = face_eye[i];
         }
 
         //Eyebrow
         for (int i = 0; i < face_eyebrow.Count; i++)
         {
-            displayPrefab.GetComponent<Image>().sprite = face_eyebrow[i];
+            GO_Eyebrow_List.Add(Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity));
+            GO_Eyebrow_List[i].transform.parent = Display_Eyebrow.transform;
 
-            (Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject).transform.parent = Display_Eyebrow.transform;
+            GO_Eyebrow_List[i].GetComponent<Image>().sprite = face_eyebrow[i];
         }
 
         //Mouth
         for (int i = 0; i < face_mouth.Count; i++)
         {
-            displayPrefab.GetComponent<Image>().sprite = face_mouth[i];
+            GO_Mouth_List.Add(Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity));
+            GO_Mouth_List[i].transform.parent = Display_Mouth.transform;
 
-            (Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject).transform.parent = Display_Mouth.transform;
+            GO_Mouth_List[i].GetComponent<Image>().sprite = face_mouth[i];
         }
 
         //Nose
         for (int i = 0; i < face_nose.Count; i++)
         {
-            displayPrefab.GetComponent<Image>().sprite = face_nose[i];
+            GO_Nose_List.Add(Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity));
+            GO_Nose_List[i].transform.parent = Display_Nose.transform;
 
-            (Instantiate(displayPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject).transform.parent = Display_Nose.transform;
+            GO_Nose_List[i].GetComponent<Image>().sprite = face_nose[i];
         }
     }
-
-    public void DisplayButton_Clicked()
-    {
-        for (int i = 0; i < face_top.Count; i++)
-        {
-            GO_Head_Top_List[i].GetComponent<Button>().onClick.AddListener(ChangeCharacterSprite);
-        }
-    }
-    void ChangeCharacterSprite()
-    {
-        print("A Button is clicked");
-    }
-
-    void UpdateMainImage()
+    void SetStartImages()
     {
         Head_face_top.sprite = face_top[0];
         Head_face_bottom.sprite = face_bottom[0];
@@ -376,10 +426,115 @@ public class CharacterCreationManager : MonoBehaviour
         Head_eyebrow.sprite = face_eyebrow[0];
         Head_mouth.sprite = face_mouth[0];
         Head_nose.sprite = face_nose[0];
+    }
+
+    public void DisplayButton_Clicked()
+    {
+        if (headTop)
+        {
+            for (int i = 0; i < face_top.Count; i++)
+            {
 
 
-        //---------------
+                GO_Head_Top_List[i].GetComponent<Button>().onClick.AddListener(() => ChangeCharacterSprite(i));
+            }
+        }
+        else if (headBottom)
+        {
+            for (int i = 0; i < face_bottom.Count; i++)
+            {
+                GO_Head_Bottom_List[i].GetComponent<Button>().onClick.AddListener(() => ChangeCharacterSprite(i));
+            }
+        }
+        else if (ear)
+        {
+            for (int i = 0; i < face_ear.Count; i++)
+            {
+                GO_Ear_List[i].GetComponent<Button>().onClick.AddListener(() => ChangeCharacterSprite(i));
+            }
+        }
+        else if (hair)
+        {
+            for (int i = 0; i < face_hair.Count; i++)
+            {
+                GO_Hair_List[i].GetComponent<Button>().onClick.AddListener(() => ChangeCharacterSprite(i));
+            }
+        }
+        else if (facialhair)
+        {
+            for (int i = 0; i < face_facialhair.Count; i++)
+            {
+                GO_Facialhair_List[i].GetComponent<Button>().onClick.AddListener(() => ChangeCharacterSprite(i));
+            }
+        }
+        else if (eye)
+        {
+            for (int i = 0; i < face_eye.Count; i++)
+            {
+                GO_Eye_List[i].GetComponent<Button>().onClick.AddListener(() => ChangeCharacterSprite(i));
+            }
+        }
+        else if (eyebrow)
+        {
+            for (int i = 0; i < face_eyebrow.Count; i++)
+            {
+                GO_Eyebrow_List[i].GetComponent<Button>().onClick.AddListener(() => ChangeCharacterSprite(i));
+            }
+        }
+        else if (mouth)
+        {
+            for (int i = 0; i < face_mouth.Count; i++)
+            {
+                GO_Mouth_List[i].GetComponent<Button>().onClick.AddListener(() => ChangeCharacterSprite(i));
+            }
+        }
+        else if (nose)
+        {
+            for (int i = 0; i < face_nose.Count; i++)
+            {
+                GO_Nose_List[i].GetComponent<Button>().onClick.AddListener(() => ChangeCharacterSprite(i)); 
+            }
+        }
+    }
+    void ChangeCharacterSprite(int input)
+    {
+        if (headTop)
+        {
+            //Head_face_top.sprite = GO_Head_Top_List[input].GetComponent<Image>().sprite;
 
+            print("A \"headTop\" Button is clicked: " + input);
+        }
+
+        else if(headBottom)
+        {
+            Head_face_bottom.sprite = GO_Head_Bottom_List[input].GetComponent<Image>().sprite;
+            print("A \"headBottom\" Button is clicked: " + input);
+        }
+
+        else if(ear)
+            print("A \"ear\" Button is clicked");
+
+        else if (hair)
+            print("A \"hair\" Button is clicked");
+
+        else if (facialhair)
+            print("A \"facialhair\" Button is clicked");
+
+        else if (eye)
+            print("A \"eye\" Button is clicked");
+
+        else if (eyebrow)
+            print("A \"eyebrow\" Button is clicked");
+
+        else if (mouth)
+            print("A \"mouth\" Button is clicked");
+
+        else if (nose)
+            print("A \"nose\" Button is clicked");
+    }
+
+    void UpdateMainImage()
+    {
         #region Check Visibility
         if (Head_face_top.sprite == null)
             Head_face_top_GO.SetActive(false);
@@ -469,13 +624,46 @@ public class CharacterCreationManager : MonoBehaviour
         for (int i = 0; i < face_top.Count; i++)
         {
             GO_Head_Top_List[i].GetComponent<Image>().color = color_Head_Face;
+        }
 
+        for (int i = 0; i < face_bottom.Count; i++)
+        {
+            GO_Head_Bottom_List[i].GetComponent<Image>().color = color_Head_Face;
+        }
 
-            if (GO_Head_Top_List[i].GetComponent<Image>().color == color_Head_Face)
-            {
-                //print("It works: " + GO_Head_Top_List[i].GetComponent<Image>().color);
-            }
+        for (int i = 0; i < face_ear.Count; i++)
+        {
+            GO_Ear_List[i].GetComponent<Image>().color = color_Head_Face;
+        }
 
+        for (int i = 0; i < face_hair.Count; i++)
+        {
+            GO_Hair_List[i].GetComponent<Image>().color = color_Head_Hair;
+        }
+
+        for (int i = 0; i < face_facialhair.Count; i++)
+        {
+            GO_Facialhair_List[i].GetComponent<Image>().color = color_Head_Facialhair;
+        }
+
+        for (int i = 0; i < face_eye.Count; i++)
+        {
+            GO_Eye_List[i].GetComponent<Image>().color = color_Head_Eye;
+        }
+
+        for (int i = 0; i < face_eyebrow.Count; i++)
+        {
+            GO_Eyebrow_List[i].GetComponent<Image>().color = color_Head_Eyebrow;
+        }
+
+        for (int i = 0; i < face_mouth.Count; i++)
+        {
+            GO_Mouth_List[i].GetComponent<Image>().color = color_Head_Mouth;
+        }
+
+        for (int i = 0; i < face_nose.Count; i++)
+        {
+            GO_Nose_List[i].GetComponent<Image>().color = color_Head_Nose;
         }
     }
 
