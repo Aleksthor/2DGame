@@ -9,6 +9,7 @@ public class TaskCheckIfPlayerInAttackRange : Node
     private Animator animator;
     private Transform playerTransform;
     private float attackRange;
+    private TaskWait taskWait;
    
 
     public TaskCheckIfPlayerInAttackRange(Transform AgentTransform, Transform PlayerTransform, float AttackRange)
@@ -19,11 +20,16 @@ public class TaskCheckIfPlayerInAttackRange : Node
         attackRange = AttackRange;
 
     }
+   
 
     public override NodeState Evaluate()
     {
-       
-
+        
+        if (taskWait == null)
+        {
+            taskWait = (TaskWait)parent.GetChild(1);
+        }
+        
         if ((transform.position - playerTransform.position).magnitude < attackRange)
         {
             parent.parent.SetData("target", playerTransform);
@@ -31,7 +37,12 @@ public class TaskCheckIfPlayerInAttackRange : Node
             state = NodeState.SUCCESS;
             return state;
         }
-        
+        if (taskWait.waitClock < taskWait.waitTime)
+        {
+            Debug.Log(taskWait.parent);
+            taskWait.waitClock += Time.deltaTime;
+        }
+
         state = NodeState.FAILURE;
         return state;
 
