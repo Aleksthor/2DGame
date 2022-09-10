@@ -35,16 +35,13 @@ public class WeaponManager : MonoBehaviour
     public float force;
     public float manaCost;
 
-
-
-    private WeaponCollider weaponCollider;
+    [Header("Debuff Info")]
+    public float speedMultiplier;
+    public float slowDownLength;
 
     void Awake()
     {
-        // access the script of the player weapon and initialize values
-        weaponCollider = FindObjectOfType<WeaponCollider>();
-        weaponCollider.damage = damage;
-        weaponCollider.knockBackForce = knockBackForce;
+        // access the script of the player weapon and initialize value
         player = FindObjectOfType<Player>();
 
     }
@@ -98,6 +95,9 @@ public class WeaponManager : MonoBehaviour
         knockBackForce = weapon.knockBackForce;
         force = weapon.force;
         manaCost = weapon.manaCost;
+        speedMultiplier = weapon.speedMultiplier;
+        slowDownLength = weapon.slowDownLength;
+
         currentWeapon = weapon;
 
         switch ((int)weapon.weaponType)

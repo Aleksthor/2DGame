@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class WeaponCollider : MonoBehaviour
 {
-    [Header("Weapon Variables")]
-    public float damage = 1f;
-    public float knockBackForce = 50f;
-    public float speedMultiplier = 1f;
 
 
     private WeaponManager weaponManager;
@@ -25,15 +21,14 @@ public class WeaponCollider : MonoBehaviour
     {     
         if(other.tag == "Enemy")
         {
-            damage = weaponManager.damage;
-            knockBackForce = weaponManager.knockBackForce;
-
-            LocalEnemyScript localEnemyScript = other.GetComponent<LocalEnemyScript>();
-            if(localEnemyScript != null)
-            {
-                Vector2 direction = (localEnemyScript.transform.position - gameObject.transform.position).normalized;
-                localEnemyScript.Hit(damage, direction , knockBackForce, speedMultiplier);
-            }         
+            GameEvents.current.WeaponCollission(
+                other.gameObject,
+                weaponManager.damage,
+                weaponManager.knockBackForce,
+                weaponManager.speedMultiplier,
+                weaponManager.slowDownLength,
+                gameObject.transform.position
+                ) ;       
         }
     }
 

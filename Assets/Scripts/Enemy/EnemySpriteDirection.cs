@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class EnemySpriteDirection : MonoBehaviour
 {
-    [Header("Enemy Sprite & Transform References")]
-    [SerializeField] SpriteRenderer Body;
-    [SerializeField] SpriteRenderer Head;
-    [SerializeField] SpriteRenderer Hat;
-    [SerializeField] SpriteRenderer FacialHair;
-    [SerializeField] SpriteRenderer HandRenderer;
-    [SerializeField] SpriteRenderer WeaponRenderer;
-    [SerializeField] SpriteRenderer EffectRenderer;
-    [SerializeField] Transform Hand;
-    [SerializeField] Transform Weapon;
-    [SerializeField] Transform Effect;
 
+    // Local Components
 
-    // Variables in charge of getting our direction Vector
+    private SpriteRenderer Body;
+    private SpriteRenderer Head;
+    private SpriteRenderer Hat;
+    private SpriteRenderer FacialHair;
+    private SpriteRenderer HandRenderer;
+    private SpriteRenderer WeaponRenderer;
+    private SpriteRenderer EffectRenderer;
+    private Transform Hand;
+    private Transform Weapon;
+    private Transform Effect;
+
+    // Variables in charge of getting the enemies direction vector
 
     private Vector2 Frame1;
     private Vector2 Frame2;
@@ -34,6 +35,21 @@ public class EnemySpriteDirection : MonoBehaviour
 
     // Reference to the most central enemy script
     private LocalEnemyScript localEnemyScript;
+
+    void Awake()
+    {
+        Body = transform.Find("Body").GetComponent<SpriteRenderer>();
+        Head = transform.Find("Head").GetComponent<SpriteRenderer>();
+        Hat =  transform.Find("Head").transform.Find("Hat").GetComponent<SpriteRenderer>();
+        FacialHair = transform.Find("Head").transform.Find("FacialHair").GetComponent<SpriteRenderer>();
+        HandRenderer = transform.Find("Hand").GetComponent<SpriteRenderer>();
+        WeaponRenderer = transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>();
+        EffectRenderer = transform.Find("Effects").GetComponent<SpriteRenderer>();
+
+        Hand = transform.Find("Hand").GetComponent<Transform>();
+        Weapon = transform.Find("Hand").transform.Find("Weapon").GetComponent<Transform>();
+        Effect = transform.Find("Effects").GetComponent<Transform>();
+    }
 
 
     void Start()

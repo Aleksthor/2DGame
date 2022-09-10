@@ -12,7 +12,7 @@ public class LocalEnemyScript : MonoBehaviour
     public bool hit = false;
 
 
-    // Other Components On gameObject
+    // Local Components
     private PolygonCollider2D weaponCollider;
     private Animator animator;
     private Rigidbody2D rigidBody;
@@ -42,6 +42,7 @@ public class LocalEnemyScript : MonoBehaviour
     private Transform orbSpawnPoint;
     private Transform playerTransform;
 
+
     void Start()
     {
         weaponCollider = transform.Find("Hand").transform.Find("Weapon").GetComponent<PolygonCollider2D>();
@@ -52,11 +53,23 @@ public class LocalEnemyScript : MonoBehaviour
 
         animator = gameObject.GetComponent<Animator>();
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
-
-
         maxHealth = health;
+
+
+        GameEvents.current.OnWeaponCollission += WeaponCollission;
     }
-    
+
+    private void WeaponCollission(GameObject GO, float damage, float knockbackForce, float speedMultiplier, float slowDownLength, Vector2 playerPosition)
+    {
+        if (GameObject.ReferenceEquals(GO, gameObject))
+        {
+            Vector2 direction = ((Vector2)transform.position - (Vector2)playerPosition).normalized;
+            Hit(damage, direction, knockbackForce, speedMultiplier);
+        }
+
+
+    }
+
 
     public void Update()
     {
@@ -111,11 +124,10 @@ public class LocalEnemyScript : MonoBehaviour
             health = health - Damage;
             rigidBody.AddForce(ImpactDirection * Force);
 
-
-            
         }
 
     }
+
 
     public void Destroy()
     {
@@ -123,6 +135,7 @@ public class LocalEnemyScript : MonoBehaviour
         hit = false;
         if (health <= 0)
         {
+            GameEvents.current.OnWeaponCollission -= WeaponCollission;
             Destroy(gameObject);
         }   
     }

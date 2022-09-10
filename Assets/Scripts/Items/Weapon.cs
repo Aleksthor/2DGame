@@ -27,6 +27,9 @@ public class Weapon : Item
     public float force;
     public float manaCost;
 
+    [Header("Debuff Info")]
+    public float speedMultiplier;
+    public float slowDownLength;
 
     [Header("Weapon Collider Points")]
     public double[] colliderPointX;

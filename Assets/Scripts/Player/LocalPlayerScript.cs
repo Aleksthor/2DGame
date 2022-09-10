@@ -1,33 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class LocalPlayerScript : MonoBehaviour
 {
     
     
-    private PolygonCollider2D weaponCollider;
-    private Rigidbody2D Rigidbody;
-    private Camera mainCam;
-    private WeaponManager weaponManager;
-    private Player player;
+    private PolygonCollider2D weaponCollider;   // Turn collider on with from animator
+    private WeaponManager weaponManager;        // Get weapon damage when we spawn a projectile
 
-    bool CanTurn = true;
-    bool CanMove = true;
+    public int StartingWeaponType;              // temporary int so we can initalize the animator at start
 
-    private bool Attack = false;
-    public int StartingWeaponType;
-
-    public Vector2 attackDirection;
+    // private variables
+    private bool canTurn = true;
+    private bool canMove = true;
+    private bool attack = false;
 
 
-    // Link up where we spawn our shots and our projectiles
-
-    public Transform ShotPoint;
-
+    public Transform ShotPoint;                 // Here we spawn our projectiles
+    private Camera mainCam;                     // They will move towards camera.mousePosition
+        
     [Header("Projectiles")]
     public GameObject EnergyBall;
     public GameObject MagicBall;
+
+
+    private Player player;
 
     void Awake()
     {
@@ -55,46 +54,53 @@ public class LocalPlayerScript : MonoBehaviour
 
     public bool GetAttack()
     {
-        return Attack;
+        return attack;
     }
     
-
-
     public void StartAttack()
     {
-        attackDirection = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)player.GetPlayer().transform.position;
-        Attack = true;
-        CanMove = false;
-        CanTurn = false;
+        attack = true;
+        canMove = false;
+        canTurn = false;
+        GameEvents.current.PlayerAttackStart(
+            (mainCam.ScreenToWorldPoint(Input.mousePosition) - transform.position).x, 
+            (mainCam.ScreenToWorldPoint(Input.mousePosition) - transform.position).y, 
+            true,
+            false
+            );
+
+
     }
 
 
     public void StopAttack()
     {
-        Attack = false;
-        CanMove = true;
-        CanTurn = true;
+        attack = false;
+        canMove = true;
+        canTurn = true;
+        GameEvents.current.PlayerAttackEnd(false, true);
+
     }
 
     public bool GetCanMove()
     {
-        return CanMove;
+        return canMove;
     }
 
     public bool GetCanTurn()
     {
-        return CanTurn;
+        return canTurn;
     }
 
 
     public void CanTurnOff()
     {
-        CanTurn = false;
+        canTurn = false;
     }
 
     public void CanTurnOn()
     {
-        CanTurn = true;
+        canTurn = true;
     }
 
     public void ColliderOn()
@@ -121,10 +127,6 @@ public class LocalPlayerScript : MonoBehaviour
 
             GameObject NewEnergyBall = Instantiate(EnergyBall, ShotPoint.position, ShotPoint.rotation);
             NewEnergyBall.transform.right = direction * -1f;
-
-            NewEnergyBall.GetComponent<WeaponCollider>().damage = weaponManager.damage;
-
-
             NewEnergyBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * weaponManager.force;
         }
 
@@ -140,16 +142,12 @@ public class LocalPlayerScript : MonoBehaviour
         {
             player.SetManaValue(-weaponManager.manaCost);
 
-
             Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
 
             GameObject NewMagicBall = Instantiate(MagicBall, ShotPoint.position, ShotPoint.rotation);
             NewMagicBall.transform.right = direction * -1f;
-
-            NewMagicBall.GetComponent<WeaponCollider>().damage = weaponManager.damage;
-
-
             NewMagicBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * weaponManager.force;
+
         }
     }
 

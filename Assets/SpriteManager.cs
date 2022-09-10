@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SpriteManager : MonoBehaviour
 {
@@ -36,6 +37,11 @@ public class SpriteManager : MonoBehaviour
 
     private Camera mainCam;
 
+    
+    private Vector2 attackDirection;        // Direction the player should face
+    private bool attack;                    // Are we attacking right now?
+    private bool canTurn;                   // Are we allowed to turn right now?
+
     private void Awake()
     {
         player = FindObjectOfType<Player>();
@@ -66,13 +72,31 @@ public class SpriteManager : MonoBehaviour
 
         weaponManager = FindObjectOfType<WeaponManager>();
 
+
+        // GameEvents
+        GameEvents.current.OnPlayerAttack += PlayerAttackStart;
+        GameEvents.current.EndPlayerAttack += PlayerAttackEnd;
+    }
+
+    private void PlayerAttackStart(float x, float y, bool a, bool t)
+    {
+        attackDirection.x = x;
+        attackDirection.y = y;
+        attack = a;
+        canTurn = t;
+    }
+
+    private void PlayerAttackEnd(bool a, bool t)
+    {
+        canTurn = t;
+        attack = a;
     }
 
 
 
     void LateUpdate()
     {
-        if (localPlayerScript.GetCanTurn())
+        if (canTurn)
         {
             if (buttonInput.GetMovementX() > 0 || FlipLastInput)
             {
@@ -156,12 +180,8 @@ public class SpriteManager : MonoBehaviour
 
 
 
-            if (localPlayerScript.GetAttack())
+            if (attack)
             {
-
-                Vector2 Direction = localPlayerScript.attackDirection.normalized;
-
-
                 switch ((int)weaponManager.currentWeapon.weaponType)
                 {
                     case 0: // Blunt
@@ -169,9 +189,9 @@ public class SpriteManager : MonoBehaviour
                         break;
                     case 1: // Dagger
                         float Distance = ((Vector2)Hand.transform.position - (Vector2)playerObject.transform.position).magnitude;
-                        Hand.transform.localPosition = Direction / 4f * Distance;
-                        Hand.transform.up = Direction;
-                        Effects.transform.right = Direction * -1f;
+                        Hand.transform.localPosition = attackDirection.normalized / 4f * Distance;
+                        Hand.transform.up = attackDirection;
+                        Effects.transform.right = attackDirection * -1f;
                         Effects.transform.localPosition = Hand.transform.localPosition;
 
                         if (FlipLastInput)
@@ -192,7 +212,7 @@ public class SpriteManager : MonoBehaviour
                     default:
                         break;
                 }
-                if (Direction.x > 0f)
+                if (attackDirection.x > 0f)
                 {
                     FlipLastInput = true;
                 }
@@ -207,11 +227,6 @@ public class SpriteManager : MonoBehaviour
 
         }
 
-
-        //if (localPlayerScript.GetAttack())
-        //{
-
-        //}
     }
 
 
