@@ -86,6 +86,7 @@ public class WeaponManager : MonoBehaviour
     public void ChangeWeapon(Weapon weapon)
     {
         GameEvents.current.ChangeWeapon(weapon);
+        GameEvents.current.ChangeStats(weapon.damage, weapon.knockBackForce, weapon.speedMultiplier, weapon.slowDownLength, weapon.manaCost, weapon.force);
 
         var weaponPoints = playerWeaponCollider.points;
         int totalPoints = weaponPoints.Length;

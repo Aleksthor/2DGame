@@ -64,4 +64,13 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+    public event Action<float, float, float, float, float, float> OnChangeStats;
+    public void ChangeStats(float damage, float knockbackForce, float speedMultiplier, float slowDownLength, float manaCost, float force)
+    {
+        if (OnChangeStats != null)
+        {
+            OnChangeStats(damage, knockbackForce, speedMultiplier, slowDownLength, manaCost, force);
+        }
+    }
+
 }

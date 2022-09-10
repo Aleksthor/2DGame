@@ -8,7 +8,6 @@ public class LocalPlayerScript : MonoBehaviour
     
     
     private PolygonCollider2D weaponCollider;   // Turn collider on with from animator
-    private WeaponManager weaponManager;        // Get weapon damage when we spawn a projectile
 
     public int StartingWeaponType;              // temporary int so we can initalize the animator at start
 
@@ -24,6 +23,9 @@ public class LocalPlayerScript : MonoBehaviour
     [Header("Projectiles")]
     public GameObject EnergyBall;
     public GameObject MagicBall;
+
+    private float manaCost = 3;
+    [SerializeField] private float force = 10;
 
 
     private Player player;
@@ -42,14 +44,12 @@ public class LocalPlayerScript : MonoBehaviour
 
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
-        weaponManager = FindObjectOfType<WeaponManager>();
 
         Animator animator = gameObject.GetComponent<Animator>();
         animator.SetInteger("WeaponType", StartingWeaponType);
 
-
+        GameEvents.current.OnChangeStats += ChangeStats;
     }
-
 
 
 
@@ -115,42 +115,48 @@ public class LocalPlayerScript : MonoBehaviour
 
     public void SpawnEnergyBall()
     {
-        if(player.GetManaValue() < weaponManager.manaCost)
+        if(player.GetManaValue() < manaCost)
         {
 
         }
         else
         {
-            player.SetManaValue(-weaponManager.manaCost);
+            player.SetManaValue(-manaCost);
 
 
             Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
 
             GameObject NewEnergyBall = Instantiate(EnergyBall, ShotPoint.position, ShotPoint.rotation);
             NewEnergyBall.transform.right = direction * -1f;
-            NewEnergyBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * weaponManager.force;
+            NewEnergyBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
         }
 
 
     }
     public void SpawnMagicBall()
     {
-        if (player.GetManaValue() < weaponManager.manaCost)
+        if (player.GetManaValue() < manaCost)
         {
 
         }
         else
         {
-            player.SetManaValue(-weaponManager.manaCost);
+            player.SetManaValue(-manaCost);
 
             Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
 
             GameObject NewMagicBall = Instantiate(MagicBall, ShotPoint.position, ShotPoint.rotation);
             NewMagicBall.transform.right = direction * -1f;
-            NewMagicBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * weaponManager.force;
+            NewMagicBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
 
         }
     }
 
+
+    private void ChangeStats(float Damage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force)
+    {
+        manaCost = ManaCost;
+        force = Force;
+    }
 
 }

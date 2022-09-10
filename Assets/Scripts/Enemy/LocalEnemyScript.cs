@@ -153,12 +153,6 @@ public class LocalEnemyScript : MonoBehaviour
     }
 
 
-    public float GetSpeedMultiplier()
-    {
-        return speedMultiplier;
-    }
-
-
     public void SpawnOrb()
     {
         if (orbSpawnPoint == null)
@@ -190,5 +184,10 @@ public class LocalEnemyScript : MonoBehaviour
         GameObject NewOrb = Instantiate(MageShard, orbSpawnPoint.position, orbSpawnPoint.rotation);
         NewOrb.GetComponent<Rigidbody2D>().velocity = (playerTransform.position - transform.position).normalized * 10f;
         NewOrb.transform.right = (playerTransform.position - transform.position) * -1f;
+    }
+
+    public float GetSpeedMultiplier()
+    {
+        return speedMultiplier;
     }
 }
