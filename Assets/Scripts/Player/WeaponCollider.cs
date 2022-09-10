@@ -18,7 +18,7 @@ public class WeaponCollider : MonoBehaviour
         GameEvents.current.OnChangeStats += ChangeStats;
     }
 
-    private void ChangeStats(float Damage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force)
+    private void ChangeStats(float Damage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, Vector2 localPosition)
     {
         damage = Damage;
         knockbackForce = KnockBackForce;

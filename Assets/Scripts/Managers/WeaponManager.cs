@@ -79,7 +79,7 @@ public class WeaponManager : MonoBehaviour
     {
         GameEvents.current.ChangeWeapon(weapon);
         GameEvents.current.ChangeStats(weapon.damage, weapon.knockBackForce, weapon.speedMultiplier, weapon.slowDownLength, weapon.manaCost, weapon.force, weapon.localPosition);
-        GameEvents.current.ChangeCollider(weapon.colliderPointX, weapon.colliderPointY);
+        GameEvents.current.ChangeWeaponCollider(weapon.colliderPointX, weapon.colliderPointY);
 
 
         damage = weapon.damage;

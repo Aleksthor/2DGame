@@ -74,23 +74,23 @@ public class GameEvents : MonoBehaviour
     // When we want to change the stats in player. Make a similar event if you cant pass in all variables
 
 
-    public event Action<float, float, float, float, float, float> OnChangeStats;
-    public void ChangeStats(float damage, float knockbackForce, float speedMultiplier, float slowDownLength, float manaCost, float force)
+    public event Action<float, float, float, float, float, float, Vector2> OnChangeStats;
+    public void ChangeStats(float damage, float knockbackForce, float speedMultiplier, float slowDownLength, float manaCost, float force, Vector2 localPosition)
     {
         if (OnChangeStats != null)
         {
-            OnChangeStats(damage, knockbackForce, speedMultiplier, slowDownLength, manaCost, force);
+            OnChangeStats(damage, knockbackForce, speedMultiplier, slowDownLength, manaCost, force, localPosition);
         }
     }
 
     // Change the weapon Collider
 
     public event Action<double[], double[]> OnChangeWeaponCollider;
-    public void ChangeWeaponCollider()
+    public void ChangeWeaponCollider(double[] x , double[] y)
     {
         if (OnChangeWeaponCollider != null)
         {
-            OnChangeWeaponCollider(double[] x, double[] y);
+            OnChangeWeaponCollider(x, y);
         }
     }
 

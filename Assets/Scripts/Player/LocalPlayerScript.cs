@@ -5,9 +5,6 @@ using System;
 
 public class LocalPlayerScript : MonoBehaviour
 {
-    
-    
-    private PolygonCollider2D weaponCollider;   // Turn collider on with from animator
 
     public int StartingWeaponType;              // temporary int so we can initalize the animator at start
 
@@ -19,7 +16,10 @@ public class LocalPlayerScript : MonoBehaviour
 
     public Transform ShotPoint;                 // Here we spawn our projectiles
     private Camera mainCam;                     // They will move towards camera.mousePosition
-        
+    private PolygonCollider2D weaponCollider;   // Turn collider on with from animator
+
+    private Player player;
+
     [Header("Projectiles")]
     public GameObject EnergyBall;
     public GameObject MagicBall;
@@ -37,7 +37,7 @@ public class LocalPlayerScript : MonoBehaviour
 
     void Start()
     {
-
+        player = FindObjectOfType<Player>();
         weaponCollider.enabled = false;
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
@@ -46,7 +46,7 @@ public class LocalPlayerScript : MonoBehaviour
         animator.SetInteger("WeaponType", StartingWeaponType);
 
         GameEvents.current.OnChangeStats += ChangeStats;
-        GameEvents.current.OnChangeCollider += ChangeCollider;
+        GameEvents.current.OnChangeWeaponCollider += ChangeCollider;
     }
 
 
