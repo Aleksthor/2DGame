@@ -25,30 +25,44 @@ public class LocalPlayerScript : MonoBehaviour
     public GameObject MagicBall;
 
     private float manaCost = 3;
-    [SerializeField] private float force = 10;
+    private float force = 10;
 
 
-    private Player player;
 
     void Awake()
     {
-        player = FindObjectOfType<Player>();
+        weaponCollider = transform.Find("Hand").transform.Find("Weapon").GetComponent<PolygonCollider2D>();
     }
 
 
     void Start()
     {
 
-        weaponCollider = transform.Find("Hand").transform.Find("Weapon").GetComponent<PolygonCollider2D>();
         weaponCollider.enabled = false;
-
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
-
+        // TEMPORARY
         Animator animator = gameObject.GetComponent<Animator>();
         animator.SetInteger("WeaponType", StartingWeaponType);
 
         GameEvents.current.OnChangeStats += ChangeStats;
+        GameEvents.current.OnChangeCollider += ChangeCollider;
+    }
+
+
+    void ChangeCollider(double[] x, double[] y)
+    {
+        var weaponPoints = weaponCollider.points;
+        int totalPoints = weaponPoints.Length;
+
+        // Change my weapon points
+        for (int i = 0; i < totalPoints; i++)
+        {
+            weaponPoints[i].x = (float)x[i];
+            weaponPoints[i].y = (float)y[i];
+        }
+
+        weaponCollider.points = weaponPoints;
     }
 
 
@@ -153,10 +167,11 @@ public class LocalPlayerScript : MonoBehaviour
     }
 
 
-    private void ChangeStats(float Damage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force)
+    private void ChangeStats(float Damage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, Vector2 localPosition)
     {
         manaCost = ManaCost;
         force = Force;
+        transform.Find("Hand").transform.Find("Weapon").transform.localPosition = localPosition;
     }
 
 }

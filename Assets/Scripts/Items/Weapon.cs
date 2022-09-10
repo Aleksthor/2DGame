@@ -17,6 +17,8 @@ public class Weapon : Item
         Wand
     };
 
+    public Vector2 localPosition;
+
 
     [Header("Weapon Variables")]
     public WeaponType weaponType;

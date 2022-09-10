@@ -14,10 +14,7 @@ public class WeaponManager : MonoBehaviour
     public Weapon currentWeapon;
 
     // Player components
-    private SpriteRenderer playerWeaponRenderer;
-    private Transform weaponTransform;
     private Animator animator;
-    private PolygonCollider2D playerWeaponCollider;
     private Player player;
 
     Vector2 clubPos = new Vector2(0.01f, 0.1f);
@@ -48,12 +45,7 @@ public class WeaponManager : MonoBehaviour
 
     void Start()
     {
-
-        playerWeaponRenderer = player.GetPlayer().transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>();
-        weaponTransform = player.GetPlayer().transform.Find("Hand").transform.Find("Weapon").GetComponent<Transform>();
         animator = player.GetPlayer().GetComponent<Animator>();
-        playerWeaponCollider = player.GetPlayer().transform.Find("Hand").transform.Find("Weapon").GetComponent<PolygonCollider2D>();
-
     }
 
 
@@ -86,10 +78,9 @@ public class WeaponManager : MonoBehaviour
     public void ChangeWeapon(Weapon weapon)
     {
         GameEvents.current.ChangeWeapon(weapon);
-        GameEvents.current.ChangeStats(weapon.damage, weapon.knockBackForce, weapon.speedMultiplier, weapon.slowDownLength, weapon.manaCost, weapon.force);
+        GameEvents.current.ChangeStats(weapon.damage, weapon.knockBackForce, weapon.speedMultiplier, weapon.slowDownLength, weapon.manaCost, weapon.force, weapon.localPosition);
+        GameEvents.current.ChangeCollider(weapon.colliderPointX, weapon.colliderPointY);
 
-        var weaponPoints = playerWeaponCollider.points;
-        int totalPoints = weaponPoints.Length;
 
         damage = weapon.damage;
         knockBackForce = weapon.knockBackForce;
@@ -103,36 +94,26 @@ public class WeaponManager : MonoBehaviour
         switch ((int)weapon.weaponType)
         {
             case 0: // Blunt
-                weaponTransform.localPosition = clubPos;
                 animator.SetInteger("WeaponType", 0);
                 break;
             case 1: // Dagger
-                weaponTransform.localPosition = daggerPos;
                 animator.SetInteger("WeaponType", 1);
                 break;
             case 2: // Sword
-                weaponTransform.localPosition = swordPos;
                 animator.SetInteger("WeaponType", 2);
                 break;
             case 3: // Staff
-                weaponTransform.localPosition = staffPos;
                 animator.SetInteger("WeaponType", 3);
                 break;
             case 4: // Wand
-                weaponTransform.localPosition = wandPos;
                 animator.SetInteger("WeaponType", 4);
                 break;
             default:
                 break;
         }
 
-        // Change my weapon points
-        for (int i = 0; i < totalPoints; i++)
-        {
-            weaponPoints[i].x = (float)weapon.colliderPointX[i];
-            weaponPoints[i].y = (float)weapon.colliderPointY[i];
-        }
 
-        playerWeaponCollider.points = weaponPoints;
+
+        
     }
 }

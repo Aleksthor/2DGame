@@ -46,14 +46,7 @@ public class GameEvents : MonoBehaviour
     }
 
 
-    public event Action<Weapon> OnChangeWeapon;
-    public void ChangeWeapon(Weapon weapon)
-    {
-        if (OnChangeWeapon != null)
-        {
-            OnChangeWeapon(weapon);
-        }
-    }
+    // When the enemy hits us
 
     public event Action<float, float> OnEnemyWeaponCollission;
     public void EnemyWeaponCollission(float damage, float knockbackForce)
@@ -64,12 +57,40 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+
+    // Change Weapon Sprite on the player
+
+
+    public event Action<Weapon> OnChangeWeapon;
+    public void ChangeWeapon(Weapon weapon)
+    {
+        if (OnChangeWeapon != null)
+        {
+            OnChangeWeapon(weapon);
+        }
+    }
+
+
+    // When we want to change the stats in player. Make a similar event if you cant pass in all variables
+
+
     public event Action<float, float, float, float, float, float> OnChangeStats;
     public void ChangeStats(float damage, float knockbackForce, float speedMultiplier, float slowDownLength, float manaCost, float force)
     {
         if (OnChangeStats != null)
         {
             OnChangeStats(damage, knockbackForce, speedMultiplier, slowDownLength, manaCost, force);
+        }
+    }
+
+    // Change the weapon Collider
+
+    public event Action<double[], double[]> OnChangeWeaponCollider;
+    public void ChangeWeaponCollider()
+    {
+        if (OnChangeWeaponCollider != null)
+        {
+            OnChangeWeaponCollider(double[] x, double[] y);
         }
     }
 
