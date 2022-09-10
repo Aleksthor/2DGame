@@ -18,6 +18,8 @@ public class LocalPlayerScript : MonoBehaviour
     private bool Attack = false;
     public int StartingWeaponType;
 
+    public Vector2 attackDirection;
+
 
     // Link up where we spawn our shots and our projectiles
 
@@ -60,6 +62,7 @@ public class LocalPlayerScript : MonoBehaviour
 
     public void StartAttack()
     {
+        attackDirection = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)player.GetPlayer().transform.position;
         Attack = true;
         CanMove = false;
         CanTurn = false;
@@ -82,6 +85,7 @@ public class LocalPlayerScript : MonoBehaviour
     {
         return CanTurn;
     }
+
 
     public void CanTurnOff()
     {
@@ -150,4 +154,4 @@ public class LocalPlayerScript : MonoBehaviour
     }
 
 
-    }
+}

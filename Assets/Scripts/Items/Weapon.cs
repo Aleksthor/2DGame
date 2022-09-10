@@ -10,7 +10,7 @@ public class Weapon : Item
 
     public enum WeaponType
     {
-        Club,
+        Blunt,
         Dagger,
         Sword,
         Staff, 

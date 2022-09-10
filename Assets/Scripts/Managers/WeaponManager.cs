@@ -11,6 +11,8 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] Weapon weapon2;
     [SerializeField] Weapon weapon3;
 
+    public Weapon currentWeapon;
+
     // Player components
     private SpriteRenderer playerWeaponRenderer;
     private Transform weaponTransform;
@@ -55,6 +57,7 @@ public class WeaponManager : MonoBehaviour
         weaponTransform = player.GetPlayer().transform.Find("Hand").transform.Find("Weapon").GetComponent<Transform>();
         animator = player.GetPlayer().GetComponent<Animator>();
         playerWeaponCollider = player.GetPlayer().transform.Find("Hand").transform.Find("Weapon").GetComponent<PolygonCollider2D>();
+
     }
 
 
@@ -95,27 +98,27 @@ public class WeaponManager : MonoBehaviour
         knockBackForce = weapon.knockBackForce;
         force = weapon.force;
         manaCost = weapon.manaCost;
-
+        currentWeapon = weapon;
 
         switch ((int)weapon.weaponType)
         {
-            case 0:
+            case 0: // Blunt
                 weaponTransform.localPosition = clubPos;
                 animator.SetInteger("WeaponType", 0);
                 break;
-            case 1:
+            case 1: // Dagger
                 weaponTransform.localPosition = daggerPos;
                 animator.SetInteger("WeaponType", 1);
                 break;
-            case 2:
+            case 2: // Sword
                 weaponTransform.localPosition = swordPos;
                 animator.SetInteger("WeaponType", 2);
                 break;
-            case 3:
+            case 3: // Staff
                 weaponTransform.localPosition = staffPos;
                 animator.SetInteger("WeaponType", 3);
                 break;
-            case 4:
+            case 4: // Wand
                 weaponTransform.localPosition = wandPos;
                 animator.SetInteger("WeaponType", 4);
                 break;

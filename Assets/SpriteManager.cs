@@ -32,10 +32,11 @@ public class SpriteManager : MonoBehaviour
     private GameObject playerObject;
     private Transform PivotPoint;
     private GameObject HandObject;
+    private WeaponManager weaponManager;
 
     private Camera mainCam;
 
-    void Awake()
+    private void Awake()
     {
         player = FindObjectOfType<Player>();
         playerObject = player.GetPlayer();
@@ -54,6 +55,7 @@ public class SpriteManager : MonoBehaviour
 
         HandObject = playerObject.transform.Find("Hand").gameObject;
         PivotPoint = playerObject.transform.Find("PivotPoint").GetComponent<Transform>();
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     private void Start()
@@ -61,7 +63,9 @@ public class SpriteManager : MonoBehaviour
         buttonInput = FindObjectOfType<ButtonInput>();
         localPlayerScript = playerObject.GetComponent<LocalPlayerScript>();
 
-        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
+        weaponManager = FindObjectOfType<WeaponManager>();
+
     }
 
 
@@ -148,6 +152,54 @@ public class SpriteManager : MonoBehaviour
 
                 FlipLastInput = false;
 
+            }
+
+
+
+            if (localPlayerScript.GetAttack())
+            {
+
+                Vector2 Direction = localPlayerScript.attackDirection.normalized;
+
+
+                switch ((int)weaponManager.currentWeapon.weaponType)
+                {
+                    case 0: // Blunt
+
+                        break;
+                    case 1: // Dagger
+                        float Distance = ((Vector2)Hand.transform.position - (Vector2)playerObject.transform.position).magnitude;
+                        Hand.transform.localPosition = Direction / 4f * Distance;
+                        Hand.transform.up = Direction;
+                        Effects.transform.right = Direction * -1f;
+                        Effects.transform.localPosition = Hand.transform.localPosition;
+
+                        if (FlipLastInput)
+                        {
+                            EffectsSprite.flipX = false;
+                        }
+                        
+                        break;
+                    case 2: // Sword
+   
+                        break;
+                    case 3: // Staff
+
+                        break;
+                    case 4: // Wand
+
+                        break;
+                    default:
+                        break;
+                }
+                if (Direction.x > 0f)
+                {
+                    FlipLastInput = true;
+                }
+                else
+                {
+                    FlipLastInput = false;
+                }
             }
 
 
