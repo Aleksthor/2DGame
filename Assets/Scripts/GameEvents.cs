@@ -85,13 +85,27 @@ public class GameEvents : MonoBehaviour
 
     // Change the weapon Collider
 
-    public event Action<double[], double[]> OnChangeWeaponCollider;
-    public void ChangeWeaponCollider(double[] x , double[] y)
+    public event Action<double[], double[], int> OnChangeWeaponCollider;
+    public void ChangeWeaponCollider(double[] x , double[] y, int weaponType)
     {
         if (OnChangeWeaponCollider != null)
         {
-            OnChangeWeaponCollider(x, y);
+            OnChangeWeaponCollider(x, y, weaponType);
         }
     }
+
+
+    // Make the enemy Agro the player
+
+    public event Action<GameObject> OnEnemyAgro;
+    public void EnemyAgro(GameObject gameObject)
+    {
+        if (OnEnemyAgro != null)
+        {
+            OnEnemyAgro(gameObject);
+        }
+    }
+
+
 
 }

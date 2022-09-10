@@ -17,15 +17,9 @@ public class Weapon : Item
         Wand
     };
 
-    public float localX;
-    public float localY;
+
     public Vector2 localPosition;
 
-    public Weapon()
-    {
-        localPosition.x = localX;
-        localPosition.y = localY;   
-    }
 
 
     [Header("Weapon Variables")]

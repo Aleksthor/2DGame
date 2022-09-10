@@ -109,6 +109,8 @@ public class LocalEnemyScript : MonoBehaviour
     {
         if (!damaged)
         {
+
+            GameEvents.current.EnemyAgro(gameObject);
             speedMultiplier = slowdownRatio;
             damaged = true;
 

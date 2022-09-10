@@ -19,6 +19,7 @@ public class LocalPlayerScript : MonoBehaviour
     private PolygonCollider2D weaponCollider;   // Turn collider on with from animator
 
     private Player player;
+    private Animator animator;
 
     [Header("Projectiles")]
     public GameObject EnergyBall;
@@ -42,15 +43,16 @@ public class LocalPlayerScript : MonoBehaviour
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
         // TEMPORARY
-        Animator animator = gameObject.GetComponent<Animator>();
+        animator = gameObject.GetComponent<Animator>();
         animator.SetInteger("WeaponType", StartingWeaponType);
 
         GameEvents.current.OnChangeStats += ChangeStats;
         GameEvents.current.OnChangeWeaponCollider += ChangeCollider;
+
     }
 
 
-    void ChangeCollider(double[] x, double[] y)
+    void ChangeCollider(double[] x, double[] y, int weaponType)
     {
         var weaponPoints = weaponCollider.points;
         int totalPoints = weaponPoints.Length;
@@ -63,6 +65,28 @@ public class LocalPlayerScript : MonoBehaviour
         }
 
         weaponCollider.points = weaponPoints;
+
+
+        switch (weaponType)
+        {
+            case 0: // Blunt
+                animator.SetInteger("WeaponType", 0);
+                break;
+            case 1: // Dagger
+                animator.SetInteger("WeaponType", 1);
+                break;
+            case 2: // Sword
+                animator.SetInteger("WeaponType", 2);
+                break;
+            case 3: // Staff
+                animator.SetInteger("WeaponType", 3);
+                break;
+            case 4: // Wand
+                animator.SetInteger("WeaponType", 4);
+                break;
+            default:
+                break;
+        }
     }
 
 
@@ -96,6 +120,12 @@ public class LocalPlayerScript : MonoBehaviour
         GameEvents.current.PlayerAttackEnd(false, true);
 
     }
+
+    public void StartOnlyAttack()
+    {
+        attack = true;
+    }
+
 
     public bool GetCanMove()
     {
@@ -172,6 +202,8 @@ public class LocalPlayerScript : MonoBehaviour
         manaCost = ManaCost;
         force = Force;
         transform.Find("Hand").transform.Find("Weapon").transform.localPosition = localPosition;
+
+
     }
 
 }

@@ -45,7 +45,7 @@ public class ArcMageBT : Tree
             }),
             new Sequence(new List<Node>
             {
-                new TaskMaxRange(transform, playerTransform, FOV),
+                new TaskCheckPlayerInFOV(transform, playerTransform, FOV),
                 new TaskGoToPlayer(transform, playerTransform, MovementSpeed),
             }),
             new TaskPatrol(transform, MovementSpeed),
