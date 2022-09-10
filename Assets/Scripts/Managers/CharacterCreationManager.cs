@@ -205,23 +205,31 @@ public class CharacterCreationManager : MonoBehaviour
 
     #region SaveCharacterVariables
     //Sprites
-    Sprite saved_Head_Top;
-    Sprite saved_Head_Bottom;
-    Sprite saved_Ear;
-    Sprite saved_Hair;
-    Sprite saved_Facialhair;
-    Sprite saved_Eye;
-    Sprite saved_Eyebrow;
-    Sprite saved_Mouth;
-    Sprite saved_Nose;
+    public Sprite saved_Head_Top;
+    public Sprite saved_Head_Bottom;
+    public Sprite saved_Ear;
+    public Sprite saved_Hair;
+    public Sprite saved_Facialhair;
+    public Sprite saved_Eye;
+    public Sprite saved_Eyebrow;
+    public Sprite saved_Mouth;
+    public Sprite saved_Nose;
 
     //Position
-    Vector2 saved_Local_Hair;
-    Vector2 saved_Local_Facialhair;
-    Vector2 saved_Local_Eye;
-    Vector2 saved_Local_Eyebrow;
-    Vector2 saved_Local_Mouth;
-    Vector2 saved_Local_Nose;
+    public Vector2 saved_Local_Hair;
+    public Vector2 saved_Local_Facialhair;
+    public Vector2 saved_Local_Eye;
+    public Vector2 saved_Local_Eyebrow;
+    public Vector2 saved_Local_Mouth;
+    public Vector2 saved_Local_Nose;
+    #endregion
+
+    #region Side Scroller
+    [Header("Side Scroller")]
+    [SerializeField] GameObject SideScrollContent;
+    [SerializeField] Scrollbar scrollbar_Vertical;
+    int SideScrollSize_Height = 430;
+    int SideScrollSize_Width = 0;
     #endregion
 
 
@@ -677,8 +685,7 @@ public class CharacterCreationManager : MonoBehaviour
         }
     }
 
-    #region Color on handle of slider changes with value once clicked and dragged
-
+    //Slider Handle Color Change
     #region Head Face
     public void Head_Face_handleColor_R()
     {
@@ -796,8 +803,6 @@ public class CharacterCreationManager : MonoBehaviour
     }
     #endregion
 
-    #endregion
-
 
     //--------------------
 
@@ -806,15 +811,32 @@ public class CharacterCreationManager : MonoBehaviour
     public void ConfirmButton()
     {
         //Sprites
-        saved_Head_Top = Head_face_top_GO.GetComponent<Image>().sprite;
-        saved_Head_Bottom = Head_face_bottom_GO.GetComponent<Image>().sprite;
-        saved_Ear = Head_ear_GO.GetComponent<Image>().sprite;
-        saved_Hair = Head_hair_GO.GetComponent<Image>().sprite;
-        saved_Facialhair = Head_facialhair_GO.GetComponent<Image>().sprite;
-        saved_Eye = Head_eye_GO.GetComponent<Image>().sprite;
-        saved_Eyebrow = Head_eyebrow_GO.GetComponent<Image>().sprite;
-        saved_Mouth = Head_mouth_GO.GetComponent<Image>().sprite;
-        saved_Nose = Head_nose_GO.GetComponent<Image>().sprite;
+        if (Head_face_top_GO.GetComponent<Image>().sprite != null)
+            saved_Head_Top = Head_face_top_GO.GetComponent<Image>().sprite;
+
+        if (Head_face_bottom_GO.GetComponent<Image>().sprite != null)
+            saved_Head_Bottom = Head_face_bottom_GO.GetComponent<Image>().sprite;
+
+        if (Head_ear_GO.GetComponent<Image>().sprite != null)
+            saved_Ear = Head_ear_GO.GetComponent<Image>().sprite;
+
+        if (Head_hair_GO.GetComponent<Image>().sprite != null)
+            saved_Hair = Head_hair_GO.GetComponent<Image>().sprite;
+
+        if (Head_facialhair_GO.GetComponent<Image>().sprite != null)
+            saved_Facialhair = Head_facialhair_GO.GetComponent<Image>().sprite;
+
+        if (Head_eye_GO.GetComponent<Image>().sprite != null)
+            saved_Eye = Head_eye_GO.GetComponent<Image>().sprite;
+
+        if (Head_eyebrow_GO.GetComponent<Image>().sprite != null)
+            saved_Eyebrow = Head_eyebrow_GO.GetComponent<Image>().sprite;
+
+        if (Head_mouth_GO.GetComponent<Image>().sprite != null)
+            saved_Mouth = Head_mouth_GO.GetComponent<Image>().sprite;
+
+        if (Head_nose_GO.GetComponent<Image>().sprite != null)
+            saved_Nose = Head_nose_GO.GetComponent<Image>().sprite;
 
         //Position
         saved_Local_Hair = Head_hair_GO.transform.position;
@@ -824,27 +846,47 @@ public class CharacterCreationManager : MonoBehaviour
         saved_Local_Mouth = Head_mouth_GO.transform.position;
         saved_Local_Nose = Head_nose_GO.transform.position;
 
-        print("saved_Head_Top: " + saved_Head_Top.name);
-        print("saved_Head_Bottom: " + saved_Head_Bottom.name);
-        print("saved_Ear: " + saved_Ear.name);
-        print("saved_Hair: " + saved_Hair.name);
-        print("saved_Facialhair: " + saved_Facialhair.name);
-        print("saved_Eye: " + saved_Eye.name);
-        print("saved_Eyebrow: " + saved_Eyebrow.name);
-        print("saved_Mouth: " + saved_Mouth.name);
-        print("saved_Nose: " + saved_Nose.name);
+        //print("saved_Head_Top: " + saved_Head_Top.name);
+        //print("saved_Head_Bottom: " + saved_Head_Bottom.name);
+        //print("saved_Ear: " + saved_Ear.name);
+        //print("saved_Hair: " + saved_Hair.name);
+        //print("saved_Facialhair: " + saved_Facialhair.name);
+        //print("saved_Eye: " + saved_Eye.name);
+        //print("saved_Eyebrow: " + saved_Eyebrow.name);
+        //print("saved_Mouth: " + saved_Mouth.name);
+        //print("saved_Nose: " + saved_Nose.name);
 
-        print("saved_Local_Hair.x: " + saved_Local_Hair.x + " | saved_Local_Hair.y" + saved_Local_Hair.y);
-        print("saved_Local_Facialhair.x: " + saved_Local_Facialhair.x + " | saved_Local_Facialhair.y" + saved_Local_Facialhair.y);
-        print("saved_Local_Eye.x: " + saved_Local_Eye.x + " | saved_Local_Eye.y" + saved_Local_Eye.y);
-        print("saved_Local_Eyebrow.x: " + saved_Local_Eyebrow.x + " | saved_Local_Eyebrow.y" + saved_Local_Eyebrow.y);
-        print("saved_Local_Mouth.x: " + saved_Local_Mouth.x + " | saved_Local_Mouth.y" + saved_Local_Mouth.y);
-        print("saved_Local_Nose.x: " + saved_Local_Nose.x + " | saved_Local_Nose.y" + saved_Local_Nose.y);
+        //print("saved_Local_Hair.x: " + saved_Local_Hair.x + " | saved_Local_Hair.y" + saved_Local_Hair.y);
+        //print("saved_Local_Facialhair.x: " + saved_Local_Facialhair.x + " | saved_Local_Facialhair.y" + saved_Local_Facialhair.y);
+        //print("saved_Local_Eye.x: " + saved_Local_Eye.x + " | saved_Local_Eye.y" + saved_Local_Eye.y);
+        //print("saved_Local_Eyebrow.x: " + saved_Local_Eyebrow.x + " | saved_Local_Eyebrow.y" + saved_Local_Eyebrow.y);
+        //print("saved_Local_Mouth.x: " + saved_Local_Mouth.x + " | saved_Local_Mouth.y" + saved_Local_Mouth.y);
+        //print("saved_Local_Nose.x: " + saved_Local_Nose.x + " | saved_Local_Nose.y" + saved_Local_Nose.y);
+    }
+
+    void AdjustDisplaySize(List<GameObject> list)
+    {
+        SideScrollSize_Height = list.Count;
+
+        if (SideScrollSize_Height % 4 == 0)
+        {
+            SideScrollSize_Height /= 4;
+            SideScrollContent.GetComponent<RectTransform>().sizeDelta = new Vector2(SideScrollSize_Width, (SideScrollSize_Height) * 110);
+        }
+        else
+        {
+            SideScrollSize_Height /= 4;
+            SideScrollContent.GetComponent<RectTransform>().sizeDelta = new Vector2(SideScrollSize_Width, (SideScrollSize_Height + 1) * 110);
+        }
+
+        scrollbar_Vertical.value = 1;
     }
 
     #region Bodyparts
     public void HeadTopButton()
     {
+        AdjustDisplaySize(GO_Head_Top_List);
+
         headTop = true;
         headBottom = false;
         ear = false;
@@ -859,6 +901,8 @@ public class CharacterCreationManager : MonoBehaviour
     }
     public void HeadButtomButton()
     {
+        AdjustDisplaySize(GO_Head_Bottom_List);
+
         headTop = false;
         headBottom = true;
         ear = false;
@@ -873,6 +917,8 @@ public class CharacterCreationManager : MonoBehaviour
     }
     public void EarButton()
     {
+        AdjustDisplaySize(GO_Ear_List);
+
         headTop = false;
         headBottom = false;
         ear = true;
@@ -887,6 +933,8 @@ public class CharacterCreationManager : MonoBehaviour
     }
     public void HairButton()
     {
+        AdjustDisplaySize(GO_Hair_List);
+
         headTop = false;
         headBottom = false;
         ear = false;
@@ -901,6 +949,7 @@ public class CharacterCreationManager : MonoBehaviour
     }
     public void FacialhairButton()
     {
+        AdjustDisplaySize(GO_Facialhair_List);
         headTop = false;
         headBottom = false;
         ear = false;
@@ -915,6 +964,8 @@ public class CharacterCreationManager : MonoBehaviour
     }
     public void EyeButton()
     {
+        AdjustDisplaySize(GO_Eye_List);
+
         headTop = false;
         headBottom = false;
         ear = false;
@@ -929,6 +980,8 @@ public class CharacterCreationManager : MonoBehaviour
     }
     public void EyebrowButton()
     {
+        AdjustDisplaySize(GO_Eyebrow_List);
+
         headTop = false;
         headBottom = false;
         ear = false;
@@ -943,6 +996,8 @@ public class CharacterCreationManager : MonoBehaviour
     }
     public void MouthButton()
     {
+        AdjustDisplaySize(GO_Mouth_List);
+
         headTop = false;
         headBottom = false;
         ear = false;
@@ -957,6 +1012,8 @@ public class CharacterCreationManager : MonoBehaviour
     }
     public void NoseButton()
     {
+        AdjustDisplaySize(GO_Nose_List);
+
         headTop = false;
         headBottom = false;
         ear = false;
@@ -970,10 +1027,4 @@ public class CharacterCreationManager : MonoBehaviour
         print("NoseButton - Clicked");
     }
     #endregion
-
-    //Get Stats
-    public Sprite Getsaved_Head_Top_Sprite()
-    {
-        return saved_Head_Top;
-    }
 }
