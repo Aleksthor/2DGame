@@ -27,9 +27,16 @@ public class WarriorBT : Tree
 
     public void FixedUpdate()
     {
+        if (taskGoToPlayer == null)
+        {
+            taskGoToPlayer = (TaskGoToPlayer)Root.GetChild(2).GetChild(1);
+        }
+        if (taskGoToPlayer != null)
+        {
+            taskGoToPlayer.speedMultiplier = localEnemyScript.GetSpeedMultiplier();
 
-        taskGoToPlayer = (TaskGoToPlayer)Root.GetChild(1).GetChild(1);
-        taskGoToPlayer.speedMultiplier = localEnemyScript.GetSpeedMultiplier();
+        }
+
 
 
     }
@@ -38,7 +45,7 @@ public class WarriorBT : Tree
     {
         Node root = new Selector(new List<Node>
         {
-
+            new TaskSetAgro(transform, playerTransform),
             new Sequence(new List<Node>
             {
                 new TaskCheckIfPlayerInAttackRange(transform, playerTransform, attackRange),

@@ -95,16 +95,6 @@ public class GameEvents : MonoBehaviour
     }
 
 
-    // Make the enemy Agro the player
-
-    public event Action<GameObject> OnEnemyAgro;
-    public void EnemyAgro(GameObject gameObject)
-    {
-        if (OnEnemyAgro != null)
-        {
-            OnEnemyAgro(gameObject);
-        }
-    }
 
 
 

@@ -73,7 +73,7 @@ public class TaskGoToTargetShoot : Node
         }
 
 
-        if ((transform.position - playerTransform.position).magnitude > FOV)
+        if ((transform.position - playerTransform.position).magnitude > FOV * 2f)
         {
 
             ClearData("target");

@@ -25,7 +25,7 @@ public class ArcMageBT : Tree
     {
         Node root = new Selector(new List<Node>
         {
-
+            new TaskSetAgro(transform, playerTransform),
             new Sequence(new List<Node>
             {
                 new TaskMaxRange(transform, playerTransform, FOV/2f),

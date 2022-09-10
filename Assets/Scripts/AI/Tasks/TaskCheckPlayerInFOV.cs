@@ -33,9 +33,20 @@ public class TaskCheckPlayerInFOV : Node
                 state = NodeState.SUCCESS;
                 return state;
             }
+
             state = NodeState.FAILURE;
             return state;
         }
+        if ((transform.position - playerTransform.position).magnitude > FOV * 2f)
+        {
+
+            ClearData("target");
+            animator.SetBool("Walking", false);
+            state = NodeState.FAILURE;
+            return state;
+        }
+
+
         state = NodeState.SUCCESS;
         return state;
     }
