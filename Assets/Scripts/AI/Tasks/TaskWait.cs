@@ -7,7 +7,7 @@ using BehaviorTree;
 public class TaskWait : Node
 {
     private float waitTime;
-    private float waitClock = 0f;
+    private float waitClock = 10;
 
     public TaskWait(float Seconds)
     {

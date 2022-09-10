@@ -7,20 +7,14 @@ using BehaviorTree;
 public class TaskAttack : Node
 {
     private Transform transform;
-    private Transform playerTransform;
     private Animator animator;
-    public float attackSpeed;
-    public float attackRange;
-    public float attackClock = 0f;
-    public bool attack = false;
 
-    public TaskAttack(Transform AgentTransform, Transform PlayerTransform, float AttackRange, float AttackSpeed)
+    private Transform playerTransform;
+
+    public TaskAttack(Transform AgentTransform, Transform PlayerTransform)
     {
         transform = AgentTransform; 
         animator = AgentTransform.GetComponent<Animator>();
-        attackSpeed = AttackSpeed;
-        attackClock = AttackSpeed;
-        attackRange = AttackRange;
         playerTransform = PlayerTransform;
     }
 
@@ -28,36 +22,30 @@ public class TaskAttack : Node
 
     public override NodeState Evaluate()
     {
-        object t = GetData("target");
-        if (t != null)
+
+
+
+        animator.SetTrigger("Attack");
+
+        EnemySpriteDirection esp = transform.GetComponent<EnemySpriteDirection>();
+        if (playerTransform.position.x - transform.position.x < 0)
         {
-
-            if (!attack && (transform.position - playerTransform.position).magnitude < attackRange)
-            {
-                animator.SetTrigger("Attack");
-                attackClock = 0f;
-                attack = true;
-                
-                EnemySpriteDirection esp = transform.GetComponent<EnemySpriteDirection>();
-                if(playerTransform.position.x - transform.position.x < 0)
-                {
-                    esp.Flip(false);
-                }
-                else
-                {
-                    esp.Flip(true);
-                }
-
-            }
-
-
-
-            state = NodeState.RUNNING;
-            return state;
+            esp.Flip(false);
         }
-        attackClock = attackSpeed;
-        state = NodeState.FAILURE;
+        else
+        {
+            esp.Flip(true);
+        }
+
+
+
+
+
+        state = NodeState.RUNNING;
         return state;
 
     }
+   
+
+    
 }

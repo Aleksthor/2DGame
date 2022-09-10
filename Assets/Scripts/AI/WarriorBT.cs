@@ -49,7 +49,8 @@ public class WarriorBT : Tree
             new Sequence(new List<Node>
             {
                 new TaskCheckIfPlayerInAttackRange(transform, playerTransform, attackRange),
-                new TaskAttack(transform, playerTransform, attackRange, attackSpeed),
+                new TaskWait(attackSpeed),
+                new TaskAttack(transform, playerTransform),
             }),
             new Sequence(new List<Node>
             {

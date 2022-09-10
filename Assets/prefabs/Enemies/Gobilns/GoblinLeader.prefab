@@ -732,7 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99e03695110125479803fee021168a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 1.2
+  attackSpeed: 2.5
   attackRange: 2.5
   FOV: 6
   MovementSpeed: 1
@@ -749,16 +749,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4d120e12eecb843a1ad924dcba2862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Body: {fileID: 4463281656436800350}
-  Head: {fileID: 6937948864280924026}
-  Hat: {fileID: 8575701102418022953}
-  FacialHair: {fileID: 882145780824996045}
-  HandRenderer: {fileID: 1368545090651187178}
-  WeaponRenderer: {fileID: 4714542389091736441}
-  EffectRenderer: {fileID: 4197495339359724341}
-  Hand: {fileID: 586302500584594032}
-  Weapon: {fileID: 2369113401078714382}
-  Effect: {fileID: 2274329640041127551}
 --- !u!60 &4721920806708628863
 PolygonCollider2D:
   m_ObjectHideFlags: 0

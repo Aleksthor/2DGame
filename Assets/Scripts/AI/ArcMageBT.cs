@@ -8,6 +8,8 @@ public class ArcMageBT : Tree
 
     public float FOV = 10f;
     public float MovementSpeed = 3f;
+    public float WaitTimeOrb = 2f;
+    public float WaitTimeShards = 3f;
 
     public UnityEngine.Transform playerTransform;
 
@@ -29,13 +31,13 @@ public class ArcMageBT : Tree
             new Sequence(new List<Node>
             {
                 new TaskMaxRange(transform, playerTransform, FOV/2f),
-                new TaskWait(1),
+                new TaskWait(WaitTimeOrb),
                 new TaskShootOrb(transform),
             }),
             new Sequence(new List<Node>
             {
                 new TaskMaxRange(transform, playerTransform, FOV),
-                new TaskWait(2),
+                new TaskWait(WaitTimeShards),
                 new TaskShootShard(transform),
             }),
             new Sequence(new List<Node>

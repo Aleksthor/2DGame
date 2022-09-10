@@ -9,7 +9,7 @@ public class TaskCheckIfPlayerInAttackRange : Node
     private Animator animator;
     private Transform playerTransform;
     private float attackRange;
-    private TaskAttack taskAttack;
+   
 
     public TaskCheckIfPlayerInAttackRange(Transform AgentTransform, Transform PlayerTransform, float AttackRange)
     {
@@ -22,26 +22,7 @@ public class TaskCheckIfPlayerInAttackRange : Node
 
     public override NodeState Evaluate()
     {
-        if(taskAttack == null)
-        {
-            taskAttack = (TaskAttack)parent.GetChild(1);
-
-        }
-
-        if (taskAttack != null)
-        {
-            if (taskAttack.attack)
-            {
-
-                taskAttack.attackClock += Time.deltaTime;
-                if (taskAttack.attackClock > taskAttack.attackSpeed)
-                {
-                    taskAttack.attack = false;
-                    taskAttack.attackClock = 0f;
-                }
-
-            }
-        }
+       
 
         if ((transform.position - playerTransform.position).magnitude < attackRange)
         {
