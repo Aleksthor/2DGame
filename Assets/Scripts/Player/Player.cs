@@ -34,6 +34,12 @@ public class Player : MonoBehaviour
         movementManager = FindObjectOfType<Movement>();
     }
 
+
+    private void Start()
+    {
+        GameEvents.current.OnEnemyWeaponCollission += Hit;
+    }
+
     void Update()
     {
         UpdateStats();
@@ -69,7 +75,7 @@ public class Player : MonoBehaviour
     }
 
 
-    public void Hit(float damage)
+    private void Hit(float damage, float knockbackForce)
     {
 
         if (movementManager.isShielding)

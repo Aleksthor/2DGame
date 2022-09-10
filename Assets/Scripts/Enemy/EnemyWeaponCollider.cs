@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyWeaponCollider : MonoBehaviour
 {
 
-    private Player player;
     private Movement movement;
 
     [Header("Attack Variables")]
@@ -19,7 +18,6 @@ public class EnemyWeaponCollider : MonoBehaviour
     private void Awake()
     {
         movement = FindObjectOfType<Movement>();
-        player = FindObjectOfType<Player>();
     }
     
 
@@ -48,12 +46,11 @@ public class EnemyWeaponCollider : MonoBehaviour
 
         if (other.tag == "Player" && !doDelay)
         {
-
-            player.Hit(damage);
+            GameEvents.current.EnemyWeaponCollission(damage, 0f);
 
             
             doDelay = true;
-            if(gameObject.tag == "Arrow")
+            if((gameObject.tag == "Arrow" || gameObject.tag == "Projectile"))
             {
                 Destroy(gameObject);
             }

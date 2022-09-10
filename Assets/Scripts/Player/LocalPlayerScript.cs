@@ -38,12 +38,13 @@ public class LocalPlayerScript : MonoBehaviour
     {
 
         weaponCollider = transform.Find("Hand").transform.Find("Weapon").GetComponent<PolygonCollider2D>();
-        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        weaponManager = FindObjectOfType<WeaponManager>();
-        Animator animator = gameObject.GetComponent<Animator>();
-
-
         weaponCollider.enabled = false;
+
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
+        weaponManager = FindObjectOfType<WeaponManager>();
+
+        Animator animator = gameObject.GetComponent<Animator>();
         animator.SetInteger("WeaponType", StartingWeaponType);
 
 

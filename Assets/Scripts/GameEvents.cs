@@ -45,4 +45,23 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+
+    public event Action<Weapon> OnChangeWeapon;
+    public void ChangeWeapon(Weapon weapon)
+    {
+        if (OnChangeWeapon != null)
+        {
+            OnChangeWeapon(weapon);
+        }
+    }
+
+    public event Action<float, float> OnEnemyWeaponCollission;
+    public void EnemyWeaponCollission(float damage, float knockbackForce)
+    {
+        if (OnEnemyWeaponCollission != null)
+        {
+            OnEnemyWeaponCollission(damage, knockbackForce);
+        }
+    }
+
 }

@@ -65,6 +65,7 @@ public class LocalEnemyScript : MonoBehaviour
         {
             Vector2 direction = ((Vector2)transform.position - (Vector2)playerPosition).normalized;
             Hit(damage, direction, knockbackForce, speedMultiplier);
+            resetSpeedTime = slowDownLength;
         }
 
 
@@ -116,8 +117,6 @@ public class LocalEnemyScript : MonoBehaviour
                 resetAgain = true;
             }
             resetSpeed = true;
-
-
 
             animator.SetTrigger("Hit");
             hit = true;

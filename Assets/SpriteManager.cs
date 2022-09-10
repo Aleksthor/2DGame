@@ -76,6 +76,8 @@ public class SpriteManager : MonoBehaviour
         // GameEvents
         GameEvents.current.OnPlayerAttack += PlayerAttackStart;
         GameEvents.current.EndPlayerAttack += PlayerAttackEnd;
+        GameEvents.current.OnChangeWeapon += SwapWeapon;
+        canTurn = true;
     }
 
     private void PlayerAttackStart(float x, float y, bool a, bool t)
@@ -189,7 +191,7 @@ public class SpriteManager : MonoBehaviour
                         break;
                     case 1: // Dagger
                         float Distance = ((Vector2)Hand.transform.position - (Vector2)playerObject.transform.position).magnitude;
-                        Hand.transform.localPosition = attackDirection.normalized / 4f * Distance;
+                        Hand.transform.localPosition = attackDirection.normalized / 5f * Distance;
                         Hand.transform.up = attackDirection;
                         Effects.transform.right = attackDirection * -1f;
                         Effects.transform.localPosition = Hand.transform.localPosition;
@@ -227,6 +229,15 @@ public class SpriteManager : MonoBehaviour
 
         }
 
+    }
+
+
+    private void SwapWeapon(Weapon weapon)
+    {
+        if (weapon != null)
+        {
+            WeaponSprite.sprite = weapon.itemSprite;
+        }
     }
 
 

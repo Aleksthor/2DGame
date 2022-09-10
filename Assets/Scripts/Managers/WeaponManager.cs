@@ -41,7 +41,7 @@ public class WeaponManager : MonoBehaviour
 
     void Awake()
     {
-        // access the script of the player weapon and initialize value
+        // Player Manager
         player = FindObjectOfType<Player>();
 
     }
@@ -49,7 +49,6 @@ public class WeaponManager : MonoBehaviour
     void Start()
     {
 
-        // Getters
         playerWeaponRenderer = player.GetPlayer().transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>();
         weaponTransform = player.GetPlayer().transform.Find("Hand").transform.Find("Weapon").GetComponent<Transform>();
         animator = player.GetPlayer().GetComponent<Animator>();
@@ -86,7 +85,7 @@ public class WeaponManager : MonoBehaviour
 
     public void ChangeWeapon(Weapon weapon)
     {
-        playerWeaponRenderer.sprite = weapon.itemSprite;
+        GameEvents.current.ChangeWeapon(weapon);
 
         var weaponPoints = playerWeaponCollider.points;
         int totalPoints = weaponPoints.Length;
