@@ -97,6 +97,7 @@ public class EnemySpriteDirection : MonoBehaviour
                 Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x * -1f, Hand.transform.localPosition.y);
                 Effect.transform.localPosition = new Vector2(Effect.transform.localPosition.x * -1f, Effect.transform.localPosition.y);
                 Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z * -1f);
+               
 
 
 
@@ -133,10 +134,10 @@ public class EnemySpriteDirection : MonoBehaviour
                 Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x * -1f, Hand.transform.localPosition.y);
                 Effect.transform.localPosition = new Vector2(Effect.transform.localPosition.x * -1f, Effect.transform.localPosition.y);
                 Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z * -1f);
+                Effect.transform.eulerAngles = new Vector3(Effect.transform.eulerAngles.x, Effect.transform.eulerAngles.y, Effect.transform.eulerAngles.z) * -1f;
 
 
 
-                
 
             }
             if (!flipLastDirection)
