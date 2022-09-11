@@ -490,7 +490,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1545452393}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.8755085
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7586,7 +7586,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -215, y: 496.26593}
+  m_AnchoredPosition: {x: -215, y: 495}
   m_SizeDelta: {x: 430, y: 980}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &1424626120 stripped
@@ -7993,7 +7993,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 700, y: 0}
-  m_SizeDelta: {x: 430, y: 980}
+  m_SizeDelta: {x: 430, y: 990}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1546044659
 MonoBehaviour:
@@ -8014,7 +8014,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 110
   m_Viewport: {fileID: 1033885805}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 18048366}
@@ -12010,11 +12010,11 @@ PrefabInstance:
       objectReference: {fileID: 1367773491}
     - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
       propertyPath: face_hair.Array.size
-      value: 31
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
       propertyPath: face_nose.Array.size
-      value: 12
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
       propertyPath: head_eyebrow_color_A
@@ -12034,7 +12034,7 @@ PrefabInstance:
       objectReference: {fileID: 1877498128}
     - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
       propertyPath: face_mouth.Array.size
-      value: 41
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
       propertyPath: face_bottom.Array.size
@@ -16505,6 +16505,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 709847339, guid: 84f50bf87017317488f1f79e533564d2, type: 3}
     - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_hair.Array.data[31]
+      value: 
+      objectReference: {fileID: -1390427382, guid: 84f50bf87017317488f1f79e533564d2, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_hair.Array.data[32]
+      value: 
+      objectReference: {fileID: 674786021, guid: 84f50bf87017317488f1f79e533564d2, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
       propertyPath: face_mouth.Array.data[0]
       value: 
       objectReference: {fileID: 0}
@@ -16552,6 +16560,94 @@ PrefabInstance:
       propertyPath: face_nose.Array.data[11]
       value: 
       objectReference: {fileID: -1863151384, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[12]
+      value: 
+      objectReference: {fileID: -105305807, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[13]
+      value: 
+      objectReference: {fileID: -2078391886, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[14]
+      value: 
+      objectReference: {fileID: -1157594002, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[15]
+      value: 
+      objectReference: {fileID: 1830823132, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[16]
+      value: 
+      objectReference: {fileID: -1462578622, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[17]
+      value: 
+      objectReference: {fileID: 1232809858, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[18]
+      value: 
+      objectReference: {fileID: -357261663, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[19]
+      value: 
+      objectReference: {fileID: 687395794, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[20]
+      value: 
+      objectReference: {fileID: -579694830, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[21]
+      value: 
+      objectReference: {fileID: 266807143, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[22]
+      value: 
+      objectReference: {fileID: -494217613, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[23]
+      value: 
+      objectReference: {fileID: -1410727543, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[24]
+      value: 
+      objectReference: {fileID: 414315903, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[25]
+      value: 
+      objectReference: {fileID: -1640019850, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[26]
+      value: 
+      objectReference: {fileID: 789819225, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[27]
+      value: 
+      objectReference: {fileID: 712329387, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[28]
+      value: 
+      objectReference: {fileID: 1795171312, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[29]
+      value: 
+      objectReference: {fileID: -1666597334, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[30]
+      value: 
+      objectReference: {fileID: -1246603089, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[31]
+      value: 
+      objectReference: {fileID: 380684418, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[32]
+      value: 
+      objectReference: {fileID: -1430278402, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_nose.Array.data[33]
+      value: 
+      objectReference: {fileID: -1430278402, guid: 47a10e4e8470e87438e62dbfc7b129cb, type: 3}
     - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
       propertyPath: head_front_handleColor_A
       value: 
@@ -16765,6 +16861,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -633946405, guid: 6a9bfb735fe004941ae73bef15284079, type: 3}
     - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_mouth.Array.data[41]
+      value: 
+      objectReference: {fileID: 1945214926, guid: 6a9bfb735fe004941ae73bef15284079, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_mouth.Array.data[42]
+      value: 
+      objectReference: {fileID: 134234402, guid: 6a9bfb735fe004941ae73bef15284079, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_mouth.Array.data[43]
+      value: 
+      objectReference: {fileID: 134234402, guid: 6a9bfb735fe004941ae73bef15284079, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
       propertyPath: face_bottom.Array.data[10]
       value: 
       objectReference: {fileID: -901816690, guid: e364a1476ffefd948b92b48b0c396acd, type: 3}
@@ -16886,7 +16994,7 @@ PrefabInstance:
       objectReference: {fileID: -1768335486, guid: 097eb8a4ccd87df48af51dd54f5ebb65, type: 3}
     - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
       propertyPath: face_facialhair.Array.size
-      value: 28
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
       propertyPath: head_eyebrow_handleColor_A
@@ -17168,6 +17276,14 @@ PrefabInstance:
       propertyPath: face_facialhair.Array.data[27]
       value: 
       objectReference: {fileID: 1877362799, guid: f4567cae3b5d5d145b9b532c484f371c, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_facialhair.Array.data[28]
+      value: 
+      objectReference: {fileID: 231998362, guid: f4567cae3b5d5d145b9b532c484f371c, type: 3}
+    - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: face_facialhair.Array.data[29]
+      value: 
+      objectReference: {fileID: 308235410, guid: f4567cae3b5d5d145b9b532c484f371c, type: 3}
     - target: {fileID: 2065807912424789701, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
       propertyPath: m_IsActive
       value: 1
