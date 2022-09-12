@@ -95,6 +95,17 @@ public class GameEvents : MonoBehaviour
     }
 
 
+    // Change Current Weapon in inventory on the player
+
+
+    public event Action<Weapon> OnChangeCurrentWeapon;
+    public void ChangeCurrentWeapon(Weapon weapon)
+    {
+        if (OnChangeCurrentWeapon != null)
+        {
+            OnChangeCurrentWeapon(weapon);
+        }
+    }
 
 
 

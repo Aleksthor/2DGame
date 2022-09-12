@@ -8,6 +8,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private RectTransform rectTransform;
     private InventoryItem inventoryItem;
     private CanvasGroup canvasGroup;
+    private Transform startParent;
 
     [SerializeField] private Canvas canvas;
 
@@ -21,12 +22,14 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private void Start()
     {
         canvas = GameObject.Find("UI_Canvas").GetComponent<Canvas>();
+        startParent = transform.parent;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("onBeginDrag");
         canvasGroup.blocksRaycasts = false;
+        gameObject.transform.SetParent(canvas.transform, true);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -38,6 +41,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("onEndDrag");
+        gameObject.transform.SetParent(startParent, false);
         canvasGroup.blocksRaycasts = true;                                          
     }
 

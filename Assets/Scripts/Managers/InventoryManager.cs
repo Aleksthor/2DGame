@@ -17,6 +17,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
     public GameObject uiObject;
     public Transform uiContent;
     public Transform uiItemInfo;
+    public Transform weight;
 
 
     public void AddItem(Item item)
@@ -30,13 +31,19 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
     }
 
 
+
+    private void Start()
+    {
+        GameEvents.current.OnChangeCurrentWeapon += ChangeCurrentWeapon;
+    }
+
     // Debug purposes in Update
     void Update()
     {
 
         if (Input.GetButton("1"))
         {
-            ChangeWeapon((Weapon)inventory[0]);                    
+            ChangeWeapon(currentWeapon);                    
         }
 
         if (Input.GetButton("2"))
@@ -61,9 +68,18 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         GameEvents.current.ChangeStats(weapon.damage, weapon.knockBackForce, weapon.speedMultiplier, weapon.slowDownLength, weapon.manaCost, weapon.force, weapon.localPosition);
         GameEvents.current.ChangeWeaponCollider(weapon.colliderPointX, weapon.colliderPointY, (int)weapon.weaponType);
 
-        secondaryWeapon = currentWeapon;
-        currentWeapon = weapon;
+    }
 
+    public void ChangeCurrentWeapon(Weapon weapon)
+    {
+        if (currentWeapon != null)
+        {
+            inventory.Add(currentWeapon);
+            inventory.Remove(weapon);
+            currentWeapon = weapon;
+        }
+        ChangeWeapon(currentWeapon);
+        UpdateInventory();
     }
 
 
@@ -102,6 +118,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
             obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
 
         }
+
+        weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
     }
 
 
