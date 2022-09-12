@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
 {
     public List<Item> inventory;
+    public float currentWeight;
+    public float maxWeight;
 
     public Weapon currentWeapon;
     public Weapon secondaryWeapon;
@@ -86,11 +88,11 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
-
+        currentWeight = 0;
 
         foreach (Item item in inventory)
         {
-            
+            currentWeight += item.itemWeight;
             GameObject obj = Instantiate(uiObject, uiContent);
 
             obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
