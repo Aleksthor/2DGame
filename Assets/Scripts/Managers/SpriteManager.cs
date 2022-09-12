@@ -203,7 +203,7 @@ public class SpriteManager : MonoBehaviour
                         break;
                     case 1: // Dagger                 
                         Hand.transform.localPosition = attackDirection.normalized / 12f * distance;
-                        Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x, Hand.transform.localPosition.y - 0.03f);
+                        Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x, Hand.transform.localPosition.y - 0.08f);
                         Hand.transform.up = attackDirection;
                         Effects.transform.right = attackDirection * -1f;
                         Effects.transform.localPosition = Hand.transform.localPosition;

@@ -46,13 +46,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSprite: {fileID: -5287789555553424294, guid: 08823ee942be30c40b83838fa7aa20d0, type: 3}
   itemName: Wooden Club
-  type: 0
+  itemDescription: 
+  itemType: 0
+  itemRarity: 0
   itemWeight: 2
   isStackable: 0
   stackAmount: 1
   localPosition: {x: 0.01, y: 0.1}
   weaponType: 0
-  damage: 12
+  damage: 4
   knockBackForce: 50
   force: 0
   manaCost: 0
