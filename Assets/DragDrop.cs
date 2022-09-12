@@ -27,27 +27,27 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("onBeginDrag");
+        
         canvasGroup.blocksRaycasts = false;
         gameObject.transform.SetParent(canvas.transform, true);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("Ondrag");
+        
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("onEndDrag");
+        
         gameObject.transform.SetParent(startParent, false);
         canvasGroup.blocksRaycasts = true;                                          
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("onClick");
+        
     }
 
 

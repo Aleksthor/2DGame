@@ -107,6 +107,33 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+    public event Action<Weapon> OnChangeSecondaryWeapon;
+    public void ChangeSecondaryWeapon(Weapon weapon)
+    {
+        if (OnChangeSecondaryWeapon != null)
+        {
+            OnChangeSecondaryWeapon(weapon);
+        }
+    }
+
+    public event Action OnSwapWeapon;
+    public void SwapWeapon()
+    {
+        if (OnSwapWeapon != null)
+        {
+            OnSwapWeapon();
+        }
+    }
+
+
+    public event Action<Weapon, Weapon> OnInventoryRefresh;
+    public void InventoryRefresh(Weapon current, Weapon secondary)
+    {
+        if (OnInventoryRefresh != null)
+        {
+            OnInventoryRefresh(current, secondary);
+        }
+    }
 
 
 }
