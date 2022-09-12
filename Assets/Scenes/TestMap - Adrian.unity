@@ -490,7 +490,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1545452393}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999941
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7586,7 +7586,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -215, y: 495}
+  m_AnchoredPosition: {x: -215, y: 494.99997}
   m_SizeDelta: {x: 430, y: 980}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &1424626120 stripped
@@ -17364,6 +17364,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5258379893955398698, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: currentWeapon
+      value: 
+      objectReference: {fileID: 1713631642098206333, guid: 7a65df0261d886144b44c87fba6962cf, type: 3}
     - target: {fileID: 5258379893955398698, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
       propertyPath: weaponTransform
       value: 

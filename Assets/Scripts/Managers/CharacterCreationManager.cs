@@ -232,6 +232,8 @@ public class CharacterCreationManager : MonoBehaviour
     int SideScrollSize_Width = 0;
     #endregion
 
+    int positionSpeed = 20;
+
 
     //--------------------
 
@@ -491,8 +493,6 @@ public class CharacterCreationManager : MonoBehaviour
 
     void UpdateImagePosition()
     {
-        int positionSpeed = 10;
-
         Head_hair_GO.transform.localPosition = new Vector2(slider_Hair_x.value * positionSpeed - (0.5f * positionSpeed), slider_Hair_y.value * positionSpeed - (0.5f * positionSpeed));
         Head_facialhair_GO.transform.localPosition = new Vector2(slider_Facialhair_x.value * positionSpeed - (0.5f * positionSpeed), slider_Facialhair_y.value * positionSpeed - (0.5f * positionSpeed));
         Head_eye_GO.transform.localPosition = new Vector2(slider_Eye_x.value * positionSpeed - (0.5f * positionSpeed), slider_Eye_y.value * positionSpeed - (0.5f * positionSpeed));

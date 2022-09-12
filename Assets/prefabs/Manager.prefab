@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &918875364062558322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3496029255840344546}
+  - component: {fileID: 6113099359088657436}
+  m_Layer: 0
+  m_Name: GameEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3496029255840344546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918875364062558322}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2076017503924805235}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6113099359088657436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918875364062558322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8939e39ea742a42b062ccf8f8de4a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1107394416106060779
 GameObject:
   m_ObjectHideFlags: 0
@@ -47,9 +91,13 @@ MonoBehaviour:
   weapon1: {fileID: -4886502755690424945, guid: fd24b7e87b4230a499cd012b5389a283, type: 3}
   weapon2: {fileID: -610171975676056864, guid: 7e596e2f294f85c499206beb8b68263d, type: 3}
   weapon3: {fileID: 0}
+  currentWeapon: {fileID: 0}
   damage: 0
   knockBackForce: 0
   force: 0
+  manaCost: 0
+  speedMultiplier: 0
+  slowDownLength: 0
 --- !u!1 &1579662712790032619
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,6 +379,7 @@ Transform:
   - {fileID: 5054720421778664845}
   - {fileID: 884742173474104311}
   - {fileID: 6536656776071281554}
+  - {fileID: 3496029255840344546}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -485,6 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderDistance: 50
+  activatorObjects: []
 --- !u!1 &4592875857260582430
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +579,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d45c984014f42438c258a2b8f32074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayPrefab: {fileID: 0}
+  Display_HeadTop: {fileID: 0}
+  Display_HeadBottom: {fileID: 0}
+  Display_Ear: {fileID: 0}
+  Display_Hair: {fileID: 0}
+  Display_Facialhair: {fileID: 0}
+  Display_Eye: {fileID: 0}
+  Display_Eyebrow: {fileID: 0}
+  Display_Mouth: {fileID: 0}
+  Display_Nose: {fileID: 0}
+  GO_Head_Top_List: []
+  GO_Head_Bottom_List: []
+  GO_Ear_List: []
+  GO_Hair_List: []
+  GO_Facialhair_List: []
+  GO_Eye_List: []
+  GO_Eyebrow_List: []
+  GO_Mouth_List: []
+  GO_Nose_List: []
   face_top: []
   face_bottom: []
   face_ear: []
@@ -572,6 +641,18 @@ MonoBehaviour:
   head_nose_color_G: {fileID: 0}
   head_nose_color_B: {fileID: 0}
   head_nose_color_A: {fileID: 0}
+  slider_Hair_x: {fileID: 0}
+  slider_Hair_y: {fileID: 0}
+  slider_Facialhair_x: {fileID: 0}
+  slider_Facialhair_y: {fileID: 0}
+  slider_Eye_x: {fileID: 0}
+  slider_Eye_y: {fileID: 0}
+  slider_Eyebrow_x: {fileID: 0}
+  slider_Eyebrow_y: {fileID: 0}
+  slider_Mouth_x: {fileID: 0}
+  slider_Mouth_y: {fileID: 0}
+  slider_Nose_x: {fileID: 0}
+  slider_Nose_y: {fileID: 0}
   head_face_handleColor_R: {fileID: 0}
   head_face_handleColor_G: {fileID: 0}
   head_face_handleColor_B: {fileID: 0}
@@ -597,12 +678,29 @@ MonoBehaviour:
   head_nose_handleColor_G: {fileID: 0}
   head_nose_handleColor_B: {fileID: 0}
   head_nose_handleColor_A: {fileID: 0}
-  Head_face_top: {fileID: 0}
-  Head_face_bottom: {fileID: 0}
-  Head_ear: {fileID: 0}
-  Head_hair: {fileID: 0}
-  Head_facialhair: {fileID: 0}
-  Head_eye: {fileID: 0}
-  Head_eyebrow: {fileID: 0}
-  Head_mouth: {fileID: 0}
-  Head_nose: {fileID: 0}
+  headTop: 0
+  headBottom: 0
+  ear: 0
+  hair: 0
+  facialhair: 0
+  eye: 0
+  eyebrow: 0
+  mouth: 0
+  nose: 0
+  saved_Head_Top: {fileID: 0}
+  saved_Head_Bottom: {fileID: 0}
+  saved_Ear: {fileID: 0}
+  saved_Hair: {fileID: 0}
+  saved_Facialhair: {fileID: 0}
+  saved_Eye: {fileID: 0}
+  saved_Eyebrow: {fileID: 0}
+  saved_Mouth: {fileID: 0}
+  saved_Nose: {fileID: 0}
+  saved_Local_Hair: {x: 0, y: 0}
+  saved_Local_Facialhair: {x: 0, y: 0}
+  saved_Local_Eye: {x: 0, y: 0}
+  saved_Local_Eyebrow: {x: 0, y: 0}
+  saved_Local_Mouth: {x: 0, y: 0}
+  saved_Local_Nose: {x: 0, y: 0}
+  SideScrollContent: {fileID: 0}
+  scrollbar_Vertical: {fileID: 0}
