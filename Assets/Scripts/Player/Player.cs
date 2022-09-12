@@ -23,7 +23,9 @@ public class Player : MonoBehaviour
     [Header("Mana Stats")]
     [SerializeField] float mana = 50;
     [SerializeField] float maxMana = 50;
-
+    [SerializeField] float baseManaRegen = 1.2f;
+    [SerializeField] float baseManaRegenSpeed = 2;
+    [SerializeField] float baseManaRegenClock = 2;
 
 
 
@@ -42,7 +44,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        BaseManaRegen();
+
+
+        // run this last to clamp values
         UpdateStats();
+        
     }
 
     void UpdateStats()
@@ -72,6 +79,16 @@ public class Player : MonoBehaviour
             mana = maxMana;
         }
 
+    }
+
+    void BaseManaRegen()
+    {
+        baseManaRegenClock += Time.deltaTime;
+        if (baseManaRegenClock > baseManaRegenSpeed)
+        {
+            baseManaRegenClock = 0;
+            SetManaValue(baseManaRegen);
+        }
     }
 
 

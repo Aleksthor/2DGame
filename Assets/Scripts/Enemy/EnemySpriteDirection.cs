@@ -206,5 +206,10 @@ public class EnemySpriteDirection : MonoBehaviour
         attacking = false;
     }
 
+    public void TurnOffAttack()
+    {
+        attacking = false;
+    }
+
 
 }

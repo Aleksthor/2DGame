@@ -3,10 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-    public class Item : MonoBehaviour
+public class Item : MonoBehaviour
+{
+
+    public enum ItemType
     {
-        [Header("Item Variables")]
-        public Sprite itemSprite;
-        public string itemName;
-    }
+        Weapon,
+        Consumable,
+        Material
+
+    };
+
+
+
+    [Header("Item Variables")]
+    public Sprite itemSprite;
+    public string itemName;
+    public string itemDescription;
+
+    public ItemType itemType;
+    public float itemWeight = 0f;
+
+    public bool isStackable = false;
+    public int stackAmount = 1;
+}
 

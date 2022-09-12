@@ -9,11 +9,9 @@ public class WeaponCollider : MonoBehaviour
     private float speedMultiplier = 1f;
     private float slowDownLength = 0f;
 
-    private WeaponManager weaponManager;
 
     void Start()
     {
-        weaponManager = FindObjectOfType<WeaponManager>();
 
         GameEvents.current.OnChangeStats += ChangeStats;
     }

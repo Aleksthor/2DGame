@@ -33,11 +33,11 @@ public class SpriteManager : MonoBehaviour
     private GameObject playerObject;
     private Transform PivotPoint;
     private GameObject HandObject;
-    private WeaponManager weaponManager;
 
     private Camera mainCam;
+    private InventoryManager inventoryManager;
 
-    
+
     private Vector2 attackDirection;        // Direction the player should face
     private bool attack;                    // Are we attacking right now?
     private bool canTurn;                   // Are we allowed to turn right now?
@@ -69,10 +69,7 @@ public class SpriteManager : MonoBehaviour
         buttonInput = FindObjectOfType<ButtonInput>();
         localPlayerScript = playerObject.GetComponent<LocalPlayerScript>();
 
-
-        weaponManager = FindObjectOfType<WeaponManager>();
-
-
+        inventoryManager = FindObjectOfType<InventoryManager>();
         // GameEvents
         GameEvents.current.OnPlayerAttack += PlayerAttackStart;
         GameEvents.current.EndPlayerAttack += PlayerAttackEnd;
@@ -185,7 +182,7 @@ public class SpriteManager : MonoBehaviour
             if (attack)
             {
                 float distance = ((Vector2)Hand.transform.position - (Vector2)playerObject.transform.position).magnitude;
-                switch ((int)weaponManager.currentWeapon.weaponType)
+                switch ((int)inventoryManager.currentWeapon.weaponType)
                 {
                     case 0: // Blunt
                         Hand.transform.localPosition = attackDirection.normalized / 7f * distance;
@@ -204,8 +201,9 @@ public class SpriteManager : MonoBehaviour
 
 
                         break;
-                    case 1: // Dagger                     
-                        Hand.transform.localPosition = attackDirection.normalized / 5f * distance;
+                    case 1: // Dagger                 
+                        Hand.transform.localPosition = attackDirection.normalized / 12f * distance;
+                        Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x, Hand.transform.localPosition.y - 0.03f);
                         Hand.transform.up = attackDirection;
                         Effects.transform.right = attackDirection * -1f;
                         Effects.transform.localPosition = Hand.transform.localPosition;
@@ -219,14 +217,13 @@ public class SpriteManager : MonoBehaviour
                     case 2: // Sword
                         float angle = Hand.transform.rotation.z;
                         
-                        Hand.transform.localPosition = attackDirection.normalized / 7f * distance;
-                        Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x, Hand.transform.localPosition.y - 0.05f);
-                        Quaternion rotation = Quaternion.FromToRotation(attackDirection, new Vector2(1f, 0f));
+                        Hand.transform.localPosition = Hand.transform.localPosition + (Vector3)attackDirection.normalized / 15f;
+                        //Quaternion rotation = Quaternion.FromToRotation(attackDirection, new Vector2(1f, 0f));
                         
-                        Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z + rotation.z);
+                        //Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z + rotation.z);
                         Effects.transform.right = attackDirection * -1f;
-                        Effects.transform.localPosition = Hand.transform.localPosition;
-                        Effects.transform.localPosition = new Vector2(Effects.transform.localPosition.x, Effects.transform.localPosition.y - 0.02f);
+                        Effects.transform.localPosition = attackDirection.normalized / 7f;
+                        Effects.transform.localPosition = new Vector2(Effects.transform.localPosition.x, Effects.transform.localPosition.y - 0.1f);
                         if (FlipLastInput)
                         {
                             Effects.transform.right = attackDirection;

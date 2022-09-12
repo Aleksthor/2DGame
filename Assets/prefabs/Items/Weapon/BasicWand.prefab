@@ -46,6 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 2133547724018545567, guid: e0cb8c958336e76409024595083b9101, type: 3}
   itemName: Basic Wand
+  type: 0
+  itemWeight: 1
+  isStackable: 0
+  stackAmount: 1
   localPosition: {x: 0.01, y: 0.05}
   weaponType: 4
   damage: 8

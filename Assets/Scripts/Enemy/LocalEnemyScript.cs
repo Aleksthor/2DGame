@@ -131,7 +131,6 @@ public class LocalEnemyScript : MonoBehaviour
 
     public void Destroy()
     {
-
         hit = false;
         if (health <= 0)
         {

@@ -685,7 +685,7 @@ GameObject:
   - component: {fileID: 3895720241996056725}
   m_Layer: 0
   m_Name: Weapon
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -814,9 +814,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c7f0aba768dd424baa8ab341f79b0aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  knockBackForce: 50
-  speedMultiplier: 1
 --- !u!1 &8768689880247992915
 GameObject:
   m_ObjectHideFlags: 0
