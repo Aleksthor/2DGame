@@ -95,6 +95,12 @@ public class GameEvents : MonoBehaviour
     }
 
 
+
+
+
+
+
+
     // Change Current Weapon in inventory on the player
 
 
@@ -106,6 +112,17 @@ public class GameEvents : MonoBehaviour
             OnChangeCurrentWeapon(weapon);
         }
     }
+
+
+
+
+
+
+
+
+
+
+
 
     public event Action<Weapon> OnChangeSecondaryWeapon;
     public void ChangeSecondaryWeapon(Weapon weapon)
@@ -134,6 +151,8 @@ public class GameEvents : MonoBehaviour
             OnInventoryRefresh(current, secondary);
         }
     }
+
+    
 
 
 }
