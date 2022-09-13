@@ -296,46 +296,48 @@ public class SpriteManager : MonoBehaviour
     void PlayerSpriteChange(Sprite head_top, Sprite head_bottom, Sprite head_ear, Sprite head_hand, Sprite head_hair, Sprite head_facialhair, Sprite head_eye, Sprite head_eyebrow, Sprite head_mouth, Sprite head_nose)
     {
         print("test 1");
+        Debug.Log(head_top);
+        Debug.Log(Head_Top);
 
-        if (Head_Top.sprite != null)
+        if (head_top != null)
         {
             Head_Top.sprite = head_top;
         }
-        if (Head_Bottom.sprite != null)
+        if (head_bottom != null)
         {
             Head_Bottom.sprite = head_bottom;
         }
-        if (Ear.sprite != null)
+        if (head_ear != null)
         {
             Ear.sprite = head_ear;
         }
-        if (HandSprite.sprite != null)
+        if (head_top != null)
         {
             HandSprite.color = Head_Top.color;
         }
-        if (Hair.sprite != null)
+        if (head_hair != null)
         {
             Hair.sprite = head_hair;
         }
 
-        if (Facialhair.sprite != null)
+        if (head_facialhair != null)
         {
             Facialhair.sprite = head_facialhair;
         }
-        if (Eye.sprite != null)
+        if (head_eye != null)
         {
             Eye.sprite = head_eye;
         }
 
-        if (Eyebrow.sprite != null)
+        if (head_eyebrow != null)
         {
             Eyebrow.sprite = head_eyebrow;
         }
-        if (Mouth.sprite != null)
+        if (head_mouth != null)
         {
             Mouth.sprite = head_mouth;
         }
-        if (Nose.sprite != null)
+        if (head_nose != null)
         {
             Nose.sprite = head_nose;
         }
