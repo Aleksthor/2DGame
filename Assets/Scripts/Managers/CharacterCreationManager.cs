@@ -846,22 +846,10 @@ public class CharacterCreationManager : MonoBehaviour
         saved_Local_Mouth = Head_mouth_GO.transform.position;
         saved_Local_Nose = Head_nose_GO.transform.position;
 
-        //print("saved_Head_Top: " + saved_Head_Top.name);
-        //print("saved_Head_Bottom: " + saved_Head_Bottom.name);
-        //print("saved_Ear: " + saved_Ear.name);
-        //print("saved_Hair: " + saved_Hair.name);
-        //print("saved_Facialhair: " + saved_Facialhair.name);
-        //print("saved_Eye: " + saved_Eye.name);
-        //print("saved_Eyebrow: " + saved_Eyebrow.name);
-        //print("saved_Mouth: " + saved_Mouth.name);
-        //print("saved_Nose: " + saved_Nose.name);
+        //SendSpriteInfo
+        GameEvents.current.PlayerSpriteChange(saved_Head_Top, saved_Head_Bottom, saved_Ear, null, saved_Hair, saved_Facialhair, saved_Eye, saved_Eyebrow, saved_Mouth, saved_Nose);
 
-        //print("saved_Local_Hair.x: " + saved_Local_Hair.x + " | saved_Local_Hair.y" + saved_Local_Hair.y);
-        //print("saved_Local_Facialhair.x: " + saved_Local_Facialhair.x + " | saved_Local_Facialhair.y" + saved_Local_Facialhair.y);
-        //print("saved_Local_Eye.x: " + saved_Local_Eye.x + " | saved_Local_Eye.y" + saved_Local_Eye.y);
-        //print("saved_Local_Eyebrow.x: " + saved_Local_Eyebrow.x + " | saved_Local_Eyebrow.y" + saved_Local_Eyebrow.y);
-        //print("saved_Local_Mouth.x: " + saved_Local_Mouth.x + " | saved_Local_Mouth.y" + saved_Local_Mouth.y);
-        //print("saved_Local_Nose.x: " + saved_Local_Nose.x + " | saved_Local_Nose.y" + saved_Local_Nose.y);
+        print("Check");
     }
 
     void AdjustDisplaySize(List<GameObject> list)

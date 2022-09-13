@@ -5,10 +5,7 @@ using System;
 
 public class SpriteManager : MonoBehaviour
 {
-
-
-
-
+    #region Sprites
     private SpriteRenderer BodySprite;
     private SpriteRenderer HeadSprite;
     private SpriteRenderer HandSprite;
@@ -16,6 +13,17 @@ public class SpriteManager : MonoBehaviour
     private SpriteRenderer WeaponSprite;
     private SpriteRenderer ShieldSprite;
     private SpriteRenderer EffectsSprite;
+
+    SpriteRenderer Head_Top;
+    SpriteRenderer Head_Bottom;
+    SpriteRenderer Ear;
+    SpriteRenderer Hair;
+    SpriteRenderer Facialhair;
+    SpriteRenderer Eye;
+    SpriteRenderer Eyebrow;
+    SpriteRenderer Mouth;
+    SpriteRenderer Nose;
+    #endregion
 
     private Transform Hand;
     private Transform Shield;
@@ -47,6 +55,16 @@ public class SpriteManager : MonoBehaviour
         player = FindObjectOfType<Player>();
         playerObject = player.GetPlayer();
 
+        Head_Top = playerObject.transform.Find("Head").transform.Find("Head_Top").GetComponent<SpriteRenderer>();
+        Head_Bottom = playerObject.transform.Find("Head").transform.Find("Head_Bottom").GetComponent<SpriteRenderer>();
+        Ear = playerObject.transform.Find("Head").transform.Find("Ear").GetComponent<SpriteRenderer>();
+        Hair = playerObject.transform.Find("Head").transform.Find("Hair").GetComponent<SpriteRenderer>();
+        Facialhair = playerObject.transform.Find("Head").transform.Find("Facialhair").GetComponent<SpriteRenderer>();
+        Eye = playerObject.transform.Find("Head").transform.Find("Eyes").GetComponent<SpriteRenderer>();
+        Eyebrow = playerObject.transform.Find("Head").transform.Find("Eyebrow").GetComponent<SpriteRenderer>();
+        Mouth = playerObject.transform.Find("Head").transform.Find("Mouth").GetComponent<SpriteRenderer>();
+        Nose = playerObject.transform.Find("Head").transform.Find("Nose").GetComponent<SpriteRenderer>();
+
         BodySprite = playerObject.transform.Find("Body").GetComponent<SpriteRenderer>();
         HeadSprite = playerObject.transform.Find("Head").GetComponent<SpriteRenderer>();
         HandSprite = playerObject.transform.Find("Hand").GetComponent<SpriteRenderer>();
@@ -66,6 +84,9 @@ public class SpriteManager : MonoBehaviour
 
     private void Start()
     {
+        print("test 0");
+        print(Nose);
+
         buttonInput = FindObjectOfType<ButtonInput>();
         localPlayerScript = playerObject.GetComponent<LocalPlayerScript>();
 
@@ -75,6 +96,9 @@ public class SpriteManager : MonoBehaviour
         GameEvents.current.EndPlayerAttack += PlayerAttackEnd;
         GameEvents.current.OnChangeWeapon += SwapWeapon;
         canTurn = true;
+
+        //PlayerSpriteListener
+        GameEvents.current.OnPlayerSpriteChange += PlayerSpriteChange;
     }
 
     private void PlayerAttackStart(float x, float y, bool a, bool t)
@@ -269,5 +293,53 @@ public class SpriteManager : MonoBehaviour
     }
 
 
+    void PlayerSpriteChange(Sprite head_top, Sprite head_bottom, Sprite head_ear, Sprite head_hand, Sprite head_hair, Sprite head_facialhair, Sprite head_eye, Sprite head_eyebrow, Sprite head_mouth, Sprite head_nose)
+    {
+        print("test 1");
 
+        if (Head_Top.sprite != null)
+        {
+            Head_Top.sprite = head_top;
+        }
+        if (Head_Bottom.sprite != null)
+        {
+            Head_Bottom.sprite = head_bottom;
+        }
+        if (Ear.sprite != null)
+        {
+            Ear.sprite = head_ear;
+        }
+        if (HandSprite.sprite != null)
+        {
+            HandSprite.color = Head_Top.color;
+        }
+        if (Hair.sprite != null)
+        {
+            Hair.sprite = head_hair;
+        }
+
+        if (Facialhair.sprite != null)
+        {
+            Facialhair.sprite = head_facialhair;
+        }
+        if (Eye.sprite != null)
+        {
+            Eye.sprite = head_eye;
+        }
+
+        if (Eyebrow.sprite != null)
+        {
+            Eyebrow.sprite = head_eyebrow;
+        }
+        if (Mouth.sprite != null)
+        {
+            Mouth.sprite = head_mouth;
+        }
+        if (Nose.sprite != null)
+        {
+            Nose.sprite = head_nose;
+        }
+
+        print("test 2");
+    }
 }

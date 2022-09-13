@@ -152,7 +152,16 @@ public class GameEvents : MonoBehaviour
         }
     }
 
-    
 
+
+    // Change Player Sprites
+    public event Action<Sprite, Sprite, Sprite, Sprite, Sprite, Sprite, Sprite, Sprite, Sprite, Sprite> OnPlayerSpriteChange;
+    public void PlayerSpriteChange(Sprite head_top, Sprite head_bottom, Sprite head_ear, Sprite head_hand, Sprite head_hair, Sprite head_facialhair, Sprite head_eye, Sprite head_eyebrow, Sprite head_mouth, Sprite head_nose)
+    {
+        if (OnPlayerSpriteChange != null)
+        {
+            OnPlayerSpriteChange(head_top, head_bottom, head_ear, head_hand, head_hair, head_facialhair, head_eye, head_eyebrow, head_mouth, head_nose);
+        }
+    }
 
 }
