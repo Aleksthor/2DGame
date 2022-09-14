@@ -26,6 +26,8 @@ public class Weapon : Item
     public WeaponType weaponType;
     public float damage;
     public float knockBackForce;
+    public float critDamage;
+    public float critRate;
 
     [Header("Magic Variables")]
     public float force;

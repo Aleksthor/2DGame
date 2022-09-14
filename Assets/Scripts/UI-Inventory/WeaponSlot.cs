@@ -12,12 +12,35 @@ public class WeaponSlot : MonoBehaviour, IDropHandler
     public Transform otherWeaponSlot;
     public GameObject uiObject;
     public Transform uiItemInfo;
+    public GameObject current;
+
+    int framesToReset = 10;
+    int framesCount = 0;
 
 
     private void Start()
     {
         GameEvents.current.OnSwapWeapon += SwapWeapon;
         GameEvents.current.OnInventoryRefresh += InventoryRefresh;
+    }
+
+    private void Update()
+    {
+        if (current != null && framesCount <= framesToReset)
+        {
+            framesCount++;
+            if (framesCount > framesToReset)
+            {
+                current.GetComponent<DragDrop>().enabled = true;
+            }
+        }
+        if (gameObject.transform.Find("ItemUI(Clone)") == null && current != null)
+        {
+            GameEvents.current.AddItem(current.GetComponent<InventoryItem>().item);
+            framesCount = 0;
+            current = null;
+        }
+
     }
 
 
@@ -31,21 +54,42 @@ public class WeaponSlot : MonoBehaviour, IDropHandler
             {
                 eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
                 eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
-                foreach (Transform child in gameObject.transform)
-                {
-                    GameObject.Destroy(child.gameObject);
-                }
-                eventData.pointerDrag.transform.SetParent(transform, false);
-                eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
-                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
+
 
                 if (slotIndex == 1)
-                {
+                {                   
+
+
+                    foreach (Transform child in gameObject.transform)
+                    {
+                        GameObject.Destroy(child.gameObject);
+                    }
+                    eventData.pointerDrag.transform.SetParent(transform, false);
+                    eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+                    eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
+
+                    GameEvents.current.RemoveItem((Weapon)eventData.pointerDrag.GetComponent<InventoryItem>().item);
                     GameEvents.current.ChangeCurrentWeapon((Weapon)eventData.pointerDrag.GetComponent<InventoryItem>().item);
+
                 }
                 if (slotIndex == 2)
                 {
+
+
+                    foreach (Transform child in gameObject.transform)
+                    {
+                        GameEvents.current.AddItem(child.gameObject.GetComponent<InventoryItem>().item);
+                        GameObject.Destroy(child.gameObject);
+                    }
+                    eventData.pointerDrag.transform.SetParent(transform, false);
+                    eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+                    eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
+
+                    GameEvents.current.RemoveCurrentSecondaryItem((Weapon)eventData.pointerDrag.GetComponent<InventoryItem>().item);
                     GameEvents.current.ChangeSecondaryWeapon((Weapon)eventData.pointerDrag.GetComponent<InventoryItem>().item);
+
+                    current = eventData.pointerDrag;
+
                 }
 
                 

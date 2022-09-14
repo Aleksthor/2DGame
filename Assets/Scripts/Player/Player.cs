@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [Header("Health Stats")]
     [SerializeField] float health = 50;
     [SerializeField] float maxHealth = 50;
+    [SerializeField] float armor = 0;
 
     [Header("Stamina Stats")]
     [SerializeField] float stamina = 50;
@@ -40,7 +41,9 @@ public class Player : MonoBehaviour
     private void Start()
     {
         GameEvents.current.OnEnemyWeaponCollission += Hit;
+        GameEvents.current.OnUpdateArmor += UpdateArmorStat;
     }
+
 
     void Update()
     {
@@ -81,6 +84,11 @@ public class Player : MonoBehaviour
 
     }
 
+    private void UpdateArmorStat(float Armor)
+    {
+        armor = Armor;
+    }
+
     void BaseManaRegen()
     {
         baseManaRegenClock += Time.deltaTime;
@@ -97,11 +105,11 @@ public class Player : MonoBehaviour
 
         if (movementManager.isShielding)
         {
-            health -= damage * 0.5f;
+            health -= Mathf.Clamp(damage, damage / 5, damage - armor) * 0.5f;
         }
         else
         {
-            health -= damage;
+            health -= Mathf.Clamp(damage, damage / 5, damage - armor);
         }
 
         if (health <= 0)

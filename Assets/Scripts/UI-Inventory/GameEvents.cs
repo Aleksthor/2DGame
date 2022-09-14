@@ -36,12 +36,12 @@ public class GameEvents : MonoBehaviour
 
     // When our weapon hits something
 
-    public event Action<GameObject, float, float, float, float, Vector2> OnWeaponCollission;
-    public void WeaponCollission(GameObject gameObject, float damage, float knockbackForce, float speedMultiplier, float slowDownLength, Vector2 playerPosition)
+    public event Action<GameObject, float, float, float, float, Vector2, bool> OnWeaponCollission;
+    public void WeaponCollission(GameObject gameObject, float damage, float knockbackForce, float speedMultiplier, float slowDownLength, Vector2 playerPosition, bool crit)
     {
         if (OnWeaponCollission != null)
         {
-            OnWeaponCollission(gameObject, damage, knockbackForce, speedMultiplier, slowDownLength, playerPosition);
+            OnWeaponCollission(gameObject, damage, knockbackForce, speedMultiplier, slowDownLength, playerPosition, crit);
         }
     }
 
@@ -74,12 +74,12 @@ public class GameEvents : MonoBehaviour
     // When we want to change the stats in player. Make a similar event if you cant pass in all variables
 
 
-    public event Action<float, float, float, float, float, float, Vector2> OnChangeStats;
-    public void ChangeStats(float damage, float knockbackForce, float speedMultiplier, float slowDownLength, float manaCost, float force, Vector2 localPosition)
+    public event Action<float, float, float, float, float, float, float, float, Vector2> OnChangeStats;
+    public void ChangeStats(float damage, float knockbackForce, float speedMultiplier, float slowDownLength, float manaCost, float force, float critRate, float critDamage, Vector2 localPosition)
     {
         if (OnChangeStats != null)
         {
-            OnChangeStats(damage, knockbackForce, speedMultiplier, slowDownLength, manaCost, force, localPosition);
+            OnChangeStats(damage, knockbackForce, speedMultiplier, slowDownLength, manaCost, force, critRate, critDamage, localPosition);
         }
     }
 
@@ -113,16 +113,7 @@ public class GameEvents : MonoBehaviour
         }
     }
 
-
-
-
-
-
-
-
-
-
-
+    // Change Secondary Weapon in inventory on the player
 
     public event Action<Weapon> OnChangeSecondaryWeapon;
     public void ChangeSecondaryWeapon(Weapon weapon)
@@ -133,12 +124,53 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+    public event Action<Equipment, int> OnChangeCurrentEquipment;
+    public void ChangeCurrentEquipment(Equipment equipment, int slotIndex)
+    {
+        if (OnChangeCurrentEquipment != null)
+        {
+            OnChangeCurrentEquipment(equipment, slotIndex);
+        }
+    }
+
+    // Swap sprites in inventory when we swap weapons
+
     public event Action OnSwapWeapon;
     public void SwapWeapon()
     {
         if (OnSwapWeapon != null)
         {
             OnSwapWeapon();
+        }
+    }
+
+    // Add Item To Inventory
+
+    public event Action<Item> OnAddItem;
+    public void AddItem(Item item)
+    {
+        if (OnAddItem != null)
+        {
+            OnAddItem(item);
+        }
+    }
+
+    // Remove Item from Inventory
+    public event Action<Item> OnRemoveItem;
+    public void RemoveItem(Item item)
+    {
+        if (OnRemoveItem != null)
+        {
+            OnRemoveItem(item);
+        }
+    }
+    // Remove Current Secondary Item
+    public event Action<Weapon> OnRemoveCurrentSecondaryItem;
+    public void RemoveCurrentSecondaryItem(Weapon weapon)
+    {
+        if (OnRemoveCurrentSecondaryItem != null)
+        {
+            OnRemoveCurrentSecondaryItem(weapon);
         }
     }
 
@@ -163,5 +195,16 @@ public class GameEvents : MonoBehaviour
             OnPlayerSpriteChange(head_top, head_bottom, head_ear, head_hand, head_hair, head_facialhair, head_eye, head_eyebrow, head_mouth, head_nose);
         }
     }
+
+    // Update Armor Stat
+    public event Action<float> OnUpdateArmor;
+    public void UpdateArmorStat(float armor)
+    {
+        if (OnUpdateArmor != null)
+        {
+            OnUpdateArmor(armor);
+        }
+    }
+
 
 }

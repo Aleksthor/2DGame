@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5534157621730164914}
   - component: {fileID: 4807762961968661177}
   - component: {fileID: 6540586070909565047}
-  - component: {fileID: 8281091636769396861}
   - component: {fileID: -7822389981313453763}
   - component: {fileID: 1163086170767490890}
+  - component: {fileID: 1296743178625424685}
   m_Layer: 0
   m_Name: EnergyShard
   m_TagString: Projectile
@@ -122,18 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b540ddaf4670040438f0c09a719120ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8281091636769396861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710600009353945899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c7f0aba768dd424baa8ab341f79b0aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &-7822389981313453763
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -190,6 +178,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1296743178625424685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710600009353945899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff5170f85b217f54795c5caa624b31ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  critRate: 0
+  critDamage: 2
+  knockbackForce: 40
+  speedMultiplier: 1
+  slowDownLength: 0
 --- !u!1 &5929483364429601515
 GameObject:
   m_ObjectHideFlags: 0

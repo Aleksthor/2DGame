@@ -10,7 +10,7 @@ public class EnemyWeaponCollider : MonoBehaviour
     [Header("Attack Variables")]
     public float damage = 10f;
 
-    private float delay = 0.2f;
+    private float delay = 0.05f;
     private float delayClock = 0f;
     private bool doDelay = false;
 

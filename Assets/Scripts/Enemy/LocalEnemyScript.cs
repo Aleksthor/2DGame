@@ -129,10 +129,21 @@ public class LocalEnemyScript : MonoBehaviour
     }
 
 
-    private void WeaponCollission(GameObject GO, float damage, float knockbackForce, float speedMultiplier, float slowDownLength, Vector2 playerPosition)
+    private void WeaponCollission(GameObject GO, float damage, float knockbackForce, float speedMultiplier, float slowDownLength, Vector2 playerPosition, bool crit)
     {
         if (GameObject.ReferenceEquals(GO, gameObject))
         {
+            if (crit)
+            {
+                
+                    damageDisplay.GetComponent<TMPro.TextMeshProUGUI>().color = new Color32(255, 190, 0, 255);
+            }
+            else
+            {
+                
+                    damageDisplay.GetComponent<TMPro.TextMeshProUGUI>().color = new Color32(200, 35, 35, 255);
+
+            }
             Vector2 direction = ((Vector2)transform.position - (Vector2)playerPosition).normalized;
             Hit(damage, direction, knockbackForce, speedMultiplier);
             resetSpeedTime = slowDownLength;

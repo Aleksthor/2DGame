@@ -27,6 +27,7 @@ public class LocalPlayerScript : MonoBehaviour
 
     private float manaCost = 3;
     private float force = 10;
+    private float damage = 5f;
 
 
 
@@ -172,6 +173,7 @@ public class LocalPlayerScript : MonoBehaviour
 
             GameObject NewEnergyBall = Instantiate(EnergyBall, ShotPoint.position, ShotPoint.rotation);
             NewEnergyBall.transform.right = direction * -1f;
+            NewEnergyBall.GetComponent<ProjectileCollider>().damage = damage;
             NewEnergyBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
         }
 
@@ -191,16 +193,18 @@ public class LocalPlayerScript : MonoBehaviour
 
             GameObject NewMagicBall = Instantiate(MagicBall, ShotPoint.position, ShotPoint.rotation);
             NewMagicBall.transform.right = direction * -1f;
+            NewMagicBall.GetComponent<ProjectileCollider>().damage = damage;
             NewMagicBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
 
         }
     }
 
 
-    private void ChangeStats(float Damage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, Vector2 localPosition)
+    private void ChangeStats(float Damage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, float critRate, float critDamage, Vector2 localPosition)
     {
         manaCost = ManaCost;
         force = Force;
+        damage = Damage;
         transform.Find("Hand").transform.Find("Weapon").transform.localPosition = localPosition;
 
 

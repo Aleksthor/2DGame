@@ -178,9 +178,9 @@ GameObject:
   - component: {fileID: -5277140964070165090}
   - component: {fileID: -9008895509846848590}
   - component: {fileID: 4091727135318401625}
-  - component: {fileID: 7020237897714942248}
   - component: {fileID: 4064058152589916189}
   - component: {fileID: 613349185076557947}
+  - component: {fileID: -3745469288449380785}
   m_Layer: 0
   m_Name: MagicBall
   m_TagString: Projectile
@@ -311,18 +311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b540ddaf4670040438f0c09a719120ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7020237897714942248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6634145497197430044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c7f0aba768dd424baa8ab341f79b0aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &4064058152589916189
 Animator:
   serializedVersion: 4
@@ -364,3 +352,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-3745469288449380785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6634145497197430044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff5170f85b217f54795c5caa624b31ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  critRate: 0
+  critDamage: 2
+  knockbackForce: 40
+  speedMultiplier: 1
+  slowDownLength: 0
