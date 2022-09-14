@@ -208,14 +208,23 @@ public class SpriteManager : MonoBehaviour
                 float distance = ((Vector2)Hand.transform.position - (Vector2)playerObject.transform.position).magnitude;
                 switch ((int)inventoryManager.currentWeapon.weaponType)
                 {
-                    case 0: // Blunt
+                    case 0:
+                        #region Blunt
                         Hand.transform.localPosition = attackDirection.normalized / 7f * distance;
                         Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x, Hand.transform.localPosition.y - 0.05f);
-                        Quaternion bluntRotation = Quaternion.FromToRotation(attackDirection, new Vector2(1f, 0f));
+                        Quaternion bluntRotation;
+                        if (attackDirection.x > 0f)
+                        {
+                            bluntRotation = Quaternion.FromToRotation(new Vector2(1f, 0f), attackDirection);
+                        }
+                        else
+                        {
+                            bluntRotation = Quaternion.FromToRotation(new Vector2(-1f, 0f), attackDirection);
+                        }
 
-                        Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z + bluntRotation.z);
+                        Hand.transform.rotation = bluntRotation * Hand.transform.rotation;
                         Effects.transform.right = attackDirection * -1f;
-                        Effects.transform.localPosition = Hand.transform.localPosition;
+                        Effects.transform.localPosition = Hand.transform.localPosition / 1.5f;
                         Effects.transform.localPosition = new Vector2(Effects.transform.localPosition.x, Effects.transform.localPosition.y - 0.02f);
                         if (FlipLastInput)
                         {
@@ -223,9 +232,10 @@ public class SpriteManager : MonoBehaviour
                             
                         }
 
-
+                        #endregion
                         break;
-                    case 1: // Dagger                 
+                    case 1:
+                        #region Dagger
                         Hand.transform.localPosition = attackDirection.normalized / 12f * distance;
                         Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x, Hand.transform.localPosition.y - 0.08f);
                         Hand.transform.up = attackDirection;
@@ -236,22 +246,33 @@ public class SpriteManager : MonoBehaviour
                         {
                             Effects.transform.right = attackDirection;
                         }
-                        
+                        #endregion
                         break;
                     case 2: // Sword
-                        float angle = Hand.transform.rotation.z;
+
+                        Quaternion rotation;
+                        if (attackDirection.x > 0f)
+                        {
+                            rotation = Quaternion.FromToRotation(new Vector2(1f, 0f), attackDirection);
+                        }
+                        else
+                        {
+                            rotation = Quaternion.FromToRotation(new Vector2(-1f, 0f), attackDirection);
+                        }
+                       
+                       
                         
-                        Hand.transform.localPosition = Hand.transform.localPosition + (Vector3)attackDirection.normalized / 15f;
-                        //Quaternion rotation = Quaternion.FromToRotation(attackDirection, new Vector2(1f, 0f));
-                        
-                        //Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z + rotation.z);
+                        Hand.transform.localPosition = Hand.transform.localPosition + (Vector3)attackDirection.normalized / 10f;
+
+                        Hand.transform.rotation = rotation * Hand.transform.rotation;
                         Effects.transform.right = attackDirection * -1f;
-                        Effects.transform.localPosition = attackDirection.normalized / 7f;
-                        Effects.transform.localPosition = new Vector2(Effects.transform.localPosition.x, Effects.transform.localPosition.y - 0.1f);
+                        Effects.transform.localPosition = attackDirection.normalized / 10f;
+                        Effects.transform.localPosition = new Vector2(Effects.transform.localPosition.x, Effects.transform.localPosition.y - 0.15f);
                         if (FlipLastInput)
                         {
+                            
                             Effects.transform.right = attackDirection;
-                            Effects.transform.localPosition = new Vector2(Effects.transform.localPosition.x + 0.05f, Effects.transform.localPosition.y);
+                            
                         }
                         
 
