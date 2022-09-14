@@ -39,7 +39,7 @@ public class TaskCheckIfPlayerInAttackRange : Node
         }
         if (taskWait.waitClock < taskWait.waitTime)
         {
-            Debug.Log(taskWait.parent);
+            
             taskWait.waitClock += Time.deltaTime;
         }
 

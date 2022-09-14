@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LocalEnemyScript : MonoBehaviour
 {
@@ -8,18 +9,35 @@ public class LocalEnemyScript : MonoBehaviour
     public float health = 1;
     public float maxHealth;
 
-    // Are we playing our Hit animation, if so do NOTHING
-    public bool hit = false;
-
 
     // Local Components
     private PolygonCollider2D weaponCollider;
     private Animator animator;
     private Rigidbody2D rigidBody;
+    public Slider healthBar;
+    public RectTransform damageDisplay;
 
     // Player Manager
     private Player player;
 
+
+
+
+
+
+
+    // References to the projectiles
+    [Header("Projectiles")]
+    public GameObject MageOrb;
+    public GameObject MageShard;
+
+    // References for shooting
+    private Transform orbSpawnPoint;
+    private Transform playerTransform;
+
+
+
+    #region Function Variables
 
     // Iframes when hit
     private bool damaged = false;
@@ -33,14 +51,15 @@ public class LocalEnemyScript : MonoBehaviour
     private float resetSpeedClock = 0f;
     public float speedMultiplier = 1f;
 
-    // References to the projectiles
-    [Header("Projectiles")]
-    public GameObject MageOrb;
-    public GameObject MageShard;
 
-    // References for shooting
-    private Transform orbSpawnPoint;
-    private Transform playerTransform;
+    // Are we playing our Hit animation, if so do NOTHING
+    public bool hit = false;
+
+
+    // When hit display the damage counter
+    private bool doDamageDisplay = false;
+    private Vector2 newPosition;
+    #endregion
 
 
     void Start()
@@ -55,22 +74,14 @@ public class LocalEnemyScript : MonoBehaviour
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
         maxHealth = health;
 
-
-        GameEvents.current.OnWeaponCollission += WeaponCollission;
-    }
-
-    private void WeaponCollission(GameObject GO, float damage, float knockbackForce, float speedMultiplier, float slowDownLength, Vector2 playerPosition)
-    {
-        if (GameObject.ReferenceEquals(GO, gameObject))
-        {
-            Vector2 direction = ((Vector2)transform.position - (Vector2)playerPosition).normalized;
-            Hit(damage, direction, knockbackForce, speedMultiplier);
-            resetSpeedTime = slowDownLength;
+        if (damageDisplay != null)
+        { 
+            damageDisplay.gameObject.SetActive(false);
         }
 
 
+        GameEvents.current.OnWeaponCollission += WeaponCollission;
     }
-
 
     public void Update()
     {
@@ -99,10 +110,36 @@ public class LocalEnemyScript : MonoBehaviour
             }
           
         }
-
+        if (healthBar != null)
+        {
+            healthBar.value = health / maxHealth;
+        }
+       
+        if (doDamageDisplay)
+        {
+            damageDisplay.anchoredPosition = Vector2.Lerp(damageDisplay.anchoredPosition, newPosition, Time.deltaTime);
+            if (((Vector2)damageDisplay.anchoredPosition - newPosition).magnitude < 0.3f)
+            {
+                
+                doDamageDisplay = false;
+                damageDisplay.gameObject.SetActive(false);
+            }
+        }
 
     }
 
+
+    private void WeaponCollission(GameObject GO, float damage, float knockbackForce, float speedMultiplier, float slowDownLength, Vector2 playerPosition)
+    {
+        if (GameObject.ReferenceEquals(GO, gameObject))
+        {
+            Vector2 direction = ((Vector2)transform.position - (Vector2)playerPosition).normalized;
+            Hit(damage, direction, knockbackForce, speedMultiplier);
+            resetSpeedTime = slowDownLength;
+        }
+
+
+    }
 
 
     public void Hit(float Damage, Vector2 ImpactDirection, float Force, float slowdownRatio)
@@ -123,9 +160,26 @@ public class LocalEnemyScript : MonoBehaviour
             hit = true;
             health = health - Damage;
             rigidBody.AddForce(ImpactDirection * Force);
-
+            if (damageDisplay != null)
+            {
+                
+                DisplayDamage(Damage);
+            }
+            
         }
 
+    }
+
+    private void DisplayDamage(float damage)
+    {
+        damageDisplay.gameObject.SetActive(true);
+        
+        damageDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = damage.ToString();
+        damageDisplay.anchoredPosition = new Vector2(0f, 0f);
+        doDamageDisplay = true;
+        float x = Random.Range(1f, -1f);
+        float y = Random.Range(1f, -1f);
+        newPosition = new Vector2(x, y);
     }
 
 
