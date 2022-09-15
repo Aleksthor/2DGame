@@ -20,7 +20,7 @@ public class MageSpriteDirection : MonoBehaviour
     // save the direction to the player, always rotate towards player
 
     private Vector2 direction;
-    private bool flipLastDirection = false;
+    public bool flipLastDirection = false;
     private Vector2 left = new Vector2(0.02f, 0.12f);
     private Vector2 right = new Vector2(-0.02f, 0.12f);
     private LocalEnemyScript localEnemyScript;

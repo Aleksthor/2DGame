@@ -27,7 +27,7 @@ public class AbilityDashBehindEnemy : Ability
 
         foreach (GameObject enemy in enemies)
         {
-            
+            Debug.Log(enemy);
             float distance = Vector2.Distance(enemy.transform.position, mainCam.ScreenToWorldPoint(Input.mousePosition));
             
             if (distance < closest)
@@ -37,16 +37,30 @@ public class AbilityDashBehindEnemy : Ability
             }
             
         }
-
+        Debug.Log(closestEnemy);
         if (closestEnemy != null)
         {
-            if (closestEnemy.GetComponent<EnemySpriteDirection>().flipLastDirection)
+            if (closestEnemy.GetComponent<EnemySpriteDirection>() != null)
             {
-                parent.transform.position = new Vector2(closestEnemy.transform.position.x - 1.5f, closestEnemy.transform.position.y);
+                if (closestEnemy.GetComponent<EnemySpriteDirection>().flipLastDirection)
+                {
+                    parent.transform.position = new Vector2(closestEnemy.transform.position.x - 1.5f, closestEnemy.transform.position.y);
+                }
+                else
+                {
+                    parent.transform.position = new Vector2(closestEnemy.transform.position.x + 1.5f, closestEnemy.transform.position.y);
+                }
             }
-            else
+            if (closestEnemy.GetComponent<MageSpriteDirection>() != null)
             {
-                parent.transform.position = new Vector2(closestEnemy.transform.position.x + 1.5f, closestEnemy.transform.position.y);
+                if (closestEnemy.GetComponent<MageSpriteDirection>().flipLastDirection)
+                {
+                    parent.transform.position = new Vector2(closestEnemy.transform.position.x - 1.5f, closestEnemy.transform.position.y);
+                }
+                else
+                {
+                    parent.transform.position = new Vector2(closestEnemy.transform.position.x + 1.5f, closestEnemy.transform.position.y);
+                }
             }
 
             GameEvents.current.LowerPlayerOpacity();
