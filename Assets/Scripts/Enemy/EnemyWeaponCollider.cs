@@ -43,18 +43,22 @@ public class EnemyWeaponCollider : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
+      
 
-        if (other.tag == "Player" && !doDelay)
+        if (other.tag == "Player" && !doDelay && other.GetType() == typeof(PolygonCollider2D))
         {
             GameEvents.current.EnemyWeaponCollission(damage, 0f);
 
-            
+
             doDelay = true;
-            if((gameObject.tag == "Arrow" || gameObject.tag == "Projectile"))
+            if ((gameObject.tag == "Arrow" || gameObject.tag == "Projectile"))
             {
                 Destroy(gameObject);
             }
 
         }
+
+        
+
     }
 }

@@ -36,6 +36,8 @@ public class Movement : MonoBehaviour
     [SerializeField]
     bool isAttacking = false;
 
+    public bool iFrames = false;
+
 
     //Stamina Cooldown
     [SerializeField] float staminaCooldownPrecentage = 75f;
@@ -190,9 +192,12 @@ public class Movement : MonoBehaviour
             {
                 player.SetStaminaValue(staminaRegenSpeed * Time.deltaTime);
             }
-
+            if (!iFrames)
+            {
+                playerCollider.enabled = true;
+            }
             //Set player visible
-            playerCollider.enabled = true;
+            
         }
     }
     void DashCooldown()

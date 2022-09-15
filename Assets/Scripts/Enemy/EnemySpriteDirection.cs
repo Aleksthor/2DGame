@@ -22,11 +22,11 @@ public class EnemySpriteDirection : MonoBehaviour
 
     private Vector2 Frame1;
     private Vector2 Frame2;
-    private Vector2 direction;
+    public Vector2 direction;
     private bool flipState = false;
 
     // When standing still we use this bool
-    private bool flipLastDirection = false;
+    public bool flipLastDirection = false;
     private bool attacking = false;
 
     // Weapon Position on each direction

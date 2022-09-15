@@ -59,6 +59,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         GameEvents.current.OnRemoveItem += RemoveItem;
         GameEvents.current.OnRemoveCurrentSecondaryItem += RemoveCurrentSecondaryItem;
         GameEvents.current.OnChangeCurrentEquipment += ChangeCurrentEquipment;
+        GameEvents.current.OnRemoveCurrentEquipment += RemoveCurrentEquipment;
 
 
         UpdateInventoryTab(currentTab);
