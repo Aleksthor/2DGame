@@ -102,14 +102,18 @@ public class Player : MonoBehaviour
 
     private void Hit(float damage, float knockbackForce)
     {
-
+        float hitDamage = 0;
         if (movementManager.isShielding)
         {
-            health -= Mathf.Clamp(damage, damage / 5, damage - armor) * 0.5f;
+            hitDamage = damage - armor;
+            hitDamage = Mathf.Clamp(hitDamage, damage / 5, damage);
+            health -= hitDamage * 0.5f;
         }
         else
         {
-            health -= Mathf.Clamp(damage, damage / 5, damage - armor);
+            hitDamage = damage - armor;
+            hitDamage = Mathf.Clamp(hitDamage, damage / 5, damage);
+            health -= hitDamage;
         }
 
         if (health <= 0)

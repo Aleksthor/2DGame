@@ -42,13 +42,15 @@ public class AbilityDashBehindEnemy : Ability
         {
             if (closestEnemy.GetComponent<EnemySpriteDirection>().flipLastDirection)
             {
-                parent.transform.position = new Vector2(closestEnemy.transform.position.x - 2.5f, closestEnemy.transform.position.y);
+                parent.transform.position = new Vector2(closestEnemy.transform.position.x - 1.5f, closestEnemy.transform.position.y);
             }
             else
             {
-                parent.transform.position = new Vector2(closestEnemy.transform.position.x + 2.5f, closestEnemy.transform.position.y);
+                parent.transform.position = new Vector2(closestEnemy.transform.position.x + 1.5f, closestEnemy.transform.position.y);
             }
-            Debug.Log("Running all the way");
+
+
+            
         }
 
 

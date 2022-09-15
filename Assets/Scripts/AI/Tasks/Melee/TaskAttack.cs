@@ -26,7 +26,7 @@ public class TaskAttack : Node
 
 
         animator.SetTrigger("Attack");
-
+        GameEvents.current.EnemyMeleeAttack((Vector2)playerTransform.position);
         EnemySpriteDirection esp = transform.GetComponent<EnemySpriteDirection>();
         if (playerTransform.position.x - transform.position.x < 0)
         {

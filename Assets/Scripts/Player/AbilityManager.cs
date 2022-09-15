@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AbilityManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class AbilityManager : MonoBehaviour
 
     [SerializeField] float cooldownTime2;
     [SerializeField] float activeTime2;
+    [SerializeField] Slider cooldownIcon;
 
     [SerializeField] float cooldownTime3;
     [SerializeField] float activeTime3;
@@ -84,6 +86,7 @@ public class AbilityManager : MonoBehaviour
                 if (Input.GetKeyDown(key2))
                 {
                     ability2.Activate(gameObject);
+                    cooldownIcon.value = 1f;
                     state2 = AbilityState.active;
                     activeTime2 = ability2.activeTime;
                 }
@@ -103,6 +106,7 @@ public class AbilityManager : MonoBehaviour
             case AbilityState.cooldown:
                 if (cooldownTime2 > 0)
                 {
+                    cooldownIcon.value = cooldownTime2 / ability2.cooldownTime;
                     cooldownTime2 -= Time.deltaTime;
                 }
                 else

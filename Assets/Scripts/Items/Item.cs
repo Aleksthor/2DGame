@@ -11,7 +11,8 @@ public class Item : MonoBehaviour
         Weapon,
         Consumable,
         Material,
-        Equipment
+        Equipment,
+        Shield
 
     };
 

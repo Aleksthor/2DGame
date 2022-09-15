@@ -24,8 +24,6 @@ public class LocalEnemyScript : MonoBehaviour
 
 
 
-
-
     // References to the projectiles
     [Header("Projectiles")]
     public GameObject MageOrb;

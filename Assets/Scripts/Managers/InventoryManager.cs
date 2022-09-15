@@ -12,6 +12,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
     public Weapon currentWeapon;
     public Weapon secondaryWeapon;
 
+    public Shield currentShield;
+
     public Equipment currentHead;
     public Equipment currentChest;
     public Equipment currentPants;
@@ -53,11 +55,19 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
 
     private void Start()
     {
-        GameEvents.current.OnChangeCurrentWeapon += ChangeCurrentWeapon;
-        GameEvents.current.OnChangeSecondaryWeapon += ChangeSecondaryWeapon;
+
+
         GameEvents.current.OnAddItem += AddItem;
         GameEvents.current.OnRemoveItem += RemoveItem;
+
+        GameEvents.current.OnChangeCurrentWeapon += ChangeCurrentWeapon;
+
+        GameEvents.current.OnChangeSecondaryWeapon += ChangeSecondaryWeapon;
         GameEvents.current.OnRemoveCurrentSecondaryItem += RemoveCurrentSecondaryItem;
+
+        GameEvents.current.OnChangeCurrentShield += ChangeCurrentShield;
+        GameEvents.current.OnRemoveCurrentShield += RemoveCurrentShield;
+
         GameEvents.current.OnChangeCurrentEquipment += ChangeCurrentEquipment;
         GameEvents.current.OnRemoveCurrentEquipment += RemoveCurrentEquipment;
 
@@ -114,6 +124,38 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         secondaryWeapon = weapon;
         UpdateInventoryTab(currentTab);
 
+    }
+    public void RemoveCurrentSecondaryItem(Weapon weapon)
+    {
+        if (weapon == secondaryWeapon)
+        {
+            secondaryWeapon = null;
+        }
+
+        UpdateStats();
+    }
+
+    public void ChangeShield(Shield shield)
+    {
+        GameEvents.current.ChangeShield(shield);
+    }
+
+    public void ChangeCurrentShield(Shield shield)
+    {
+
+        currentShield = shield;
+        ChangeShield(shield);
+        UpdateInventoryTab(currentTab);
+
+    }
+    public void RemoveCurrentShield(Shield shield)
+    {
+        if (shield == currentShield)
+        {
+            currentShield = null;
+        }
+
+        UpdateStats();
     }
 
     private void ChangeCurrentEquipment(Equipment equipment, int slotIndex)
@@ -180,17 +222,6 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         UpdateInventoryTab(currentTab);
 
     }
-
-    public void RemoveCurrentSecondaryItem(Weapon weapon)
-    {
-        if (weapon == secondaryWeapon)
-        {
-            secondaryWeapon = null;
-        }
-        
-        UpdateStats();
-    }
-
     public void RemoveCurrentEquipment(Equipment equipment, int slotIndex)
     {
         Debug.Log("Running");
@@ -276,6 +307,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         uiItemInfo.Find("Background").transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = "";
         uiItemInfo.Find("Background").transform.Find("text-1").GetComponent<TMPro.TextMeshProUGUI>().text = "";
         uiItemInfo.Find("Background").transform.Find("Info1").GetComponent<TMPro.TextMeshProUGUI>().text = "";
+        uiItemInfo.Find("Background").transform.Find("text-3").GetComponent<TMPro.TextMeshProUGUI>().text = "";
+        uiItemInfo.Find("Background").transform.Find("Info3").GetComponent<TMPro.TextMeshProUGUI>().text = "";
         uiItemInfo.Find("Background").transform.Find("text-4").GetComponent<TMPro.TextMeshProUGUI>().text = "";
         uiItemInfo.Find("Background").transform.Find("Info4").GetComponent<TMPro.TextMeshProUGUI>().text = "";
         uiItemInfo.Find("Background").transform.Find("text-Description").GetComponent<TMPro.TextMeshProUGUI>().text = "";
@@ -300,40 +333,44 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
                     {
                         if (item.itemType != Item.ItemType.Equipment)
                         {
-                            GameObject obj = Instantiate(uiObject, uiContent);
-                            obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
-                            obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
-                            obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
-
-
-                            obj.GetComponent<InventoryItem>().item = item;
-                            obj.GetComponent<Image>().color = new Color(130, 130, 130);
-                            switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
+                            if(item.itemType != Item.ItemType.Shield)
                             {
-                                case 0:
+                                GameObject obj = Instantiate(uiObject, uiContent);
+                                obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
+                                obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
+                                obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
 
-                                    obj.GetComponent<Image>().color = new Color32(130, 130, 130, 100);
-                                    break;
-                                case 1:
 
-                                    obj.GetComponent<Image>().color = new Color32(110, 190, 80, 100);
-                                    break;
-                                case 2:
+                                obj.GetComponent<InventoryItem>().item = item;
+                                obj.GetComponent<Image>().color = new Color(130, 130, 130);
+                                switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
+                                {
+                                    case 0:
 
-                                    obj.GetComponent<Image>().color = new Color32(50, 140, 175, 100);
-                                    break;
-                                case 3:
+                                        obj.GetComponent<Image>().color = new Color32(130, 130, 130, 100);
+                                        break;
+                                    case 1:
 
-                                    obj.GetComponent<Image>().color = new Color32(185, 80, 190, 100);
-                                    break;
-                                case 4:
+                                        obj.GetComponent<Image>().color = new Color32(110, 190, 80, 100);
+                                        break;
+                                    case 2:
 
-                                    obj.GetComponent<Image>().color = new Color32(220, 150, 50, 100);
-                                    break;
-                                default:
-                                    break;
+                                        obj.GetComponent<Image>().color = new Color32(50, 140, 175, 100);
+                                        break;
+                                    case 3:
+
+                                        obj.GetComponent<Image>().color = new Color32(185, 80, 190, 100);
+                                        break;
+                                    case 4:
+
+                                        obj.GetComponent<Image>().color = new Color32(220, 150, 50, 100);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
                             }
-                            obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
+                            
                         }
 
                     }
@@ -395,7 +432,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
                         obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
                     }
                 }
-
+                weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
                 currentTab = 1;
                 #endregion
                 break;
@@ -464,6 +501,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
                         obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
                     }
                 }
+                weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
                 #endregion
                 break;
             case 3:
@@ -516,6 +554,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
                         obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
                     }
                 }
+                weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
                 currentTab = 3;
                 #endregion
                 break;
@@ -578,6 +617,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
                     }
                     
                 }
+                weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
                 currentTab = 4;
                 #endregion
                 break;
@@ -638,7 +678,66 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
                         }
                     }
                 }
+                weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
                 currentTab = 5;
+                #endregion
+                break;
+            case 6:
+                #region Shields
+
+
+                foreach (Transform item in uiContent)
+                {
+                    Destroy(item.gameObject);
+                }
+                currentWeight = 0;
+
+                foreach (Item item in inventory)
+                {
+                    currentWeight += item.itemWeight;
+                    if (item.itemType == Item.ItemType.Shield)
+                    {
+
+
+                        GameObject obj = Instantiate(uiObject, uiContent);
+                        obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
+                        obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
+                        obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
+
+
+                        obj.GetComponent<InventoryItem>().item = item;
+                        switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
+                        {
+                            case 0:
+
+                                obj.GetComponent<Image>().color = new Color32(130, 130, 130, 100);
+                                break;
+                            case 1:
+
+                                obj.GetComponent<Image>().color = new Color32(110, 190, 80, 100);
+                                break;
+                            case 2:
+
+                                obj.GetComponent<Image>().color = new Color32(50, 140, 175, 100);
+                                break;
+                            case 3:
+
+                                obj.GetComponent<Image>().color = new Color32(185, 80, 190, 100);
+                                break;
+                            case 4:
+
+                                obj.GetComponent<Image>().color = new Color32(220, 150, 50, 100);
+                                break;
+                            default:
+                                break;
+
+                                
+                        }
+                        obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
+                    }
+                }
+                weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
+                currentTab = 6;
                 #endregion
                 break;
             default:
@@ -705,6 +804,15 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
             damage += currentWeapon.damage;
         }
 
+
+        #endregion
+
+        #region MagicDamage
+        float magicDamage = 0f;
+        if (currentWeapon != null)
+        {
+            magicDamage += currentWeapon.magicDamage;
+        }
 
         #endregion
 
@@ -809,7 +917,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
 
 
         GameEvents.current.UpdateArmorStat(armor);
-        GameEvents.current.ChangeStats(damage, knockBackForce, slowDebuff,
+        GameEvents.current.ChangeStats(damage, magicDamage, knockBackForce, slowDebuff,
             slowDebuffTime, manaCost, shotForce, critRate, critDamage, localPos);
     }
 

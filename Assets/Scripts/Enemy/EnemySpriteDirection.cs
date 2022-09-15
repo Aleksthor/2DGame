@@ -35,6 +35,8 @@ public class EnemySpriteDirection : MonoBehaviour
 
     // Reference to the most central enemy script
     private LocalEnemyScript localEnemyScript;
+    
+    private Vector2 playerPosition;
 
     void Awake()
     {
@@ -49,6 +51,8 @@ public class EnemySpriteDirection : MonoBehaviour
         Hand = transform.Find("Hand").GetComponent<Transform>();
         Weapon = transform.Find("Hand").transform.Find("Weapon").GetComponent<Transform>();
         Effect = transform.Find("Effects").GetComponent<Transform>();
+
+        
     }
 
 
@@ -57,6 +61,8 @@ public class EnemySpriteDirection : MonoBehaviour
         Frame1 = transform.position;
 
         localEnemyScript = gameObject.GetComponent<LocalEnemyScript>();
+
+        GameEvents.current.OnEnemyMeleeAttack += EnemyMeleeAttack;
 
     }
 
@@ -154,10 +160,42 @@ public class EnemySpriteDirection : MonoBehaviour
 
                
             }
+
+            Quaternion rotation;
+            Vector2 attackDirection = playerPosition - (Vector2)transform.position;
+            if (attackDirection.x > 0f)
+            {
+                rotation = Quaternion.FromToRotation(new Vector2(1f, 0f), attackDirection);
+            }
+            else
+            {
+                rotation = Quaternion.FromToRotation(new Vector2(-1f, 0f), attackDirection);
+            }
+
+
+
+            Hand.transform.localPosition = Hand.transform.localPosition + (Vector3)attackDirection.normalized / 15f;
+
+            Hand.transform.rotation = rotation * Hand.transform.rotation;
+            Effect.transform.right = attackDirection * -1f;
+            Effect.transform.localPosition = attackDirection.normalized / 10f;
+            Effect.transform.localPosition = new Vector2(Effect.transform.localPosition.x , Effect.transform.localPosition.y - 0.05f);
+            if (flipLastDirection)
+            {
+
+                Effect.transform.right = attackDirection;
+
+            }
         }
         
 
 
+    }
+
+
+    void EnemyMeleeAttack(Vector2 Position)
+    {
+        playerPosition = Position;
     }
 
     public void Flip(bool input)

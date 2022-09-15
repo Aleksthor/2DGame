@@ -58,100 +58,9 @@ public class GameEvents : MonoBehaviour
     }
 
 
-    // Change Weapon Sprite on the player
 
 
-    public event Action<Weapon> OnChangeWeapon;
-    public void ChangeWeapon(Weapon weapon)
-    {
-        if (OnChangeWeapon != null)
-        {
-            OnChangeWeapon(weapon);
-        }
-    }
-
-
-    // When we want to change the stats in player. Make a similar event if you cant pass in all variables
-
-
-    public event Action<float, float, float, float, float, float, float, float, Vector2> OnChangeStats;
-    public void ChangeStats(float damage, float knockbackForce, float speedMultiplier, float slowDownLength, float manaCost, float force, float critRate, float critDamage, Vector2 localPosition)
-    {
-        if (OnChangeStats != null)
-        {
-            OnChangeStats(damage, knockbackForce, speedMultiplier, slowDownLength, manaCost, force, critRate, critDamage, localPosition);
-        }
-    }
-
-    // Change the weapon Collider
-
-    public event Action<double[], double[], int> OnChangeWeaponCollider;
-    public void ChangeWeaponCollider(double[] x , double[] y, int weaponType)
-    {
-        if (OnChangeWeaponCollider != null)
-        {
-            OnChangeWeaponCollider(x, y, weaponType);
-        }
-    }
-
-
-
-
-
-
-
-
-    // Change Current Weapon in inventory on the player
-
-
-    public event Action<Weapon> OnChangeCurrentWeapon;
-    public void ChangeCurrentWeapon(Weapon weapon)
-    {
-        if (OnChangeCurrentWeapon != null)
-        {
-            OnChangeCurrentWeapon(weapon);
-        }
-    }
-
-    public event Action<Equipment, int> OnRemoveCurrentEquipment;
-    public void RemoveCurrentEquipment(Equipment equipment, int slotIndex)
-    {
-        if (OnRemoveCurrentEquipment != null)
-        {
-            OnRemoveCurrentEquipment(equipment, slotIndex);
-        }
-    }
-
-    // Change Secondary Weapon in inventory on the player
-
-    public event Action<Weapon> OnChangeSecondaryWeapon;
-    public void ChangeSecondaryWeapon(Weapon weapon)
-    {
-        if (OnChangeSecondaryWeapon != null)
-        {
-            OnChangeSecondaryWeapon(weapon);
-        }
-    }
-
-    public event Action<Equipment, int> OnChangeCurrentEquipment;
-    public void ChangeCurrentEquipment(Equipment equipment, int slotIndex)
-    {
-        if (OnChangeCurrentEquipment != null)
-        {
-            OnChangeCurrentEquipment(equipment, slotIndex);
-        }
-    }
-
-    // Swap sprites in inventory when we swap weapons
-
-    public event Action OnSwapWeapon;
-    public void SwapWeapon()
-    {
-        if (OnSwapWeapon != null)
-        {
-            OnSwapWeapon();
-        }
-    }
+    #region Inventory
 
     // Add Item To Inventory
 
@@ -173,6 +82,41 @@ public class GameEvents : MonoBehaviour
             OnRemoveItem(item);
         }
     }
+
+    // Change Current Weapon in inventory on the player
+
+
+    public event Action<Weapon> OnChangeCurrentWeapon;
+    public void ChangeCurrentWeapon(Weapon weapon)
+    {
+        if (OnChangeCurrentWeapon != null)
+        {
+            OnChangeCurrentWeapon(weapon);
+        }
+    }
+
+    // Change the weapon Collider
+
+    public event Action<double[], double[], int> OnChangeWeaponCollider;
+    public void ChangeWeaponCollider(double[] x, double[] y, int weaponType)
+    {
+        if (OnChangeWeaponCollider != null)
+        {
+            OnChangeWeaponCollider(x, y, weaponType);
+        }
+    }
+
+    // Change Secondary Weapon in inventory on the player
+
+    public event Action<Weapon> OnChangeSecondaryWeapon;
+    public void ChangeSecondaryWeapon(Weapon weapon)
+    {
+        if (OnChangeSecondaryWeapon != null)
+        {
+            OnChangeSecondaryWeapon(weapon);
+        }
+    }
+
     // Remove Current Secondary Item
     public event Action<Weapon> OnRemoveCurrentSecondaryItem;
     public void RemoveCurrentSecondaryItem(Weapon weapon)
@@ -180,6 +124,57 @@ public class GameEvents : MonoBehaviour
         if (OnRemoveCurrentSecondaryItem != null)
         {
             OnRemoveCurrentSecondaryItem(weapon);
+        }
+    }
+
+
+    // Change Secondary Weapon in inventory on the player
+
+    public event Action<Shield> OnChangeCurrentShield;
+    public void ChangeCurrentShield(Shield shield)
+    {
+        if (OnChangeCurrentShield != null)
+        {
+            OnChangeCurrentShield(shield);
+        }
+    }
+
+    // Remove Current Secondary Item
+    public event Action<Shield> OnRemoveCurrentShield;
+    public void RemoveCurrentShield(Shield shield)
+    {
+        if (OnRemoveCurrentShield != null)
+        {
+            OnRemoveCurrentShield(shield);
+        }
+    }
+
+    public event Action<Equipment, int> OnChangeCurrentEquipment;
+    public void ChangeCurrentEquipment(Equipment equipment, int slotIndex)
+    {
+        if (OnChangeCurrentEquipment != null)
+        {
+            OnChangeCurrentEquipment(equipment, slotIndex);
+        }
+    }
+
+    public event Action<Equipment, int> OnRemoveCurrentEquipment;
+    public void RemoveCurrentEquipment(Equipment equipment, int slotIndex)
+    {
+        if (OnRemoveCurrentEquipment != null)
+        {
+            OnRemoveCurrentEquipment(equipment, slotIndex);
+        }
+    }
+
+    // Swap sprites in inventory when we swap weapons
+
+    public event Action OnSwapWeapon;
+    public void SwapWeapon()
+    {
+        if (OnSwapWeapon != null)
+        {
+            OnSwapWeapon();
         }
     }
 
@@ -192,6 +187,50 @@ public class GameEvents : MonoBehaviour
             OnInventoryRefresh(current, secondary);
         }
     }
+
+
+
+    // Change Weapon Sprite on the player
+
+
+    public event Action<Weapon> OnChangeWeapon;
+    public void ChangeWeapon(Weapon weapon)
+    {
+        if (OnChangeWeapon != null)
+        {
+            OnChangeWeapon(weapon);
+        }
+    }
+
+    // Change Shield Sprite on the player
+
+
+    public event Action<Shield> OnChangeShield;
+    public void ChangeShield(Shield shield)
+    {
+        if (OnChangeShield != null)
+        {
+            OnChangeShield(shield);
+        }
+
+    }
+
+
+    // When we want to change the stats in player. Make a similar event if you cant pass in all variables
+
+
+    public event Action<float, float, float, float, float, float, float, float, float, Vector2> OnChangeStats;
+    public void ChangeStats(float damage, float magicFamage, float knockbackForce, float speedMultiplier, float slowDownLength, float manaCost, float force, float critRate, float critDamage, Vector2 localPosition)
+    {
+        if (OnChangeStats != null)
+        {
+            OnChangeStats(damage, magicFamage, knockbackForce, speedMultiplier, slowDownLength, manaCost, force, critRate, critDamage, localPosition);
+        }
+    }
+
+    #endregion
+
+
 
 
 
@@ -215,6 +254,17 @@ public class GameEvents : MonoBehaviour
         if (OnUpdateArmor != null)
         {
             OnUpdateArmor(armor);
+        }
+    }
+
+    // Trigger in TaskAttack
+
+    public event Action<Vector2> OnEnemyMeleeAttack;
+    public void EnemyMeleeAttack(Vector2 position)
+    {
+        if (OnEnemyMeleeAttack != null)
+        {
+            OnEnemyMeleeAttack(position);
         }
     }
 

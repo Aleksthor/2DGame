@@ -30,6 +30,7 @@ public class Weapon : Item
     public float critRate;
 
     [Header("Magic Variables")]
+    public float magicDamage;
     public float force;
     public float manaCost;
 

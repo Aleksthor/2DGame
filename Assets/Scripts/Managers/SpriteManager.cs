@@ -26,6 +26,7 @@ public class SpriteManager : MonoBehaviour
     #endregion
 
     private Transform Hand;
+    private Transform Hand2;
     private Transform Shield;
     private Transform Effects;
 
@@ -44,6 +45,7 @@ public class SpriteManager : MonoBehaviour
 
     private Camera mainCam;
     private InventoryManager inventoryManager;
+    private Animator animator;
 
 
     private Vector2 attackDirection;        // Direction the player should face
@@ -73,19 +75,19 @@ public class SpriteManager : MonoBehaviour
         EffectsSprite = playerObject.transform.Find("Effects").GetComponent<SpriteRenderer>();
 
         Hand = playerObject.transform.Find("Hand").GetComponent<Transform>();
+        Hand2 = playerObject.transform.Find("Hand2").GetComponent<Transform>();
         Shield = playerObject.transform.Find("Shield").GetComponent<Transform>();
         Effects = playerObject.transform.Find("Effects").GetComponent<Transform>();
 
         HandObject = playerObject.transform.Find("Hand").gameObject;
         PivotPoint = playerObject.transform.Find("PivotPoint").GetComponent<Transform>();
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
+      
     }
 
     private void Start()
     {
-        print("test 0");
-        print(Nose);
-
         buttonInput = FindObjectOfType<ButtonInput>();
         localPlayerScript = playerObject.GetComponent<LocalPlayerScript>();
 
@@ -94,11 +96,15 @@ public class SpriteManager : MonoBehaviour
         GameEvents.current.OnPlayerAttack += PlayerAttackStart;
         GameEvents.current.EndPlayerAttack += PlayerAttackEnd;
         GameEvents.current.OnChangeWeapon += SwapWeapon;
+        GameEvents.current.OnChangeShield += ChangeShield;
         canTurn = true;
 
         //PlayerSpriteListener
 
         GameEvents.current.OnPlayerSpriteChange += PlayerSpriteChange;
+
+        animator = player.GetPlayerAnimator();
+        Hand2.gameObject.SetActive(false);
     }
 
     private void PlayerAttackStart(float x, float y, bool a, bool t)
@@ -137,7 +143,7 @@ public class SpriteManager : MonoBehaviour
                 Shield.transform.localPosition = new Vector3(Shield.transform.localPosition.x * -1f, Shield.transform.localPosition.y, Shield.transform.localPosition.z);
                 Effects.transform.localPosition = new Vector3(Effects.transform.localPosition.x * -1f, Effects.transform.localPosition.y, Effects.transform.localPosition.z);
                 Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z * -1f);
-
+                Hand2.transform.localPosition = new Vector3(Hand2.transform.localPosition.x * -1f, Hand2.transform.localPosition.y, Hand2.transform.localPosition.z);
 
                 FlipLastInput = true;
             }
@@ -173,6 +179,7 @@ public class SpriteManager : MonoBehaviour
                 Shield.transform.localPosition = new Vector3(Shield.transform.localPosition.x * -1f, Shield.transform.localPosition.y, Shield.transform.localPosition.z);
                 Effects.transform.localPosition = new Vector3(Effects.transform.localPosition.x * -1f, Effects.transform.localPosition.y, Effects.transform.localPosition.z);
                 Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z * -1f);
+                Hand2.transform.localPosition = new Vector3(Hand2.transform.localPosition.x * -1f, Hand2.transform.localPosition.y, Hand2.transform.localPosition.z);
 
 
 
@@ -186,14 +193,8 @@ public class SpriteManager : MonoBehaviour
                 HeadSprite.flipX = false;
                 HandSprite.flipX = false;
                 ShieldSprite.flipX = false;
-
                 WeaponSprite.flipX = false;
                 EffectsSprite.flipX = false;
-
-                Hand.transform.localPosition = new Vector3(Hand.transform.localPosition.x, Hand.transform.localPosition.y, Hand.transform.localPosition.z);
-                Shield.transform.localPosition = new Vector3(Shield.transform.localPosition.x, Shield.transform.localPosition.y, Shield.transform.localPosition.z);
-                Effects.transform.localPosition = new Vector3(Effects.transform.localPosition.x, Effects.transform.localPosition.y, Effects.transform.localPosition.z);
-                Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z);
 
 
 
@@ -315,6 +316,23 @@ public class SpriteManager : MonoBehaviour
         {
             WeaponSprite.sprite = weapon.itemSprite;
         }
+    }
+
+    private void ChangeShield(Shield shield)
+    {
+        if(shield != null)
+        {
+            animator.SetBool("ShieldEquipped", true);
+            Hand2.gameObject.SetActive(false);
+            ShieldSprite.sprite = shield.itemSprite;
+        }
+        else
+        {
+            animator.SetBool("ShieldEquipped", false);
+            Hand2.gameObject.SetActive(true);
+            ShieldSprite.sprite = null; 
+        }
+       
     }
 
 
