@@ -18,7 +18,7 @@ public class LocalPlayerScript : MonoBehaviour
     private Camera mainCam;                     // They will move towards camera.mousePosition
     private PolygonCollider2D weaponCollider;   // Turn collider on with from animator
 
-    private Player player;
+    private PlayerManager player;
     private Animator animator;
 
     [Header("Projectiles")]
@@ -41,7 +41,7 @@ public class LocalPlayerScript : MonoBehaviour
 
     void Start()
     {
-        player = FindObjectOfType<Player>();
+        player = FindObjectOfType<PlayerManager>();
         weaponCollider.enabled = false;
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 

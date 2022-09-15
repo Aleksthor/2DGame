@@ -40,9 +40,9 @@ public class AbilityDashBehindEnemy : Ability
         Debug.Log(closestEnemy);
         if (closestEnemy != null)
         {
-            if (closestEnemy.GetComponent<EnemySpriteDirection>() != null)
+            if (closestEnemy.GetComponent<GoblinSpriteDirection>() != null)
             {
-                if (closestEnemy.GetComponent<EnemySpriteDirection>().flipLastDirection)
+                if (closestEnemy.GetComponent<GoblinSpriteDirection>().flipLastDirection)
                 {
                     parent.transform.position = new Vector2(closestEnemy.transform.position.x - 1.5f, closestEnemy.transform.position.y);
                 }

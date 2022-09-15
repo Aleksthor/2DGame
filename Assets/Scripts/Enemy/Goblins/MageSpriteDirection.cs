@@ -25,13 +25,13 @@ public class MageSpriteDirection : MonoBehaviour
     private Vector2 right = new Vector2(-0.02f, 0.12f);
     private LocalEnemyScript localEnemyScript;
     private Transform playerTransform;
-    private Player player;
+    private PlayerManager player;
 
 
     void Start()
     { 
         localEnemyScript = gameObject.GetComponent<LocalEnemyScript>();
-        player = FindObjectOfType<Player>();
+        player = FindObjectOfType<PlayerManager>();
         playerTransform = player.GetPlayer().transform;
     }
 

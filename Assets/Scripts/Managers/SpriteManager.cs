@@ -38,7 +38,7 @@ public class SpriteManager : MonoBehaviour
     [SerializeField]
     LocalPlayerScript localPlayerScript;
 
-    private Player player;
+    private PlayerManager player;
     private GameObject playerObject;
     private Transform PivotPoint;
     private GameObject HandObject;
@@ -54,7 +54,7 @@ public class SpriteManager : MonoBehaviour
 
     private void Awake()
     {
-        player = FindObjectOfType<Player>();
+        player = FindObjectOfType<PlayerManager>();
         playerObject = player.GetPlayer();
 
         Head_Top = playerObject.transform.Find("Head").transform.Find("Head_Top").GetComponent<SpriteRenderer>();

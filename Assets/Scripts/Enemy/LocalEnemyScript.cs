@@ -18,7 +18,7 @@ public class LocalEnemyScript : MonoBehaviour
     public RectTransform damageDisplay;
 
     // Player Manager
-    private Player player;
+    private PlayerManager player;
 
 
 
@@ -65,7 +65,7 @@ public class LocalEnemyScript : MonoBehaviour
         weaponCollider = transform.Find("Hand").transform.Find("Weapon").GetComponent<PolygonCollider2D>();
         weaponCollider.enabled = false;
 
-        player = FindObjectOfType<Player>();
+        player = FindObjectOfType<PlayerManager>();
 
 
         animator = gameObject.GetComponent<Animator>();

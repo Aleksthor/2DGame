@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
     #region Variables
     ButtonInput buttonInput;
     HUD hud;
-    Player player;
+    PlayerManager player;
     Animation playerAnimation;
     LocalPlayerScript localPlayerScript;
 
@@ -54,7 +54,7 @@ public class Movement : MonoBehaviour
     {
         hud = FindObjectOfType<HUD>();
         buttonInput = FindObjectOfType<ButtonInput>();
-        player = FindObjectOfType<Player>();
+        player = FindObjectOfType<PlayerManager>();
         playerAnimation = FindObjectOfType<Animation>();
         localPlayerScript = player.GetPlayer().GetComponent<LocalPlayerScript>();
         playerCollider = player.GetPlayer().GetComponent<PolygonCollider2D>();

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Animation : MonoBehaviour
 {
-    Player player;
+    PlayerManager player;
     Animator animator;
 
 
     private void Awake()
     {
-        player = FindObjectOfType<Player>();
+        player = FindObjectOfType<PlayerManager>();
 
     }
 
