@@ -13,10 +13,11 @@ public class AbilityManager : MonoBehaviour
     
     [SerializeField] float cooldownTime1;
     [SerializeField] float activeTime1;
+    [SerializeField] Slider cooldownIcon1;
 
     [SerializeField] float cooldownTime2;
     [SerializeField] float activeTime2;
-    [SerializeField] Slider cooldownIcon;
+    [SerializeField] Slider cooldownIcon2;
 
     [SerializeField] float cooldownTime3;
     [SerializeField] float activeTime3;
@@ -47,6 +48,7 @@ public class AbilityManager : MonoBehaviour
             case AbilityState.ready:
                 if (Input.GetKeyDown(key1))
                 {
+                    cooldownIcon1.value = 1f;
                     ability1.Activate(gameObject);
                     state1 = AbilityState.active;
                     activeTime1 = ability1.activeTime;
@@ -67,6 +69,7 @@ public class AbilityManager : MonoBehaviour
             case AbilityState.cooldown:
                 if (cooldownTime1 > 0)
                 {
+                    cooldownIcon1.value = cooldownTime1 / ability1.cooldownTime;
                     cooldownTime1 -= Time.deltaTime;
                 }
                 else
@@ -86,7 +89,7 @@ public class AbilityManager : MonoBehaviour
                 if (Input.GetKeyDown(key2))
                 {
                     ability2.Activate(gameObject);
-                    cooldownIcon.value = 1f;
+                    cooldownIcon2.value = 1f;
                     state2 = AbilityState.active;
                     activeTime2 = ability2.activeTime;
                 }
@@ -106,7 +109,7 @@ public class AbilityManager : MonoBehaviour
             case AbilityState.cooldown:
                 if (cooldownTime2 > 0)
                 {
-                    cooldownIcon.value = cooldownTime2 / ability2.cooldownTime;
+                    cooldownIcon2.value = cooldownTime2 / ability2.cooldownTime;
                     cooldownTime2 -= Time.deltaTime;
                 }
                 else
