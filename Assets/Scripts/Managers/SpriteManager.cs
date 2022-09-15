@@ -68,7 +68,6 @@ public class SpriteManager : MonoBehaviour
         BodySprite = playerObject.transform.Find("Body").GetComponent<SpriteRenderer>();
         HeadSprite = playerObject.transform.Find("Head").GetComponent<SpriteRenderer>();
         HandSprite = playerObject.transform.Find("Hand").GetComponent<SpriteRenderer>();
-        HatSprite = playerObject.transform.Find("Head").transform.Find("Hat").GetComponent<SpriteRenderer>();
         WeaponSprite = playerObject.transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>();
         ShieldSprite = playerObject.transform.Find("Shield").GetComponent<SpriteRenderer>();
         EffectsSprite = playerObject.transform.Find("Effects").GetComponent<SpriteRenderer>();
@@ -98,6 +97,7 @@ public class SpriteManager : MonoBehaviour
         canTurn = true;
 
         //PlayerSpriteListener
+
         GameEvents.current.OnPlayerSpriteChange += PlayerSpriteChange;
     }
 
@@ -128,7 +128,7 @@ public class SpriteManager : MonoBehaviour
                 HeadSprite.flipX = true;
                 HandSprite.flipX = true;
                 ShieldSprite.flipX = true;
-                HatSprite.flipX = true;
+
                 WeaponSprite.flipX = true;
                 EffectsSprite.flipX = true;
 
@@ -147,7 +147,7 @@ public class SpriteManager : MonoBehaviour
                 HeadSprite.flipX = false;
                 HandSprite.flipX = false;
                 ShieldSprite.flipX = false;
-                HatSprite.flipX = false;
+
                 WeaponSprite.flipX = false;
                 EffectsSprite.flipX = false;
 
@@ -165,7 +165,7 @@ public class SpriteManager : MonoBehaviour
                 HeadSprite.flipX = true;
                 HandSprite.flipX = true;
                 ShieldSprite.flipX = true;
-                HatSprite.flipX = true;
+
                 WeaponSprite.flipX = true;
                 EffectsSprite.flipX = true;
 
@@ -186,7 +186,7 @@ public class SpriteManager : MonoBehaviour
                 HeadSprite.flipX = false;
                 HandSprite.flipX = false;
                 ShieldSprite.flipX = false;
-                HatSprite.flipX = false;
+
                 WeaponSprite.flipX = false;
                 EffectsSprite.flipX = false;
 
@@ -206,95 +206,99 @@ public class SpriteManager : MonoBehaviour
             if (attack)
             {
                 float distance = ((Vector2)Hand.transform.position - (Vector2)playerObject.transform.position).magnitude;
-                switch ((int)inventoryManager.currentWeapon.weaponType)
+                if (inventoryManager.currentWeapon != null)
                 {
-                    case 0:
-                        #region Blunt
-                        Hand.transform.localPosition = attackDirection.normalized / 7f * distance;
-                        Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x, Hand.transform.localPosition.y - 0.05f);
-                        Quaternion bluntRotation;
-                        if (attackDirection.x > 0f)
-                        {
-                            bluntRotation = Quaternion.FromToRotation(new Vector2(1f, 0f), attackDirection);
-                        }
-                        else
-                        {
-                            bluntRotation = Quaternion.FromToRotation(new Vector2(-1f, 0f), attackDirection);
-                        }
+                    switch ((int)inventoryManager.currentWeapon.weaponType)
+                    {
+                        case 0:
+                            #region Blunt
+                            Hand.transform.localPosition = attackDirection.normalized / 7f * distance;
+                            Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x, Hand.transform.localPosition.y - 0.05f);
+                            Quaternion bluntRotation;
+                            if (attackDirection.x > 0f)
+                            {
+                                bluntRotation = Quaternion.FromToRotation(new Vector2(1f, 0f), attackDirection);
+                            }
+                            else
+                            {
+                                bluntRotation = Quaternion.FromToRotation(new Vector2(-1f, 0f), attackDirection);
+                            }
 
-                        Hand.transform.rotation = bluntRotation * Hand.transform.rotation;
-                        Effects.transform.right = attackDirection * -1f;
-                        Effects.transform.localPosition = Hand.transform.localPosition / 1.5f;
-                        Effects.transform.localPosition = new Vector2(Effects.transform.localPosition.x, Effects.transform.localPosition.y - 0.02f);
-                        if (FlipLastInput)
-                        {
-                            Effects.transform.right = attackDirection;
-                            
-                        }
+                            Hand.transform.rotation = bluntRotation * Hand.transform.rotation;
+                            Effects.transform.right = attackDirection * -1f;
+                            Effects.transform.localPosition = Hand.transform.localPosition / 1.5f;
+                            Effects.transform.localPosition = new Vector2(Effects.transform.localPosition.x, Effects.transform.localPosition.y - 0.02f);
+                            if (FlipLastInput)
+                            {
+                                Effects.transform.right = attackDirection;
 
-                        #endregion
-                        break;
-                    case 1:
-                        #region Dagger
-                        Hand.transform.localPosition = attackDirection.normalized / 12f * distance;
-                        Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x, Hand.transform.localPosition.y - 0.08f);
-                        Hand.transform.up = attackDirection;
-                        Effects.transform.right = attackDirection * -1f;
-                        Effects.transform.localPosition = Hand.transform.localPosition;
+                            }
 
-                        if (FlipLastInput)
-                        {
-                            Effects.transform.right = attackDirection;
-                        }
-                        #endregion
-                        break;
-                    case 2: // Sword
+                            #endregion
+                            break;
+                        case 1:
+                            #region Dagger
+                            Hand.transform.localPosition = attackDirection.normalized / 12f * distance;
+                            Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x, Hand.transform.localPosition.y - 0.08f);
+                            Hand.transform.up = attackDirection;
+                            Effects.transform.right = attackDirection * -1f;
+                            Effects.transform.localPosition = Hand.transform.localPosition;
 
-                        Quaternion rotation;
-                        if (attackDirection.x > 0f)
-                        {
-                            rotation = Quaternion.FromToRotation(new Vector2(1f, 0f), attackDirection);
-                        }
-                        else
-                        {
-                            rotation = Quaternion.FromToRotation(new Vector2(-1f, 0f), attackDirection);
-                        }
-                       
-                       
-                        
-                        Hand.transform.localPosition = Hand.transform.localPosition + (Vector3)attackDirection.normalized / 10f;
+                            if (FlipLastInput)
+                            {
+                                Effects.transform.right = attackDirection;
+                            }
+                            #endregion
+                            break;
+                        case 2: // Sword
 
-                        Hand.transform.rotation = rotation * Hand.transform.rotation;
-                        Effects.transform.right = attackDirection * -1f;
-                        Effects.transform.localPosition = attackDirection.normalized / 10f;
-                        Effects.transform.localPosition = new Vector2(Effects.transform.localPosition.x, Effects.transform.localPosition.y - 0.15f);
-                        if (FlipLastInput)
-                        {
-                            
-                            Effects.transform.right = attackDirection;
-                            
-                        }
-                        
+                            Quaternion rotation;
+                            if (attackDirection.x > 0f)
+                            {
+                                rotation = Quaternion.FromToRotation(new Vector2(1f, 0f), attackDirection);
+                            }
+                            else
+                            {
+                                rotation = Quaternion.FromToRotation(new Vector2(-1f, 0f), attackDirection);
+                            }
 
 
-                        break;
-                    case 3: // Staff
 
-                        break;
-                    case 4: // Wand
+                            Hand.transform.localPosition = Hand.transform.localPosition + (Vector3)attackDirection.normalized / 10f;
 
-                        break;
-                    default:
-                        break;
+                            Hand.transform.rotation = rotation * Hand.transform.rotation;
+                            Effects.transform.right = attackDirection * -1f;
+                            Effects.transform.localPosition = attackDirection.normalized / 10f;
+                            Effects.transform.localPosition = new Vector2(Effects.transform.localPosition.x, Effects.transform.localPosition.y - 0.15f);
+                            if (FlipLastInput)
+                            {
+
+                                Effects.transform.right = attackDirection;
+
+                            }
+
+
+
+                            break;
+                        case 3: // Staff
+
+                            break;
+                        case 4: // Wand
+
+                            break;
+                        default:
+                            break;
+                    }
+                    if (attackDirection.x > 0f)
+                    {
+                        FlipLastInput = true;
+                    }
+                    else
+                    {
+                        FlipLastInput = false;
+                    }
                 }
-                if (attackDirection.x > 0f)
-                {
-                    FlipLastInput = true;
-                }
-                else
-                {
-                    FlipLastInput = false;
-                }
+               
             }
 
 
@@ -314,7 +318,8 @@ public class SpriteManager : MonoBehaviour
     }
 
 
-    void PlayerSpriteChange(Sprite head_top, Sprite head_bottom, Sprite head_ear, Sprite head_hand, Sprite head_hair, Sprite head_facialhair, Sprite head_eye, Sprite head_eyebrow, Sprite head_mouth, Sprite head_nose)
+    void PlayerSpriteChange(Sprite head_top, Sprite head_bottom, Sprite head_ear, Sprite head_hand, Sprite head_hair, Sprite head_facialhair, Sprite head_eye, Sprite head_eyebrow, Sprite head_mouth, Sprite head_nose,
+                                Color headTop, Color hair, Color facialhair, Color eye, Color eyebrow, Color mouth)
     {
         print("test 1");
         Debug.Log(head_top);
@@ -323,44 +328,54 @@ public class SpriteManager : MonoBehaviour
         if (head_top != null)
         {
             Head_Top.sprite = head_top;
+            Head_Top.color = headTop;
         }
         if (head_bottom != null)
         {
             Head_Bottom.sprite = head_bottom;
+            Head_Bottom.color = headTop;
         }
         if (head_ear != null)
         {
             Ear.sprite = head_ear;
+            Ear.color = headTop;
         }
         if (head_top != null)
         {
             HandSprite.color = Head_Top.color;
+            HandSprite.color = headTop;
         }
         if (head_hair != null)
         {
             Hair.sprite = head_hair;
+            Hair.color = hair;
         }
 
         if (head_facialhair != null)
         {
             Facialhair.sprite = head_facialhair;
+            Facialhair.color = facialhair;
         }
         if (head_eye != null)
         {
             Eye.sprite = head_eye;
+            Eye.color = eye;
         }
 
         if (head_eyebrow != null)
         {
             Eyebrow.sprite = head_eyebrow;
+            Eyebrow.color = eyebrow;
         }
         if (head_mouth != null)
         {
             Mouth.sprite = head_mouth;
+            Mouth.color = mouth;
         }
         if (head_nose != null)
         {
             Nose.sprite = head_nose;
+            Nose.color = eyebrow;
         }
 
         print("test 2");

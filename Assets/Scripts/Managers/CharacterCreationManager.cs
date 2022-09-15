@@ -838,18 +838,12 @@ public class CharacterCreationManager : MonoBehaviour
         if (Head_nose_GO.GetComponent<Image>().sprite != null)
             saved_Nose = Head_nose_GO.GetComponent<Image>().sprite;
 
-        //Position
-        saved_Local_Hair = Head_hair_GO.transform.position;
-        saved_Local_Facialhair = Head_facialhair_GO.transform.position;
-        saved_Local_Eye = Head_eye_GO.transform.position;
-        saved_Local_Eyebrow = Head_eyebrow_GO.transform.position;
-        saved_Local_Mouth = Head_mouth_GO.transform.position;
-        saved_Local_Nose = Head_nose_GO.transform.position;
 
         //SendSpriteInfo
-        GameEvents.current.PlayerSpriteChange(saved_Head_Top, saved_Head_Bottom, saved_Ear, null, saved_Hair, saved_Facialhair, saved_Eye, saved_Eyebrow, saved_Mouth, saved_Nose);
+        GameEvents.current.PlayerSpriteChange(saved_Head_Top, saved_Head_Bottom, saved_Ear, null, saved_Hair, saved_Facialhair, saved_Eye, saved_Eyebrow, saved_Mouth, saved_Nose,
+                                                color_Head_Face, color_Head_Hair, color_Head_Facialhair, color_Head_Eye, color_Head_Eyebrow, color_Head_Mouth);
 
-        print("Check");
+        Debug.Log(saved_Head_Top);
     }
 
     void AdjustDisplaySize(List<GameObject> list)
