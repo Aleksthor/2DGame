@@ -102,9 +102,21 @@ public class SpriteManager : MonoBehaviour
         //PlayerSpriteListener
 
         GameEvents.current.OnPlayerSpriteChange += PlayerSpriteChange;
+        GameEvents.current.OnLowerPlayerOpacity += LowerOpacity;
+        GameEvents.current.OnNormalPlayerOpacity += NormalOpacity;
 
         animator = player.GetPlayerAnimator();
         Hand2.gameObject.SetActive(false);
+    }
+
+    public void LowerOpacity()
+    {
+
+    }
+
+    public void NormalOpacity()
+    {
+
     }
 
     private void PlayerAttackStart(float x, float y, bool a, bool t)

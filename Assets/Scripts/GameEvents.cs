@@ -269,4 +269,24 @@ public class GameEvents : MonoBehaviour
     }
 
 
+
+    // LowerPlayerOpacity
+
+    public event Action OnLowerPlayerOpacity;
+    public void LowerPlayerOpacity()
+    {
+        if (OnLowerPlayerOpacity != null)
+        {
+            OnLowerPlayerOpacity();
+        }
+    }
+
+    public event Action OnNormalPlayerOpacity;
+    public void NormalPlayerOpacity()
+    {
+        if (OnNormalPlayerOpacity != null)
+        {
+            OnNormalPlayerOpacity();
+        }
+    }
 }

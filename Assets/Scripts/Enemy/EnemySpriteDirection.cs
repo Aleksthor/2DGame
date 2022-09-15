@@ -174,7 +174,7 @@ public class EnemySpriteDirection : MonoBehaviour
 
 
 
-            Hand.transform.localPosition = Hand.transform.localPosition + (Vector3)attackDirection.normalized / 15f;
+            Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x, Hand.transform.localPosition.y + (attackDirection.y / 20f));
 
             Hand.transform.rotation = rotation * Hand.transform.rotation;
             Effect.transform.right = attackDirection * -1f;

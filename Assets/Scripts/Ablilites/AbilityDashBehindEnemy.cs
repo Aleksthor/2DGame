@@ -49,7 +49,7 @@ public class AbilityDashBehindEnemy : Ability
                 parent.transform.position = new Vector2(closestEnemy.transform.position.x + 1.5f, closestEnemy.transform.position.y);
             }
 
-
+            GameEvents.current.LowerPlayerOpacity();
             
         }
 
@@ -62,5 +62,6 @@ public class AbilityDashBehindEnemy : Ability
         parent.GetComponent<PolygonCollider2D>().enabled = true;
         closest = 150f;
         movement.iFrames = false;
+        GameEvents.current.NormalPlayerOpacity();
     }
 }
