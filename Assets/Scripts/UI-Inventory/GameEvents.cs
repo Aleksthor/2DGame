@@ -23,7 +23,7 @@ public class GameEvents : MonoBehaviour
         }
     }
 
-    // End of a player attack
+    // End of a player attack 
 
     public event Action<bool, bool> EndPlayerAttack;
     public void PlayerAttackEnd(bool attack, bool turn)
@@ -110,6 +110,15 @@ public class GameEvents : MonoBehaviour
         if (OnChangeCurrentWeapon != null)
         {
             OnChangeCurrentWeapon(weapon);
+        }
+    }
+
+    public event Action<Equipment, int> OnRemoveCurrentEquipment;
+    public void RemoveCurrentEquipment(Equipment equipment, int slotIndex)
+    {
+        if (OnRemoveCurrentEquipment != null)
+        {
+            OnRemoveCurrentEquipment(equipment, slotIndex);
         }
     }
 

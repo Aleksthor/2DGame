@@ -84,12 +84,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
             }
         }
 
-
-
-
     }
-
-
 
     public void ChangeWeapon(Weapon weapon)
     {
@@ -100,8 +95,6 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         UpdateStats();
 
     }
-
-
 
     public void ChangeCurrentWeapon(Weapon weapon)
     {
@@ -114,13 +107,9 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         UpdateInventoryTab(currentTab);
     }
 
-
     public void ChangeSecondaryWeapon(Weapon weapon)
     {
-        if (secondaryWeapon != null)
-        {
-            inventory.Add(secondaryWeapon);            
-        }
+        
         secondaryWeapon = weapon;
         UpdateInventoryTab(currentTab);
 
@@ -131,31 +120,55 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         switch (equipment.equipmentType)
         {
             case Equipment.EquipmentType.Head:
+                #region Head
+               
                 currentHead = equipment;
+                #endregion
                 break;
             case Equipment.EquipmentType.Chest:
+                #region Chest
+                
                 currentChest = equipment;
+                #endregion
                 break;
             case Equipment.EquipmentType.Pants:
+                #region Pants
+
                 currentPants = equipment;
+                #endregion
                 break;
             case Equipment.EquipmentType.Shoes:
+                #region Shoes
+                
                 currentShoes = equipment;
+                #endregion
                 break;
             case Equipment.EquipmentType.Necklace:
+                #region Necklace
+               
                 currentNecklace = equipment;
+                #endregion
                 break;
             case Equipment.EquipmentType.Earring:
+                #region Earrings
+                
                 currentEarrings = equipment;
+                #endregion
                 break;
             case Equipment.EquipmentType.Ring:
                 if (slotIndex == 6)
                 {
+                    #region Ring1
+                    
                     currentRing1 = equipment;
+                    #endregion
                 }
                 if (slotIndex == 7)
                 {
+                    #region Ring2
+                    
                     currentRing2 = equipment;
+                    #endregion
                 }
                 break;
             default:
@@ -169,8 +182,85 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
 
     public void RemoveCurrentSecondaryItem(Weapon weapon)
     {
-        RemoveItem(weapon);
-        secondaryWeapon = null;
+        if (weapon == secondaryWeapon)
+        {
+            secondaryWeapon = null;
+        }
+        
+        UpdateStats();
+    }
+
+    public void RemoveCurrentEquipment(Equipment equipment, int slotIndex)
+    {
+        Debug.Log("Running");
+        switch (equipment.equipmentType)
+        {
+            case Equipment.EquipmentType.Head:
+                #region Head
+
+                currentHead = null;
+
+                #endregion
+                break;
+            case Equipment.EquipmentType.Chest:
+                #region Chest
+
+                currentChest = null;
+
+                #endregion
+                break;
+            case Equipment.EquipmentType.Pants:
+                #region Pants
+
+                currentPants = null;
+
+                #endregion
+                break;
+            case Equipment.EquipmentType.Shoes:
+                #region Shoes
+
+                currentShoes = null;
+
+                #endregion
+                break;
+            case Equipment.EquipmentType.Necklace:
+                #region Necklace
+
+                currentNecklace = null;
+
+                #endregion
+                break;
+            case Equipment.EquipmentType.Earring:
+                #region Earrings
+
+                currentEarrings = null;
+
+                #endregion
+                break;
+            case Equipment.EquipmentType.Ring:
+                if (slotIndex == 6)
+                {
+                    #region Ring1
+
+                    currentRing1 = null;
+
+                    #endregion
+                }
+                if (slotIndex == 7)
+                {
+                    #region Ring2
+
+                    currentRing2 = null;
+
+                    #endregion
+                }
+                break;
+            default:
+                break;
+
+
+        }
+
         UpdateStats();
     }
 

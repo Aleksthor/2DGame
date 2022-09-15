@@ -14,6 +14,7 @@ public class ArmorSlot : MonoBehaviour, IDropHandler
 
     int framesToReset = 10;
     int framesCount = 0;
+    private bool swapped = false;
 
 
 
@@ -24,17 +25,26 @@ public class ArmorSlot : MonoBehaviour, IDropHandler
 
     private void Update()
     {
-        if (current != null && framesCount <= framesToReset)
+        if (swapped)
         {
             framesCount++;
             if (framesCount > framesToReset)
             {
-                current.GetComponent<DragDrop>().enabled = true;
+                if (current != null)
+                {
+                    current.GetComponent<DragDrop>().enabled = true;
+                    swapped = false;
+                    framesCount = 0;
+                }
+
+
             }
         }
         if (gameObject.transform.Find("ItemUI(Clone)") == null && current != null)
         {
+            Debug.Log("Runnning");
             GameEvents.current.AddItem(current.GetComponent<InventoryItem>().item);
+            GameEvents.current.RemoveCurrentEquipment((Equipment)current.GetComponent<InventoryItem>().item, slotIndex);
             framesCount = 0;
             current = null;
         }
@@ -237,6 +247,9 @@ public class ArmorSlot : MonoBehaviour, IDropHandler
                         break;
 
                 }
+
+
+                swapped = true;
             }
 
         }

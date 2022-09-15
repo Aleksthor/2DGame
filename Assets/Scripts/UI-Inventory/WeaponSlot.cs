@@ -18,6 +18,9 @@ public class WeaponSlot : MonoBehaviour, IDropHandler
     int framesCount = 0;
 
 
+    private bool swapped = false;
+
+
     private void Start()
     {
         GameEvents.current.OnSwapWeapon += SwapWeapon;
@@ -26,19 +29,29 @@ public class WeaponSlot : MonoBehaviour, IDropHandler
 
     private void Update()
     {
-        if (current != null && framesCount <= framesToReset)
+        
+        if (swapped)
         {
             framesCount++;
             if (framesCount > framesToReset)
             {
-                current.GetComponent<DragDrop>().enabled = true;
+                if (current != null)
+                {
+                    current.GetComponent<DragDrop>().enabled = true;
+                    swapped = false;
+                    framesCount = 0;
+                }
+                
+                
             }
         }
         if (gameObject.transform.Find("ItemUI(Clone)") == null && current != null)
         {
             GameEvents.current.AddItem(current.GetComponent<InventoryItem>().item);
+            GameEvents.current.RemoveCurrentSecondaryItem((Weapon)current.GetComponent<InventoryItem>().item);
             framesCount = 0;
             current = null;
+            
         }
 
     }
@@ -68,7 +81,7 @@ public class WeaponSlot : MonoBehaviour, IDropHandler
                     eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
                     eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
 
-                    GameEvents.current.RemoveItem((Weapon)eventData.pointerDrag.GetComponent<InventoryItem>().item);
+                    GameEvents.current.RemoveItem(eventData.pointerDrag.GetComponent<InventoryItem>().item);
                     GameEvents.current.ChangeCurrentWeapon((Weapon)eventData.pointerDrag.GetComponent<InventoryItem>().item);
 
                 }
@@ -85,14 +98,14 @@ public class WeaponSlot : MonoBehaviour, IDropHandler
                     eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
                     eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
 
-                    GameEvents.current.RemoveCurrentSecondaryItem((Weapon)eventData.pointerDrag.GetComponent<InventoryItem>().item);
+                    GameEvents.current.RemoveItem(eventData.pointerDrag.GetComponent<InventoryItem>().item);
                     GameEvents.current.ChangeSecondaryWeapon((Weapon)eventData.pointerDrag.GetComponent<InventoryItem>().item);
 
                     current = eventData.pointerDrag;
 
                 }
 
-                
+                swapped = true;
             }
         }
     }
