@@ -490,7 +490,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1545452393}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999249
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4040,23 +4040,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fa726ce539fb2c4eac8ea63130d2911, type: 3}
---- !u!1 &797403258 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 918875364062558322, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
-  m_PrefabInstance: {fileID: 2076017504246023227}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &797403260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 797403258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 270eb63c0477f7043806efa25bed4b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &802174168
 GameObject:
   m_ObjectHideFlags: 0
@@ -7627,7 +7610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -215, y: 495.03113}
+  m_AnchoredPosition: {x: -215, y: 495.00058}
   m_SizeDelta: {x: 430, y: 980}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &1424626120 stripped
@@ -11532,6 +11515,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 788368849215730241, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 1232321284}
     - target: {fileID: 985886772895935546, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
       propertyPath: Head_Top
       value: 
