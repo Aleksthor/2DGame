@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3496029255840344546}
-  - component: {fileID: 6113099359088657436}
+  - component: {fileID: 813422628460448444}
   m_Layer: 0
   m_Name: GameEvent
   m_TagString: Untagged
@@ -30,9 +30,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2076017503924805235}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6113099359088657436
+--- !u!114 &813422628460448444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 918875364062558322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b8939e39ea742a42b062ccf8f8de4a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 270eb63c0477f7043806efa25bed4b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1579662712790032619
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1731342078765134322}
-  - component: {fileID: 9222154505596941360}
+  - component: {fileID: 788368849215730241}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -74,9 +74,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2076017503924805235}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9222154505596941360
+--- !u!114 &788368849215730241
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,12 +85,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1579662712790032619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5523e12390e8a6b4ca015dfac655c7be, type: 3}
+  m_Script: {fileID: 11500000, guid: 4973a701111bf1d478619ff42a07a37f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 0}
   health: 50
   maxHealth: 50
+  armor: 0
   stamina: 50
   maxStamina: 50
   mana: 50
@@ -128,7 +129,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2076017503924805235}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5560138717528278700
 MonoBehaviour:
@@ -172,7 +173,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2076017503924805235}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6984774817188864681
 MonoBehaviour:
@@ -188,51 +189,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonInput: {fileID: 0}
   localPlayerScript: {fileID: 0}
---- !u!1 &2076017503506540631
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2076017503506540630}
-  - component: {fileID: 2076017503506540629}
-  m_Layer: 0
-  m_Name: ShootManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2076017503506540630
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2076017503506540631}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2076017503924805235}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2076017503506540629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2076017503506540631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ff41fdc79cea2441b72971a16b7d120, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magicCost: 2
 --- !u!1 &2076017503680865805
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +244,7 @@ MonoBehaviour:
   isDashCooldown: 0
   isShielding: 0
   isAttacking: 0
+  iFrames: 0
   staminaCooldownPrecentage: 75
   dashTransparity: 0.5
 --- !u!1 &2076017503924805244
@@ -320,7 +277,6 @@ Transform:
   m_Children:
   - {fileID: 2076017503680865804}
   - {fileID: 2076017504878086310}
-  - {fileID: 2076017503506540630}
   - {fileID: 3161265318296361824}
   - {fileID: 1731342078765134322}
   - {fileID: 6056338782508945652}
@@ -419,7 +375,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2076017503924805235}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5703595023039508268
 MonoBehaviour:
@@ -468,7 +424,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2076017503924805235}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3422083066518334980
 MonoBehaviour:
@@ -514,7 +470,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2076017503924805235}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &985886772895935546
 MonoBehaviour:
@@ -683,7 +639,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2076017503924805235}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7501996237833907389
 MonoBehaviour:
@@ -703,7 +659,20 @@ MonoBehaviour:
   - {fileID: -4886502755690424945, guid: fd24b7e87b4230a499cd012b5389a283, type: 3}
   - {fileID: -610171975676056864, guid: 7e596e2f294f85c499206beb8b68263d, type: 3}
   - {fileID: -7806771442317623355, guid: 009f28838adbf444e923cdfbe075d0f0, type: 3}
+  currentWeight: 0
+  maxWeight: 0
   currentWeapon: {fileID: 0}
   secondaryWeapon: {fileID: 0}
-  UIobject: {fileID: 0}
-  UIcontent: {fileID: 0}
+  currentShield: {fileID: 0}
+  currentHead: {fileID: 0}
+  currentChest: {fileID: 0}
+  currentPants: {fileID: 0}
+  currentShoes: {fileID: 0}
+  currentNecklace: {fileID: 0}
+  currentEarrings: {fileID: 0}
+  currentRing1: {fileID: 0}
+  currentRing2: {fileID: 0}
+  uiObject: {fileID: 0}
+  uiContent: {fileID: 0}
+  uiItemInfo: {fileID: 0}
+  weight: {fileID: 0}

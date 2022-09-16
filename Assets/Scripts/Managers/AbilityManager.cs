@@ -19,8 +19,8 @@ public class AbilityManager : MonoBehaviour
     [SerializeField] float activeTime2;
     [SerializeField] Slider cooldownIcon2;
 
-    [SerializeField] float cooldownTime3;
-    [SerializeField] float activeTime3;
+    //[SerializeField] float cooldownTime3;
+    //[SerializeField] float activeTime3;
 
 
     enum AbilityState
@@ -32,11 +32,12 @@ public class AbilityManager : MonoBehaviour
 
     AbilityState state1 = AbilityState.ready;
     AbilityState state2 = AbilityState.ready;
-    AbilityState state3 = AbilityState.ready;
+
+    //AbilityState state3 = AbilityState.ready;
 
     public KeyCode key1;
     public KeyCode key2;
-    public KeyCode key3;
+    //public KeyCode key3;
 
 
 
