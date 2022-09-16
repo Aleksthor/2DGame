@@ -31,9 +31,9 @@ public class TaskOnGuard : Node
 
         if (onGuard && parent.GetData("target") == null)
         {
+            animator.SetBool("Walking", false);
 
-            
-            if(onGuardClock > onGuardTime)
+            if (onGuardClock > onGuardTime)
             {
                 onGuard = false;
             }
@@ -57,10 +57,11 @@ public class TaskOnGuard : Node
         onGuard = true;
         onGuardClock = 0f;
         parent.ClearData("target");
-        animator.SetBool("Walking", false);
+        
     }
     private void PlayerNotInvisible()
     {
+        parent.SetData("target", playerTransform);
         onGuard = false;
         onGuardClock = onGuardTime - 1f;
     }

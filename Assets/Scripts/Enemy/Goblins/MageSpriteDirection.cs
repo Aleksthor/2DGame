@@ -26,6 +26,7 @@ public class MageSpriteDirection : MonoBehaviour
     private LocalEnemyScript localEnemyScript;
     private Transform playerTransform;
     private PlayerManager player;
+    private bool attacking;
 
 
     void Start()
@@ -46,44 +47,93 @@ public class MageSpriteDirection : MonoBehaviour
 
         // flip mechanism
 
-
-        if ((direction.x > 0f || flipLastDirection) && !localEnemyScript.hit)
+        if (!attacking || localEnemyScript.hit)
         {
-            Body.flipX = true;
-            Head.flipX = true;
-            Hat.flipX = true;
-            FacialHair.flipX = true;
-            HandRenderer.flipX = true;
-            WeaponRenderer.flipX = true;
-            EffectRenderer.flipX = true;
-            Weapon.transform.localPosition = right;
-            Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x * -1f, Hand.transform.localPosition.y);
-            Effect.transform.localPosition = new Vector2(Effect.transform.localPosition.x * -1f, Effect.transform.localPosition.y);
-            Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z * -1f);
+
+            if ((direction.x > 0f || flipLastDirection) && !localEnemyScript.hit)
+            {
+                Body.flipX = true;
+                Head.flipX = true;
+                Hat.flipX = true;
+                FacialHair.flipX = true;
+                HandRenderer.flipX = true;
+                WeaponRenderer.flipX = true;
+                EffectRenderer.flipX = true;
+                Weapon.transform.localPosition = right;
+                Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x * -1f, Hand.transform.localPosition.y);
+                Effect.transform.localPosition = new Vector2(Effect.transform.localPosition.x * -1f, Effect.transform.localPosition.y);
+                Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z * -1f);
 
 
-            flipLastDirection = true;
+                flipLastDirection = true;
+
+            }
+            if ((direction.x < 0f || !flipLastDirection) && !localEnemyScript.hit)
+            {
+                Weapon.transform.localPosition = left;
+                Body.flipX = false;
+                Head.flipX = false;
+                FacialHair.flipX = false;
+                Hat.flipX = false;
+                HandRenderer.flipX = false;
+                WeaponRenderer.flipX = false;
+                EffectRenderer.flipX = false;
+
+
+                flipLastDirection = false;
+            }
+
 
         }
-        if ((direction.x < 0f || !flipLastDirection) && !localEnemyScript.hit)
+        else
         {
-            Weapon.transform.localPosition = left;
-            Body.flipX = false;
-            Head.flipX = false;
-            FacialHair.flipX = false;
-            Hat.flipX = false;
-            HandRenderer.flipX = false;
-            WeaponRenderer.flipX = false;
-            EffectRenderer.flipX = false;
+            if (flipLastDirection)
+            {
+                Body.flipX = true;
+                Head.flipX = true;
+                Hat.flipX = true;
+                FacialHair.flipX = true;
+                HandRenderer.flipX = true;
+                WeaponRenderer.flipX = true;
+                EffectRenderer.flipX = true;
+                Weapon.transform.localPosition = right;
+                Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x * -1f, Hand.transform.localPosition.y);
+                Effect.transform.localPosition = new Vector2(Effect.transform.localPosition.x * -1f, Effect.transform.localPosition.y);
+                Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z * -1f);
 
 
-            flipLastDirection = false;
+                flipLastDirection = true;
+
+            }
+            if (!flipLastDirection)
+            {
+                Weapon.transform.localPosition = left;
+                Body.flipX = false;
+                Head.flipX = false;
+                FacialHair.flipX = false;
+                Hat.flipX = false;
+                HandRenderer.flipX = false;
+                WeaponRenderer.flipX = false;
+                EffectRenderer.flipX = false;
+
+
+                flipLastDirection = false;
+            }
         }
 
 
+    }
 
 
-
+    public void StartAttack()
+    {
+        GameEvents.current.EnemyStartAttack(gameObject);
+        attacking = true;
+    }
+    public void StopAttack()
+    {
+        GameEvents.current.EnemyStopAttack(gameObject);
+        attacking = false;
     }
 
 

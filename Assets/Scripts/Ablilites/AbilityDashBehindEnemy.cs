@@ -12,17 +12,22 @@ public class AbilityDashBehindEnemy : Ability
 
     private float closest = 150;
     public float range;
+    public GameObject effect;
+
+    private LayerMask layerMask;
+    private int layer = 3;
 
  
 
     public override void Activate(GameObject parent)
     {
-        
+        layerMask = (1 << layer);
         parent.GetComponent<PolygonCollider2D>().enabled = false;
         movement = FindObjectOfType<Movement>();
         movement.iFrames = true;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
 
         GameObject closestEnemy = null;
 
@@ -44,10 +49,21 @@ public class AbilityDashBehindEnemy : Ability
 
             if(Vector2.Distance(parent.transform.position, closestEnemy.transform.position) < range)
             {
+                GameObject spawnedObject = Instantiate(effect, parent.transform.position, parent.transform.rotation);
+                spawnedObject.transform.right = closestEnemy.transform.position - parent.transform.position;
+
+                #region Goblin
                 if (closestEnemy.GetComponent<GoblinSpriteDirection>() != null)
                 {
                     if (closestEnemy.GetComponent<GoblinSpriteDirection>().flipLastDirection)
                     {
+
+
+                        Vector2 newPos = new Vector2(closestEnemy.transform.position.x - 1.5f, closestEnemy.transform.position.y);
+                        Collider2D collider = Physics2D.OverlapCircle(newPos, 0.5f, layerMask);
+
+                        Debug.Log(collider);
+
                         parent.transform.position = new Vector2(closestEnemy.transform.position.x - 1.5f, closestEnemy.transform.position.y);
                     }
                     else
@@ -55,6 +71,9 @@ public class AbilityDashBehindEnemy : Ability
                         parent.transform.position = new Vector2(closestEnemy.transform.position.x + 1.5f, closestEnemy.transform.position.y);
                     }
                 }
+                #endregion
+
+                #region MageGoblin
                 if (closestEnemy.GetComponent<MageSpriteDirection>() != null)
                 {
                     if (closestEnemy.GetComponent<MageSpriteDirection>().flipLastDirection)
@@ -66,7 +85,23 @@ public class AbilityDashBehindEnemy : Ability
                         parent.transform.position = new Vector2(closestEnemy.transform.position.x + 1.5f, closestEnemy.transform.position.y);
                     }
                 }
+                #endregion
 
+                #region Enemy
+                if (closestEnemy.GetComponent<EnemySpriteManager>() != null)
+                {
+                    if (closestEnemy.GetComponent<EnemySpriteManager>().flipLastDirection)
+                    {
+                        parent.transform.position = new Vector2(closestEnemy.transform.position.x - 1.5f, closestEnemy.transform.position.y);
+                    }
+                    else
+                    {
+                        parent.transform.position = new Vector2(closestEnemy.transform.position.x + 1.5f, closestEnemy.transform.position.y);
+                    }
+                }
+                #endregion
+
+               
                 GameEvents.current.LowerPlayerOpacity();
                 GameEvents.current.PlayerInvisible();
             }

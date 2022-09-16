@@ -14,6 +14,8 @@ public class TaskGoToPlayer : Node
 
     public float speedMultiplier = 1f;    
     LocalEnemyScript localEnemyScript;
+
+    bool canWalk = true;
    
 
     public TaskGoToPlayer(Transform AgentTransform, Transform PlayerTransform, float WalkSpeed)
@@ -24,7 +26,8 @@ public class TaskGoToPlayer : Node
         walkSpeed = WalkSpeed;
         localEnemyScript = transform.GetComponent<LocalEnemyScript>();
 
-
+        GameEvents.current.OnEnemyStartAttack += StartAttack;
+        GameEvents.current.OnEnemyStopAttack += StopAttack;
     }
 
     public override NodeState Evaluate()
@@ -32,7 +35,8 @@ public class TaskGoToPlayer : Node
 
         Transform target = (Transform)GetData("target");
 
-        if (!localEnemyScript.hit)
+        Debug.Log(canWalk);
+        if (!localEnemyScript.hit && canWalk)
         {
             animator.SetBool("Walking", true);
             transform.position = Vector2.MoveTowards(transform.position, target.position, walkSpeed * Time.deltaTime * speedMultiplier);
@@ -46,6 +50,34 @@ public class TaskGoToPlayer : Node
 
         state = NodeState.RUNNING;
         return state;
+    }
+
+    private void StartAttack(GameObject gameObject)
+    {
+        if (gameObject != null)
+        {
+            if (GameObject.ReferenceEquals(gameObject, transform.gameObject))
+            {
+                canWalk = false;
+                animator.SetBool("Walking", false);
+            }
+        }
+
+
+    }
+
+
+    private void StopAttack(GameObject gameObject)
+    {
+        if (gameObject != null)
+        {
+            if (GameObject.ReferenceEquals(gameObject, transform.gameObject))
+            {
+                canWalk = true;
+                animator.SetBool("Walking", true);
+            }
+        }
+
     }
 }
 

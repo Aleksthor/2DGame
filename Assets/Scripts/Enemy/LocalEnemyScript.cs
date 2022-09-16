@@ -164,18 +164,33 @@ public class LocalEnemyScript : MonoBehaviour
             }
             resetSpeed = true;
 
-            animator.SetTrigger("Hit");
+           
             hit = true;
             health = health - Damage;
+
             rigidBody.AddForce(ImpactDirection * Force);
             if (damageDisplay != null)
             {
                 
                 DisplayDamage(Damage);
             }
-            
+            if (health <= 0)
+            {  
+                animator.SetTrigger("Dead");
+            }
+            else
+            {
+                animator.SetTrigger("Hit");
+            }
+
         }
 
+    }
+
+
+    public void EndHit()
+    {
+        hit = false;
     }
 
     private void DisplayDamage(float damage)

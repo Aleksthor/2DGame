@@ -68,9 +68,12 @@ public class EnemySpriteManager : MonoBehaviour
         {
             if ((direction.x > 0f || flipLastDirection) && !localEnemyScript.hit)
             {
+
+                
                 foreach (SpriteRenderer sprite in spriteComponents)
                 {
                     sprite.flipX = true;
+                    
                 }
 
 
@@ -82,10 +85,12 @@ public class EnemySpriteManager : MonoBehaviour
                 {
                     Effect.transform.localPosition = new Vector2(Effect.transform.localPosition.x * -1f, Effect.transform.localPosition.y);
                 }
+                flipLastDirection = true;
 
             }
             if ((direction.x < 0f || !flipLastDirection) && !localEnemyScript.hit)
             {
+                
                 foreach (SpriteRenderer sprite in spriteComponents)
                 {
                     sprite.flipX = false;
@@ -94,6 +99,7 @@ public class EnemySpriteManager : MonoBehaviour
                 {
                     Weapon.transform.localPosition = leftAttackLocalPosition;
                 }
+                flipLastDirection = false;
 
             }
             else
@@ -112,6 +118,7 @@ public class EnemySpriteManager : MonoBehaviour
                     {
                         Effect.transform.localPosition = new Vector2(Effect.transform.localPosition.x * -1f, Effect.transform.localPosition.y);
                     }
+                    flipLastDirection = true;
                 }
                 if (!flipLastDirection)
                 {
@@ -123,6 +130,7 @@ public class EnemySpriteManager : MonoBehaviour
                     {
                         Weapon.transform.localPosition = leftAttackLocalPosition;
                     }
+                    flipLastDirection = false;
                 }
             }
         }
@@ -136,16 +144,47 @@ public class EnemySpriteManager : MonoBehaviour
 
     public void StartAttack()
     {
+        GameEvents.current.EnemyStartAttack(gameObject);
         attacking = true;
     }
     public void StopAttack()
     {
+        GameEvents.current.EnemyStopAttack(gameObject);
         attacking = false;
     }
 
     public void TurnOffAttack()
     {
         attacking = false;
+    }
+
+
+
+    public void Flip(bool input)
+    {
+        if (input)
+        {
+            foreach (SpriteRenderer sprite in spriteComponents)
+            {
+                sprite.flipX = true;
+            }
+            Weapon.transform.localPosition = rightAttackLocalPosition;
+
+            flipLastDirection = true;
+
+
+        }
+        if (!input)
+        {
+            foreach (SpriteRenderer sprite in spriteComponents)
+            {
+                sprite.flipX = false;
+            }
+            Weapon.transform.localPosition = leftAttackLocalPosition;
+
+            flipLastDirection = false;
+
+        }
     }
 
 }

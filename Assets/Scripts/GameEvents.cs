@@ -7,6 +7,9 @@ public class GameEvents : MonoBehaviour
 {
     public static GameEvents current;
 
+
+    // 
+
     private void Awake()
     {
         current = this;
@@ -307,6 +310,26 @@ public class GameEvents : MonoBehaviour
         if (OnPlayerNotInvisible != null)
         {
             OnPlayerNotInvisible();
+        }
+    }
+
+
+
+    public event Action<GameObject> OnEnemyStartAttack;
+    public void EnemyStartAttack(GameObject gameObject)
+    {
+        if (OnEnemyStartAttack != null)
+        {
+            OnEnemyStartAttack(gameObject);
+        }
+    }
+
+    public event Action<GameObject> OnEnemyStopAttack;
+    public void EnemyStopAttack(GameObject gameObject)
+    {
+        if (OnEnemyStopAttack != null)
+        {
+            OnEnemyStopAttack(gameObject);
         }
     }
 

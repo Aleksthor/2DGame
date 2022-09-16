@@ -27,15 +27,34 @@ public class TaskAttack : Node
 
         animator.SetTrigger("Attack");
         GameEvents.current.EnemyMeleeAttack((Vector2)playerTransform.position);
-        GoblinSpriteDirection esp = transform.GetComponent<GoblinSpriteDirection>();
-        if (playerTransform.position.x - transform.position.x < 0)
+        GoblinSpriteDirection gsp;
+        if (transform.GetComponent<GoblinSpriteDirection>() != null)
         {
-            esp.Flip(false);
+            gsp = transform.GetComponent<GoblinSpriteDirection>();
+            if (playerTransform.position.x - transform.position.x < 0)
+            {
+                gsp.Flip(false);
+            }
+            else
+            {
+                gsp.Flip(true);
+            }
         }
-        else
+        EnemySpriteManager esm;
+        if (transform.GetComponent<EnemySpriteManager>() != null)
         {
-            esp.Flip(true);
+            esm = transform.GetComponent<EnemySpriteManager>();
+            if (playerTransform.position.x - transform.position.x < 0)
+            {
+                esm.Flip(false);
+            }
+            else
+            {
+                esm.Flip(true);
+            }
         }
+
+
 
 
 

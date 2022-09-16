@@ -20,7 +20,7 @@ public class TaskPatrol : Node
         startPos = transform.position; 
     }
 
-    private float waitTime = 3f;
+    private float waitTime = 5f;
     private float waitCounter = 0f;
     private bool waiting = true;
 
