@@ -1225,6 +1225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 35
   maxHealth: 35
+  weaponCollider: {fileID: 2211332228057564833}
   healthBar: {fileID: 1274294562197277052}
   damageDisplay: {fileID: 7297198590423818470}
   MageOrb: {fileID: 0}
@@ -1260,6 +1261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4d120e12eecb843a1ad924dcba2862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: {x: 0, y: 0}
+  flipLastDirection: 0
 --- !u!50 &6938288898857915198
 Rigidbody2D:
   serializedVersion: 4

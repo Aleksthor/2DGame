@@ -289,4 +289,25 @@ public class GameEvents : MonoBehaviour
             OnNormalPlayerOpacity();
         }
     }
+
+    // enemies cant see us
+
+    public event Action OnPlayerInvisible;
+    public void PlayerInvisible()
+    {
+        if (OnPlayerInvisible != null)
+        {
+            OnPlayerInvisible();
+        }
+    }
+
+    public event Action OnPlayerNotInvisible;
+    public void PlayerNotInvisible()
+    {
+        if (OnPlayerNotInvisible != null)
+        {
+            OnPlayerNotInvisible();
+        }
+    }
+
 }

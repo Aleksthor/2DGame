@@ -10,7 +10,8 @@ public class AbilityDashBehindEnemy : Ability
     private Camera mainCam;
     private Movement movement;
 
-    public float closest = 150;
+    private float closest = 150;
+    public float range;
 
  
 
@@ -40,30 +41,37 @@ public class AbilityDashBehindEnemy : Ability
         Debug.Log(closestEnemy);
         if (closestEnemy != null)
         {
-            if (closestEnemy.GetComponent<GoblinSpriteDirection>() != null)
+
+            if(Vector2.Distance(parent.transform.position, closestEnemy.transform.position) < range)
             {
-                if (closestEnemy.GetComponent<GoblinSpriteDirection>().flipLastDirection)
+                if (closestEnemy.GetComponent<GoblinSpriteDirection>() != null)
                 {
-                    parent.transform.position = new Vector2(closestEnemy.transform.position.x - 1.5f, closestEnemy.transform.position.y);
+                    if (closestEnemy.GetComponent<GoblinSpriteDirection>().flipLastDirection)
+                    {
+                        parent.transform.position = new Vector2(closestEnemy.transform.position.x - 1.5f, closestEnemy.transform.position.y);
+                    }
+                    else
+                    {
+                        parent.transform.position = new Vector2(closestEnemy.transform.position.x + 1.5f, closestEnemy.transform.position.y);
+                    }
                 }
-                else
+                if (closestEnemy.GetComponent<MageSpriteDirection>() != null)
                 {
-                    parent.transform.position = new Vector2(closestEnemy.transform.position.x + 1.5f, closestEnemy.transform.position.y);
+                    if (closestEnemy.GetComponent<MageSpriteDirection>().flipLastDirection)
+                    {
+                        parent.transform.position = new Vector2(closestEnemy.transform.position.x - 1.5f, closestEnemy.transform.position.y);
+                    }
+                    else
+                    {
+                        parent.transform.position = new Vector2(closestEnemy.transform.position.x + 1.5f, closestEnemy.transform.position.y);
+                    }
                 }
-            }
-            if (closestEnemy.GetComponent<MageSpriteDirection>() != null)
-            {
-                if (closestEnemy.GetComponent<MageSpriteDirection>().flipLastDirection)
-                {
-                    parent.transform.position = new Vector2(closestEnemy.transform.position.x - 1.5f, closestEnemy.transform.position.y);
-                }
-                else
-                {
-                    parent.transform.position = new Vector2(closestEnemy.transform.position.x + 1.5f, closestEnemy.transform.position.y);
-                }
+
+                GameEvents.current.LowerPlayerOpacity();
+                GameEvents.current.PlayerInvisible();
             }
 
-            GameEvents.current.LowerPlayerOpacity();
+            
             
         }
 
@@ -77,5 +85,6 @@ public class AbilityDashBehindEnemy : Ability
         closest = 150f;
         movement.iFrames = false;
         GameEvents.current.NormalPlayerOpacity();
+        GameEvents.current.PlayerNotInvisible();
     }
 }

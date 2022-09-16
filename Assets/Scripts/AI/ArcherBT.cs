@@ -33,7 +33,7 @@ public class ArcherBT : Tree
     {
         if (taskGoToTargetShoot == null)
         {
-            taskGoToTargetShoot = (TaskGoToTargetShoot)Root.GetChild(1).GetChild(1);
+            taskGoToTargetShoot = (TaskGoToTargetShoot)Root.GetChild(2).GetChild(1);
             taskGoToTargetShoot.speedMultiplier = localEnemyScript.GetSpeedMultiplier();
         }
 
@@ -44,6 +44,7 @@ public class ArcherBT : Tree
     {
         Node root = new Selector(new List<Node>
         {
+            new TaskOnGuard(transform, playerTransform, 3f),
             new TaskSetAgro(transform, playerTransform),
             new Sequence(new List<Node>
             {

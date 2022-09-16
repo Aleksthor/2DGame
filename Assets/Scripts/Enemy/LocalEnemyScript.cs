@@ -11,7 +11,7 @@ public class LocalEnemyScript : MonoBehaviour
 
 
     // Local Components
-    private PolygonCollider2D weaponCollider;
+    public PolygonCollider2D weaponCollider;
     private Animator animator;
     private Rigidbody2D rigidBody;
     public Slider healthBar;
@@ -62,7 +62,6 @@ public class LocalEnemyScript : MonoBehaviour
 
     void Start()
     {
-        weaponCollider = transform.Find("Hand").transform.Find("Weapon").GetComponent<PolygonCollider2D>();
         weaponCollider.enabled = false;
 
         player = FindObjectOfType<PlayerManager>();

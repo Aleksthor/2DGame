@@ -29,7 +29,7 @@ public class WarriorBT : Tree
     {
         if (taskGoToPlayer == null)
         {
-            taskGoToPlayer = (TaskGoToPlayer)Root.GetChild(2).GetChild(1);
+            taskGoToPlayer = (TaskGoToPlayer)Root.GetChild(3).GetChild(1);
         }
         if (taskGoToPlayer != null)
         {
@@ -45,6 +45,7 @@ public class WarriorBT : Tree
     {
         Node root = new Selector(new List<Node>
         {
+            new TaskOnGuard(transform, playerTransform, 3f),
             new TaskSetAgro(transform, playerTransform),
             new Sequence(new List<Node>
             {

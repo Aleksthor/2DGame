@@ -9,7 +9,6 @@ public class SpriteManager : MonoBehaviour
     private SpriteRenderer BodySprite;
     private SpriteRenderer HeadSprite;
     private SpriteRenderer HandSprite;
-    private SpriteRenderer HatSprite;
     private SpriteRenderer WeaponSprite;
     private SpriteRenderer ShieldSprite;
     private SpriteRenderer EffectsSprite;
@@ -111,12 +110,44 @@ public class SpriteManager : MonoBehaviour
 
     public void LowerOpacity()
     {
+        BodySprite.color = new Color(BodySprite.color.r, BodySprite.color.b, BodySprite.color.g, 0.5f);
+        HeadSprite.color = new Color(HeadSprite.color.r, HeadSprite.color.b, HeadSprite.color.g, 0.5f);
+        HandSprite.color = new Color(HandSprite.color.r, HandSprite.color.b, HandSprite.color.g, 0.5f);
 
+        WeaponSprite.color = new Color(WeaponSprite.color.r, WeaponSprite.color.b, WeaponSprite.color.g, 0.5f);
+        ShieldSprite.color = new Color(ShieldSprite.color.r, ShieldSprite.color.b, BodySprite.color.g, 0.5f);
+        EffectsSprite.color = new Color(EffectsSprite.color.r, EffectsSprite.color.b, EffectsSprite.color.g, 0.5f);
+
+        Head_Top.color = new Color(Head_Top.color.r, Head_Top.color.b, Head_Top.color.g, 0.5f);
+        Head_Bottom.color = new Color(Head_Bottom.color.r, Head_Bottom.color.b, Head_Bottom.color.g, 0.5f);
+        Ear.color = new Color(Ear.color.r, Ear.color.b, Ear.color.g, 0.5f);
+        Hair.color = new Color(Hair.color.r, Hair.color.b, Hair.color.g, 0.5f);
+        Facialhair.color = new Color(Facialhair.color.r, Facialhair.color.b, Facialhair.color.g, 0.5f);
+        Eye.color = new Color(Eye.color.r, Eye.color.b, Eye.color.g, 0.5f);
+        Eyebrow.color = new Color(Eyebrow.color.r, Eyebrow.color.b, Eyebrow.color.g, 0.5f);
+        Mouth.color = new Color(Mouth.color.r, Mouth.color.b, Mouth.color.g, 0.5f);
+        Nose.color = new Color(Nose.color.r, Nose.color.b, Nose.color.g, 0.5f);
     }
 
     public void NormalOpacity()
     {
+        BodySprite.color = new Color(BodySprite.color.r, BodySprite.color.b, BodySprite.color.g, 1);
+        HeadSprite.color = new Color(HeadSprite.color.r, HeadSprite.color.b, HeadSprite.color.g, 1);
+        HandSprite.color = new Color(HandSprite.color.r, HandSprite.color.b, HandSprite.color.g, 1);
 
+        WeaponSprite.color = new Color(WeaponSprite.color.r, WeaponSprite.color.b, WeaponSprite.color.g, 1);
+        ShieldSprite.color = new Color(ShieldSprite.color.r, ShieldSprite.color.b, BodySprite.color.g, 1);
+        EffectsSprite.color = new Color(EffectsSprite.color.r, EffectsSprite.color.b, EffectsSprite.color.g, 1);
+
+        Head_Top.color = new Color(Head_Top.color.r, Head_Top.color.b, Head_Top.color.g, 1);
+        Head_Bottom.color = new Color(Head_Bottom.color.r, Head_Bottom.color.b, Head_Bottom.color.g, 1);
+        Ear.color = new Color(Ear.color.r, Ear.color.b, Ear.color.g, 1);
+        Hair.color = new Color(Hair.color.r, Hair.color.b, Hair.color.g, 1);
+        Facialhair.color = new Color(Facialhair.color.r, Facialhair.color.b, Facialhair.color.g, 1);
+        Eye.color = new Color(Eye.color.r, Eye.color.b, Eye.color.g, 1);
+        Eyebrow.color = new Color(Eyebrow.color.r, Eyebrow.color.b, Eyebrow.color.g, 1);
+        Mouth.color = new Color(Mouth.color.r, Mouth.color.b, Mouth.color.g, 1);
+        Nose.color = new Color(Nose.color.r, Nose.color.b, Nose.color.g, 1);
     }
 
     private void PlayerAttackStart(float x, float y, bool a, bool t)

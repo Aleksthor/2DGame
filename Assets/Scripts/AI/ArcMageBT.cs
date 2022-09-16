@@ -27,6 +27,7 @@ public class ArcMageBT : Tree
     {
         Node root = new Selector(new List<Node>
         {
+            new TaskOnGuard(transform, playerTransform, 3f),
             new TaskSetAgro(transform, playerTransform),
             new Sequence(new List<Node>
             {
