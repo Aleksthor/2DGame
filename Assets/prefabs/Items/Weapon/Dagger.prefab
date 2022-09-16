@@ -58,6 +58,7 @@ MonoBehaviour:
   knockBackForce: 70
   critDamage: 2
   critRate: 40
+  magicDamage: 0
   force: 0
   manaCost: 0
   speedMultiplier: 1
@@ -104,3 +105,9 @@ MonoBehaviour:
   - -0.02
   - -0.02
   - 0.01
+  ability1: {fileID: 11400000, guid: ba4a820caf9fbdd48b59b299f575c415, type: 2}
+  ability2: {fileID: 0}
+  ability3: {fileID: 0}
+  ability1Icon: {fileID: 21300000, guid: 4a7845fc91e292547850bb3c34b390ec, type: 3}
+  ability2Icon: {fileID: 0}
+  ability3Icon: {fileID: 0}

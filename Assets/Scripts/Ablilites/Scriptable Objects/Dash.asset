@@ -15,4 +15,7 @@ MonoBehaviour:
   abilityName: 
   cooldownTime: 5
   activeTime: 0.5
-  dashVelocity: 50
+  dashLength: 5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8

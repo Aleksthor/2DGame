@@ -12,7 +12,10 @@ public class AbilityDashBehindEnemy : Ability
 
     private float closest = 150;
     public float range;
+    public float damageBoost;
     public GameObject effect;
+    public GameObject buffEffect;
+   
 
     private LayerMask layerMask;
     private int layer = 3;
@@ -43,13 +46,14 @@ public class AbilityDashBehindEnemy : Ability
             }
             
         }
-        Debug.Log(closestEnemy);
+        
         if (closestEnemy != null)
         {
 
             if(Vector2.Distance(parent.transform.position, closestEnemy.transform.position) < range)
             {
                 GameObject spawnedObject = Instantiate(effect, parent.transform.position, parent.transform.rotation);
+                Instantiate(buffEffect, parent.transform);
                 spawnedObject.transform.right = closestEnemy.transform.position - parent.transform.position;
 
                 #region Goblin
@@ -101,7 +105,7 @@ public class AbilityDashBehindEnemy : Ability
                 }
                 #endregion
 
-               
+                GameEvents.current.BoostNextAttack(damageBoost);
                 GameEvents.current.LowerPlayerOpacity();
                 GameEvents.current.PlayerInvisible();
             }
@@ -121,5 +125,6 @@ public class AbilityDashBehindEnemy : Ability
         movement.iFrames = false;
         GameEvents.current.NormalPlayerOpacity();
         GameEvents.current.PlayerNotInvisible();
+        GameEvents.current.DontBoostNextAttack();
     }
 }

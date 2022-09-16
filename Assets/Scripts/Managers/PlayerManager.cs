@@ -20,6 +20,7 @@ public class PlayerManager : MonoBehaviour
     [Header("Stamina Stats")]
     [SerializeField] float stamina = 50;
     [SerializeField] float maxStamina = 50;
+    [SerializeField] public float staminaPerHit = 22.5f;
 
     [Header("Mana Stats")]
     [SerializeField] float mana = 50;
@@ -42,6 +43,7 @@ public class PlayerManager : MonoBehaviour
     {
         GameEvents.current.OnEnemyWeaponCollission += Hit;
         GameEvents.current.OnUpdateArmor += UpdateArmorStat;
+        GameEvents.current.OnUseStamina += UseStamina;
     }
 
 
@@ -82,6 +84,18 @@ public class PlayerManager : MonoBehaviour
             mana = maxMana;
         }
 
+    }
+
+
+    private void UseStamina(float Stamina)
+    {
+        stamina -= Stamina;
+    }
+
+
+    public float GetStamina()
+    {
+        return stamina;
     }
 
     private void UpdateArmorStat(float Armor)

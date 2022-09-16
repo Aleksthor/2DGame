@@ -17,7 +17,15 @@ public class AbilityFirePit : Ability
     public override void Activate(GameObject parent)
     {
 
-        parent.GetComponent<PolygonCollider2D>().enabled = false;
+        parent.GetComponent<Animator>().SetBool("InfernoCast", true);
+
+
+    }
+
+
+    public override void DeActivate(GameObject parent)
+    {
+
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
         if (Vector2.Distance(parent.transform.position, mainCam.ScreenToWorldPoint(Input.mousePosition)) < range)
@@ -34,15 +42,6 @@ public class AbilityFirePit : Ability
 
             Instantiate(firePitObject, parent.transform.position + (Vector3)direction.normalized * (range - 2f), parent.transform.rotation);
         }
-
-        
-
-
-    }
-
-
-    public override void DeActivate(GameObject parent)
-    {
-        
+        parent.GetComponent<Animator>().SetBool("InfernoCast", false);
     }
 }

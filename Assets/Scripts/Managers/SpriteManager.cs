@@ -51,6 +51,9 @@ public class SpriteManager : MonoBehaviour
     private bool attack;                    // Are we attacking right now?
     private bool canTurn;                   // Are we allowed to turn right now?
 
+
+    private bool lowerOpacity;
+
     private void Awake()
     {
         player = FindObjectOfType<PlayerManager>();
@@ -107,9 +110,14 @@ public class SpriteManager : MonoBehaviour
         animator = player.GetPlayerAnimator();
         Hand2.gameObject.SetActive(false);
     }
+    
+
+
+
 
     public void LowerOpacity()
     {
+        lowerOpacity = true;
         BodySprite.color = new Color(BodySprite.color.r, BodySprite.color.b, BodySprite.color.g, 0.5f);
         HeadSprite.color = new Color(HeadSprite.color.r, HeadSprite.color.b, HeadSprite.color.g, 0.5f);
         HandSprite.color = new Color(HandSprite.color.r, HandSprite.color.b, HandSprite.color.g, 0.5f);
@@ -131,12 +139,13 @@ public class SpriteManager : MonoBehaviour
 
     public void NormalOpacity()
     {
+        lowerOpacity = false;
         BodySprite.color = new Color(BodySprite.color.r, BodySprite.color.b, BodySprite.color.g, 1);
         HeadSprite.color = new Color(HeadSprite.color.r, HeadSprite.color.b, HeadSprite.color.g, 1);
         HandSprite.color = new Color(HandSprite.color.r, HandSprite.color.b, HandSprite.color.g, 1);
 
         WeaponSprite.color = new Color(WeaponSprite.color.r, WeaponSprite.color.b, WeaponSprite.color.g, 1);
-        ShieldSprite.color = new Color(ShieldSprite.color.r, ShieldSprite.color.b, BodySprite.color.g, 1);
+        ShieldSprite.color = new Color(ShieldSprite.color.r, ShieldSprite.color.b, ShieldSprite.color.g, 1);
         EffectsSprite.color = new Color(EffectsSprite.color.r, EffectsSprite.color.b, EffectsSprite.color.g, 1);
 
         Head_Top.color = new Color(Head_Top.color.r, Head_Top.color.b, Head_Top.color.g, 1);
@@ -168,6 +177,12 @@ public class SpriteManager : MonoBehaviour
 
     void LateUpdate()
     {
+
+        if (lowerOpacity)
+        {
+            BodySprite.color = new Color(BodySprite.color.r, BodySprite.color.b, BodySprite.color.g, 0.5f);
+        }
+
         if (canTurn)
         {
             if (buttonInput.GetMovementX() > 0 || FlipLastInput)

@@ -12,12 +12,16 @@ public class WeaponCollider : MonoBehaviour
     [SerializeField] private float slowDownLength = 0f;
 
     private float damageBefore;
-
+    private bool boostNextAttack = false;
+    private float damageBoost;
+    private bool didCrit;
 
 
     void Start()
     {
         GameEvents.current.OnChangeStats += ChangeStats;
+        GameEvents.current.OnBoostNextAttack += BoostNextAttack;
+        GameEvents.current.OnDontBoostNextAttack += DontBoostNextAttack;
         damageBefore = damage;
     }
 
@@ -39,6 +43,18 @@ public class WeaponCollider : MonoBehaviour
 
 
 
+    private void BoostNextAttack(float DamageBoost)
+    {
+        damageBoost = DamageBoost;
+        boostNextAttack = true;
+    }
+
+    private void DontBoostNextAttack()
+    {
+        damageBoost = 1f;
+        boostNextAttack = false;
+    }
+
 
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -46,12 +62,20 @@ public class WeaponCollider : MonoBehaviour
         if(other.tag == "Enemy")
         {
             float random = Random.Range(1, 100);
-            bool didCrit = false;
+            didCrit = false;
+            if(boostNextAttack)
+            {
+                Debug.Log("BoostNextAttack");
+                damage *= damageBoost;
+                Debug.Log(damage);
+            }
 
             if (random < critRate)
             {
+                Debug.Log("Crit");
                 
                 damage *= critDamage;
+                Debug.Log(damage);
                 Mathf.Clamp(damage, 0f, damageBefore * critDamage);
                 didCrit = true;
             }
@@ -59,7 +83,8 @@ public class WeaponCollider : MonoBehaviour
 
             GameEvents.current.WeaponCollission(other.gameObject, damage, knockbackForce, speedMultiplier, slowDownLength, gameObject.transform.position, didCrit);
             damage = damageBefore;
-           
+            didCrit = false;
+            boostNextAttack = false;
 
         }
     }

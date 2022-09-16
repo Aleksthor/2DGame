@@ -10,6 +10,9 @@ public class AbilityManager : MonoBehaviour
     public Ability ability2;
     public Ability ability3;
 
+    private PlayerManager playerManager;
+    private GameObject playerObject;
+
     
     [SerializeField] float cooldownTime1;
     [SerializeField] float activeTime1;
@@ -41,6 +44,16 @@ public class AbilityManager : MonoBehaviour
 
 
 
+
+    public void Start()
+    {
+        playerManager = FindObjectOfType<PlayerManager>();
+        playerObject = playerManager.GetPlayer();
+        GameEvents.current.OnChangeWeaponAbility += ChangeAbilities;
+    }
+
+
+
     // Update is called once per frame
     void Update()
     {
@@ -55,7 +68,7 @@ public class AbilityManager : MonoBehaviour
                     if (Input.GetKeyDown(key1))
                     {
                         cooldownIcon1.value = 1f;
-                        ability1.Activate(gameObject);
+                        ability1.Activate(playerObject);
                         state1 = AbilityState.active;
                         activeTime1 = ability1.activeTime;
                     }
@@ -67,7 +80,7 @@ public class AbilityManager : MonoBehaviour
                     }
                     else
                     {
-                        ability1.DeActivate(gameObject);
+                        ability1.DeActivate(playerObject);
                         state1 = AbilityState.cooldown;
                         cooldownTime1 = ability1.cooldownTime;
                     }
@@ -100,7 +113,7 @@ public class AbilityManager : MonoBehaviour
                 case AbilityState.ready:
                     if (Input.GetKeyDown(key2))
                     {
-                        ability2.Activate(gameObject);
+                        ability2.Activate(playerObject);
                         cooldownIcon2.value = 1f;
                         state2 = AbilityState.active;
                         activeTime2 = ability2.activeTime;
@@ -113,7 +126,7 @@ public class AbilityManager : MonoBehaviour
                     }
                     else
                     {
-                        ability2.DeActivate(gameObject);
+                        ability2.DeActivate(playerObject);
                         state2 = AbilityState.cooldown;
                         cooldownTime2 = ability2.cooldownTime;
                     }
@@ -146,7 +159,7 @@ public class AbilityManager : MonoBehaviour
                     if (Input.GetKeyDown(key3))
                     {
                         cooldownIcon3.value = 1f;
-                        ability3.Activate(gameObject);
+                        ability3.Activate(playerObject);
                         state3 = AbilityState.active;
                         activeTime3 = ability3.activeTime;
                     }
@@ -158,7 +171,7 @@ public class AbilityManager : MonoBehaviour
                     }
                     else
                     {
-                        ability3.DeActivate(gameObject);
+                        ability3.DeActivate(playerObject);
                         state3 = AbilityState.cooldown;
                         cooldownTime3 = ability3.cooldownTime;
                     }
@@ -183,6 +196,62 @@ public class AbilityManager : MonoBehaviour
 
         #endregion
 
+
+    }
+
+
+
+    private void ChangeAbilities(Ability Ability1, Ability Ability2, Ability Ability3, Sprite Sprite1, Sprite Sprite2, Sprite Sprite3)
+    {
+        if (Ability1 != null)
+        {
+            ability1 = Ability1;
+        }
+        else
+        {
+            ability1 = null;
+
+        }
+        if (Ability2 != null)
+        {
+            ability2 = Ability2;
+        }
+        else
+        {
+            ability2 = null;
+        }
+        if (ability3 != null)
+        {
+            ability3 = Ability3;
+        }
+        else
+        {
+            ability3 = null;
+        }
+        if (Sprite1 != null)
+        {
+            cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = Sprite1;
+        }
+        else
+        {
+            cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = null;
+        }
+        if(Sprite2 != null)
+        {
+            cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = Sprite2;
+        }
+        else
+        {
+            cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = null;
+        }
+        if (Sprite3 != null)
+        {
+            cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = Sprite3;
+        }
+        else
+        {
+            cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = null;
+        }
 
     }
 }

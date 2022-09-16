@@ -37,6 +37,28 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+    // Use Stamina
+
+    public event Action<float> OnUseStamina;
+    public void UseStamina(float stamina)
+    {
+        if (OnUseStamina != null)
+        {
+            OnUseStamina(stamina);
+        }
+    }
+
+    public event Action OnDestroyObject;
+    public void DestroyObject()
+    {
+        if (OnDestroyObject != null)
+        {
+            OnDestroyObject();
+        }
+    }
+
+    
+
     // When our weapon hits something
 
     public event Action<GameObject, float, float, float, float, Vector2, bool> OnWeaponCollission;
@@ -330,6 +352,38 @@ public class GameEvents : MonoBehaviour
         if (OnEnemyStopAttack != null)
         {
             OnEnemyStopAttack(gameObject);
+        }
+    }
+
+
+    // Attack Buff
+
+    public event Action<float> OnBoostNextAttack;
+    public void BoostNextAttack(float damageBoost)
+    {
+        if (OnBoostNextAttack != null)
+        {
+            OnBoostNextAttack(damageBoost);
+        }
+    }
+
+    public event Action OnDontBoostNextAttack;
+    public void DontBoostNextAttack()
+    {
+        if (OnDontBoostNextAttack != null)
+        {
+            OnDontBoostNextAttack();
+        }
+    }
+
+    // Change Weapon Ability
+
+    public event Action<Ability, Ability, Ability, Sprite, Sprite, Sprite> OnChangeWeaponAbility;
+    public void ChangeWeaponAbility(Ability ability1, Ability ability2, Ability ability3, Sprite sprite1, Sprite sprite2, Sprite sprite3) 
+    {
+        if (OnChangeWeaponAbility != null)
+        {
+            OnChangeWeaponAbility(ability1, ability2, ability3, sprite1, sprite2, sprite3);
         }
     }
 

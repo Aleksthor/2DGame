@@ -28,6 +28,9 @@ public class TaskGoToPlayer : Node
 
         GameEvents.current.OnEnemyStartAttack += StartAttack;
         GameEvents.current.OnEnemyStopAttack += StopAttack;
+  
+        GameEvents.current.OnDestroyObject += OnDestroy;
+        
     }
 
     public override NodeState Evaluate()
@@ -35,7 +38,7 @@ public class TaskGoToPlayer : Node
 
         Transform target = (Transform)GetData("target");
 
-        Debug.Log(canWalk);
+        
         if (!localEnemyScript.hit && canWalk)
         {
             animator.SetBool("Walking", true);
@@ -54,7 +57,7 @@ public class TaskGoToPlayer : Node
 
     private void StartAttack(GameObject gameObject)
     {
-        if (gameObject != null)
+        if (gameObject != null && transform != null)
         {
             if (GameObject.ReferenceEquals(gameObject, transform.gameObject))
             {
@@ -69,7 +72,7 @@ public class TaskGoToPlayer : Node
 
     private void StopAttack(GameObject gameObject)
     {
-        if (gameObject != null)
+        if (gameObject != null && transform != null)
         {
             if (GameObject.ReferenceEquals(gameObject, transform.gameObject))
             {
@@ -78,6 +81,15 @@ public class TaskGoToPlayer : Node
             }
         }
 
+    }
+
+
+    public void OnDestroy()
+    {
+        GameEvents.current.OnEnemyStartAttack -= StartAttack;
+        GameEvents.current.OnEnemyStopAttack -= StopAttack;
+
+        GameEvents.current.OnDestroyObject -= OnDestroy;
     }
 }
 

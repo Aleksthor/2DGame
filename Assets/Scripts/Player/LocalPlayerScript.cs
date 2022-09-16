@@ -33,6 +33,8 @@ public class LocalPlayerScript : MonoBehaviour
 
 
 
+
+
     void Awake()
     {
         weaponCollider = transform.Find("Hand").transform.Find("Weapon").GetComponent<PolygonCollider2D>();
@@ -111,8 +113,7 @@ public class LocalPlayerScript : MonoBehaviour
             true,
             false
             );
-
-
+        
     }
 
 

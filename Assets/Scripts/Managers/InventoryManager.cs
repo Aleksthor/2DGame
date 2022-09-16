@@ -72,7 +72,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         GameEvents.current.OnRemoveCurrentEquipment += RemoveCurrentEquipment;
 
 
-
+        GameEvents.current.ChangeWeaponAbility(currentWeapon.ability1, currentWeapon.ability2, currentWeapon.ability3, currentWeapon.ability1Icon, currentWeapon.ability2Icon, currentWeapon.ability3Icon);
     }
 
     // Debug purposes in Update
@@ -114,6 +114,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
             inventory.Add(currentWeapon);                 
         }
         currentWeapon = weapon;
+        GameEvents.current.ChangeWeaponAbility(weapon.ability1, weapon.ability2, weapon.ability3, weapon.ability1Icon, weapon.ability2Icon, weapon.ability3Icon);
         ChangeWeapon(currentWeapon);
         UpdateInventoryTab(currentTab);
     }

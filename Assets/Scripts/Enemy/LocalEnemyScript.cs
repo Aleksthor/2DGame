@@ -20,10 +20,6 @@ public class LocalEnemyScript : MonoBehaviour
     // Player Manager
     private PlayerManager player;
 
-
-
-
-
     // References to the projectiles
     [Header("Projectiles")]
     public GameObject MageOrb;
@@ -212,6 +208,9 @@ public class LocalEnemyScript : MonoBehaviour
         if (health <= 0)
         {
             GameEvents.current.OnWeaponCollission -= WeaponCollission;
+
+            GameEvents.current.DestroyObject();
+
             Destroy(gameObject);
         }   
     }
@@ -266,5 +265,10 @@ public class LocalEnemyScript : MonoBehaviour
     public float GetSpeedMultiplier()
     {
         return speedMultiplier;
+    }
+
+    public void TurnOffBoxCollission()
+    {
+        transform.GetComponent<BoxCollider2D>().enabled = false;
     }
 }

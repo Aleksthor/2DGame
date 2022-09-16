@@ -187,4 +187,10 @@ public class EnemySpriteManager : MonoBehaviour
         }
     }
 
+
+    public void OnDestroy()
+    {
+        GameEvents.current.OnEnemyMeleeAttack -= EnemyMeleeAttack;
+    }
+
 }

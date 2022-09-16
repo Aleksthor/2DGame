@@ -99,7 +99,12 @@ public class Movement : MonoBehaviour
         {
             if (!isAttacking)
             {
-                playerAnimation.TriggerAttackAnimation();
+                if (player.GetStamina() - player.staminaPerHit > 0)
+                {
+                    playerAnimation.TriggerAttackAnimation();
+                    GameEvents.current.UseStamina(player.staminaPerHit);
+                }
+                
             }         
             isAttacking = true;
         }
