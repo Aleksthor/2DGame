@@ -15,10 +15,12 @@ public class GameEvents : MonoBehaviour
         if (current == null)
         {
             current = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(current);
+
         }
     }
 

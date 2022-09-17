@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class LocalPlayerScript : MonoBehaviour
+public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
 {
 
     public int StartingWeaponType;              // temporary int so we can initalize the animator at start
@@ -34,17 +34,14 @@ public class LocalPlayerScript : MonoBehaviour
 
 
 
-    void Awake()
-    {
-        weaponCollider = transform.Find("Hand").transform.Find("Weapon").GetComponent<PolygonCollider2D>();
-    }
 
 
     void Start()
     {
+        weaponCollider = transform.Find("Hand").transform.Find("Weapon").GetComponent<PolygonCollider2D>();
         player = PlayerManager.Instance;
         weaponCollider.enabled = false;
-        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        mainCam = CameraSingleton.instance.transform.Find("Main Camera").transform.GetComponent<Camera>();
 
         // TEMPORARY
         animator = gameObject.GetComponent<Animator>();
@@ -103,6 +100,9 @@ public class LocalPlayerScript : MonoBehaviour
     
     public void StartAttack()
     {
+        Debug.Log("running");
+        Debug.Log(mainCam);
+        Debug.Log(GameEvents.current.gameObject);
         attack = true;
         canMove = false;
         canTurn = false;

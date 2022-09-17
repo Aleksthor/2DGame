@@ -34,9 +34,8 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
     bool FlipLastInput = false;
 
 
-    [SerializeField]
+
     ButtonInput buttonInput;
-    [SerializeField]
     LocalPlayerScript localPlayerScript;
 
     private PlayerManager player;
@@ -88,14 +87,14 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
 
         HandObject = playerObject.transform.Find("Hand").gameObject;
         PivotPoint = playerObject.transform.Find("PivotPoint").GetComponent<Transform>();
-        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        mainCam = CameraSingleton.instance.gameObject.transform.Find("Main Camera").GetComponent<Camera>();
 
 
 
-        buttonInput = FindObjectOfType<ButtonInput>();
-        localPlayerScript = playerObject.GetComponent<LocalPlayerScript>();
+        buttonInput = ButtonInput.Instance;
+        localPlayerScript = LocalPlayerScript.Instance;
 
-        inventoryManager = FindObjectOfType<InventoryManager>();
+        inventoryManager = InventoryManager.Instance;
         // GameEvents
         GameEvents.current.OnPlayerAttack += PlayerAttackStart;
         GameEvents.current.EndPlayerAttack += PlayerAttackEnd;
@@ -163,6 +162,7 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
 
     private void PlayerAttackStart(float x, float y, bool a, bool t)
     {
+        Debug.Log(a);
         attackDirection.x = x;
         attackDirection.y = y;
         attack = a;
@@ -179,7 +179,6 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
 
     void LateUpdate()
     {
-
         if (lowerOpacity)
         {
             BodySprite.color = new Color(BodySprite.color.r, BodySprite.color.b, BodySprite.color.g, 0.5f);

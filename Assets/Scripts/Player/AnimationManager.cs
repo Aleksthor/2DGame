@@ -8,8 +8,6 @@ public class AnimationManager : SingletonMonoBehaviour<AnimationManager>
     Animator animator;
 
 
- 
-
     private void Start()
     {
         player = PlayerManager.Instance;

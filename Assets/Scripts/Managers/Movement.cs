@@ -57,7 +57,7 @@ public class Movement : SingletonMonoBehaviour<Movement>
         buttonInput = ButtonInput.Instance;
         player = PlayerManager.Instance;
         playerAnimation = AnimationManager.Instance;
-        localPlayerScript = PlayerSingleton.instance.gameObject.GetComponent<LocalPlayerScript>();
+        localPlayerScript = LocalPlayerScript.Instance;
         playerCollider = PlayerSingleton.instance.gameObject.GetComponent<PolygonCollider2D>();
         playerObject = PlayerSingleton.instance.gameObject;
     }
