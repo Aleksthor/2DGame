@@ -100,9 +100,7 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
     
     public void StartAttack()
     {
-        Debug.Log("running");
-        Debug.Log(mainCam);
-        Debug.Log(GameEvents.current.gameObject);
+
         attack = true;
         canMove = false;
         canTurn = false;

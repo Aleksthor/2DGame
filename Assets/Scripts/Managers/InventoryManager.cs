@@ -38,6 +38,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
     private bool swap = false;
 
 
+
     public void AddItem(Item item)
     {
         inventory.Add(item);
@@ -106,7 +107,10 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
             GameEvents.current.ChangeWeaponAbility(currentWeapon.ability1, currentWeapon.ability2, currentWeapon.ability3, currentWeapon.ability1Icon, currentWeapon.ability2Icon, currentWeapon.ability3Icon);
         }
 
-        
+        uiContent = HUDSingleton.instance.transform.Find("Inventory").transform.Find("ItemList").transform.Find("Viewport").transform.Find("Content").transform;
+        uiItemInfo = HUDSingleton.instance.transform.Find("Inventory").transform.Find("ItemInfo").transform;
+        weight = HUDSingleton.instance.transform.Find("Inventory").transform.Find("ItemList").transform.Find("CurrentWeight").transform;
+
     }
 
     // Debug purposes in Update

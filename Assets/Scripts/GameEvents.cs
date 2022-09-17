@@ -424,4 +424,23 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+
+    public event Action OnCharacterCreation;
+    public void CharacterCreation()
+    {
+        if (OnCharacterCreation != null)
+        {
+            OnCharacterCreation();
+        }
+    }
+
+
+    public event Action OnCharacterCreationEnd;
+    public void CharacterCreationOver()
+    {
+        if (OnCharacterCreationEnd != null)
+        {
+            OnCharacterCreationEnd();
+        }
+    }
 }

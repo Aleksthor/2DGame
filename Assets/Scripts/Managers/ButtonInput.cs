@@ -53,10 +53,12 @@ public class ButtonInput : SingletonMonoBehaviour<ButtonInput>
         if (Input.GetKeyDown("9"))
         {
             SceneManager.LoadScene("TestMap - Aleksander");
+            GameEvents.current.CharacterCreationOver();
         }
         if (Input.GetKeyDown("8"))
         {
             SceneManager.LoadScene("TestScene");
+            GameEvents.current.CharacterCreationOver();
         }
     }
 

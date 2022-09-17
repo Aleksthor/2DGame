@@ -39,7 +39,7 @@ public class HUD : SingletonMonoBehaviour<HUD>
         healthSlider = HUDSingleton.instance.transform.Find("Sliders").transform.Find("Health_Slider").GetComponent<Slider>();
         staminaSlider = HUDSingleton.instance.transform.Find("Sliders").transform.Find("Stamina_Slider").GetComponent<Slider>();
         magicSlider = HUDSingleton.instance.transform.Find("Sliders").transform.Find("Magic_Slider").GetComponent<Slider>();
-
+        staminaFillColor = HUDSingleton.instance.transform.Find("Sliders").transform.Find("Stamina_Slider").transform.Find("Fill Area").transform.Find("Fill").GetComponent<Image>().color;
 
         //Set Starting parameter values
         healthSliderCurrent = healthSliderMaxValue;

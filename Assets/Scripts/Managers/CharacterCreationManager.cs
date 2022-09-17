@@ -310,6 +310,8 @@ public class CharacterCreationManager : MonoBehaviour
     }
     private void Start()
     {
+
+        GameEvents.current.CharacterCreation();
         headTop = false;
         headTop = false;
         headBottom = false;

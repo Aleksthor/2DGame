@@ -162,7 +162,7 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
 
     private void PlayerAttackStart(float x, float y, bool a, bool t)
     {
-        Debug.Log(a);
+
         attackDirection.x = x;
         attackDirection.y = y;
         attack = a;

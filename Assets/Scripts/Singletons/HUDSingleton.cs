@@ -19,4 +19,22 @@ public class HUDSingleton : MonoBehaviour
             Destroy(transform.gameObject);
         }
     }
+
+
+    private void Start()
+    {
+        GameEvents.current.OnCharacterCreation += CharacterCreatorStart;
+        GameEvents.current.OnCharacterCreationEnd += CharacterCreatorEnd;
+    }
+
+    private void CharacterCreatorStart()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void CharacterCreatorEnd()
+    {
+        gameObject.SetActive(true);
+    }
+
 }
