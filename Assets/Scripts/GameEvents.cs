@@ -5,22 +5,21 @@ using System;
 
 public class GameEvents : MonoBehaviour
 {
-    public static GameEvents current;
 
+    public static GameEvents current;
 
     // 
 
     private void Awake()
     {
-        if (current == null)
+        if (current != null && current != this)
         {
-            current = this;
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
         }
         else
         {
-            Destroy(current);
-
+            current = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
