@@ -8,6 +8,8 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
 
 
     #region Sprites
+    public List<SpriteRenderer> renderersToFlip;
+
     private SpriteRenderer BodySprite;
     private SpriteRenderer HeadSprite;
     private SpriteRenderer HandSprite;
@@ -108,7 +110,7 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
         GameEvents.current.OnLowerPlayerOpacity += LowerOpacity;
         GameEvents.current.OnNormalPlayerOpacity += NormalOpacity;
 
-        animator = player.GetPlayerAnimator();
+        animator = PlayerSingleton.instance.gameObject.GetComponent<Animator>();
         Hand2.gameObject.SetActive(false);
     }
     
@@ -189,13 +191,10 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
             if (buttonInput.GetMovementX() > 0 || FlipLastInput)
             {
 
-                BodySprite.flipX = true;
-                HeadSprite.flipX = true;
-                HandSprite.flipX = true;
-                ShieldSprite.flipX = true;
-
-                WeaponSprite.flipX = true;
-                EffectsSprite.flipX = true;
+                foreach (SpriteRenderer renderer in renderersToFlip)
+                {
+                    renderer.flipX = true;
+                }
 
 
                 Hand.transform.localPosition = new Vector3(Hand.transform.localPosition.x * -1f, Hand.transform.localPosition.y, Hand.transform.localPosition.z);
@@ -208,12 +207,11 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
             }
             if (buttonInput.GetMovementX() < 0 || !FlipLastInput)
             {
-                BodySprite.flipX = false;
-                HeadSprite.flipX = false;
-                HandSprite.flipX = false;
-                ShieldSprite.flipX = false;
-                WeaponSprite.flipX = false;
-                EffectsSprite.flipX = false;
+
+                foreach (SpriteRenderer renderer in renderersToFlip)
+                {
+                    renderer.flipX = false;
+                }
 
 
 
@@ -225,13 +223,11 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
         {
             if (FlipLastInput)
             {
-                BodySprite.flipX = true;
-                HeadSprite.flipX = true;
-                HandSprite.flipX = true;
-                ShieldSprite.flipX = true;
 
-                WeaponSprite.flipX = true;
-                EffectsSprite.flipX = true;
+                foreach (SpriteRenderer renderer in renderersToFlip)
+                {
+                    renderer.flipX = true;
+                }
 
                 Hand.transform.localPosition = new Vector3(Hand.transform.localPosition.x * -1f, Hand.transform.localPosition.y, Hand.transform.localPosition.z);
                 Shield.transform.localPosition = new Vector3(Shield.transform.localPosition.x * -1f, Shield.transform.localPosition.y, Shield.transform.localPosition.z);
@@ -247,12 +243,11 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
             }
             if (!FlipLastInput)
             {
-                BodySprite.flipX = false;
-                HeadSprite.flipX = false;
-                HandSprite.flipX = false;
-                ShieldSprite.flipX = false;
-                WeaponSprite.flipX = false;
-                EffectsSprite.flipX = false;
+
+                foreach (SpriteRenderer renderer in renderersToFlip)
+                {
+                    renderer.flipX = false;
+                }
 
 
 
@@ -365,8 +360,8 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
                     }
                 }
 
-                
-               
+
+
             }
 
 

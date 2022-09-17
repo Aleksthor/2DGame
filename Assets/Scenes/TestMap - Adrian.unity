@@ -490,7 +490,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1545452393}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99995834
+  m_Size: 0.99995524
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2614,6 +2614,56 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1901569636131400862, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
+--- !u!212 &445799374 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8631114784985963020, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
+  m_PrefabInstance: {fileID: 445799373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &445799375 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5706970524156325144, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
+  m_PrefabInstance: {fileID: 445799373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &445799376 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 552151716744430529, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
+  m_PrefabInstance: {fileID: 445799373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &445799377 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7096054199643048372, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
+  m_PrefabInstance: {fileID: 445799373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &445799378 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2378192551829053919, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
+  m_PrefabInstance: {fileID: 445799373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &445799379 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2340719962866403046, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
+  m_PrefabInstance: {fileID: 445799373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &445799380 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 763258097175472455, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
+  m_PrefabInstance: {fileID: 445799373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &445799381 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6984654034423938325, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
+  m_PrefabInstance: {fileID: 445799373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &445799382 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8429784008850305891, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
+  m_PrefabInstance: {fileID: 445799373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &445799383 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8293414827815981615, guid: 9ad996b903d9c4144ad587180c60515c, type: 3}
+  m_PrefabInstance: {fileID: 445799373}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &463220758 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 706087237860619757, guid: 4d5fe1761d0ecd4489d5d4c6d2e5258a, type: 3}
@@ -9533,7 +9583,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -215, y: 495.00018}
+  m_AnchoredPosition: {x: -215, y: 495.00003}
   m_SizeDelta: {x: 430, y: 980}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &1424626120 stripped
@@ -20052,6 +20102,70 @@ PrefabInstance:
       propertyPath: localPlayerScript
       value: 
       objectReference: {fileID: 1232321289}
+    - target: {fileID: 6984774817188864681, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: renderersToFlip.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984774817188864681, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: renderersToFlip.Array.data[0]
+      value: 
+      objectReference: {fileID: 315246356}
+    - target: {fileID: 6984774817188864681, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: renderersToFlip.Array.data[1]
+      value: 
+      objectReference: {fileID: 736706998}
+    - target: {fileID: 6984774817188864681, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: renderersToFlip.Array.data[2]
+      value: 
+      objectReference: {fileID: 584689590}
+    - target: {fileID: 6984774817188864681, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: renderersToFlip.Array.data[3]
+      value: 
+      objectReference: {fileID: 1345632456}
+    - target: {fileID: 6984774817188864681, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: renderersToFlip.Array.data[4]
+      value: 
+      objectReference: {fileID: 445799374}
+    - target: {fileID: 6984774817188864681, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: renderersToFlip.Array.data[5]
+      value: 
+      objectReference: {fileID: 445799383}
+    - target: {fileID: 6984774817188864681, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: renderersToFlip.Array.data[6]
+      value: 
+      objectReference: {fileID: 445799382}
+    - target: {fileID: 6984774817188864681, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: renderersToFlip.Array.data[7]
+      value: 
+      objectReference: {fileID: 445799381}
+    - target: {fileID: 6984774817188864681, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: renderersToFlip.Array.data[8]
+      value: 
+      objectReference: {fileID: 445799380}
+    - target: {fileID: 6984774817188864681, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: renderersToFlip.Array.data[9]
+      value: 
+      objectReference: {fileID: 445799379}
+    - target: {fileID: 6984774817188864681, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: renderersToFlip.Array.data[10]
+      value: 
+      objectReference: {fileID: 445799378}
+    - target: {fileID: 6984774817188864681, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: renderersToFlip.Array.data[11]
+      value: 
+      objectReference: {fileID: 445799377}
+    - target: {fileID: 6984774817188864681, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: renderersToFlip.Array.data[12]
+      value: 
+      objectReference: {fileID: 445799376}
+    - target: {fileID: 6984774817188864681, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: renderersToFlip.Array.data[13]
+      value: 
+      objectReference: {fileID: 445799375}
+    - target: {fileID: 6984774817188864681, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
+      propertyPath: renderersToFlip.Array.data[14]
+      value: 
+      objectReference: {fileID: 1584275513}
     - target: {fileID: 7501996237833907389, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
       propertyPath: weight
       value: 

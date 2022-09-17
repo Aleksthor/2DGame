@@ -155,6 +155,10 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
     private void UseMana(float Mana)
     {
         mana -= Mana;
+        if (mana < 0 )
+        {
+            mana = 0;   
+        }
     }
     public float GetManaValue()
     {

@@ -9,6 +9,7 @@ public class Movement : SingletonMonoBehaviour<Movement>
     HUD hud;
     PlayerManager player;
     GameObject playerObject;
+    Rigidbody2D playerRB;
     AnimationManager playerAnimation;
     LocalPlayerScript localPlayerScript;
 
@@ -44,11 +45,13 @@ public class Movement : SingletonMonoBehaviour<Movement>
     [SerializeField] float staminaCooldownPrecentage = 75f;
     #pragma warning disable 414
     [SerializeField] float dashTransparity = 0.5f;
-    #pragma warning restore 414
+#pragma warning restore 414
     #endregion
 
 
     //--------------------
+
+
 
 
     private void Start()
@@ -60,6 +63,7 @@ public class Movement : SingletonMonoBehaviour<Movement>
         localPlayerScript = LocalPlayerScript.Instance;
         playerCollider = PlayerSingleton.instance.gameObject.GetComponent<PolygonCollider2D>();
         playerObject = PlayerSingleton.instance.gameObject;
+        playerRB = playerObject.GetComponent<Rigidbody2D>();
     }
 
 
@@ -101,7 +105,7 @@ public class Movement : SingletonMonoBehaviour<Movement>
         {
             if (!isAttacking)
             {
-                if (player.GetStamina() - player.staminaPerHit > 0)
+                if (!isDashCooldown)
                 {
                     playerAnimation.TriggerAttackAnimation();
                     GameEvents.current.UseStamina(player.staminaPerHit);
@@ -140,12 +144,14 @@ public class Movement : SingletonMonoBehaviour<Movement>
         {
             if (isDashing)
             {
+
                 playerObject.transform.position += new Vector3(buttonInput.GetMovementX(), buttonInput.GetMovementY(), 0f) * dashingSpeed * Time.deltaTime;
+                
 
             }
             else if (isSneaking || isShielding)
             {
-
+                
                 playerObject.transform.position += new Vector3(buttonInput.GetMovementX(), buttonInput.GetMovementY(), 0f) * sneakingSpeed * Time.deltaTime;
             }
             else

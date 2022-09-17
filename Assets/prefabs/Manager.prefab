@@ -49,7 +49,7 @@ MonoBehaviour:
   armor: 0
   stamina: 100
   maxStamina: 100
-  staminaPerHit: 22.5
+  staminaPerHit: 35
   mana: 75
   maxMana: 75
   baseManaRegen: 1.2
@@ -143,6 +143,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cb67225eabcbf94d8ff0176e5e6dd44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  renderersToFlip:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2076017503680865805
 GameObject:
   m_ObjectHideFlags: 0
