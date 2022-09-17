@@ -60,8 +60,8 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
 
     public void Start()
     {
-        playerManager = FindObjectOfType<PlayerManager>();
-        playerObject = playerManager.GetPlayer();
+        playerManager = PlayerManager.Instance;
+        playerObject = PlayerSingleton.instance.gameObject;
         GameEvents.current.OnChangeWeaponAbility += ChangeAbilities;
         
     }

@@ -8,6 +8,7 @@ public class Movement : SingletonMonoBehaviour<Movement>
     ButtonInput buttonInput;
     HUD hud;
     PlayerManager player;
+    GameObject playerObject;
     AnimationManager playerAnimation;
     LocalPlayerScript localPlayerScript;
 
@@ -52,12 +53,13 @@ public class Movement : SingletonMonoBehaviour<Movement>
 
     private void Start()
     {
-        hud = FindObjectOfType<HUD>();
-        buttonInput = FindObjectOfType<ButtonInput>();
-        player = FindObjectOfType<PlayerManager>();
-        playerAnimation = FindObjectOfType<AnimationManager>();
-        localPlayerScript = player.GetPlayer().GetComponent<LocalPlayerScript>();
-        playerCollider = player.GetPlayer().GetComponent<PolygonCollider2D>();
+        hud = HUD.Instance;
+        buttonInput = ButtonInput.Instance;
+        player = PlayerManager.Instance;
+        playerAnimation = AnimationManager.Instance;
+        localPlayerScript = PlayerSingleton.instance.gameObject.GetComponent<LocalPlayerScript>();
+        playerCollider = PlayerSingleton.instance.gameObject.GetComponent<PolygonCollider2D>();
+        playerObject = PlayerSingleton.instance.gameObject;
     }
 
 
@@ -138,18 +140,18 @@ public class Movement : SingletonMonoBehaviour<Movement>
         {
             if (isDashing)
             {
-                player.GetPlayer().transform.position += new Vector3(buttonInput.GetMovementX(), buttonInput.GetMovementY(), 0f) * dashingSpeed * Time.deltaTime;
+                playerObject.transform.position += new Vector3(buttonInput.GetMovementX(), buttonInput.GetMovementY(), 0f) * dashingSpeed * Time.deltaTime;
 
             }
             else if (isSneaking || isShielding)
             {
 
-                player.GetPlayer().transform.position += new Vector3(buttonInput.GetMovementX(), buttonInput.GetMovementY(), 0f) * sneakingSpeed * Time.deltaTime;
+                playerObject.transform.position += new Vector3(buttonInput.GetMovementX(), buttonInput.GetMovementY(), 0f) * sneakingSpeed * Time.deltaTime;
             }
             else
             {
 
-                player.GetPlayer().transform.position += new Vector3(buttonInput.GetMovementX(), buttonInput.GetMovementY(), 0f) * walkingSpeed * Time.deltaTime;
+                playerObject.transform.position += new Vector3(buttonInput.GetMovementX(), buttonInput.GetMovementY(), 0f) * walkingSpeed * Time.deltaTime;
             }
         }
     }

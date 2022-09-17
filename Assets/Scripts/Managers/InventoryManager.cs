@@ -101,8 +101,12 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         GameEvents.current.OnChangeCurrentEquipment += ChangeCurrentEquipment;
         GameEvents.current.OnRemoveCurrentEquipment += RemoveCurrentEquipment;
 
+        if (currentWeapon != null)
+        {
+            GameEvents.current.ChangeWeaponAbility(currentWeapon.ability1, currentWeapon.ability2, currentWeapon.ability3, currentWeapon.ability1Icon, currentWeapon.ability2Icon, currentWeapon.ability3Icon);
+        }
 
-        GameEvents.current.ChangeWeaponAbility(currentWeapon.ability1, currentWeapon.ability2, currentWeapon.ability3, currentWeapon.ability1Icon, currentWeapon.ability2Icon, currentWeapon.ability3Icon);
+        
     }
 
     // Debug purposes in Update

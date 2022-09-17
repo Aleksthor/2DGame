@@ -237,7 +237,7 @@ public class LocalEnemyScript : MonoBehaviour
         }
         if (playerTransform == null)
         {
-            playerTransform = player.GetPlayer().transform;
+            playerTransform = PlayerSingleton.instance.gameObject.transform;
         }
 
         GameObject NewOrb = Instantiate(MageOrb, orbSpawnPoint.position, orbSpawnPoint.rotation);
@@ -254,7 +254,7 @@ public class LocalEnemyScript : MonoBehaviour
         }
         if (playerTransform == null)
         {
-            playerTransform = player.GetPlayer().transform;
+            playerTransform = PlayerSingleton.instance.gameObject.transform;
         }
 
         GameObject NewOrb = Instantiate(MageShard, orbSpawnPoint.position, orbSpawnPoint.rotation);

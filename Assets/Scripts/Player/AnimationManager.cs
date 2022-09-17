@@ -12,8 +12,8 @@ public class AnimationManager : SingletonMonoBehaviour<AnimationManager>
 
     private void Start()
     {
-        player = FindObjectOfType<PlayerManager>();
-        animator = player.GetPlayer().GetComponent<Animator>();
+        player = PlayerManager.Instance;
+        animator = PlayerSingleton.instance.gameObject.GetComponent<Animator>();
     }
 
     public void SetWalkingAnimation(bool value)

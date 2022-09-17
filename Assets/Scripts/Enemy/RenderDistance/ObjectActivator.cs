@@ -21,7 +21,7 @@ public class ObjectActivator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerObject = player.GetPlayer();
+        playerObject = PlayerSingleton.instance.gameObject;
         StartCoroutine("CheckActivation");
     }
 
@@ -55,6 +55,10 @@ public class ObjectActivator : MonoBehaviour
                 }
             }
         }
+
+
+
+
         yield return new WaitForSeconds(0.05f);
 
         StartCoroutine("CheckActivation");

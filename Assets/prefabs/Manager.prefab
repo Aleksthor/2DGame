@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2076017503924805235}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &813422628460448444
 MonoBehaviour:
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1731342078765134322}
-  - component: {fileID: 788368849215730241}
+  - component: {fileID: 6600074968020442419}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -76,7 +76,7 @@ Transform:
   m_Father: {fileID: 2076017503924805235}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &788368849215730241
+--- !u!114 &6600074968020442419
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,7 +88,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4973a701111bf1d478619ff42a07a37f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 0}
   health: 50
   maxHealth: 50
   armor: 0
@@ -283,8 +282,6 @@ Transform:
   - {fileID: 1731342078765134322}
   - {fileID: 6056338782508945652}
   - {fileID: 5054720421778664845}
-  - {fileID: 884742173474104311}
-  - {fileID: 6536656776071281554}
   - {fileID: 3496029255840344546}
   - {fileID: 757605050248562774}
   - {fileID: 6587945096053421919}
@@ -409,221 +406,6 @@ MonoBehaviour:
   sneak: 0
   shield: 0
   attack: 0
---- !u!1 &3261053763689953530
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6536656776071281554}
-  - component: {fileID: 3422083066518334980}
-  m_Layer: 0
-  m_Name: EnemySpawnManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6536656776071281554
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3261053763689953530}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2076017503924805235}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3422083066518334980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3261053763689953530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a97537635a8f4514786063fdbe206022, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  renderDistance: 50
-  activatorObjects: []
---- !u!1 &4592875857260582430
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 884742173474104311}
-  - component: {fileID: 985886772895935546}
-  m_Layer: 0
-  m_Name: CharacterCreationManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &884742173474104311
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4592875857260582430}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2076017503924805235}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &985886772895935546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4592875857260582430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3d45c984014f42438c258a2b8f32074, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayPrefab: {fileID: 0}
-  Display_HeadTop: {fileID: 0}
-  Display_HeadBottom: {fileID: 0}
-  Display_Ear: {fileID: 0}
-  Display_Hair: {fileID: 0}
-  Display_Facialhair: {fileID: 0}
-  Display_Eye: {fileID: 0}
-  Display_Eyebrow: {fileID: 0}
-  Display_Mouth: {fileID: 0}
-  Display_Nose: {fileID: 0}
-  GO_Head_Top_List: []
-  GO_Head_Bottom_List: []
-  GO_Ear_List: []
-  GO_Hair_List: []
-  GO_Facialhair_List: []
-  GO_Eye_List: []
-  GO_Eyebrow_List: []
-  GO_Mouth_List: []
-  GO_Nose_List: []
-  face_top: []
-  face_bottom: []
-  face_ear: []
-  face_eye: []
-  face_eyebrow: []
-  face_mouth: []
-  face_nose: []
-  face_hair: []
-  face_facialhair: []
-  Head_face_top_GO: {fileID: 0}
-  Head_face_bottom_GO: {fileID: 0}
-  Head_ear_GO: {fileID: 0}
-  Head_hair_GO: {fileID: 0}
-  Head_facialhair_GO: {fileID: 0}
-  Head_eye_GO: {fileID: 0}
-  Head_eyebrow_GO: {fileID: 0}
-  Head_mouth_GO: {fileID: 0}
-  Head_nose_GO: {fileID: 0}
-  head_face_color_R: {fileID: 0}
-  head_face_color_G: {fileID: 0}
-  head_face_color_B: {fileID: 0}
-  head_hair_color_R: {fileID: 0}
-  head_hair_color_G: {fileID: 0}
-  head_hair_color_B: {fileID: 0}
-  head_facialhair_color_R: {fileID: 0}
-  head_facialhair_color_G: {fileID: 0}
-  head_facialhair_color_B: {fileID: 0}
-  head_eye_color_R: {fileID: 0}
-  head_eye_color_G: {fileID: 0}
-  head_eye_color_B: {fileID: 0}
-  head_eye_color_A: {fileID: 0}
-  head_eyebrow_color_R: {fileID: 0}
-  head_eyebrow_color_G: {fileID: 0}
-  head_eyebrow_color_B: {fileID: 0}
-  head_eyebrow_color_A: {fileID: 0}
-  head_mouth_color_R: {fileID: 0}
-  head_mouth_color_G: {fileID: 0}
-  head_mouth_color_B: {fileID: 0}
-  head_mouth_color_A: {fileID: 0}
-  head_nose_color_R: {fileID: 0}
-  head_nose_color_G: {fileID: 0}
-  head_nose_color_B: {fileID: 0}
-  head_nose_color_A: {fileID: 0}
-  slider_Hair_x: {fileID: 0}
-  slider_Hair_y: {fileID: 0}
-  slider_Facialhair_x: {fileID: 0}
-  slider_Facialhair_y: {fileID: 0}
-  slider_Eye_x: {fileID: 0}
-  slider_Eye_y: {fileID: 0}
-  slider_Eyebrow_x: {fileID: 0}
-  slider_Eyebrow_y: {fileID: 0}
-  slider_Mouth_x: {fileID: 0}
-  slider_Mouth_y: {fileID: 0}
-  slider_Nose_x: {fileID: 0}
-  slider_Nose_y: {fileID: 0}
-  head_face_handleColor_R: {fileID: 0}
-  head_face_handleColor_G: {fileID: 0}
-  head_face_handleColor_B: {fileID: 0}
-  head_hair_handleColor_R: {fileID: 0}
-  head_hair_handleColor_G: {fileID: 0}
-  head_hair_handleColor_B: {fileID: 0}
-  head_facialhair_handleColor_R: {fileID: 0}
-  head_facialhair_handleColor_G: {fileID: 0}
-  head_facialhair_handleColor_B: {fileID: 0}
-  head_eye_handleColor_R: {fileID: 0}
-  head_eye_handleColor_G: {fileID: 0}
-  head_eye_handleColor_B: {fileID: 0}
-  head_eye_handleColor_A: {fileID: 0}
-  head_eyebrow_handleColor_R: {fileID: 0}
-  head_eyebrow_handleColor_G: {fileID: 0}
-  head_eyebrow_handleColor_B: {fileID: 0}
-  head_eyebrow_handleColor_A: {fileID: 0}
-  head_mouth_handleColor_R: {fileID: 0}
-  head_mouth_handleColor_G: {fileID: 0}
-  head_mouth_handleColor_B: {fileID: 0}
-  head_mouth_handleColor_A: {fileID: 0}
-  head_nose_handleColor_R: {fileID: 0}
-  head_nose_handleColor_G: {fileID: 0}
-  head_nose_handleColor_B: {fileID: 0}
-  head_nose_handleColor_A: {fileID: 0}
-  headTop: 0
-  headBottom: 0
-  ear: 0
-  hair: 0
-  facialhair: 0
-  eye: 0
-  eyebrow: 0
-  mouth: 0
-  nose: 0
-  saved_Head_Top: {fileID: 0}
-  saved_Head_Bottom: {fileID: 0}
-  saved_Ear: {fileID: 0}
-  saved_Hair: {fileID: 0}
-  saved_Facialhair: {fileID: 0}
-  saved_Eye: {fileID: 0}
-  saved_Eyebrow: {fileID: 0}
-  saved_Mouth: {fileID: 0}
-  saved_Nose: {fileID: 0}
-  saved_Local_Hair: {x: 0, y: 0}
-  saved_Local_Facialhair: {x: 0, y: 0}
-  saved_Local_Eye: {x: 0, y: 0}
-  saved_Local_Eyebrow: {x: 0, y: 0}
-  saved_Local_Mouth: {x: 0, y: 0}
-  saved_Local_Nose: {x: 0, y: 0}
-  SideScrollContent: {fileID: 0}
-  scrollbar_Vertical: {fileID: 0}
 --- !u!1 &6248820782117560840
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,7 +436,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2076017503924805235}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7501996237833907389
 MonoBehaviour:
@@ -721,7 +503,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2076017503924805235}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7619836390122470533
 MonoBehaviour:

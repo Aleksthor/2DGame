@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
 {
+
+
+
     [Header("Moveable Object")]
-    [SerializeField] GameObject playerObject;
+    GameObject playerObject;
     Animator playerAnimator;
     HUD playerHUD;
     Movement movementManager;
@@ -30,15 +33,12 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
     [SerializeField] float baseManaRegenClock = 2;
 
 
-
-
-
-
     private void Start()
     {
+        playerObject = PlayerSingleton.instance.gameObject;
         playerAnimator = playerObject.GetComponent<Animator>();
-        playerHUD = FindObjectOfType<HUD>();
-        movementManager = FindObjectOfType<Movement>();
+        playerHUD = HUD.Instance;
+        movementManager = Movement.Instance;
 
         GameEvents.current.OnEnemyWeaponCollission += Hit;
         GameEvents.current.OnUpdateArmor += UpdateArmorStat;
@@ -136,13 +136,6 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
         }
     }
 
-
-
-
-    public GameObject GetPlayer()
-    {
-        return playerObject;
-    }
 
     public Animator GetPlayerAnimator()
     {

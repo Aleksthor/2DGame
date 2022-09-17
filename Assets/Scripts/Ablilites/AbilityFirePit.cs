@@ -17,7 +17,7 @@ public class AbilityFirePit : Ability
     {
         if (playerManager == null)
         {
-            playerManager = FindObjectOfType<PlayerManager>();
+            playerManager = PlayerManager.Instance;
         }
         if (playerManager.GetManaValue() - manaCost > 0)
         {

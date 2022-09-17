@@ -26,8 +26,8 @@ public class ButtonInput : SingletonMonoBehaviour<ButtonInput>
 
     private void Start()
     {
-        localPlayerScript = FindObjectOfType<LocalPlayerScript>();
-        playerAnimator = FindObjectOfType<AnimationManager>();
+        localPlayerScript = PlayerSingleton.instance.gameObject.GetComponent<LocalPlayerScript>();
+        playerAnimator = AnimationManager.Instance;
     }
     private void Update()
     {
@@ -56,7 +56,7 @@ public class ButtonInput : SingletonMonoBehaviour<ButtonInput>
         }
         if (Input.GetKeyDown("8"))
         {
-            SceneManager.LoadScene("TestMap - Adrian");
+            SceneManager.LoadScene("TestScene");
         }
     }
 

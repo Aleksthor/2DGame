@@ -42,7 +42,7 @@ public class LocalPlayerScript : MonoBehaviour
 
     void Start()
     {
-        player = FindObjectOfType<PlayerManager>();
+        player = PlayerManager.Instance;
         weaponCollider.enabled = false;
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
@@ -208,15 +208,12 @@ public class LocalPlayerScript : MonoBehaviour
         manaCost = ManaCost;
         force = Force;
         magicDamage = MagicDamage;
-        localPosition = LocalPosition;
+        transform.Find("Hand").transform.Find("Weapon").transform.localPosition = LocalPosition;
 
 
     }
 
-    private void LateUpdate()
-    {
-        transform.Find("Hand").transform.Find("Weapon").transform.localPosition = localPosition;
-    }
+
 
 
 

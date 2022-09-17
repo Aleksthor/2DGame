@@ -11,7 +11,7 @@ public class RenderDistance : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemySpawnManager = GameObject.Find("Manager").transform.Find("EnemySpawnManager").gameObject;
+        enemySpawnManager = GameObject.Find("EnemySpawnManager").gameObject;
         objectActivator = enemySpawnManager.GetComponent<ObjectActivator>();
 
         objectActivator.activatorObjects.Add(gameObject);

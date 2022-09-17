@@ -5,6 +5,8 @@ using System;
 
 public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
 {
+
+
     #region Sprites
     private SpriteRenderer BodySprite;
     private SpriteRenderer HeadSprite;
@@ -59,8 +61,8 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
     private void Start()
     {
 
-        player = FindObjectOfType<PlayerManager>();
-        playerObject = player.GetPlayer();
+        player = PlayerManager.Instance;
+        playerObject = PlayerSingleton.instance.gameObject;
 
         Head_Top = playerObject.transform.Find("Head").transform.Find("Head_Top").GetComponent<SpriteRenderer>();
         Head_Bottom = playerObject.transform.Find("Head").transform.Find("Head_Bottom").GetComponent<SpriteRenderer>();

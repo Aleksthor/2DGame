@@ -32,8 +32,8 @@ public class MageSpriteDirection : MonoBehaviour
     void Start()
     { 
         localEnemyScript = gameObject.GetComponent<LocalEnemyScript>();
-        player = FindObjectOfType<PlayerManager>();
-        playerTransform = player.GetPlayer().transform;
+        player = PlayerManager.Instance;
+        playerTransform = PlayerSingleton.instance.gameObject.GetComponent<Transform>();
     }
 
 
