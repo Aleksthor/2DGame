@@ -72,7 +72,7 @@ public class AbilityManager : MonoBehaviour
             switch (state1)
             {
                 case AbilityState.ready:
-                    if (Input.GetKeyDown(key1))
+                    if (Input.GetKeyDown(key1) && !(cooldownTime1 > 0))
                     {
                         cooldownIcon1.value = 1f;
                         ability1.Activate(playerObject);
@@ -126,7 +126,7 @@ public class AbilityManager : MonoBehaviour
             switch (state2)
             {
                 case AbilityState.ready:
-                    if (Input.GetKeyDown(key2))
+                    if (Input.GetKeyDown(key2) && !(cooldownTime2 > 0))
                     {
                         ability2.Activate(playerObject);
                         cooldownIcon2.value = 1f;
@@ -134,7 +134,7 @@ public class AbilityManager : MonoBehaviour
                         activeTime2 = ability2.activeTime;
                         cooldownTime2 = ability2.cooldownTime;
                     }
-                    if (cooldownTime2 > 0f)
+                    if (cooldownTime2 >= 0f)
                     {
                         cooldownTime2 -= Time.deltaTime;
                     }
@@ -154,7 +154,7 @@ public class AbilityManager : MonoBehaviour
                     }
                     break;
                 case AbilityState.cooldown:
-                    if (cooldownTime2 > 0)
+                    if (cooldownTime2 >= 0)
                     {
                         cooldownIcon2.value = cooldownTime2 / ability2.cooldownTime;
                         cooldownTime2 -= Time.deltaTime;
@@ -178,7 +178,7 @@ public class AbilityManager : MonoBehaviour
             switch (state3)
             {
                 case AbilityState.ready:
-                    if (Input.GetKeyDown(key3))
+                    if (Input.GetKeyDown(key3) && !(cooldownTime1 > 0))
                     {
                         cooldownIcon3.value = 1f;
                         ability3.Activate(playerObject);
@@ -186,7 +186,7 @@ public class AbilityManager : MonoBehaviour
                         activeTime3 = ability3.activeTime;
                         cooldownTime3 = ability3.cooldownTime;
                     }
-                    if (cooldownTime2 > 0f)
+                    if (cooldownTime2 >= 0f)
                     {
                         cooldownTime2 -= Time.deltaTime;
                     }

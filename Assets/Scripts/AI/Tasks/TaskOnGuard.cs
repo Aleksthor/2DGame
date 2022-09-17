@@ -61,7 +61,6 @@ public class TaskOnGuard : Node
     }
     private void PlayerNotInvisible()
     {
-        parent.SetData("target", playerTransform);
         onGuard = false;
         onGuardClock = onGuardTime - 1f;
     }

@@ -263,9 +263,13 @@ public class SpriteManager : MonoBehaviour
 
             if (attack)
             {
-                NormalOpacity();
-                GameEvents.current.PlayerNotInvisible();
-                GameEvents.current.DontBoostNextAttack();
+                if (lowerOpacity)
+                {
+                    NormalOpacity();
+                    GameEvents.current.PlayerNotInvisible();
+                    GameEvents.current.DontBoostNextAttack();
+                }
+
                 float distance = ((Vector2)Hand.transform.position - (Vector2)playerObject.transform.position).magnitude;
                 if (inventoryManager.currentWeapon != null)
                 {
