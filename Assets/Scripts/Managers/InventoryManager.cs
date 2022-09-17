@@ -103,6 +103,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         // Sends these events and updates the player with these
         GameEvents.current.ChangeWeapon(weapon);
         GameEvents.current.ChangeWeaponCollider(weapon.colliderPointX, weapon.colliderPointY, (int)weapon.weaponType);
+        GameEvents.current.ChangeWeaponAbility(weapon.ability1, weapon.ability2, weapon.ability3, weapon.ability1Icon, weapon.ability2Icon, weapon.ability3Icon);
         UpdateStats();
 
     }
@@ -114,7 +115,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
             inventory.Add(currentWeapon);                 
         }
         currentWeapon = weapon;
-        GameEvents.current.ChangeWeaponAbility(weapon.ability1, weapon.ability2, weapon.ability3, weapon.ability1Icon, weapon.ability2Icon, weapon.ability3Icon);
+        
         ChangeWeapon(currentWeapon);
         UpdateInventoryTab(currentTab);
     }
@@ -913,9 +914,9 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         {
             localPos = currentWeapon.localPosition;
         }
-       
-        #endregion
 
+        #endregion
+        
 
         GameEvents.current.UpdateArmorStat(armor);
         GameEvents.current.ChangeStats(damage, magicDamage, knockBackForce, slowDebuff,

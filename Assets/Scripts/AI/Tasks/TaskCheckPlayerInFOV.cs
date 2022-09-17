@@ -28,6 +28,8 @@ public class TaskCheckPlayerInFOV : Node
             
             if ((transform.position - playerTransform.position).magnitude < FOV)
             {
+                Debug.Log(transform.gameObject);
+                GameEvents.current.SetAgro(transform.gameObject);
                 parent.parent.SetData("target", playerTransform);
                 animator.SetBool("Walking", true);
                 state = NodeState.SUCCESS;
@@ -39,7 +41,7 @@ public class TaskCheckPlayerInFOV : Node
         }
         if ((transform.position - playerTransform.position).magnitude > FOV * 2f)
         {
-
+            GameEvents.current.RemoveAgro(transform.gameObject);
             ClearData("target");
             animator.SetBool("Walking", false);
             state = NodeState.FAILURE;

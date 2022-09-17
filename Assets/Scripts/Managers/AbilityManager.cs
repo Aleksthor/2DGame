@@ -18,13 +18,19 @@ public class AbilityManager : MonoBehaviour
     [SerializeField] float activeTime1;
     [SerializeField] Slider cooldownIcon1;
 
+    [SerializeField] float oldCooldownTime1;
+
     [SerializeField] float cooldownTime2;
     [SerializeField] float activeTime2;
     [SerializeField] Slider cooldownIcon2;
 
+    [SerializeField] float oldCooldownTime2;
+
     [SerializeField] float cooldownTime3;
     [SerializeField] float activeTime3;
     [SerializeField] Slider cooldownIcon3;
+
+    [SerializeField] float oldCooldownTime3;
 
 
     enum AbilityState
@@ -50,6 +56,7 @@ public class AbilityManager : MonoBehaviour
         playerManager = FindObjectOfType<PlayerManager>();
         playerObject = playerManager.GetPlayer();
         GameEvents.current.OnChangeWeaponAbility += ChangeAbilities;
+        
     }
 
 
@@ -71,7 +78,14 @@ public class AbilityManager : MonoBehaviour
                         ability1.Activate(playerObject);
                         state1 = AbilityState.active;
                         activeTime1 = ability1.activeTime;
+                        cooldownTime1 = ability1.cooldownTime;
                     }
+
+                    if (cooldownTime1 > 0f)
+                    {
+                        cooldownTime1 -= Time.deltaTime;
+                    }
+                    cooldownIcon1.value = cooldownTime1 / ability1.cooldownTime;
                     break;
                 case AbilityState.active:
                     if (activeTime1 > 0)
@@ -80,9 +94,10 @@ public class AbilityManager : MonoBehaviour
                     }
                     else
                     {
+                        ability1.Trigger(playerObject);
                         ability1.DeActivate(playerObject);
                         state1 = AbilityState.cooldown;
-                        cooldownTime1 = ability1.cooldownTime;
+
                     }
                     break;
                 case AbilityState.cooldown:
@@ -117,7 +132,13 @@ public class AbilityManager : MonoBehaviour
                         cooldownIcon2.value = 1f;
                         state2 = AbilityState.active;
                         activeTime2 = ability2.activeTime;
+                        cooldownTime2 = ability2.cooldownTime;
                     }
+                    if (cooldownTime2 > 0f)
+                    {
+                        cooldownTime2 -= Time.deltaTime;
+                    }
+                    cooldownIcon2.value = cooldownTime2 / ability2.cooldownTime;
                     break;
                 case AbilityState.active:
                     if (activeTime2 > 0)
@@ -126,9 +147,10 @@ public class AbilityManager : MonoBehaviour
                     }
                     else
                     {
+                        ability2.Trigger(playerObject);
                         ability2.DeActivate(playerObject);
                         state2 = AbilityState.cooldown;
-                        cooldownTime2 = ability2.cooldownTime;
+
                     }
                     break;
                 case AbilityState.cooldown:
@@ -162,7 +184,13 @@ public class AbilityManager : MonoBehaviour
                         ability3.Activate(playerObject);
                         state3 = AbilityState.active;
                         activeTime3 = ability3.activeTime;
+                        cooldownTime3 = ability3.cooldownTime;
                     }
+                    if (cooldownTime2 > 0f)
+                    {
+                        cooldownTime2 -= Time.deltaTime;
+                    }
+                    cooldownIcon2.value = cooldownTime2 / ability2.cooldownTime;
                     break;
                 case AbilityState.active:
                     if (activeTime3 > 0)
@@ -171,9 +199,10 @@ public class AbilityManager : MonoBehaviour
                     }
                     else
                     {
+                        ability3.Trigger(playerObject);
                         ability3.DeActivate(playerObject);
                         state3 = AbilityState.cooldown;
-                        cooldownTime3 = ability3.cooldownTime;
+
                     }
                     break;
                 case AbilityState.cooldown:
@@ -192,7 +221,20 @@ public class AbilityManager : MonoBehaviour
                     break;
             }
         }
-        
+
+        if (oldCooldownTime1 > 0)
+        {
+            oldCooldownTime1 -= Time.deltaTime;
+        }
+        if (oldCooldownTime2 > 0)
+        {
+            oldCooldownTime2 -= Time.deltaTime;
+        }
+        if (oldCooldownTime3 > 0)
+        {
+            oldCooldownTime3 -= Time.deltaTime;
+        }
+
 
         #endregion
 
@@ -203,9 +245,38 @@ public class AbilityManager : MonoBehaviour
 
     private void ChangeAbilities(Ability Ability1, Ability Ability2, Ability Ability3, Sprite Sprite1, Sprite Sprite2, Sprite Sprite3)
     {
+        if(ability1 != null)
+        {
+            ability1.DeActivate(playerObject);
+            state1 = AbilityState.ready;
+        }
+        if (ability2 != null)
+        {
+            ability2.DeActivate(playerObject);
+            state2 = AbilityState.ready;
+        }
+        if (ability3 != null)
+        {
+            ability3.DeActivate(playerObject);
+            state3 = AbilityState.ready;
+        }
+        float temp1 = oldCooldownTime1;
+        float temp2 = oldCooldownTime2;
+        float temp3 = oldCooldownTime3;
+        oldCooldownTime1 = cooldownTime1;
+        oldCooldownTime2 = cooldownTime2;
+        oldCooldownTime3 = cooldownTime3;
+        cooldownTime1 = temp1;
+        cooldownTime2 = temp2;
+        cooldownTime3 = temp3;
+  
+
+
         if (Ability1 != null)
         {
             ability1 = Ability1;
+            cooldownIcon1.value = cooldownTime1 / ability1.cooldownTime;
+
         }
         else
         {
@@ -215,6 +286,7 @@ public class AbilityManager : MonoBehaviour
         if (Ability2 != null)
         {
             ability2 = Ability2;
+            cooldownIcon2.value = cooldownTime2 / ability2.cooldownTime;
         }
         else
         {
@@ -223,6 +295,7 @@ public class AbilityManager : MonoBehaviour
         if (ability3 != null)
         {
             ability3 = Ability3;
+            cooldownIcon3.value = cooldownTime3 / ability3.cooldownTime;
         }
         else
         {

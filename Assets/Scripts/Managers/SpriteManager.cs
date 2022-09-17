@@ -211,7 +211,6 @@ public class SpriteManager : MonoBehaviour
                 HeadSprite.flipX = false;
                 HandSprite.flipX = false;
                 ShieldSprite.flipX = false;
-
                 WeaponSprite.flipX = false;
                 EffectsSprite.flipX = false;
 
@@ -264,6 +263,9 @@ public class SpriteManager : MonoBehaviour
 
             if (attack)
             {
+                NormalOpacity();
+                GameEvents.current.PlayerNotInvisible();
+                GameEvents.current.DontBoostNextAttack();
                 float distance = ((Vector2)Hand.transform.position - (Vector2)playerObject.transform.position).magnitude;
                 if (inventoryManager.currentWeapon != null)
                 {
@@ -357,6 +359,8 @@ public class SpriteManager : MonoBehaviour
                         FlipLastInput = false;
                     }
                 }
+
+                
                
             }
 
@@ -371,7 +375,7 @@ public class SpriteManager : MonoBehaviour
     private void SwapWeapon(Weapon weapon)
     {
         if (weapon != null)
-        {
+        {      
             WeaponSprite.sprite = weapon.itemSprite;
         }
     }
@@ -397,9 +401,7 @@ public class SpriteManager : MonoBehaviour
     void PlayerSpriteChange(Sprite head_top, Sprite head_bottom, Sprite head_ear, Sprite head_hand, Sprite head_hair, Sprite head_facialhair, Sprite head_eye, Sprite head_eyebrow, Sprite head_mouth, Sprite head_nose,
                                 Color headTop, Color hair, Color facialhair, Color eye, Color eyebrow, Color mouth)
     {
-        print("test 1");
-        Debug.Log(head_top);
-        Debug.Log(Head_Top);
+
 
         if (head_top != null)
         {
@@ -454,6 +456,5 @@ public class SpriteManager : MonoBehaviour
             Nose.color = eyebrow;
         }
 
-        print("test 2");
     }
 }

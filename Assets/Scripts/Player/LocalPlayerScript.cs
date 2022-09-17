@@ -29,8 +29,7 @@ public class LocalPlayerScript : MonoBehaviour
     private float force = 10;
     private float magicDamage = 5f;
 
-
-
+    public Vector2 localPosition;
 
 
 
@@ -204,14 +203,21 @@ public class LocalPlayerScript : MonoBehaviour
     }
 
 
-    private void ChangeStats(float Damage, float MagicDamage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, float critRate, float critDamage, Vector2 localPosition)
+    private void ChangeStats(float Damage, float MagicDamage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, float critRate, float critDamage, Vector2 LocalPosition)
     {
         manaCost = ManaCost;
         force = Force;
         magicDamage = MagicDamage;
-        transform.Find("Hand").transform.Find("Weapon").transform.localPosition = localPosition;
+        localPosition = LocalPosition;
 
 
     }
+
+    private void LateUpdate()
+    {
+        transform.Find("Hand").transform.Find("Weapon").transform.localPosition = localPosition;
+    }
+
+
 
 }

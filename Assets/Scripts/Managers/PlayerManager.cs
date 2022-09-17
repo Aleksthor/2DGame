@@ -44,6 +44,7 @@ public class PlayerManager : MonoBehaviour
         GameEvents.current.OnEnemyWeaponCollission += Hit;
         GameEvents.current.OnUpdateArmor += UpdateArmorStat;
         GameEvents.current.OnUseStamina += UseStamina;
+        GameEvents.current.OnUseMana += UseMana;
     }
 
 
@@ -157,6 +158,11 @@ public class PlayerManager : MonoBehaviour
     public void SetManaValue(float value)
     {
         mana += value;
+    }
+
+    private void UseMana(float Mana)
+    {
+        mana -= Mana;
     }
     public float GetManaValue()
     {

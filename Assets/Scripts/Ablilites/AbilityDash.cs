@@ -52,4 +52,9 @@ public class AbilityDash : Ability
     {
 
     }
+
+
+    public override void Trigger(GameObject parent)
+    {
+    }
 }

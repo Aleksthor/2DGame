@@ -29,7 +29,6 @@ public class TaskMaxRange : Node
             state = NodeState.SUCCESS;
             return state;
         }
-
         state = NodeState.FAILURE;
         return state;
 

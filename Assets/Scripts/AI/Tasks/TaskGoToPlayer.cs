@@ -59,7 +59,7 @@ public class TaskGoToPlayer : Node
     {
         if (gameObject != null && transform != null)
         {
-            if (GameObject.ReferenceEquals(gameObject, transform.gameObject))
+            if (gameObject == transform.gameObject)
             {
                 canWalk = false;
                 animator.SetBool("Walking", false);
@@ -74,7 +74,7 @@ public class TaskGoToPlayer : Node
     {
         if (gameObject != null && transform != null)
         {
-            if (GameObject.ReferenceEquals(gameObject, transform.gameObject))
+            if (gameObject == transform.gameObject)
             {
                 canWalk = true;
                 animator.SetBool("Walking", true);

@@ -15,12 +15,12 @@ public class AbilityDashBehindEnemy : Ability
     public float damageBoost;
     public GameObject effect;
     public GameObject buffEffect;
-   
+
 
     private LayerMask layerMask;
     private int layer = 3;
 
- 
+
 
     public override void Activate(GameObject parent)
     {
@@ -38,19 +38,19 @@ public class AbilityDashBehindEnemy : Ability
         {
             Debug.Log(enemy);
             float distance = Vector2.Distance(enemy.transform.position, mainCam.ScreenToWorldPoint(Input.mousePosition));
-            
+
             if (distance < closest)
             {
                 closest = distance;
                 closestEnemy = enemy;
             }
-            
+
         }
-        
+
         if (closestEnemy != null)
         {
 
-            if(Vector2.Distance(parent.transform.position, closestEnemy.transform.position) < range)
+            if (Vector2.Distance(parent.transform.position, closestEnemy.transform.position) < range)
             {
                 GameObject spawnedObject = Instantiate(effect, parent.transform.position, parent.transform.rotation);
                 Instantiate(buffEffect, parent.transform);
@@ -110,8 +110,8 @@ public class AbilityDashBehindEnemy : Ability
                 GameEvents.current.PlayerInvisible();
             }
 
-            
-            
+
+
         }
 
 
@@ -126,5 +126,10 @@ public class AbilityDashBehindEnemy : Ability
         GameEvents.current.NormalPlayerOpacity();
         GameEvents.current.PlayerNotInvisible();
         GameEvents.current.DontBoostNextAttack();
+    }
+
+
+    public override void Trigger(GameObject parent)
+    {
     }
 }

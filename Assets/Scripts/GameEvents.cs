@@ -48,6 +48,16 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+    // use mana
+    public event Action<float> OnUseMana;
+    public void UseMana(float stamina)
+    {
+        if (OnUseMana != null)
+        {
+            OnUseMana(stamina);
+        }
+    }
+
     public event Action OnDestroyObject;
     public void DestroyObject()
     {
@@ -384,6 +394,25 @@ public class GameEvents : MonoBehaviour
         if (OnChangeWeaponAbility != null)
         {
             OnChangeWeaponAbility(ability1, ability2, ability3, sprite1, sprite2, sprite3);
+        }
+    }
+
+
+    public event Action<GameObject> OnSetAgro;
+    public void SetAgro(GameObject gameObject)
+    {
+        if (OnSetAgro != null)
+        {
+            OnSetAgro(gameObject);
+        }
+    }
+
+    public event Action<GameObject> OnRemoveAgro;
+    public void RemoveAgro(GameObject gameObject)
+    {
+        if (OnRemoveAgro != null)
+        {
+            OnRemoveAgro(gameObject);
         }
     }
 
