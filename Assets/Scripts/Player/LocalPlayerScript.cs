@@ -150,6 +150,14 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
         canTurn = true;
     }
 
+    public void CanMoveOff()
+    {
+        canMove = false;
+    }
+
+
+
+
     public void ColliderOn()
     {
         weaponCollider.enabled = true;

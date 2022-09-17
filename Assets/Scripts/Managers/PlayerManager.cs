@@ -129,7 +129,7 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
             hitDamage = Mathf.Clamp(hitDamage, damage / 5, damage);
             health -= hitDamage;
         }
-
+        playerAnimator.SetTrigger("Hit");
         if (health <= 0)
         {
             playerAnimator.SetBool("Dead", true);
