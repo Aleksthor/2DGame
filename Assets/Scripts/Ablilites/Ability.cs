@@ -7,6 +7,13 @@ public class Ability : ScriptableObject
     public string abilityName;
     public float cooldownTime;
     public float activeTime;
+    public float manaCost;
+
+
+    [Header("Buff")]
+    public bool hasBuff;
+    public Sprite buffIcon;
+
 
     public virtual void Activate(GameObject parent) { }
 

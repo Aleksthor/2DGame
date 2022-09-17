@@ -17,20 +17,22 @@ public class AbilityManager : MonoBehaviour
     [SerializeField] float cooldownTime1;
     [SerializeField] float activeTime1;
     [SerializeField] Slider cooldownIcon1;
-
     [SerializeField] float oldCooldownTime1;
 
     [SerializeField] float cooldownTime2;
     [SerializeField] float activeTime2;
     [SerializeField] Slider cooldownIcon2;
-
     [SerializeField] float oldCooldownTime2;
 
     [SerializeField] float cooldownTime3;
     [SerializeField] float activeTime3;
     [SerializeField] Slider cooldownIcon3;
-
     [SerializeField] float oldCooldownTime3;
+
+
+    [SerializeField] Transform buffParent;
+    [SerializeField] GameObject uiObject;
+
 
 
     enum AbilityState
@@ -49,6 +51,10 @@ public class AbilityManager : MonoBehaviour
     public KeyCode key3;
 
 
+
+    GameObject buffIcon1;
+    GameObject buffIcon2;
+    GameObject buffIcon3;
 
 
     public void Start()
@@ -72,20 +78,35 @@ public class AbilityManager : MonoBehaviour
             switch (state1)
             {
                 case AbilityState.ready:
-                    if (Input.GetKeyDown(key1) && !(cooldownTime1 > 0))
+                    if (Input.GetKeyDown(key1) && !(cooldownTime1 > 0) && (playerManager.GetManaValue() - ability1.manaCost) > 0) 
                     {
                         cooldownIcon1.value = 1f;
                         ability1.Activate(playerObject);
                         state1 = AbilityState.active;
                         activeTime1 = ability1.activeTime;
                         cooldownTime1 = ability1.cooldownTime;
+
+
+                        if (ability1.hasBuff)
+                        {
+                            buffIcon1 = Instantiate(uiObject, buffParent);
+                            buffIcon1.GetComponent<Image>().sprite = ability1.buffIcon;
+                        }
+
                     }
 
                     if (cooldownTime1 > 0f)
                     {
                         cooldownTime1 -= Time.deltaTime;
                     }
-                    cooldownIcon1.value = cooldownTime1 / ability1.cooldownTime;
+                    if (playerManager.GetManaValue() - ability1.manaCost < 0)
+                    {
+                        cooldownIcon1.value = 1f;
+                    }
+                    else
+                    {
+                        cooldownIcon1.value = cooldownTime1 / ability1.cooldownTime;
+                    }
                     break;
                 case AbilityState.active:
                     if (activeTime1 > 0)
@@ -96,6 +117,18 @@ public class AbilityManager : MonoBehaviour
                     {
                         ability1.Trigger(playerObject);
                         ability1.DeActivate(playerObject);
+                        if (ability1.hasBuff)
+                        {
+                            foreach(Transform child in buffParent)
+                            {
+                                Debug.Log(child);
+                                if (child.GetComponent<Image>().sprite == buffIcon1.GetComponent<Image>().sprite)
+                                {
+                                    Destroy(child.gameObject);
+                                }
+                            }
+                        }
+
                         state1 = AbilityState.cooldown;
 
                     }
@@ -133,12 +166,26 @@ public class AbilityManager : MonoBehaviour
                         state2 = AbilityState.active;
                         activeTime2 = ability2.activeTime;
                         cooldownTime2 = ability2.cooldownTime;
+
+
+                        if (ability2.hasBuff)
+                        {
+                            buffIcon2 = Instantiate(uiObject, buffParent);
+                            buffIcon2.GetComponent<Image>().sprite = ability2.buffIcon;
+                        }
                     }
                     if (cooldownTime2 >= 0f)
                     {
                         cooldownTime2 -= Time.deltaTime;
                     }
-                    cooldownIcon2.value = cooldownTime2 / ability2.cooldownTime;
+                    if (playerManager.GetManaValue() - ability2.manaCost < 0)
+                    {
+                        cooldownIcon2.value = 1f;
+                    }
+                    else
+                    {
+                        cooldownIcon2.value = cooldownTime2 / ability2.cooldownTime;
+                    }
                     break;
                 case AbilityState.active:
                     if (activeTime2 > 0)
@@ -149,6 +196,16 @@ public class AbilityManager : MonoBehaviour
                     {
                         ability2.Trigger(playerObject);
                         ability2.DeActivate(playerObject);
+                        if (ability2.hasBuff)
+                        {
+                            foreach (Transform child in buffParent)
+                            {
+                                if (child.GetComponent<Image>().sprite == buffIcon2.GetComponent<Image>().sprite)
+                                {
+                                    Destroy(child.gameObject);
+                                }
+                            }
+                        }
                         state2 = AbilityState.cooldown;
 
                     }
@@ -185,12 +242,25 @@ public class AbilityManager : MonoBehaviour
                         state3 = AbilityState.active;
                         activeTime3 = ability3.activeTime;
                         cooldownTime3 = ability3.cooldownTime;
+
+                        if (ability3.hasBuff)
+                        {
+                            buffIcon3 = Instantiate(uiObject, buffParent);
+                            buffIcon3.GetComponent<Image>().sprite = ability3.buffIcon;
+                        }
                     }
-                    if (cooldownTime2 >= 0f)
+                    if (cooldownTime3 >= 0f)
                     {
-                        cooldownTime2 -= Time.deltaTime;
+                        cooldownTime3 -= Time.deltaTime;
                     }
-                    cooldownIcon2.value = cooldownTime2 / ability2.cooldownTime;
+                    if (playerManager.GetManaValue() - ability3.manaCost < 0)
+                    {
+                        cooldownIcon3.value = 1f;
+                    }
+                    else
+                    {
+                        cooldownIcon3.value = cooldownTime3 / ability3.cooldownTime;
+                    }
                     break;
                 case AbilityState.active:
                     if (activeTime3 > 0)
@@ -201,6 +271,17 @@ public class AbilityManager : MonoBehaviour
                     {
                         ability3.Trigger(playerObject);
                         ability3.DeActivate(playerObject);
+
+                        if (ability3.hasBuff)
+                        {
+                            foreach (Transform child in buffParent)
+                            {
+                                if (child.GetComponent<Image>().sprite == buffIcon3.GetComponent<Image>().sprite)
+                                {
+                                    Destroy(child.gameObject);
+                                }
+                            }
+                        }
                         state3 = AbilityState.cooldown;
 
                     }
@@ -248,16 +329,50 @@ public class AbilityManager : MonoBehaviour
         if(ability1 != null)
         {
             ability1.DeActivate(playerObject);
+            if (ability1.hasBuff)
+            {
+                foreach (Transform child in buffParent)
+                {
+                    Debug.Log(child);
+                    if (child.GetComponent<Image>().sprite == buffIcon1.GetComponent<Image>().sprite)
+                    {
+                        Destroy(child.gameObject);
+                    }
+                }
+            }
+
             state1 = AbilityState.ready;
         }
         if (ability2 != null)
         {
             ability2.DeActivate(playerObject);
+            if (ability2.hasBuff)
+            {
+                foreach (Transform child in buffParent)
+                {
+                    Debug.Log(child);
+                    if (child.GetComponent<Image>().sprite == buffIcon2.GetComponent<Image>().sprite)
+                    {
+                        Destroy(child.gameObject);
+                    }
+                }
+            }
             state2 = AbilityState.ready;
         }
         if (ability3 != null)
         {
             ability3.DeActivate(playerObject);
+            if (ability3.hasBuff)
+            {
+                foreach (Transform child in buffParent)
+                {
+                    Debug.Log(child);
+                    if (child.GetComponent<Image>().sprite == buffIcon3.GetComponent<Image>().sprite)
+                    {
+                        Destroy(child.gameObject);
+                    }
+                }
+            }
             state3 = AbilityState.ready;
         }
         float temp1 = oldCooldownTime1;

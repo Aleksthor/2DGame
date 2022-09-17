@@ -57,14 +57,13 @@ public class TaskGoToPlayer : Node
 
     private void StartAttack(GameObject gameObject)
     {
-        if (gameObject != null && transform != null)
+
+        if (gameObject == transform.gameObject)
         {
-            if (gameObject == transform.gameObject)
-            {
-                canWalk = false;
-                animator.SetBool("Walking", false);
-            }
+            canWalk = false;
+            animator.SetBool("Walking", false);
         }
+
 
 
     }
@@ -72,14 +71,13 @@ public class TaskGoToPlayer : Node
 
     private void StopAttack(GameObject gameObject)
     {
-        if (gameObject != null && transform != null)
+
+        if (gameObject == transform.gameObject)
         {
-            if (gameObject == transform.gameObject)
-            {
-                canWalk = true;
-                animator.SetBool("Walking", true);
-            }
+            canWalk = true;
+            animator.SetBool("Walking", true);
         }
+
 
     }
 

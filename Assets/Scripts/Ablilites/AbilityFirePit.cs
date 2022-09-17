@@ -8,7 +8,6 @@ public class AbilityFirePit : Ability
 
     
     private Camera mainCam;
-    public float manaCost;
     public float range;
     public GameObject firePitObject;
     private PlayerManager playerManager;
