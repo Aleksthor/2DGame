@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AbilityManager : MonoBehaviour
+public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
 {
+
     // 3 current abilites
     public Ability ability1;
     public Ability ability2;
@@ -80,6 +81,7 @@ public class AbilityManager : MonoBehaviour
                 case AbilityState.ready:
                     if (Input.GetKeyDown(key1) && !(cooldownTime1 > 0) && (playerManager.GetManaValue() - ability1.manaCost) > 0) 
                     {
+                        Debug.Log("Ability 1 is Active");
                         cooldownIcon1.value = 1f;
                         ability1.Activate(playerObject);
                         state1 = AbilityState.active;
@@ -117,11 +119,12 @@ public class AbilityManager : MonoBehaviour
                     {
                         ability1.Trigger(playerObject);
                         ability1.DeActivate(playerObject);
+                        Debug.Log("Ability 1 Deactivated");
                         if (ability1.hasBuff)
                         {
                             foreach(Transform child in buffParent)
                             {
-                                Debug.Log(child);
+                                
                                 if (child.GetComponent<Image>().sprite == buffIcon1.GetComponent<Image>().sprite)
                                 {
                                     Destroy(child.gameObject);
@@ -161,6 +164,7 @@ public class AbilityManager : MonoBehaviour
                 case AbilityState.ready:
                     if (Input.GetKeyDown(key2) && !(cooldownTime2 > 0))
                     {
+                        Debug.Log("Ability 2 is Active");
                         ability2.Activate(playerObject);
                         cooldownIcon2.value = 1f;
                         state2 = AbilityState.active;
@@ -196,6 +200,7 @@ public class AbilityManager : MonoBehaviour
                     {
                         ability2.Trigger(playerObject);
                         ability2.DeActivate(playerObject);
+                        Debug.Log("Ability 2 Deactivated");
                         if (ability2.hasBuff)
                         {
                             foreach (Transform child in buffParent)
@@ -237,6 +242,7 @@ public class AbilityManager : MonoBehaviour
                 case AbilityState.ready:
                     if (Input.GetKeyDown(key3) && !(cooldownTime1 > 0))
                     {
+                        Debug.Log("Ability 3 is Active");
                         cooldownIcon3.value = 1f;
                         ability3.Activate(playerObject);
                         state3 = AbilityState.active;
@@ -271,6 +277,7 @@ public class AbilityManager : MonoBehaviour
                     {
                         ability3.Trigger(playerObject);
                         ability3.DeActivate(playerObject);
+                        Debug.Log("Ability 3 Deactivated");
 
                         if (ability3.hasBuff)
                         {
@@ -326,9 +333,23 @@ public class AbilityManager : MonoBehaviour
 
     private void ChangeAbilities(Ability Ability1, Ability Ability2, Ability Ability3, Sprite Sprite1, Sprite Sprite2, Sprite Sprite3)
     {
-        if(ability1 != null)
+
+
+        float temp1 = oldCooldownTime1;
+        float temp2 = oldCooldownTime2;
+        float temp3 = oldCooldownTime3;
+        oldCooldownTime1 = cooldownTime1;
+        oldCooldownTime2 = cooldownTime2;
+        oldCooldownTime3 = cooldownTime3;
+        cooldownTime1 = temp1;
+        cooldownTime2 = temp2;
+        cooldownTime3 = temp3;
+
+        #region Ability1
+        if (ability1 != null)
         {
             ability1.DeActivate(playerObject);
+            Debug.Log("Ability 1 Deactivated");
             if (ability1.hasBuff)
             {
                 foreach (Transform child in buffParent)
@@ -343,9 +364,34 @@ public class AbilityManager : MonoBehaviour
 
             state1 = AbilityState.ready;
         }
+        if (Ability1 != null)
+        {
+            ability1 = Ability1;
+            cooldownIcon1.value = cooldownTime1 / ability1.cooldownTime;
+
+        }
+        else
+        {
+            ability1 = null;
+
+        }
+
+        if (Sprite1 != null)
+        {
+            cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = Sprite1;
+        }
+        else
+        {
+            cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = null;
+        }
+
+        #endregion
+
+        #region Ability2
         if (ability2 != null)
         {
             ability2.DeActivate(playerObject);
+            Debug.Log("Ability 2 Deactivated");
             if (ability2.hasBuff)
             {
                 foreach (Transform child in buffParent)
@@ -359,9 +405,34 @@ public class AbilityManager : MonoBehaviour
             }
             state2 = AbilityState.ready;
         }
+
+
+        if (Ability2 != null)
+        {
+            ability2 = Ability2;
+            cooldownIcon2.value = cooldownTime2 / ability2.cooldownTime;
+        }
+        else
+        {
+            ability2 = null;
+        }
+
+        if (Sprite2 != null)
+        {
+            cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = Sprite2;
+        }
+        else
+        {
+            cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = null;
+        }
+
+        #endregion
+
+        #region Ability3
         if (ability3 != null)
         {
             ability3.DeActivate(playerObject);
+            Debug.Log("Ability 3 Deactivated");
             if (ability3.hasBuff)
             {
                 foreach (Transform child in buffParent)
@@ -375,38 +446,7 @@ public class AbilityManager : MonoBehaviour
             }
             state3 = AbilityState.ready;
         }
-        float temp1 = oldCooldownTime1;
-        float temp2 = oldCooldownTime2;
-        float temp3 = oldCooldownTime3;
-        oldCooldownTime1 = cooldownTime1;
-        oldCooldownTime2 = cooldownTime2;
-        oldCooldownTime3 = cooldownTime3;
-        cooldownTime1 = temp1;
-        cooldownTime2 = temp2;
-        cooldownTime3 = temp3;
-  
 
-
-        if (Ability1 != null)
-        {
-            ability1 = Ability1;
-            cooldownIcon1.value = cooldownTime1 / ability1.cooldownTime;
-
-        }
-        else
-        {
-            ability1 = null;
-
-        }
-        if (Ability2 != null)
-        {
-            ability2 = Ability2;
-            cooldownIcon2.value = cooldownTime2 / ability2.cooldownTime;
-        }
-        else
-        {
-            ability2 = null;
-        }
         if (ability3 != null)
         {
             ability3 = Ability3;
@@ -416,22 +456,8 @@ public class AbilityManager : MonoBehaviour
         {
             ability3 = null;
         }
-        if (Sprite1 != null)
-        {
-            cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = Sprite1;
-        }
-        else
-        {
-            cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = null;
-        }
-        if(Sprite2 != null)
-        {
-            cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = Sprite2;
-        }
-        else
-        {
-            cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = null;
-        }
+
+
         if (Sprite3 != null)
         {
             cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = Sprite3;
@@ -440,6 +466,12 @@ public class AbilityManager : MonoBehaviour
         {
             cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = null;
         }
+
+        #endregion
+
+
+
+
 
     }
 }

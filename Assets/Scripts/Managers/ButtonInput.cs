@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class ButtonInput : MonoBehaviour
+public class ButtonInput : SingletonMonoBehaviour<ButtonInput>
 {
 
     LocalPlayerScript localPlayerScript;
-    Animation playerAnimator;
+    AnimationManager playerAnimator;
 
     [Header("Private Variables")]
     [SerializeField]
@@ -23,10 +24,10 @@ public class ButtonInput : MonoBehaviour
 
     //--------------------
 
-    private void Awake()
+    private void Start()
     {
         localPlayerScript = FindObjectOfType<LocalPlayerScript>();
-        playerAnimator = FindObjectOfType<Animation>();
+        playerAnimator = FindObjectOfType<AnimationManager>();
     }
     private void Update()
     {
@@ -46,6 +47,17 @@ public class ButtonInput : MonoBehaviour
         sneak = Input.GetButton("Running");
         shield = Input.GetButton("Fire2");
         attack = Input.GetButton("Fire1");
+
+
+
+        if (Input.GetKeyDown("9"))
+        {
+            SceneManager.LoadScene("TestMap - Aleksander");
+        }
+        if (Input.GetKeyDown("8"))
+        {
+            SceneManager.LoadScene("TestMap - Adrian");
+        }
     }
 
 

@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Movement : SingletonMonoBehaviour<Movement>
 {
     #region Variables
     ButtonInput buttonInput;
     HUD hud;
     PlayerManager player;
-    Animation playerAnimation;
+    AnimationManager playerAnimation;
     LocalPlayerScript localPlayerScript;
 
     [Header("Movement Parameters")]
@@ -50,12 +50,12 @@ public class Movement : MonoBehaviour
     //--------------------
 
 
-    private void Awake()
+    private void Start()
     {
         hud = FindObjectOfType<HUD>();
         buttonInput = FindObjectOfType<ButtonInput>();
         player = FindObjectOfType<PlayerManager>();
-        playerAnimation = FindObjectOfType<Animation>();
+        playerAnimation = FindObjectOfType<AnimationManager>();
         localPlayerScript = player.GetPlayer().GetComponent<LocalPlayerScript>();
         playerCollider = player.GetPlayer().GetComponent<PolygonCollider2D>();
     }

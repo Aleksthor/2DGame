@@ -36,7 +36,7 @@ public class AbilityDashBehindEnemy : Ability
 
         foreach (GameObject enemy in enemies)
         {
-            Debug.Log(enemy);
+            
             float distance = Vector2.Distance(enemy.transform.position, mainCam.ScreenToWorldPoint(Input.mousePosition));
 
             if (distance < closest)

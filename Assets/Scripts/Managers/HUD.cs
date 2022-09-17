@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-public class HUD : MonoBehaviour
+public class HUD : SingletonMonoBehaviour<HUD>
 {
     [Header("Health Slider")]
     public Slider healthSlider;
@@ -34,7 +34,7 @@ public class HUD : MonoBehaviour
     public Animator playerAnimator;
 
 
-    private void Awake()
+    private void Start()
     {
         //Set Starting parameter values
         healthSliderCurrent = healthSliderMaxValue;

@@ -257,6 +257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2076017503924805235}
+  - component: {fileID: 3661081669054128604}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -290,6 +291,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3661081669054128604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076017503924805244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ed83c120bc3cf4eb139877fbed05e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2076017504878086311
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,12 +741,17 @@ MonoBehaviour:
   cooldownTime1: 0
   activeTime1: 0
   cooldownIcon1: {fileID: 0}
+  oldCooldownTime1: 0
   cooldownTime2: 0
   activeTime2: 0
   cooldownIcon2: {fileID: 0}
+  oldCooldownTime2: 0
   cooldownTime3: 0
   activeTime3: 0
   cooldownIcon3: {fileID: 0}
+  oldCooldownTime3: 0
+  buffParent: {fileID: 0}
+  uiObject: {fileID: 0}
   key1: 113
   key2: 101
   key3: 114

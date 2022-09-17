@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class SpriteManager : MonoBehaviour
+public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
 {
     #region Sprites
     private SpriteRenderer BodySprite;
@@ -54,8 +54,11 @@ public class SpriteManager : MonoBehaviour
 
     private bool lowerOpacity;
 
-    private void Awake()
+
+
+    private void Start()
     {
+
         player = FindObjectOfType<PlayerManager>();
         playerObject = player.GetPlayer();
 
@@ -85,11 +88,8 @@ public class SpriteManager : MonoBehaviour
         PivotPoint = playerObject.transform.Find("PivotPoint").GetComponent<Transform>();
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
-      
-    }
 
-    private void Start()
-    {
+
         buttonInput = FindObjectOfType<ButtonInput>();
         localPlayerScript = playerObject.GetComponent<LocalPlayerScript>();
 

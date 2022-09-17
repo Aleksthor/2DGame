@@ -19,10 +19,10 @@ public class AbilityDash : Ability
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         Vector2 direction = mainCam.ScreenToWorldPoint(Input.mousePosition) - parent.transform.position;
         Vector2 newPosition = (Vector2)parent.transform.position + direction.normalized * dashLength;
-        Debug.Log(newPosition);
+        
         
         RaycastHit2D hit = Physics2D.Raycast(parent.transform.position, direction.normalized, dashLength, layerMask);
-        Debug.Log(hit.collider);
+        
         if (hit)
         {
             Debug.Log(direction.y);

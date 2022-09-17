@@ -52,6 +52,36 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
     }
 
 
+    public void AddItemToStack(Item item, int number)
+    {
+        foreach (Item itemIndex in inventory)
+        {
+            if (item == itemIndex)
+            {
+                itemIndex.stackAmount += number;
+            }
+        }
+    }
+
+    public void RemoveItemFromStack(Item item, int number)
+    {
+        foreach (Item itemIndex in inventory)
+        {
+            if (item == itemIndex)
+            {
+                if (itemIndex.stackAmount - number > 0)
+                {
+                    itemIndex.stackAmount -= number;
+                }
+                else if (itemIndex.stackAmount - number == 0)
+                {
+                    inventory.Remove(itemIndex);
+                }
+            }
+        }
+    }
+
+
 
     private void Start()
     {
@@ -101,6 +131,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
     {
 
         // Sends these events and updates the player with these
+        Debug.Log("Weapon Was Changed");
         GameEvents.current.ChangeWeapon(weapon);
         GameEvents.current.ChangeWeaponCollider(weapon.colliderPointX, weapon.colliderPointY, (int)weapon.weaponType);
         GameEvents.current.ChangeWeaponAbility(weapon.ability1, weapon.ability2, weapon.ability3, weapon.ability1Icon, weapon.ability2Icon, weapon.ability3Icon);
@@ -139,6 +170,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
 
     public void ChangeShield(Shield shield)
     {
+        Debug.Log("Shield Was Changed");
         GameEvents.current.ChangeShield(shield);
     }
 
@@ -226,7 +258,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
     }
     public void RemoveCurrentEquipment(Equipment equipment, int slotIndex)
     {
-        Debug.Log("Running");
+       
         switch (equipment.equipmentType)
         {
             case Equipment.EquipmentType.Head:
@@ -301,6 +333,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
 
     public void UpdateInventoryTab(int i)
     {
+
         UpdateStats();
         // When we open the inventory we reset the text here to be empty.
         // We update the info later when we click on an item
@@ -748,6 +781,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
 
 
         GameEvents.current.InventoryRefresh(currentWeapon, secondaryWeapon);
+        Debug.Log("Inventory Refreshed");
     }
 
 

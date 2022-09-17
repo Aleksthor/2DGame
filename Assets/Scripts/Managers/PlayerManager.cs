@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
 {
     [Header("Moveable Object")]
     [SerializeField] GameObject playerObject;
@@ -31,16 +31,15 @@ public class PlayerManager : MonoBehaviour
 
 
 
-    private void Awake()
-    {
-        playerAnimator = playerObject.GetComponent<Animator>();
-        playerHUD = FindObjectOfType<HUD>();
-        movementManager = FindObjectOfType<Movement>();
-    }
+
 
 
     private void Start()
     {
+        playerAnimator = playerObject.GetComponent<Animator>();
+        playerHUD = FindObjectOfType<HUD>();
+        movementManager = FindObjectOfType<Movement>();
+
         GameEvents.current.OnEnemyWeaponCollission += Hit;
         GameEvents.current.OnUpdateArmor += UpdateArmorStat;
         GameEvents.current.OnUseStamina += UseStamina;

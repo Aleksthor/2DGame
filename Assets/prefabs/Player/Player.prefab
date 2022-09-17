@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 1683833384199100759}
   - component: {fileID: 5057567540010451976}
   - component: {fileID: 4912899262042204276}
+  - component: {fileID: 7893712081737091519}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -259,6 +260,7 @@ MonoBehaviour:
   ShotPoint: {fileID: 6086259455824825333}
   EnergyBall: {fileID: 710600009353945899, guid: 64ff3aeadafc4d94eabd5a4d8fb62cd8, type: 3}
   MagicBall: {fileID: 0}
+  localPosition: {x: 0, y: 0}
 --- !u!50 &3057187768033625967
 Rigidbody2D:
   serializedVersion: 4
@@ -400,6 +402,18 @@ SortingGroup:
   m_SortingLayerID: -1103112865
   m_SortingLayer: 2
   m_SortingOrder: 0
+--- !u!114 &7893712081737091519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467819397390074105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dadf7294a1dcd314c97c1626702530cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1561591179950914155
 GameObject:
   m_ObjectHideFlags: 0

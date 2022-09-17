@@ -12,7 +12,14 @@ public class GameEvents : MonoBehaviour
 
     private void Awake()
     {
-        current = this;
+        if (current == null)
+        {
+            current = this;
+        }
+        else
+        {
+            Destroy(current);
+        }
     }
 
     // Start of a player attack 

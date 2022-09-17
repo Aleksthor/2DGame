@@ -65,17 +65,17 @@ public class WeaponCollider : MonoBehaviour
             didCrit = false;
             if(boostNextAttack)
             {
-                Debug.Log("BoostNextAttack");
+                
                 damage *= damageBoost;
-                Debug.Log(damage);
+                
             }
 
             if (random < critRate)
             {
-                Debug.Log("Crit");
+                
                 
                 damage *= critDamage;
-                Debug.Log(damage);
+                
                 Mathf.Clamp(damage, 0f, damageBefore * critDamage);
                 didCrit = true;
             }
