@@ -18,7 +18,6 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
     [Header("Health Stats")]
     [SerializeField] float health = 50;
     [SerializeField] float maxHealth = 50;
-    [SerializeField] float armor = 0;
 
     [Header("Stamina Stats")]
     [SerializeField] float stamina = 50;
@@ -33,6 +32,28 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
     [SerializeField] float baseManaRegenClock = 2;
 
 
+    [Header("Equipped Item Stats")]
+    [SerializeField] float meleeDamage;
+    [SerializeField] float critDamage;
+    [SerializeField] float critRate;
+    [SerializeField] float knockbackForce;
+    [SerializeField] float armor;
+    [SerializeField] float magicDamage;
+    [SerializeField] float manaCost;
+    [SerializeField] float magicShotForce;
+    [SerializeField] float slowDebuff;
+    [SerializeField] float slowDownLength;
+    [SerializeField] Vector2 localPosition;
+
+
+    [Header("Buff Stats")]
+    [SerializeField] List<float> defenseBuff;
+    [SerializeField] List<float> defenseBuffTime;
+    [SerializeField] float baseDefense;
+    private bool defenseBuffActive = false;
+
+
+
     private void Start()
     {
         playerObject = PlayerSingleton.instance.gameObject;
@@ -44,6 +65,10 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
         GameEvents.current.OnUpdateArmor += UpdateArmorStat;
         GameEvents.current.OnUseStamina += UseStamina;
         GameEvents.current.OnUseMana += UseMana;
+        GameEvents.current.OnBuffDefense += BuffDefense;
+        GameEvents.current.OnUpdateInventoryStats += UpdateInventoryStats;
+        GameEvents.current.OnAbilityBuffDefense += AbilityDefenseBuff;
+        GameEvents.current.OnAbilityRemoveBuffDefense += AbilityRemoveDefenseBuff;
     }
 
 
@@ -84,34 +109,42 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
             mana = maxMana;
         }
 
-    }
+        #region DefenseBuff
 
-
-    private void UseStamina(float Stamina)
-    {
-        stamina -= Stamina;
-    }
-
-
-    public float GetStamina()
-    {
-        return stamina;
-    }
-
-    private void UpdateArmorStat(float Armor)
-    {
-        armor = Armor;
-    }
-
-    void BaseManaRegen()
-    {
-        baseManaRegenClock += Time.deltaTime;
-        if (baseManaRegenClock > baseManaRegenSpeed)
+        if (defenseBuffTime.Count > 0)
         {
-            baseManaRegenClock = 0;
-            SetManaValue(baseManaRegen);
+            int i = 0;
+            float totalBuff = 1f;
+            foreach (float buff in defenseBuff)
+            {
+                defenseBuffTime[i] -= Time.deltaTime;
+
+                if (defenseBuffTime[i] < 0)
+                {
+                    defenseBuffTime.RemoveAt(i);
+                    defenseBuff.RemoveAt(i);
+
+                }
+                else
+                {
+                    totalBuff *= defenseBuff[i];
+                }
+
+                i++;
+            }
+
+            armor = baseDefense *= totalBuff;
         }
+        else if (!defenseBuffActive)
+        {
+            armor = baseDefense;
+        }
+
+
+        #endregion
+
     }
+
 
 
     private void Hit(float damage, float knockbackForce)
@@ -137,6 +170,86 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
     }
 
 
+    private void UpdateInventoryStats(float Damage, float MagicDamage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, float CritRate, float CritDamage, Vector2 LocalPosition)
+    {
+        meleeDamage = Damage;
+        magicDamage = MagicDamage;
+        knockbackForce = KnockBackForce;
+        slowDebuff = SpeedMultiplier;
+        slowDownLength = SlowDownLength;
+        manaCost = ManaCost;
+        magicShotForce = Force;
+        critRate = CritRate;
+        critDamage = CritDamage;
+        localPosition = LocalPosition;
+
+
+
+
+        UpdatePlayerStats();
+
+    }
+
+    private void UpdateArmorStat(float Armor)
+    {
+        armor = Armor;
+        baseDefense = Armor;
+    }
+
+
+
+    private void UpdatePlayerStats()
+    {
+        float Damage = meleeDamage;
+        float MagicDamage = magicDamage;
+        float KnockBackForce = knockbackForce;
+        float SlowDebuff = slowDebuff;
+        float SlowDebuffTime = slowDownLength;
+        float ManaCost = manaCost;
+        float ShotForce = magicShotForce;
+        float CritRate = critRate;
+        float CritDamage = critDamage;
+        Vector2 LocalPos = localPosition;
+           
+
+
+        GameEvents.current.ChangeStats(Damage, MagicDamage, KnockBackForce, SlowDebuff,
+    SlowDebuffTime, ManaCost, ShotForce, CritRate, CritDamage, LocalPos);
+    }
+
+
+
+
+
+    private void BuffDefense(float DefenseBuff, float DefenseTime)
+    {
+
+        defenseBuff.Add(DefenseBuff);
+        defenseBuffTime.Add(DefenseTime);
+
+    }
+
+
+    private void AbilityDefenseBuff(float DefenseBuff)
+    {
+        defenseBuffActive = true;
+        armor *= DefenseBuff;
+    }
+
+    private void AbilityRemoveDefenseBuff(float DefenseBuff)
+    {
+        defenseBuffActive = false;
+        if (defenseBuff.Count > 0)
+        {
+            armor /= DefenseBuff;
+        }
+        else
+        {
+            armor = baseDefense;
+        }
+    }
+
+
     public Animator GetPlayerAnimator()
     {
         return playerAnimator;
@@ -155,14 +268,35 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
     private void UseMana(float Mana)
     {
         mana -= Mana;
-        if (mana < 0 )
+        if (mana < 0)
         {
-            mana = 0;   
+            mana = 0;
         }
     }
     public float GetManaValue()
     {
         return mana;
+    }
+
+    private void UseStamina(float Stamina)
+    {
+        stamina -= Stamina;
+    }
+
+
+    public float GetStamina()
+    {
+        return stamina;
+    }
+
+    void BaseManaRegen()
+    {
+        baseManaRegenClock += Time.deltaTime;
+        if (baseManaRegenClock > baseManaRegenSpeed)
+        {
+            baseManaRegenClock = 0;
+            SetManaValue(baseManaRegen);
+        }
     }
 }
 

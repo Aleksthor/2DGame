@@ -6,6 +6,7 @@ using UnityEngine;
 public class AbilityDash : Ability
 {
     public float dashLength;
+    public GameObject effect;
 
     private Camera mainCam;
 
@@ -15,7 +16,7 @@ public class AbilityDash : Ability
     public override void Activate(GameObject parent)
     {
         layerMask = (1 << layer);
-
+        Instantiate(effect, parent.transform.position, parent.transform.rotation);
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         Vector2 direction = mainCam.ScreenToWorldPoint(Input.mousePosition) - parent.transform.position;
         Vector2 newPosition = (Vector2)parent.transform.position + direction.normalized * dashLength;

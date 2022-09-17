@@ -271,8 +271,35 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+    public event Action<float, float, float, float, float, float, float, float, float, Vector2> OnUpdateInventoryStats;
+    public void UpdateInventoryStats(float damage, float magicFamage, float knockbackForce, float speedMultiplier, float slowDownLength, float manaCost, float force, float critRate, float critDamage, Vector2 localPosition)
+    {
+        if (OnUpdateInventoryStats != null)
+        {
+            OnUpdateInventoryStats(damage, magicFamage, knockbackForce, speedMultiplier, slowDownLength, manaCost, force, critRate, critDamage, localPosition);
+        }
+    }
+
     #endregion
 
+
+    public event Action<float> OnAbilityBuffDefense;
+    public void AbilityBuffDefense(float defenseBoost)
+    {
+        if (OnAbilityBuffDefense != null)
+        {
+            OnAbilityBuffDefense(defenseBoost);
+        }
+    }
+
+    public event Action<float> OnAbilityRemoveBuffDefense;
+    public void AbilityRemoveBuffDefense(float defenseBoost)
+    {
+        if (OnAbilityRemoveBuffDefense != null)
+        {
+            OnAbilityRemoveBuffDefense(defenseBoost);
+        }
+    }
 
 
 
@@ -405,6 +432,7 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+    // Set Agro lets the enemy see the player again
 
     public event Action<GameObject> OnSetAgro;
     public void SetAgro(GameObject gameObject)
@@ -414,6 +442,8 @@ public class GameEvents : MonoBehaviour
             OnSetAgro(gameObject);
         }
     }
+
+    // Remove agro makes the player invisible to all enemies with the task (
 
     public event Action<GameObject> OnRemoveAgro;
     public void RemoveAgro(GameObject gameObject)
@@ -443,4 +473,17 @@ public class GameEvents : MonoBehaviour
             OnCharacterCreationEnd();
         }
     }
+
+
+    public event Action<float, float> OnBuffDefense;
+    public void BuffDefense(float defenseBoost, float time)
+    {
+        if (OnBuffDefense != null)
+        {
+            OnBuffDefense(defenseBoost, time);
+        }
+    }
+
+
+    //
 }

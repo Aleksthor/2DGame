@@ -46,7 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   maxHealth: 50
-  armor: 0
   stamina: 100
   maxStamina: 100
   staminaPerHit: 35
@@ -55,6 +54,19 @@ MonoBehaviour:
   baseManaRegen: 1.2
   baseManaRegenSpeed: 2
   baseManaRegenClock: 2
+  meleeDamage: 0
+  critDamage: 0
+  critRate: 0
+  knockbackForce: 0
+  armor: 0
+  magicDamage: 0
+  manaCost: 0
+  magicShotForce: 0
+  slowDebuff: 0
+  slowDownLength: 0
+  localPosition: {x: 0, y: 0}
+  defenseBuff: 0
+  defenseBuffTime: 0
 --- !u!1 &1651769332527878949
 GameObject:
   m_ObjectHideFlags: 0

@@ -961,8 +961,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         
 
         GameEvents.current.UpdateArmorStat(armor);
-        GameEvents.current.ChangeStats(damage, magicDamage, knockBackForce, slowDebuff,
-            slowDebuffTime, manaCost, shotForce, critRate, critDamage, localPos);
+        GameEvents.current.UpdateInventoryStats(damage, magicDamage, knockBackForce, slowDebuff,
+slowDebuffTime, manaCost, shotForce, critRate, critDamage, localPos);
     }
 
 
