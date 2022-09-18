@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Necklace
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 0}
-  itemName: 
-  itemDescription: 
-  itemType: 0
+  itemName: Necklace
+  itemDescription: +1 Melee Attack & +1 Armor
+  itemType: 3
   itemRarity: 0
-  itemWeight: 0
+  itemWeight: 0.2
   isStackable: 0
   stackAmount: 1
-  equipmentType: 0
-  armor: 0
-  bonusDamage: 0
+  equipmentType: 4
+  armor: 1
+  bonusDamage: 1

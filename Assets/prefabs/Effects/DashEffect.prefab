@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -2566171121192883782}
   - component: {fileID: 7436744157035445343}
   - component: {fileID: -3703873213038389717}
+  - component: {fileID: -1521767298493109262}
   m_Layer: 0
   m_Name: DashEffect
   m_TagString: Untagged
@@ -118,3 +119,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8113539f1fda9874f86358c92421702f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!210 &-1521767298493109262
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6553481886922919733}
+  m_Enabled: 1
+  m_SortingLayerID: -1103112865
+  m_SortingLayer: 2
+  m_SortingOrder: 1

@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e4894514823f0429dec3d40e818eee, type: 3}
   m_Name: Wooden Club
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
-  itemName: 
-  itemDescription: 
+  itemSprite: {fileID: -5287789555553424294, guid: 08823ee942be30c40b83838fa7aa20d0, type: 3}
+  itemName: Wooden Club
+  itemDescription: Its made of wood! Wood you belive it
   itemType: 0
   itemRarity: 0
-  itemWeight: 0
+  itemWeight: 0.5
   isStackable: 0
   stackAmount: 1
-  localPosition: {x: 0, y: 0}
+  localPosition: {x: 0.01, y: 0.05}
   weaponType: 0
-  damage: 0
-  knockBackForce: 0
-  critDamage: 0
-  critRate: 0
+  damage: 3
+  knockBackForce: 40
+  critDamage: 1.5
+  critRate: 10
   isTwoHanded: 0
   canDualWield: 0
   magicDamage: 0
@@ -33,10 +33,50 @@ MonoBehaviour:
   manaCost: 0
   staffBA: 0
   wandBA: 0
-  speedMultiplier: 0
+  speedMultiplier: 1
   slowDownLength: 0
-  colliderPointX: []
-  colliderPointY: []
+  colliderPointX:
+  - 0.029999999329447746
+  - 0.029999999329447746
+  - 0.019999999552965164
+  - 0.019999999552965164
+  - 0.009999999776482582
+  - 0.009999999776482582
+  - 0
+  - 0
+  - -0.009999999776482582
+  - -0.009999999776482582
+  - -0.019999999552965164
+  - -0.019999999552965164
+  - -0.029999999329447746
+  - -0.029999999329447746
+  - -0.019999999552965164
+  - -0.019999999552965164
+  - 0.029999999329447746
+  - 0.029999999329447746
+  - 0.03999999910593033
+  - 0.03999999910593033
+  colliderPointY:
+  - 0.10000000149011612
+  - 0.10999999940395355
+  - 0.10999999940395355
+  - 0.11999999731779099
+  - 0.11999999731779099
+  - 0.12999999523162842
+  - 0.12999999523162842
+  - 0.11999999731779099
+  - 0.11999999731779099
+  - 0.10999999940395355
+  - 0.10999999940395355
+  - 0.10000000149011612
+  - 0.10000000149011612
+  - 0.029999999329447746
+  - 0.029999999329447746
+  - 0
+  - 0
+  - 0.029999999329447746
+  - 0.029999999329447746
+  - 0.10000000149011612
   ability1: {fileID: 0}
   ability2: {fileID: 0}
   ability3: {fileID: 0}

@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 137bdce8376c0b7448d77667a095a6f8, type: 3}
   m_Name: Lesser Health Potion
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
-  itemName: 
-  itemDescription: 
-  itemType: 0
+  itemSprite: {fileID: -33937340, guid: 1a91ee41b00f08a48aef3a368a9e1af0, type: 3}
+  itemName: Lesser Health Potion
+  itemDescription: Heals a small amount of HP
+  itemType: 1
   itemRarity: 0
-  itemWeight: 0
-  isStackable: 0
-  stackAmount: 1
-  consumableName: 
-  cooldownTime: 0
-  activeTime: 0
-  hpHealing: 0
+  itemWeight: 0.1
+  isStackable: 1
+  stackAmount: 10
+  consumableName: Lesser Health Potion
+  cooldownTime: 30
+  activeTime: 1
+  hpHealing: 15
   manaHealing: 0
   hasBuff: 0
   buffIcon: {fileID: 0}

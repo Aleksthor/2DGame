@@ -66,12 +66,12 @@ public class GameEvents : MonoBehaviour
         }
     }
 
-    public event Action OnDestroyObject;
-    public void DestroyObject()
+    public event Action<GameObject> OnDestroyObject;
+    public void DestroyObject(GameObject gameObject)
     {
         if (OnDestroyObject != null)
         {
-            OnDestroyObject();
+            OnDestroyObject(gameObject);
         }
     }
 

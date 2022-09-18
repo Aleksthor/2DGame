@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e4894514823f0429dec3d40e818eee, type: 3}
   m_Name: Iron Sword
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
-  itemName: 
-  itemDescription: 
+  itemSprite: {fileID: 776136188158623729, guid: 41472c987a1935e499a2719fe4f07224, type: 3}
+  itemName: Iron Sword
+  itemDescription: Slash Slash
   itemType: 0
-  itemRarity: 0
-  itemWeight: 0
+  itemRarity: 1
+  itemWeight: 1.2
   isStackable: 0
   stackAmount: 1
-  localPosition: {x: 0, y: 0}
-  weaponType: 0
-  damage: 0
-  knockBackForce: 0
-  critDamage: 0
-  critRate: 0
+  localPosition: {x: 0.01, y: 0.11}
+  weaponType: 2
+  damage: 4
+  knockBackForce: 50
+  critDamage: 2
+  critRate: 15
   isTwoHanded: 0
   canDualWield: 0
   magicDamage: 0
@@ -35,11 +35,51 @@ MonoBehaviour:
   wandBA: 0
   speedMultiplier: 0
   slowDownLength: 0
-  colliderPointX: []
-  colliderPointY: []
-  ability1: {fileID: 0}
-  ability2: {fileID: 0}
+  colliderPointX:
+  - 0.019999999552965164
+  - 0.009999999776482582
+  - 0.009999999776482582
+  - 0
+  - 0
+  - 0
+  - -0.009999999776482582
+  - -0.009999999776482582
+  - -0.019999999552965164
+  - -0.019999999552965164
+  - -0.029999999329447746
+  - -0.029999999329447746
+  - -0.029999999329447746
+  - -0.03999999910593033
+  - -0.03999999910593033
+  - 0
+  - 0.029999999329447746
+  - 0.029999999329447746
+  - 0.019999999552965164
+  - 0.019999999552965164
+  colliderPointY:
+  - 0.14000000059604645
+  - 0.14000000059604645
+  - 0.15000000596046448
+  - 0.15000000596046448
+  - 0.1599999964237213
+  - 0.1599999964237213
+  - 0.1599999964237213
+  - 0.15000000596046448
+  - 0.15000000596046448
+  - 0.14000000059604645
+  - 0.14000000059604645
+  - 0
+  - -0.019999999552965164
+  - -0.019999999552965164
+  - -0.03999999910593033
+  - -0.03999999910593033
+  - -0.03999999910593033
+  - -0.019999999552965164
+  - -0.019999999552965164
+  - 0.009999999776482582
+  ability1: {fileID: 11400000, guid: eca90f1189b70d748a998af5561666a9, type: 2}
+  ability2: {fileID: 11400000, guid: 3afc636d7817a134fb1f73c56db5177f, type: 2}
   ability3: {fileID: 0}
-  ability1Icon: {fileID: 0}
-  ability2Icon: {fileID: 0}
+  ability1Icon: {fileID: 21300000, guid: 2891f0f310a19b44f94090317ee2691a, type: 3}
+  ability2Icon: {fileID: 21300000, guid: 4a7845fc91e292547850bb3c34b390ec, type: 3}
   ability3Icon: {fileID: 0}

@@ -97,6 +97,7 @@ public class LocalEnemyScript : MonoBehaviour
             resetSpeedClock += Time.deltaTime;
             if(resetSpeedTime < resetSpeedClock)
             {
+                Debug.Log("Debuff - Slow Reset");
                 resetSpeedClock = 0f;
                 resetSpeed = false;
                 speedMultiplier = 1f; 
@@ -150,17 +151,20 @@ public class LocalEnemyScript : MonoBehaviour
     {
         if (!damaged)
         {
-
-            speedMultiplier = slowdownRatio;
-            damaged = true;
-
-            if (resetSpeed)
+            if (slowdownRatio != 1)
             {
-                resetAgain = true;
+                Debug.Log("Debuff - Slow " + "(" + slowdownRatio + ")");
+                speedMultiplier = slowdownRatio;
+                if (resetSpeed)
+                {
+                    resetAgain = true;
+                }
+                resetSpeed = true;
             }
-            resetSpeed = true;
 
-           
+
+
+            damaged = true;         
             hit = true;
             health = health - Damage;
 
@@ -209,7 +213,7 @@ public class LocalEnemyScript : MonoBehaviour
         {
             GameEvents.current.OnWeaponCollission -= WeaponCollission;
 
-            GameEvents.current.DestroyObject();
+            GameEvents.current.DestroyObject(gameObject);
 
             Destroy(gameObject);
         }   

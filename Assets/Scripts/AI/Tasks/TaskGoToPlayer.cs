@@ -82,12 +82,15 @@ public class TaskGoToPlayer : Node
     }
 
 
-    public void OnDestroy()
+    public void OnDestroy(GameObject gameObject)
     {
-        GameEvents.current.OnEnemyStartAttack -= StartAttack;
-        GameEvents.current.OnEnemyStopAttack -= StopAttack;
+        if (gameObject == transform.gameObject)
+        {
+            GameEvents.current.OnEnemyStartAttack -= StartAttack;
+            GameEvents.current.OnEnemyStopAttack -= StopAttack;
 
-        GameEvents.current.OnDestroyObject -= OnDestroy;
+            GameEvents.current.OnDestroyObject -= OnDestroy;
+        }
     }
 }
 

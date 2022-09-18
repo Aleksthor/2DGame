@@ -935,7 +935,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
             equipmentDamageBoost += currentRing2.bonusDamage;
             armor += currentRing2.armor;
         }
-
+        damage += equipmentDamageBoost;
         #endregion
 
         #region Crit

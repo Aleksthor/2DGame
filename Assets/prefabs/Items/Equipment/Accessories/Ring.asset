@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Ring
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 0}
-  itemName: 
-  itemDescription: 
-  itemType: 0
-  itemRarity: 0
-  itemWeight: 0
+  itemName: Ring
+  itemDescription: +2 Armor
+  itemType: 3
+  itemRarity: 1
+  itemWeight: 0.1
   isStackable: 0
   stackAmount: 1
-  equipmentType: 0
-  armor: 0
+  equipmentType: 6
+  armor: 2
   bonusDamage: 0

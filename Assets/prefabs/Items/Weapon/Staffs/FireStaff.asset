@@ -12,34 +12,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e4894514823f0429dec3d40e818eee, type: 3}
   m_Name: FireStaff
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
-  itemName: 
-  itemDescription: 
+  itemSprite: {fileID: -4404551391951940621, guid: 48573bf416a19fd4ba7e3611745c3be4, type: 3}
+  itemName: Fire Staff
+  itemDescription: Beware HOT
   itemType: 0
-  itemRarity: 0
-  itemWeight: 0
+  itemRarity: 3
+  itemWeight: 2
   isStackable: 0
   stackAmount: 1
-  localPosition: {x: 0, y: 0}
-  weaponType: 0
+  localPosition: {x: 0.01, y: 0.07}
+  weaponType: 3
   damage: 0
-  knockBackForce: 0
+  knockBackForce: 50
   critDamage: 0
   critRate: 0
-  isTwoHanded: 0
+  isTwoHanded: 1
   canDualWield: 0
-  magicDamage: 0
-  force: 0
-  manaCost: 0
+  magicDamage: 6
+  force: 7
+  manaCost: 3
   staffBA: 0
   wandBA: 0
-  speedMultiplier: 0
+  speedMultiplier: 1
   slowDownLength: 0
-  colliderPointX: []
-  colliderPointY: []
-  ability1: {fileID: 0}
+  colliderPointX:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  colliderPointY:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  ability1: {fileID: 11400000, guid: 55e612cd394a87e4f88d17fe8c8b6790, type: 2}
   ability2: {fileID: 0}
   ability3: {fileID: 0}
-  ability1Icon: {fileID: 0}
+  ability1Icon: {fileID: 21300000, guid: 7151c68333b339e41b88ef031f949410, type: 3}
   ability2Icon: {fileID: 0}
   ability3Icon: {fileID: 0}

@@ -282,7 +282,7 @@ public class ConsumableManager : SingletonMonoBehaviour<ConsumableManager>
                             }
                         }
 
-                        state1 = ConsumableState.cooldown;
+                        state3 = ConsumableState.cooldown;
 
                     }
                     break;

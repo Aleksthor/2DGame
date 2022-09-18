@@ -30,6 +30,8 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
     private float manaCost = 3;
     private float force = 10;
     private float magicDamage = 5f;
+    private float speedMultiplier = 1f;
+    private float slowDownLength = 1f;
 
     public Vector2 localPosition;
 
@@ -186,10 +188,12 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
 
             Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
 
-            GameObject NewEnergyBall = Instantiate(SmallFireBall, ShotPoint.position, ShotPoint.rotation);
-            NewEnergyBall.transform.right = direction;
-            NewEnergyBall.GetComponent<ProjectileCollider>().damage = magicDamage;
-            NewEnergyBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
+            GameObject smallFireBall = Instantiate(SmallFireBall, ShotPoint.position, ShotPoint.rotation);
+            smallFireBall.transform.right = direction;
+            smallFireBall.GetComponent<ProjectileCollider>().speedMultiplier = speedMultiplier;
+            smallFireBall.GetComponent<ProjectileCollider>().slowDownLength = slowDownLength;
+            smallFireBall.GetComponent<ProjectileCollider>().damage = magicDamage;
+            smallFireBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
         }
 
 
@@ -209,10 +213,12 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
 
             Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
 
-            GameObject NewEnergyBall = Instantiate(SmallWaterBall, ShotPoint.position, ShotPoint.rotation);
-            NewEnergyBall.transform.right = direction;
-            NewEnergyBall.GetComponent<ProjectileCollider>().damage = magicDamage;
-            NewEnergyBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
+            GameObject smallWaterBall = Instantiate(SmallWaterBall, ShotPoint.position, ShotPoint.rotation);
+            smallWaterBall.transform.right = direction;
+            smallWaterBall.GetComponent<ProjectileCollider>().speedMultiplier = speedMultiplier;
+            smallWaterBall.GetComponent<ProjectileCollider>().slowDownLength = slowDownLength;
+            smallWaterBall.GetComponent<ProjectileCollider>().damage = magicDamage;
+            smallWaterBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
         }
 
     }
@@ -235,6 +241,8 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
             Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
 
             GameObject NewEnergyBall = Instantiate(EnergyShard, ShotPoint.position, ShotPoint.rotation);
+            NewEnergyBall.GetComponent<ProjectileCollider>().speedMultiplier = speedMultiplier;
+            NewEnergyBall.GetComponent<ProjectileCollider>().slowDownLength = slowDownLength;
             NewEnergyBall.transform.right = direction * -1f;
             NewEnergyBall.GetComponent<ProjectileCollider>().damage = magicDamage;
             NewEnergyBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
@@ -255,6 +263,8 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
             Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
 
             GameObject NewMagicBall = Instantiate(MagicShard, ShotPoint.position, ShotPoint.rotation);
+            NewMagicBall.GetComponent<ProjectileCollider>().speedMultiplier = speedMultiplier;
+            NewMagicBall.GetComponent<ProjectileCollider>().slowDownLength = slowDownLength;
             NewMagicBall.transform.right = direction * -1f;
             NewMagicBall.GetComponent<ProjectileCollider>().damage = magicDamage;
             NewMagicBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
@@ -269,8 +279,8 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
         force = Force;
         magicDamage = MagicDamage;
         localPosition = LocalPosition;
-
-
+        speedMultiplier = SpeedMultiplier;
+        slowDownLength = SlowDownLength;
     }
 
 
