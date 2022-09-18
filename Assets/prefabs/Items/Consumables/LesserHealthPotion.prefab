@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7814697938578947178}
-  - component: {fileID: 5430825182698802241}
+  - component: {fileID: -5424333980373210799}
   m_Layer: 0
   m_Name: LesserHealthPotion
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5430825182698802241
+--- !u!114 &-5424333980373210799
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,14 +41,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 4320412587634586646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fa201bbc218b6e40923e79eef83de9f, type: 3}
+  m_Script: {fileID: 11500000, guid: 137bdce8376c0b7448d77667a095a6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemSprite: {fileID: -33937340, guid: 1a91ee41b00f08a48aef3a368a9e1af0, type: 3}
-  itemName: Lesser Health Potion
-  itemDescription: Heals a small amount of health
+  itemName: Lesser Healing Potion
+  itemDescription: Heals 15 HP
   itemType: 1
-  itemWeight: 0.5
+  itemRarity: 0
+  itemWeight: 1
   isStackable: 1
-  stackAmount: 4
-  healing: 15
+  stackAmount: 10
+  consumableName: Lesser Healing Potion
+  cooldownTime: 30
+  activeTime: 1
+  hpHealing: 15
+  manaHealing: 0
+  hasBuff: 0
+  buffIcon: {fileID: 0}

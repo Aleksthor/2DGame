@@ -11,12 +11,7 @@ public class ProjectileCollider : MonoBehaviour
     [SerializeField] public float speedMultiplier = 1f;
     [SerializeField] public float slowDownLength = 0f;
 
-    private float damageBefore;
-
-    private void Start()
-    {
-        damageBefore = damage;
-    }
+    public bool hasDeathAnimation = false;
 
 
 
@@ -25,18 +20,12 @@ public class ProjectileCollider : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            
-            float random = Random.Range(1, 100);
-            bool didCrit = false;
-            if (random < critRate)
+            GameEvents.current.WeaponCollission(other.gameObject, damage, knockbackForce, speedMultiplier, slowDownLength, gameObject.transform.position, false);
+            if (hasDeathAnimation)
             {
-                damage *= critDamage;
-                Mathf.Clamp(damage, 0f, damageBefore *= critDamage);
-                didCrit = true;
+                gameObject.GetComponent<Animator>().SetTrigger("Hit");
             }
 
-
-            GameEvents.current.WeaponCollission(other.gameObject, damage, knockbackForce, speedMultiplier, slowDownLength, gameObject.transform.position, didCrit);
         }
     }
 

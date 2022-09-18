@@ -20,6 +20,11 @@ public class ButtonInput : SingletonMonoBehaviour<ButtonInput>
     bool shield;
     [SerializeField]
     bool attack;
+    [SerializeField]
+    bool inventoryOpen = false;
+    float triggerTimer = 0.1f;
+    float triggerClock = 0f;
+
 
 
     //--------------------
@@ -48,8 +53,30 @@ public class ButtonInput : SingletonMonoBehaviour<ButtonInput>
         shield = Input.GetButton("Fire2");
         attack = Input.GetButton("Fire1");
 
+        #region Open Inventory 
+        if (Input.GetButton("Inventory") && triggerClock <= 0)
+        {
+            if (inventoryOpen)
+            {
+                HUDSingleton.instance.transform.Find("Inventory").gameObject.SetActive(false);
+                inventoryOpen = false;
+            }
+            else
+            {
+                HUDSingleton.instance.transform.Find("Inventory").gameObject.SetActive(true);
+                InventoryManager.Instance.UpdateInventoryTab(0);
+                InventoryManager.Instance.SpawnCurrentWeapon();
+                inventoryOpen = true;
+            }
 
 
+            triggerClock = triggerTimer;
+        }
+        if (triggerClock > 0)
+        {
+            triggerClock -= Time.deltaTime;
+        }
+        #endregion
         if (Input.GetKeyDown("9"))
         {
             SceneManager.LoadScene("TestMap - Aleksander");

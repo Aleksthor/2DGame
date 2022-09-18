@@ -26,7 +26,7 @@ public class AbilityDashBehindEnemy : Ability
     {
         layerMask = (1 << layer);
         parent.GetComponent<PolygonCollider2D>().enabled = false;
-        movement = FindObjectOfType<Movement>();
+        movement = Movement.Instance;
         movement.iFrames = true;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -65,8 +65,6 @@ public class AbilityDashBehindEnemy : Ability
 
                         Vector2 newPos = new Vector2(closestEnemy.transform.position.x - 1.5f, closestEnemy.transform.position.y);
                         Collider2D collider = Physics2D.OverlapCircle(newPos, 0.5f, layerMask);
-
-                        Debug.Log(collider);
 
                         parent.transform.position = new Vector2(closestEnemy.transform.position.x - 1.5f, closestEnemy.transform.position.y);
                     }
@@ -122,7 +120,7 @@ public class AbilityDashBehindEnemy : Ability
     {
         parent.GetComponent<PolygonCollider2D>().enabled = true;
         closest = 150f;
-        movement.iFrames = false;
+        Movement.Instance.iFrames = false;
         GameEvents.current.NormalPlayerOpacity();
         GameEvents.current.PlayerNotInvisible();
         GameEvents.current.DontBoostNextAttack();

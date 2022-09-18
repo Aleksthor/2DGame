@@ -42,7 +42,7 @@ public class ArmorSlot : MonoBehaviour, IDropHandler
         }
         if (gameObject.transform.Find("ItemUI(Clone)") == null && current != null)
         {
-            Debug.Log("Runnning");
+
             GameEvents.current.AddItem(current.GetComponent<InventoryItem>().item);
             GameEvents.current.RemoveCurrentEquipment((Equipment)current.GetComponent<InventoryItem>().item, slotIndex);
             framesCount = 0;

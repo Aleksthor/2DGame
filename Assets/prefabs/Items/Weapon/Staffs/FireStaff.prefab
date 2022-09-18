@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5322121606251291780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4340578114482267060}
+  - component: {fileID: -7806771442317623355}
+  m_Layer: 0
+  m_Name: FireStaff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4340578114482267060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322121606251291780}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-7806771442317623355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322121606251291780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e4894514823f0429dec3d40e818eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: 8573549099317436776, guid: 48573bf416a19fd4ba7e3611745c3be4, type: 3}
+  itemName: Fire Staff
+  itemDescription: 
+  itemType: 0
+  itemRarity: 1
+  itemWeight: 2
+  isStackable: 0
+  stackAmount: 1
+  localPosition: {x: 0.01, y: 0.07}
+  weaponType: 3
+  damage: 5
+  knockBackForce: 0
+  critDamage: 0
+  critRate: 0
+  isTwoHanded: 1
+  canDualWield: 0
+  magicDamage: 5
+  force: 7
+  manaCost: 5
+  staffBA: 0
+  wandBA: 0
+  speedMultiplier: 0.7
+  slowDownLength: 3
+  colliderPointX:
+  - 0.03
+  - 0.03
+  - 0.04
+  - 0.04
+  - 0.01
+  - 0.01
+  - -0.01
+  - -0.01
+  - -0.02
+  - -0.02
+  - -0.04
+  - -0.04
+  - -0.03
+  - -0.03
+  - -0.02
+  - -0.01
+  - 0
+  - 0.01
+  - 0.02
+  - 0.02
+  colliderPointY:
+  - 0.09
+  - 0.12
+  - 0.12
+  - 0.16
+  - 0.16
+  - 0.17
+  - 0.17
+  - 0.14
+  - 0.14
+  - 0.15
+  - 0.15
+  - 0.11
+  - 0.11
+  - 0.08
+  - 0.08
+  - 0.08
+  - 0.08
+  - 0.08
+  - 0.08
+  - 0.09
+  ability1: {fileID: 11400000, guid: 55e612cd394a87e4f88d17fe8c8b6790, type: 2}
+  ability2: {fileID: 0}
+  ability3: {fileID: 0}
+  ability1Icon: {fileID: 21300000, guid: 291c884fe33a0a942a47688e66852a93, type: 3}
+  ability2Icon: {fileID: 0}
+  ability3Icon: {fileID: 0}

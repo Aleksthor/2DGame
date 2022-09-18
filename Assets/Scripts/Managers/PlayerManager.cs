@@ -255,6 +255,11 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
         return playerAnimator;
     }
 
+    public void SetHealthValue(float value)
+    {
+        health += value;
+    }
+
     public void SetStaminaValue(float value)
     {
         stamina += value;

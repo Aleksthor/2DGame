@@ -56,6 +56,11 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
 
 
     private bool lowerOpacity;
+    public bool isTwoHanded = false;
+    public bool canDualWield = false;
+
+    public bool hideHand = false;
+    public bool hideShield = false;
 
 
 
@@ -109,6 +114,8 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
         GameEvents.current.OnPlayerSpriteChange += PlayerSpriteChange;
         GameEvents.current.OnLowerPlayerOpacity += LowerOpacity;
         GameEvents.current.OnNormalPlayerOpacity += NormalOpacity;
+        GameEvents.current.OnShowShield += ShowShield;
+        GameEvents.current.OnHideShield += HideShield;
 
         animator = PlayerSingleton.instance.gameObject.GetComponent<Animator>();
         Hand2.gameObject.SetActive(false);
@@ -181,6 +188,38 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
 
     void LateUpdate()
     {
+        #region Shield and OffHand
+        if (hideShield)
+        {
+            animator.SetBool("ShieldEquipped", false);
+            ShieldSprite.gameObject.SetActive(false);
+        }
+        else
+        {
+            if (ShieldSprite.sprite != null)
+            {
+                animator.SetBool("ShieldEquipped", true);
+            }
+            ShieldSprite.gameObject.SetActive(true);
+        }
+        if (hideHand)
+        {
+            Hand2.gameObject.SetActive(false);
+        }
+        else
+        {
+            Hand2.gameObject.SetActive(true);
+        }
+        if (isTwoHanded)
+        {
+            Hand2.transform.localPosition = new Vector2(Hand.transform.localPosition.x, Hand.transform.localPosition.y - 0.03f);
+        }
+
+        #endregion
+
+
+
+
         if (lowerOpacity)
         {
             BodySprite.color = new Color(BodySprite.color.r, BodySprite.color.b, BodySprite.color.g, 0.5f);
@@ -263,7 +302,6 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
                 {
                     NormalOpacity();
                     GameEvents.current.PlayerNotInvisible();
-                    GameEvents.current.DontBoostNextAttack();
                 }
 
                 float distance = ((Vector2)Hand.transform.position - (Vector2)playerObject.transform.position).magnitude;
@@ -384,17 +422,41 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
     {
         if(shield != null)
         {
-            animator.SetBool("ShieldEquipped", true);
-            Hand2.gameObject.SetActive(false);
-            ShieldSprite.sprite = shield.itemSprite;
+            if(isTwoHanded || canDualWield)
+            {
+                animator.SetBool("ShieldEquipped", false);
+                hideHand = false;
+                hideShield = true;
+                ShieldSprite.sprite = shield.itemSprite;
+            }
+            else
+            {
+                animator.SetBool("ShieldEquipped", true);
+                hideHand = true;
+                hideShield = false;
+                ShieldSprite.sprite = shield.itemSprite;
+            }
         }
         else
         {
             animator.SetBool("ShieldEquipped", false);
-            Hand2.gameObject.SetActive(true);
+            hideHand = true;
             ShieldSprite.sprite = null; 
         }
        
+    }
+
+
+    private void ShowShield()
+    {
+        hideHand = true;
+        hideShield = false;
+    }
+
+    private void HideShield()
+    {
+        hideHand = false;
+        hideShield = true;
     }
 
 

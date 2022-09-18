@@ -51,6 +51,7 @@ public class WeaponCollider : MonoBehaviour
 
     private void DontBoostNextAttack()
     {
+        Debug.Log("Dont Boost Next Attack");
         damageBoost = 1f;
         boostNextAttack = false;
     }
@@ -72,7 +73,7 @@ public class WeaponCollider : MonoBehaviour
 
             if (random < critRate)
             {
-                
+                Debug.Log("Critical Hit");
                 
                 damage *= critDamage;
                 

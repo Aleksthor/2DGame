@@ -259,6 +259,28 @@ public class GameEvents : MonoBehaviour
     }
 
 
+    public event Action OnShowShield;
+    public void ShowShield()
+    {
+        if (OnShowShield != null)
+        {
+            OnShowShield();
+        }
+
+    }
+
+
+    public event Action OnHideShield;
+    public void HideShield()
+    {
+        if (OnHideShield != null)
+        {
+            OnHideShield();
+        }
+
+    }
+
+
     // When we want to change the stats in player. Make a similar event if you cant pass in all variables
 
 
@@ -279,6 +301,10 @@ public class GameEvents : MonoBehaviour
             OnUpdateInventoryStats(damage, magicFamage, knockbackForce, speedMultiplier, slowDownLength, manaCost, force, critRate, critDamage, localPosition);
         }
     }
+
+
+
+
 
     #endregion
 
@@ -483,6 +509,7 @@ public class GameEvents : MonoBehaviour
             OnBuffDefense(defenseBoost, time);
         }
     }
+
 
 
     //

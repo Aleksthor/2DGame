@@ -22,8 +22,10 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
     private Animator animator;
 
     [Header("Projectiles")]
-    public GameObject EnergyBall;
-    public GameObject MagicBall;
+    public GameObject SmallFireBall;
+    public GameObject SmallWaterBall;
+    public GameObject EnergyShard;
+    public GameObject MagicShard;
 
     private float manaCost = 3;
     private float force = 10;
@@ -167,7 +169,59 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
         weaponCollider.enabled = false;
     }
 
-    public void SpawnEnergyBall()
+
+
+    #region Staff Attacks
+
+    public void SpawnSmallFireBall()
+    {
+        if (player.GetManaValue() < manaCost)
+        {
+
+        }
+        else
+        {
+            player.SetManaValue(-manaCost);
+
+
+            Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
+
+            GameObject NewEnergyBall = Instantiate(SmallFireBall, ShotPoint.position, ShotPoint.rotation);
+            NewEnergyBall.transform.right = direction;
+            NewEnergyBall.GetComponent<ProjectileCollider>().damage = magicDamage;
+            NewEnergyBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
+        }
+
+
+    }
+
+
+    public void SpawnSmallWaterBall()
+    {
+        if (player.GetManaValue() < manaCost)
+        {
+
+        }
+        else
+        {
+            player.SetManaValue(-manaCost);
+
+
+            Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
+
+            GameObject NewEnergyBall = Instantiate(SmallWaterBall, ShotPoint.position, ShotPoint.rotation);
+            NewEnergyBall.transform.right = direction;
+            NewEnergyBall.GetComponent<ProjectileCollider>().damage = magicDamage;
+            NewEnergyBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
+        }
+
+    }
+
+    #endregion
+
+
+    #region Wand Attacks
+    public void SpawnEnergyShard()
     {
         if(player.GetManaValue() < manaCost)
         {
@@ -180,7 +234,7 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
 
             Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
 
-            GameObject NewEnergyBall = Instantiate(EnergyBall, ShotPoint.position, ShotPoint.rotation);
+            GameObject NewEnergyBall = Instantiate(EnergyShard, ShotPoint.position, ShotPoint.rotation);
             NewEnergyBall.transform.right = direction * -1f;
             NewEnergyBall.GetComponent<ProjectileCollider>().damage = magicDamage;
             NewEnergyBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
@@ -188,7 +242,7 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
 
 
     }
-    public void SpawnMagicBall()
+    public void SpawnMagicShard()
     {
         if (player.GetManaValue() < manaCost)
         {
@@ -200,7 +254,7 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
 
             Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
 
-            GameObject NewMagicBall = Instantiate(MagicBall, ShotPoint.position, ShotPoint.rotation);
+            GameObject NewMagicBall = Instantiate(MagicShard, ShotPoint.position, ShotPoint.rotation);
             NewMagicBall.transform.right = direction * -1f;
             NewMagicBall.GetComponent<ProjectileCollider>().damage = magicDamage;
             NewMagicBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
@@ -208,19 +262,23 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
         }
     }
 
-
+    #endregion
     private void ChangeStats(float Damage, float MagicDamage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, float critRate, float critDamage, Vector2 LocalPosition)
     {
         manaCost = ManaCost;
         force = Force;
         magicDamage = MagicDamage;
-        transform.Find("Hand").transform.Find("Weapon").transform.localPosition = LocalPosition;
+        localPosition = LocalPosition;
 
 
     }
 
 
-
+    private void LateUpdate()
+    {
+        transform.Find("Hand").transform.Find("Weapon").transform.localPosition = localPosition;
+        transform.Find("Hand2").transform.Find("Weapon2").transform.localPosition = localPosition;
+    }
 
 
 }

@@ -16,7 +16,6 @@ public class Ability : ScriptableObject
 
 
     public virtual void Activate(GameObject parent) { }
-
     public virtual void Trigger(GameObject parent) { }
     public virtual void DeActivate(GameObject parent) { }
 }

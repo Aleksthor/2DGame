@@ -143,6 +143,33 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         GameEvents.current.ChangeWeapon(weapon);
         GameEvents.current.ChangeWeaponCollider(weapon.colliderPointX, weapon.colliderPointY, (int)weapon.weaponType);
         GameEvents.current.ChangeWeaponAbility(weapon.ability1, weapon.ability2, weapon.ability3, weapon.ability1Icon, weapon.ability2Icon, weapon.ability3Icon);
+       
+        PlayerSingleton.instance.gameObject.GetComponent<Animator>().SetInteger("StaffAttackType", (int)weapon.staffBA);
+        PlayerSingleton.instance.gameObject.GetComponent<Animator>().SetInteger("WandAttackType", (int)weapon.wandBA);
+
+
+        if (weapon.isTwoHanded)
+        {
+            Debug.Log("Two Handed Weapon");
+            SpriteManager.Instance.isTwoHanded = true;
+            SpriteManager.Instance.canDualWield = false;
+            GameEvents.current.HideShield();
+        }
+        else if (weapon.canDualWield)
+        {
+            Debug.Log("Dual Wield Weapon");
+            SpriteManager.Instance.isTwoHanded = false;
+            SpriteManager.Instance.canDualWield = true;
+            GameEvents.current.HideShield();
+        }
+        else
+        {
+            Debug.Log("One Handed Weapon");
+            SpriteManager.Instance.isTwoHanded = false;
+            SpriteManager.Instance.canDualWield = false;
+            GameEvents.current.ShowShield();
+        }
+
         UpdateStats();
 
     }
@@ -154,7 +181,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
             inventory.Add(currentWeapon);                 
         }
         currentWeapon = weapon;
-        
+        AbilityManager.Instance.ResetCooldowns();
         ChangeWeapon(currentWeapon);
         UpdateInventoryTab(currentTab);
     }
@@ -371,7 +398,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
 
                 foreach (Item item in inventory)
                 {
-                    currentWeight += item.itemWeight;
+                    currentWeight += (item.itemWeight * item.stackAmount);
                     if (item.itemType != Item.ItemType.Weapon)
                     {
                         if (item.itemType != Item.ItemType.Equipment)
@@ -382,6 +409,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
                                 obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
                                 obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
                                 obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
+                                obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = item.stackAmount.ToString() ;
 
 
                                 obj.GetComponent<InventoryItem>().item = item;
@@ -434,16 +462,17 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
 
                 foreach (Item item in inventory)
                 {
-                    
-                    currentWeight += item.itemWeight;
+
+                    currentWeight += (item.itemWeight * item.stackAmount);
                     if (item.itemType == Item.ItemType.Weapon)
                     {
                         GameObject obj = Instantiate(uiObject, uiContent);
                         obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
                         obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
                         obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
+                        obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
 
-                        
+
                         obj.GetComponent<InventoryItem>().item = item;
                         
                         obj.GetComponent<Image>().color = new Color(130, 130, 130);
@@ -490,13 +519,14 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
 
                 foreach (Item item in inventory)
                 {
-                    currentWeight += item.itemWeight;
+                    currentWeight += (item.itemWeight * item.stackAmount);
                     if (item.itemType == Item.ItemType.Consumable)
                     {
                         GameObject obj = Instantiate(uiObject, uiContent);
                         obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
                         obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
                         obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
+                        obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = item.stackAmount.ToString();
                         obj.GetComponent<InventoryItem>().item = item;
                         obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
                     }
@@ -559,15 +589,16 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
 
                 foreach (Item item in inventory)
                 {
-                    currentWeight += item.itemWeight;
+                    currentWeight += (item.itemWeight * item.stackAmount);
                     if (item.itemType == Item.ItemType.Material)
                     {
                         GameObject obj = Instantiate(uiObject, uiContent);
                         obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
                         obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
                         obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
+                        obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = item.stackAmount.ToString();
 
-                        
+
                         obj.GetComponent<InventoryItem>().item = item;
                         switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
                         {
@@ -613,7 +644,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
 
                 foreach (Item item in inventory)
                 {
-                    currentWeight += item.itemWeight;
+                    currentWeight += (item.itemWeight * item.stackAmount);
                     if (item.itemType == Item.ItemType.Equipment)
                     {
                         Equipment equipment = (Equipment)item;
@@ -627,6 +658,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
                             obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
                             obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
                             obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
+                            obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
 
 
                             obj.GetComponent<InventoryItem>().item = item;
@@ -676,7 +708,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
 
                 foreach (Item item in inventory)
                 {
-                    currentWeight += item.itemWeight;
+                    currentWeight += (item.itemWeight * item.stackAmount);
                     if (item.itemType == Item.ItemType.Equipment)
                     {
                         Equipment equipment = (Equipment)item;
@@ -689,7 +721,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
                             obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
                             obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
                             obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
-
+                            obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
 
                             obj.GetComponent<InventoryItem>().item = item;
                             switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
@@ -737,7 +769,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
 
                 foreach (Item item in inventory)
                 {
-                    currentWeight += item.itemWeight;
+                    currentWeight += (item.itemWeight * item.stackAmount);
                     if (item.itemType == Item.ItemType.Shield)
                     {
 
@@ -746,7 +778,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
                         obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
                         obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
                         obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
-
+                        obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
 
                         obj.GetComponent<InventoryItem>().item = item;
                         switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)

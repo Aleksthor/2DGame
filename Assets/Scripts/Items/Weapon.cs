@@ -17,6 +17,19 @@ public class Weapon : Item
         Wand
     };
 
+    public enum StaffAttack
+    {
+        SmallFireBall,
+        SmallWaterBall
+    };
+
+    public enum WandAttack
+    {
+        MagicShard,
+        EnergyShard
+       
+    };
+
 
     public Vector2 localPosition;
 
@@ -28,11 +41,17 @@ public class Weapon : Item
     public float knockBackForce;
     public float critDamage;
     public float critRate;
+    public bool isTwoHanded;
+    public bool canDualWield;
 
     [Header("Magic Variables")]
     public float magicDamage;
     public float force;
     public float manaCost;
+    public StaffAttack staffBA;
+    public WandAttack wandBA;
+
+    
 
     [Header("Debuff Info")]
     public float speedMultiplier;

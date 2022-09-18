@@ -30,7 +30,7 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
     [SerializeField] Slider cooldownIcon3;
     [SerializeField] float oldCooldownTime3;
 
-
+    [Header("UI Buff Icon")]
     [SerializeField] Transform buffParent;
     [SerializeField] GameObject uiObject;
 
@@ -151,6 +151,11 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
                 default:
                     break;
             }
+            cooldownIcon1.value = cooldownTime1 / ability1.cooldownTime;
+        }
+        else
+        {
+            cooldownIcon1.value = 0f;
         }
 
         #endregion
@@ -230,8 +235,12 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
                 default:
                     break;
             }
+            cooldownIcon1.value = cooldownTime1 / ability1.cooldownTime;
         }
-
+        else
+        {
+            cooldownIcon1.value = 0f;
+        }
         #endregion
 
         #region Ability3
@@ -308,8 +317,12 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
                 default:
                     break;
             }
+            cooldownIcon1.value = cooldownTime1 / ability1.cooldownTime;
         }
-
+        else
+        {
+            cooldownIcon1.value = 0f;
+        }
         if (oldCooldownTime1 > 0)
         {
             oldCooldownTime1 -= Time.deltaTime;
@@ -473,5 +486,16 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
 
 
 
+    }
+
+
+    public void ResetCooldowns()
+    {
+        cooldownTime1 = 0;
+        cooldownTime2 = 0;
+        cooldownTime3 = 0;
+        oldCooldownTime1 = 0;
+        oldCooldownTime2 = 0;
+        oldCooldownTime3 = 0;
     }
 }
