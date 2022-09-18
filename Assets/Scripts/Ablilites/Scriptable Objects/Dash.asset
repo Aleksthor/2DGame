@@ -15,7 +15,11 @@ MonoBehaviour:
   abilityName: 
   cooldownTime: 5
   activeTime: 0.5
+  manaCost: 0
+  hasBuff: 0
+  buffIcon: {fileID: 0}
   dashLength: 5
+  effect: {fileID: 6553481886922919733, guid: 8e49292118860c746b3a392029473c6c, type: 3}
   layerMask:
     serializedVersion: 2
     m_Bits: 8

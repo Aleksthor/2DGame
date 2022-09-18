@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c13f06d807f964886355e5bd19396f, type: 3}
   m_Name: BuffDefense
   m_EditorClassIdentifier: 
-  abilityName: 
-  cooldownTime: 0
-  activeTime: 0
-  manaCost: 0
-  hasBuff: 0
-  buffIcon: {fileID: 0}
-  defensebuff: 0
-  buffEffect: {fileID: 0}
+  abilityName: Defense Buff
+  cooldownTime: 60
+  activeTime: 10
+  manaCost: 15
+  hasBuff: 1
+  buffIcon: {fileID: 21300000, guid: 2891f0f310a19b44f94090317ee2691a, type: 3}
+  defensebuff: 1.5
+  buffEffect: {fileID: 299322722182664663, guid: 641c22e3e418d5a4db6508aa7aa8d2a4, type: 3}
