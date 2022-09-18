@@ -63,7 +63,9 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
         playerManager = PlayerManager.Instance;
         playerObject = PlayerSingleton.instance.gameObject;
         GameEvents.current.OnChangeWeaponAbility += ChangeAbilities;
-        
+        cooldownIcon1 = HUDSingleton.instance.transform.Find("Ability1").GetComponent<Slider>();
+        cooldownIcon2 = HUDSingleton.instance.transform.Find("Ability2").GetComponent<Slider>();
+        cooldownIcon3 = HUDSingleton.instance.transform.Find("Ability3").GetComponent<Slider>();
     }
 
 
@@ -152,6 +154,7 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
                     break;
             }
             cooldownIcon1.value = cooldownTime1 / ability1.cooldownTime;
+
         }
         else
         {
@@ -235,11 +238,11 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
                 default:
                     break;
             }
-            cooldownIcon1.value = cooldownTime1 / ability1.cooldownTime;
+            cooldownIcon2.value = cooldownTime2 / ability2.cooldownTime;
         }
         else
         {
-            cooldownIcon1.value = 0f;
+            cooldownIcon2.value = 0f;
         }
         #endregion
 
@@ -317,11 +320,11 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
                 default:
                     break;
             }
-            cooldownIcon1.value = cooldownTime1 / ability1.cooldownTime;
+            cooldownIcon3.value = cooldownTime3 / ability3.cooldownTime;
         }
         else
         {
-            cooldownIcon1.value = 0f;
+            cooldownIcon3.value = 0f;
         }
         if (oldCooldownTime1 > 0)
         {

@@ -7,8 +7,11 @@ public class ConsumableManager : SingletonMonoBehaviour<ConsumableManager>
 {
     // 3 current abilites
     public Consumable consumable1;
+    private int stackAmount1;
     public Consumable consumable2;
+    private int stackAmount2;
     public Consumable consumable3;
+    private int stackAmount3;
 
 
     [SerializeField] float cooldownTime1;
@@ -74,11 +77,11 @@ public class ConsumableManager : SingletonMonoBehaviour<ConsumableManager>
             switch (state1)
             {
                 case ConsumableState.ready:
-                    if (Input.GetKeyDown(key1) && !(cooldownTime1 > 0) && consumable1.stackAmount > 0)
+                    if (Input.GetKeyDown(key1) && !(cooldownTime1 > 0) && stackAmount1 > 0)
                     {
                         Debug.Log("Consumable 1 Activated");
-                        consumable1.stackAmount -= 1;
-
+                        stackAmount1 -= 1;
+                        HUDSingleton.instance.transform.Find("Potion1").Find("PotionSlot1").Find("ItemUI(Clone)").transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = stackAmount1.ToString();
                         consumable1.Activate(playerObject);
                         cooldownIcon1.value = 1f;
                         state1 = ConsumableState.active;
@@ -157,9 +160,11 @@ public class ConsumableManager : SingletonMonoBehaviour<ConsumableManager>
             switch (state2)
             {
                 case ConsumableState.ready:
-                    if (Input.GetKeyDown(key2) && !(cooldownTime2 > 0))
+                    if (Input.GetKeyDown(key2) && !(cooldownTime2 > 0) && stackAmount2 > 0)
                     {
                         Debug.Log("Consumable 2 Activated");
+                        stackAmount2 -= 1;
+                        HUDSingleton.instance.transform.Find("Potion2").Find("PotionSlot2").Find("ItemUI(Clone)").transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = stackAmount2.ToString();
                         consumable2.Activate(playerObject);
                         cooldownIcon2.value = 1f;
                         state2 = ConsumableState.active;
@@ -231,9 +236,11 @@ public class ConsumableManager : SingletonMonoBehaviour<ConsumableManager>
             switch (state3)
             {
                 case ConsumableState.ready:
-                    if (Input.GetKeyDown(key3) && !(cooldownTime3 > 0))
+                    if (Input.GetKeyDown(key3) && !(cooldownTime3 > 0) && stackAmount3 > 0)
                     {
                         Debug.Log("Consumable 3 Activated");
+                        stackAmount3 -= 1;
+                        HUDSingleton.instance.transform.Find("Potion3").Find("PotionSlot3").Find("ItemUI(Clone)").transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = stackAmount3.ToString();
                         consumable3.Activate(playerObject);
                         cooldownIcon3.value = 1f;
                         state3 = ConsumableState.active;
@@ -305,21 +312,23 @@ public class ConsumableManager : SingletonMonoBehaviour<ConsumableManager>
 
     public void ChangeConsumable1(Consumable consumable)
     {
-        Debug.Log(consumable.stackAmount);
         if (consumable1 != null)
         {
-            InventoryManager.Instance.AddItemToStack(consumable1, consumable1.stackAmount);      
+            InventoryManager.Instance.AddItemToStack(consumable1, stackAmount1);      
         }
+        stackAmount1 = consumable.stackAmount;
         consumable1 = consumable;
 
     }
     public void ChangeConsumable2(Consumable consumable)
     {
+
         if (consumable2 != null)
         {
-            InventoryManager.Instance.AddItemToStack(consumable2, consumable2.stackAmount);
+            InventoryManager.Instance.AddItemToStack(consumable2, stackAmount2);
             
         }
+        stackAmount2 = consumable.stackAmount;
         consumable2 = consumable;
 
     }
@@ -327,9 +336,10 @@ public class ConsumableManager : SingletonMonoBehaviour<ConsumableManager>
     {
         if (consumable3 != null)
         {
-            InventoryManager.Instance.AddItemToStack(consumable3, consumable3.stackAmount);
+            InventoryManager.Instance.AddItemToStack(consumable3, stackAmount3);
             
         }
+        stackAmount3 = consumable.stackAmount;
         consumable3 = consumable;
 
     }

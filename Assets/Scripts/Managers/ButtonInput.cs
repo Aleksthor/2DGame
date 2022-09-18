@@ -22,7 +22,7 @@ public class ButtonInput : SingletonMonoBehaviour<ButtonInput>
     bool attack;
     [SerializeField]
     bool inventoryOpen = false;
-    float triggerTimer = 0.1f;
+    float triggerTimer = 0.3f;
     float triggerClock = 0f;
 
 
