@@ -312,10 +312,7 @@ public class ConsumableManager : SingletonMonoBehaviour<ConsumableManager>
 
     public void ChangeConsumable1(Consumable consumable)
     {
-        if (consumable1 != null)
-        {
-            InventoryManager.Instance.AddItemToStack(consumable1, stackAmount1);      
-        }
+
         stackAmount1 = consumable.stackAmount;
         consumable1 = consumable;
 
@@ -323,22 +320,14 @@ public class ConsumableManager : SingletonMonoBehaviour<ConsumableManager>
     public void ChangeConsumable2(Consumable consumable)
     {
 
-        if (consumable2 != null)
-        {
-            InventoryManager.Instance.AddItemToStack(consumable2, stackAmount2);
-            
-        }
+
         stackAmount2 = consumable.stackAmount;
         consumable2 = consumable;
 
     }
     public void ChangeConsumable3(Consumable consumable)
     {
-        if (consumable3 != null)
-        {
-            InventoryManager.Instance.AddItemToStack(consumable3, stackAmount3);
-            
-        }
+
         stackAmount3 = consumable.stackAmount;
         consumable3 = consumable;
 
