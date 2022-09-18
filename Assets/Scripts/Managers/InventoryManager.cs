@@ -875,6 +875,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
     {
         #region Damage
         float damage = 0f;
+        float equipmentDamageBoost = 0f;
         if (currentWeapon != null)
         {
             damage += currentWeapon.damage;
@@ -896,34 +897,42 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         float armor = 0f;
         if (currentHead != null)
         {
+            equipmentDamageBoost += currentHead.bonusDamage;
             armor += currentHead.armor;
         }
         if(currentChest != null)
         {
+            equipmentDamageBoost += currentChest.bonusDamage;
             armor += currentChest.armor;
         }
         if (currentPants != null)
         {
+            equipmentDamageBoost += currentPants.bonusDamage;
             armor += currentPants.armor;
         }
         if(currentShoes != null)
         {
+            equipmentDamageBoost += currentShoes.bonusDamage;
             armor += currentShoes.armor;
         }
         if(currentNecklace != null)
         {
+            equipmentDamageBoost += currentNecklace.bonusDamage;
             armor += currentNecklace.armor;
         }
         if(currentEarrings != null)
         {
+            equipmentDamageBoost += currentEarrings.bonusDamage;
             armor += currentEarrings.armor;
         }
         if(currentRing1 != null)
         {
+            equipmentDamageBoost += currentRing1.bonusDamage;
             armor += currentRing1.armor;
         }
         if(currentRing2 != null)
         {
+            equipmentDamageBoost += currentRing2.bonusDamage;
             armor += currentRing2.armor;
         }
 

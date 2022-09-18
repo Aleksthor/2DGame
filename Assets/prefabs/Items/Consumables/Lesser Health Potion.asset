@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137bdce8376c0b7448d77667a095a6f8, type: 3}
+  m_Name: Lesser Health Potion
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: 0}
+  itemName: 
+  itemDescription: 
+  itemType: 0
+  itemRarity: 0
+  itemWeight: 0
+  isStackable: 0
+  stackAmount: 1
+  consumableName: 
+  cooldownTime: 0
+  activeTime: 0
+  hpHealing: 0
+  manaHealing: 0
+  hasBuff: 0
+  buffIcon: {fileID: 0}

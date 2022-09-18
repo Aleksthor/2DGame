@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "HealthPotion")]
 public class HealthPotion : Consumable
 {
     public override void Activate(GameObject parent)
