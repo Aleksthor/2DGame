@@ -512,5 +512,24 @@ public class GameEvents : MonoBehaviour
 
 
 
+    public event Action<Weapon> OnShowSecondary;
+    public void ShowSecondary(Weapon weapon)
+    {
+        if(OnShowSecondary != null)
+        {
+            OnShowSecondary(weapon);
+        }
+    }
+
+    public event Action OnRemoveSecondary;
+    public void RemoveSecondary()
+    {
+        if (OnRemoveSecondary != null)
+        {
+            OnRemoveSecondary();
+        }
+    }
+
+
     //
 }

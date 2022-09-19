@@ -107,6 +107,8 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
         GameEvents.current.EndPlayerAttack += PlayerAttackEnd;
         GameEvents.current.OnChangeWeapon += SwapWeapon;
         GameEvents.current.OnChangeShield += ChangeShield;
+        GameEvents.current.OnShowSecondary += ShowSecondary;
+        GameEvents.current.OnRemoveSecondary += RemoveSecondary;
         canTurn = true;
 
         //PlayerSpriteListener
@@ -206,7 +208,7 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
         {
             Hand2.gameObject.SetActive(false);
         }
-        else
+        else if (!attack)
         {
             Hand2.gameObject.SetActive(true);
         }
@@ -340,6 +342,9 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
                             Hand.transform.localPosition = attackDirection.normalized / 12f * distance;
                             Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x, Hand.transform.localPosition.y - 0.08f);
                             Hand.transform.up = attackDirection;
+                            Hand2.transform.localPosition = attackDirection.normalized / 12f * distance;
+                            Hand2.transform.localPosition = new Vector2(Hand2.transform.localPosition.x, Hand2.transform.localPosition.y - 0.16f);
+                            Hand2.transform.up = attackDirection;
                             Effects.transform.right = attackDirection * -1f;
                             Effects.transform.localPosition = Hand.transform.localPosition;
 
@@ -446,6 +451,19 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
        
     }
 
+    private void ShowSecondary(Weapon weapon)
+    {
+        Hand2.transform.Find("Weapon2").gameObject.SetActive(true);
+        Hand2.transform.Find("Weapon2").transform.GetComponent<SpriteRenderer>().sprite = weapon.itemSprite;
+        PlayerSingleton.instance.transform.GetComponent<Animator>().SetBool("IsDualwielding", true);
+    }
+
+    private void RemoveSecondary()
+    {
+        PlayerSingleton.instance.transform.GetComponent<Animator>().SetBool("IsDualwielding", false);
+        Hand2.transform.Find("Weapon2").transform.GetComponent<SpriteRenderer>().sprite = null;
+        Hand2.transform.Find("Weapon2").gameObject.SetActive(false);
+    }
 
     private void ShowShield()
     {

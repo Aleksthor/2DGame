@@ -460,6 +460,7 @@ GameObject:
   - component: {fileID: -3269651804489366754}
   - component: {fileID: 4557921358433915363}
   - component: {fileID: 9087372356294375177}
+  - component: {fileID: 2555834810166719019}
   m_Layer: 0
   m_Name: BasicBook
   m_TagString: Enemy
@@ -673,6 +674,39 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.17521004, y: 0.09877887}
   m_EdgeRadius: 0
+--- !u!60 &2555834810166719019
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4741252220892384480}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.43, y: 0.46}
+    newSize: {x: 0.43, y: 0.46}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.037005085, y: 0.039731756}
+      - {x: -0.12721263, y: 0.029939292}
+      - {x: -0.12721264, y: -0.059438024}
+      - {x: -0.04621011, y: -0.09158997}
+      - {x: 0.02750637, y: -0.08480516}
+      - {x: 0.12364308, y: -0.05872921}
+      - {x: 0.122286074, y: 0.024658328}
+      - {x: 0.02679752, y: 0.042445663}
 --- !u!1 &8210117860567408191
 GameObject:
   m_ObjectHideFlags: 0

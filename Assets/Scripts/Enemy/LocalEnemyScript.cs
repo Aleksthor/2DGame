@@ -33,10 +33,7 @@ public class LocalEnemyScript : MonoBehaviour
 
     #region Function Variables
 
-    // Iframes when hit
-    private bool damaged = false;
-    private float iFramesLength = 0.3f;
-    private float iFrameClock = 0f;
+
 
     // If enemy is slowed reset after 3 seconds
     private bool resetSpeed = false;
@@ -78,15 +75,7 @@ public class LocalEnemyScript : MonoBehaviour
 
     public void Update()
     {
-        if(damaged)
-        {
-            iFrameClock += Time.deltaTime;
-            if(iFrameClock > iFramesLength)
-            {
-                iFrameClock = 0f;
-                damaged = false;
-            }
-        }
+
         if (resetSpeed)
         {
             if (resetAgain)
@@ -149,8 +138,7 @@ public class LocalEnemyScript : MonoBehaviour
 
     public void Hit(float Damage, Vector2 ImpactDirection, float Force, float slowdownRatio)
     {
-        if (!damaged)
-        {
+
             if (slowdownRatio != 1)
             {
                 Debug.Log("Debuff - Slow " + "(" + slowdownRatio + ")");
@@ -164,7 +152,7 @@ public class LocalEnemyScript : MonoBehaviour
 
 
 
-            damaged = true;         
+      
             hit = true;
             health = health - Damage;
 
@@ -183,7 +171,7 @@ public class LocalEnemyScript : MonoBehaviour
                 animator.SetTrigger("Hit");
             }
 
-        }
+        
 
     }
 

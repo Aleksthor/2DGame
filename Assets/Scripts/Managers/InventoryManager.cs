@@ -188,7 +188,17 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
 
     public void ChangeSecondaryWeapon(Weapon weapon)
     {
-        
+        if (currentWeapon != null)
+        {
+            if (currentWeapon.canDualWield && weapon.canDualWield)
+            {
+                GameEvents.current.ShowSecondary(weapon);
+            }
+            else
+            {
+                GameEvents.current.RemoveSecondary();
+            }
+        }
         secondaryWeapon = weapon;
         UpdateInventoryTab(currentTab);
 

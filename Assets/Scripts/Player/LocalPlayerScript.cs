@@ -17,6 +17,7 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
     public Transform ShotPoint;                 // Here we spawn our projectiles
     private Camera mainCam;                     // They will move towards camera.mousePosition
     private PolygonCollider2D weaponCollider;   // Turn collider on with from animator
+    private PolygonCollider2D weaponCollider2;
 
     private PlayerManager player;
     private Animator animator;
@@ -43,6 +44,7 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
     void Start()
     {
         weaponCollider = transform.Find("Hand").transform.Find("Weapon").GetComponent<PolygonCollider2D>();
+        weaponCollider2 = transform.Find("Hand2").transform.Find("Weapon2").GetComponent<PolygonCollider2D>();
         player = PlayerManager.Instance;
         weaponCollider.enabled = false;
         mainCam = CameraSingleton.instance.transform.Find("Main Camera").transform.GetComponent<Camera>();
@@ -169,6 +171,15 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
     public void ColliderOff()
     {
         weaponCollider.enabled = false;
+    }
+
+    public void Collider2On()
+    {
+        weaponCollider2.enabled = true;
+    }
+    public void Collider2Off()
+    {
+        weaponCollider2.enabled = false;
     }
 
 

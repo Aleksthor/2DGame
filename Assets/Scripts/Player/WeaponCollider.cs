@@ -17,12 +17,22 @@ public class WeaponCollider : MonoBehaviour
     private bool didCrit;
 
 
+
+
+
+
+
     void Start()
     {
         GameEvents.current.OnChangeStats += ChangeStats;
         GameEvents.current.OnBoostNextAttack += BoostNextAttack;
         GameEvents.current.OnDontBoostNextAttack += DontBoostNextAttack;
         damageBefore = damage;
+    }
+
+    private void Update()
+    {
+
     }
 
     private void ChangeStats(float Damage, float magicDamage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, float CritRate, float CritDamage, Vector2 localPosition)
@@ -38,7 +48,7 @@ public class WeaponCollider : MonoBehaviour
         critDamage = CritDamage;
 
         damageBefore = Damage;
-        
+
     }
 
 
@@ -58,35 +68,50 @@ public class WeaponCollider : MonoBehaviour
 
 
     private void OnTriggerEnter2D(Collider2D other)
-    {     
-        if(other.tag == "Enemy")
+    {
+
+        if (other.tag == "Enemy")
         {
-            float random = Random.Range(1, 100);
-            didCrit = false;
-            if(boostNextAttack)
+
+
+
+            if (other.GetType() == typeof(PolygonCollider2D))
             {
-                
-                damage *= damageBoost;
-                
+
+                float random = Random.Range(1, 100);
+                didCrit = false;
+                if (boostNextAttack)
+                {
+
+                    damage *= damageBoost;
+
+                }
+
+                if (random < critRate)
+                {
+                    Debug.Log("Critical Hit");
+
+                    damage *= critDamage;
+
+                    Mathf.Clamp(damage, 0f, damageBefore * critDamage);
+                    didCrit = true;
+                }
+
+                Debug.Log("Damage : " + damage);
+                GameEvents.current.WeaponCollission(other.gameObject, damage, knockbackForce, speedMultiplier, slowDownLength, gameObject.transform.position, didCrit);
+                damage = damageBefore;
+                didCrit = false;
+                boostNextAttack = false;
+
             }
 
-            if (random < critRate)
-            {
-                Debug.Log("Critical Hit");
-                
-                damage *= critDamage;
-                
-                Mathf.Clamp(damage, 0f, damageBefore * critDamage);
-                didCrit = true;
-            }
-            
 
-            GameEvents.current.WeaponCollission(other.gameObject, damage, knockbackForce, speedMultiplier, slowDownLength, gameObject.transform.position, didCrit);
-            damage = damageBefore;
-            didCrit = false;
-            boostNextAttack = false;
+
+
+
 
         }
     }
+
 
 }
