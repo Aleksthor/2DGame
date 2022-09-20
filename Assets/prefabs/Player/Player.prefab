@@ -258,6 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingWeaponType: 2
   ShotPoint: {fileID: 6086259455824825333}
+  arrow: {fileID: 2292795352707001750, guid: c66d77c5dc979f94183ff6d36affd474, type: 3}
   SmallFireBall: {fileID: 3725729640343643223, guid: 4b443a04cbd24b8439cd696a9d57bf91, type: 3}
   SmallWaterBall: {fileID: 4644748073293588643, guid: 0cce66012389f81468133782b70d0083, type: 3}
   EnergyShard: {fileID: 710600009353945899, guid: 64ff3aeadafc4d94eabd5a4d8fb62cd8, type: 3}
@@ -516,7 +517,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6346973338859764445
 Transform:
   m_ObjectHideFlags: 0
@@ -744,7 +745,7 @@ SpriteRenderer:
   m_SortingLayerID: -1103112865
   m_SortingLayer: 2
   m_SortingOrder: 9
-  m_Sprite: {fileID: -3278668394409182549, guid: 85b2c6dc4ebf9164cbb036979b2a7571, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -752,7 +753,7 @@ SpriteRenderer:
   m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &3970489767913928643
@@ -780,7 +781,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2401193117059126822}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -1787,7 +1788,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8586850277139324147}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1

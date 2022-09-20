@@ -108,7 +108,6 @@ public class Movement : SingletonMonoBehaviour<Movement>
                 if (!isDashCooldown)
                 {
                     playerAnimation.TriggerAttackAnimation();
-                    GameEvents.current.UseStamina(player.staminaPerHit);
                 }
                 
             }         

@@ -15,7 +15,8 @@ public class Weapon : Item
         Dagger,
         Sword,
         Staff, 
-        Wand
+        Wand,
+        Bow
     };
 
     public enum StaffAttack
@@ -44,6 +45,8 @@ public class Weapon : Item
     public float critRate;
     public bool isTwoHanded;
     public bool canDualWield;
+    public float staminaUse;
+    public List<Sprite> bowSprites;
 
     [Header("Magic Variables")]
     public float magicDamage;

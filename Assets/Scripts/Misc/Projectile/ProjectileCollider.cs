@@ -25,6 +25,10 @@ public class ProjectileCollider : MonoBehaviour
             {
                 gameObject.GetComponent<Animator>().SetTrigger("Hit");
             }
+            else
+            {
+                Destroy(gameObject);
+            }
 
         }
     }

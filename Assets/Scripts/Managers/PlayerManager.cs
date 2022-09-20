@@ -33,7 +33,7 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
 
 
     [Header("Equipped Item Stats")]
-    [SerializeField] float meleeDamage;
+    [SerializeField] public float meleeDamage;
     [SerializeField] float critDamage;
     [SerializeField] float critRate;
     [SerializeField] float knockbackForce;

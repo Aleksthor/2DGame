@@ -33,7 +33,7 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
     private Transform Shield;
     private Transform Effects;
 
-    bool FlipLastInput = false;
+    public bool FlipLastInput = false;
 
 
 
@@ -51,7 +51,7 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
 
 
     private Vector2 attackDirection;        // Direction the player should face
-    private bool attack;                    // Are we attacking right now?
+    public bool attack;                    // Are we attacking right now?
     private bool canTurn;                   // Are we allowed to turn right now?
 
 
@@ -121,6 +121,7 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
 
         animator = PlayerSingleton.instance.gameObject.GetComponent<Animator>();
         Hand2.gameObject.SetActive(false);
+       
     }
     
 
@@ -217,6 +218,8 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
             Hand2.transform.localPosition = new Vector2(Hand.transform.localPosition.x, Hand.transform.localPosition.y - 0.03f);
         }
 
+        
+
         #endregion
 
 
@@ -243,6 +246,15 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
                 Effects.transform.localPosition = new Vector3(Effects.transform.localPosition.x * -1f, Effects.transform.localPosition.y, Effects.transform.localPosition.z);
                 Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z * -1f);
                 Hand2.transform.localPosition = new Vector3(Hand2.transform.localPosition.x * -1f, Hand2.transform.localPosition.y, Hand2.transform.localPosition.z);
+
+                if (InventoryManager.Instance.currentWeapon != null)
+                {
+                    if (InventoryManager.Instance.currentWeapon.weaponType == Weapon.WeaponType.Bow)
+                    {
+                        Debug.Log("Running");
+                        Hand.transform.Find("Weapon").transform.localPosition = new Vector2(-0.02f, 0f);
+                    }
+                }
 
                 FlipLastInput = true;
             }
@@ -271,6 +283,7 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
                 }
 
                 Hand.transform.localPosition = new Vector3(Hand.transform.localPosition.x * -1f, Hand.transform.localPosition.y, Hand.transform.localPosition.z);
+                Hand.transform.Find("Weapon").transform.localPosition = InventoryManager.Instance.currentWeapon.localPosition * -1f;
                 Shield.transform.localPosition = new Vector3(Shield.transform.localPosition.x * -1f, Shield.transform.localPosition.y, Shield.transform.localPosition.z);
                 Effects.transform.localPosition = new Vector3(Effects.transform.localPosition.x * -1f, Effects.transform.localPosition.y, Effects.transform.localPosition.z);
                 Hand.transform.eulerAngles = new Vector3(Hand.transform.eulerAngles.x, Hand.transform.eulerAngles.y, Hand.transform.eulerAngles.z * -1f);
@@ -378,6 +391,7 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
                             {
 
                                 Effects.transform.right = attackDirection;
+                                Hand.transform.Find("Weapon").transform.localPosition = InventoryManager.Instance.currentWeapon.localPosition * -1f;
 
                             }
 
@@ -385,9 +399,20 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
 
                             break;
                         case 3: // Staff
-
                             break;
                         case 4: // Wand
+
+                            break;
+                        case 5: // Bow
+
+                            Hand.transform.localPosition = attackDirection.normalized / 12f * distance;
+                            Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x, Hand.transform.localPosition.y - 0.08f);
+
+                            Hand.transform.right = attackDirection * -1f;
+                            if (FlipLastInput)
+                            {
+                                Hand.transform.right = attackDirection;
+                            }
 
                             break;
                         default:
@@ -418,7 +443,7 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
     private void SwapWeapon(Weapon weapon)
     {
         if (weapon != null)
-        {      
+        {
             WeaponSprite.sprite = weapon.itemSprite;
         }
     }

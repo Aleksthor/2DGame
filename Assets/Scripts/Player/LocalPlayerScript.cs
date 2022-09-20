@@ -23,6 +23,7 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
     private Animator animator;
 
     [Header("Projectiles")]
+    public GameObject arrow;
     public GameObject SmallFireBall;
     public GameObject SmallWaterBall;
     public GameObject EnergyShard;
@@ -35,6 +36,7 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
     private float slowDownLength = 1f;
 
     public Vector2 localPosition;
+    private Sprite weaponSprite;
 
 
 
@@ -92,6 +94,9 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
             case 4: // Wand
                 animator.SetInteger("WeaponType", 4);
                 break;
+            case 5: // Bow
+                animator.SetInteger("WeaponType", 5);
+                break;
             default:
                 break;
         }
@@ -106,7 +111,7 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
     
     public void StartAttack()
     {
-
+        GameEvents.current.UseStamina(player.staminaPerHit);
         attack = true;
         canMove = false;
         canTurn = false;
@@ -185,6 +190,20 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
 
 
     #region Staff Attacks
+
+    public void SpawnArrow()
+    {
+
+        Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
+
+        GameObject smallFireBall = Instantiate(arrow, transform.Find("Hand").transform.position, transform.Find("Hand").transform.rotation);
+        smallFireBall.transform.right = direction;
+        smallFireBall.GetComponent<ProjectileCollider>().speedMultiplier = speedMultiplier;
+        smallFireBall.GetComponent<ProjectileCollider>().slowDownLength = slowDownLength;
+        smallFireBall.GetComponent<ProjectileCollider>().damage = PlayerManager.Instance.meleeDamage;
+        smallFireBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
+
+    }
 
     public void SpawnSmallFireBall()
     {
@@ -299,6 +318,50 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
     {
         transform.Find("Hand").transform.Find("Weapon").transform.localPosition = localPosition;
         transform.Find("Hand2").transform.Find("Weapon2").transform.localPosition = localPosition;
+        if (SpriteManager.Instance.FlipLastInput && !SpriteManager.Instance.attack)
+        {
+            transform.Find("Hand").transform.Find("Weapon").transform.localPosition = new Vector2(localPosition.x * -1f, localPosition.y);
+            transform.Find("Hand2").transform.Find("Weapon2").transform.localPosition = new Vector2(localPosition.x * -1f, localPosition.y);
+        }
+    }
+
+
+    public void BowSprite1()
+    {
+        weaponSprite = InventoryManager.Instance.currentWeapon.itemSprite;
+        transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[0];
+    }
+    public void BowSprite2()
+    {
+        transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[1];
+    }
+    public void BowSprite3()
+    {
+        transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[2];
+    }
+    public void BowSprite4()
+    {
+        transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[3];
+    }
+    public void BowSprite5()
+    {
+        transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[4];
+    }
+    public void BowSprite6()
+    {
+        transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[5];
+    }
+    public void BowSprite7()
+    {
+        transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[6];
+    }
+    public void BowSprite8()
+    {
+        if (InventoryManager.Instance.currentWeapon.weaponType == Weapon.WeaponType.Bow)
+        {
+            transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = weaponSprite;
+        }
+       
     }
 
 
