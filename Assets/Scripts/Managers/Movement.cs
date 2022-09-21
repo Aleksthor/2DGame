@@ -13,10 +13,11 @@ public class Movement : SingletonMonoBehaviour<Movement>
     AnimationManager playerAnimation;
     LocalPlayerScript localPlayerScript;
 
+
     [Header("Movement Parameters")]
-    [SerializeField] float walkingSpeed = 5;
-    [SerializeField] float sneakingSpeed = 10;
-    [SerializeField] float dashingSpeed = 20;
+    [SerializeField] float walkingSpeed = 10;
+    [SerializeField] float sneakingSpeed = 5;
+    [SerializeField] float dashingSpeed = 15;
 
     [Header("HUD Elements")]
     [SerializeField] float staminaDrainSpeed = 150;
@@ -70,7 +71,6 @@ public class Movement : SingletonMonoBehaviour<Movement>
     private void Update()
     {
         Animations();
-        MovementSpeed();
         Attack();
         Shield();
 
@@ -79,6 +79,11 @@ public class Movement : SingletonMonoBehaviour<Movement>
         DashCooldown();
 
         Sneaking();
+    }
+
+    private void FixedUpdate()
+    {
+        MovementSpeed();
     }
 
 
@@ -143,20 +148,18 @@ public class Movement : SingletonMonoBehaviour<Movement>
         {
             if (isDashing)
             {
-
-                playerObject.transform.position += new Vector3(buttonInput.GetMovementX(), buttonInput.GetMovementY(), 0f) * dashingSpeed * Time.deltaTime;
-                
-
+                Vector2 positionChange = (Vector2)playerObject.transform.position + new Vector2(buttonInput.GetMovementX(), buttonInput.GetMovementY()) * dashingSpeed * Time.deltaTime;
+                playerRB.MovePosition(positionChange);
             }
             else if (isSneaking || isShielding)
             {
-                
-                playerObject.transform.position += new Vector3(buttonInput.GetMovementX(), buttonInput.GetMovementY(), 0f) * sneakingSpeed * Time.deltaTime;
+                Vector2 positionChange = (Vector2)playerObject.transform.position + new Vector2(buttonInput.GetMovementX(), buttonInput.GetMovementY()) * sneakingSpeed * Time.deltaTime;
+                playerRB.MovePosition(positionChange);
             }
             else
             {
-
-                playerObject.transform.position += new Vector3(buttonInput.GetMovementX(), buttonInput.GetMovementY(), 0f) * walkingSpeed * Time.deltaTime;
+                Vector2 positionChange = (Vector2)playerObject.transform.position + new Vector2(buttonInput.GetMovementX(), buttonInput.GetMovementY()) * walkingSpeed * Time.deltaTime;
+                playerRB.MovePosition(positionChange);
             }
         }
     }
@@ -196,6 +199,7 @@ public class Movement : SingletonMonoBehaviour<Movement>
 
             //Set player invisible
             playerCollider.enabled = false;
+            
         }
         else
         {
@@ -206,6 +210,7 @@ public class Movement : SingletonMonoBehaviour<Movement>
             }
             if (!iFrames)
             {
+                
                 playerCollider.enabled = true;
             }
             //Set player visible

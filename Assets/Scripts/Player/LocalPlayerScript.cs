@@ -187,23 +187,35 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
         weaponCollider2.enabled = false;
     }
 
-
-
-    #region Staff Attacks
-
+    #region Bow
     public void SpawnArrow()
     {
 
         Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
 
-        GameObject smallFireBall = Instantiate(arrow, transform.Find("Hand").transform.position, transform.Find("Hand").transform.rotation);
-        smallFireBall.transform.right = direction;
-        smallFireBall.GetComponent<ProjectileCollider>().speedMultiplier = speedMultiplier;
-        smallFireBall.GetComponent<ProjectileCollider>().slowDownLength = slowDownLength;
-        smallFireBall.GetComponent<ProjectileCollider>().damage = PlayerManager.Instance.meleeDamage;
-        smallFireBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
+        WeaponCollider weaponCollider = PlayerSingleton.instance.transform.Find("Hand").transform.Find("Weapon").GetComponent<WeaponCollider>();
+
+        GameObject arrowObject = Instantiate(arrow, transform.Find("Hand").transform.position, transform.Find("Hand").transform.rotation);
+        arrowObject.transform.right = direction;
+        arrowObject.GetComponent<ProjectileCollider>().speedMultiplier = speedMultiplier;
+        arrowObject.GetComponent<ProjectileCollider>().slowDownLength = slowDownLength;
+        arrowObject.GetComponent<ProjectileCollider>().damage = weaponCollider.damage;
+        arrowObject.GetComponent<ProjectileCollider>().critDamage = weaponCollider.critDamage;
+        arrowObject.GetComponent<ProjectileCollider>().critRate = weaponCollider.critRate;
+        arrowObject.GetComponent<ProjectileCollider>().knockbackForce = weaponCollider.knockbackForce;
+        arrowObject.GetComponent<ProjectileCollider>().speedMultiplier = weaponCollider.speedMultiplier;
+        arrowObject.GetComponent<ProjectileCollider>().slowDownLength = weaponCollider.slowDownLength;
+        arrowObject.GetComponent<ProjectileCollider>().damage = PlayerManager.Instance.meleeDamage;
+        arrowObject.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
 
     }
+
+    #endregion
+
+
+    #region Staff Attacks
+
+
 
     public void SpawnSmallFireBall()
     {
@@ -329,31 +341,52 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
     public void BowSprite1()
     {
         weaponSprite = InventoryManager.Instance.currentWeapon.itemSprite;
-        transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[0];
+        if (InventoryManager.Instance.currentWeapon.weaponType == Weapon.WeaponType.Bow)
+        {
+            transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[0];
+        }
     }
     public void BowSprite2()
     {
-        transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[1];
+        if (InventoryManager.Instance.currentWeapon.weaponType == Weapon.WeaponType.Bow)
+        {
+            transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[1];
+        }
     }
     public void BowSprite3()
     {
-        transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[2];
+        if (InventoryManager.Instance.currentWeapon.weaponType == Weapon.WeaponType.Bow)
+        {
+            transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[2];
+        }
     }
     public void BowSprite4()
     {
-        transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[3];
+        if (InventoryManager.Instance.currentWeapon.weaponType == Weapon.WeaponType.Bow)
+        {
+            transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[3];
+        }
     }
     public void BowSprite5()
     {
-        transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[4];
+        if (InventoryManager.Instance.currentWeapon.weaponType == Weapon.WeaponType.Bow)
+        {
+            transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[4];
+        }
     }
     public void BowSprite6()
     {
-        transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[5];
+        if (InventoryManager.Instance.currentWeapon.weaponType == Weapon.WeaponType.Bow)
+        {
+            transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[5];
+        }
     }
     public void BowSprite7()
     {
-        transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[6];
+        if (InventoryManager.Instance.currentWeapon.weaponType == Weapon.WeaponType.Bow)
+        {
+            transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = InventoryManager.Instance.currentWeapon.bowSprites[6];
+        }
     }
     public void BowSprite8()
     {

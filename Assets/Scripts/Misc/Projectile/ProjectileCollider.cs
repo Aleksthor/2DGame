@@ -13,14 +13,38 @@ public class ProjectileCollider : MonoBehaviour
 
     public bool hasDeathAnimation = false;
 
-
+    private bool didCrit;
+    
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Enemy")
         {
-            GameEvents.current.WeaponCollission(other.gameObject, damage, knockbackForce, speedMultiplier, slowDownLength, gameObject.transform.position, false);
+
+            if (other.GetType() == typeof(PolygonCollider2D))
+            {
+
+                float random = Random.Range(1, 100);
+                didCrit = false;
+
+
+                if (random < critRate)
+                {
+                    Debug.Log("Critical Hit");
+
+                    damage *= critDamage;
+                    didCrit = true;
+                }
+
+                Debug.Log("Damage : " + damage);
+                GameEvents.current.WeaponCollission(other.gameObject, damage, knockbackForce, speedMultiplier, slowDownLength, gameObject.transform.position, didCrit);
+
+                didCrit = false;
+
+
+            }
+
             if (hasDeathAnimation)
             {
                 gameObject.GetComponent<Animator>().SetTrigger("Hit");

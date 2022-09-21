@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class AbilityWaterSlam : Ability
 {
-
+    [Header("This Ability")]
 
     private Camera mainCam;
     public float range;

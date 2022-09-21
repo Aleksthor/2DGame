@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using BehaviorTree;
+using BehaviorTrees;
 
 public class TaskWalkAway : Node
 {
@@ -37,7 +37,17 @@ public class TaskWalkAway : Node
         if (!localEnemyScript.hit && (transform.position - playerTransform.position).magnitude < range)
         {
             animator.SetBool("Walking", true);
-            transform.position = Vector2.MoveTowards(transform.position, transform.position + (transform.position - target.position), walkSpeed * Time.deltaTime * speedMultiplier);
+            
+            Vector2 direction = playerTransform.position - transform.position;
+            if (direction.x > 0f)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(playerTransform.position.x - range, playerTransform.position.y), walkSpeed * Time.deltaTime * speedMultiplier);
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(playerTransform.position.x + range, playerTransform.position.y), walkSpeed * Time.deltaTime * speedMultiplier);
+            }
+            
         }
         else
         {

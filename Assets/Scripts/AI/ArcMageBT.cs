@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using BehaviorTree;
+using BehaviorTrees;
 
 
 
-public class ArcMageBT : Tree
+public class ArcMageBT : BehaviorTrees.BehaviorTree
 {
 
     public float FOV = 10f;

@@ -251,7 +251,6 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
                 {
                     if (InventoryManager.Instance.currentWeapon.weaponType == Weapon.WeaponType.Bow)
                     {
-                        Debug.Log("Running");
                         Hand.transform.Find("Weapon").transform.localPosition = new Vector2(-0.02f, 0f);
                     }
                 }

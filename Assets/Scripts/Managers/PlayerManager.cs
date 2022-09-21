@@ -21,7 +21,7 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
 
     [Header("Stamina Stats")]
     [SerializeField] float stamina = 50;
-    [SerializeField] float maxStamina = 50;
+    [SerializeField] public float maxStamina = 50;
     [SerializeField] public float staminaPerHit = 22.5f;
 
     [Header("Mana Stats")]
@@ -34,9 +34,9 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
 
     [Header("Equipped Item Stats")]
     [SerializeField] public float meleeDamage;
-    [SerializeField] float critDamage;
-    [SerializeField] float critRate;
-    [SerializeField] float knockbackForce;
+    [SerializeField] public float critDamage;
+    [SerializeField] public float critRate;
+    [SerializeField] public float knockbackForce;
     [SerializeField] float armor;
     [SerializeField] float magicDamage;
     [SerializeField] float manaCost;

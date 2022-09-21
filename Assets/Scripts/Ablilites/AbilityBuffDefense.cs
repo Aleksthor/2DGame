@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class AbilityBuffDefense : Ability
 {
+    [Header("This Ability")]
     public float defensebuff;
     public GameObject buffEffect;
 

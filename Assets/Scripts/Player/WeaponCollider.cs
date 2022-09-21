@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class WeaponCollider : MonoBehaviour
 {
-    [SerializeField] private float damage = 5f;
-    [SerializeField] private float critRate = 0f;
-    [SerializeField] private float critDamage = 2f;
-    [SerializeField] private float knockbackForce = 40f;
-    [SerializeField] private float speedMultiplier = 1f;
-    [SerializeField] private float slowDownLength = 0f;
+    [SerializeField] public float damage = 5f;
+    [SerializeField] public float critRate = 0f;
+    [SerializeField] public float critDamage = 2f;
+    [SerializeField] public float knockbackForce = 40f;
+    [SerializeField] public float speedMultiplier = 1f;
+    [SerializeField] public float slowDownLength = 0f;
 
     private float damageBefore;
     private bool boostNextAttack = false;

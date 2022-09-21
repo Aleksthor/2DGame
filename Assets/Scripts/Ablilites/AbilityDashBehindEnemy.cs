@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class AbilityDashBehindEnemy : Ability
 {
-
+    [Header("This Ability")]
     private GameObject[] enemies;
     private Camera mainCam;
     private Movement movement;
@@ -53,8 +53,9 @@ public class AbilityDashBehindEnemy : Ability
             if (Vector2.Distance(parent.transform.position, closestEnemy.transform.position) < range)
             {
                 GameObject spawnedObject = Instantiate(effect, parent.transform.position, parent.transform.rotation);
-                Instantiate(buffEffect, parent.transform);
                 spawnedObject.transform.right = closestEnemy.transform.position - parent.transform.position;
+                Instantiate(buffEffect, parent.transform);
+                
 
                 #region Goblin
                 if (closestEnemy.GetComponent<GoblinSpriteDirection>() != null)

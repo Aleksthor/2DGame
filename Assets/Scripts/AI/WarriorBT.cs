@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using BehaviorTree;
+using BehaviorTrees;
 
 
 
-public class WarriorBT : Tree
+public class WarriorBT : BehaviorTrees.BehaviorTree
 {
 
     public float attackSpeed = 1.2f;

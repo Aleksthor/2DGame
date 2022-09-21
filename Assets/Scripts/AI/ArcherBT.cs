@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using BehaviorTree;
+using BehaviorTrees;
 
 
 
-public class ArcherBT : Tree
+public class ArcherBT : BehaviorTrees.BehaviorTree
 {
 
     public float FOVRange = 10f;

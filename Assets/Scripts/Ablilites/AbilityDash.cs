@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class AbilityDash : Ability
 {
+    [Header("This Ability")]
     public float dashLength;
     public GameObject effect;
 
@@ -16,9 +17,10 @@ public class AbilityDash : Ability
     public override void Activate(GameObject parent)
     {
         layerMask = (1 << layer);
-        Instantiate(effect, parent.transform.position, parent.transform.rotation);
+        GameObject spawnedObject = Instantiate(effect, parent.transform.position, parent.transform.rotation);
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         Vector2 direction = mainCam.ScreenToWorldPoint(Input.mousePosition) - parent.transform.position;
+        spawnedObject.transform.right = direction * -1f;
         Vector2 newPosition = (Vector2)parent.transform.position + direction.normalized * dashLength;
         
         

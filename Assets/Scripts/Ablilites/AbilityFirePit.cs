@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class AbilityFirePit : Ability
 {
+    [Header("This Ability")]
 
-    
     private Camera mainCam;
     public float range;
     public GameObject firePitObject;
