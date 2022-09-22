@@ -9,6 +9,8 @@ public class LocalEnemyScript : MonoBehaviour
     public float health = 1;
     public float maxHealth;
 
+    public float armor;
+
 
     // Local Components
     public PolygonCollider2D weaponCollider;
@@ -139,39 +141,42 @@ public class LocalEnemyScript : MonoBehaviour
     public void Hit(float Damage, Vector2 ImpactDirection, float Force, float slowdownRatio)
     {
 
-            if (slowdownRatio != 1)
+        if (slowdownRatio != 1)
+        {
+            Debug.Log("Debuff - Slow " + "(" + slowdownRatio + ")");
+            speedMultiplier = slowdownRatio;
+            if (resetSpeed)
             {
-                Debug.Log("Debuff - Slow " + "(" + slowdownRatio + ")");
-                speedMultiplier = slowdownRatio;
-                if (resetSpeed)
-                {
-                    resetAgain = true;
-                }
-                resetSpeed = true;
+                resetAgain = true;
             }
+            resetSpeed = true;
+        }
 
 
 
-      
-            hit = true;
-            health = health - Damage;
 
-            rigidBody.AddForce(ImpactDirection * Force);
-            if (damageDisplay != null)
-            {
-                
-                DisplayDamage(Damage);
-            }
-            if (health <= 0)
-            {  
-                animator.SetTrigger("Dead");
-            }
-            else
-            {
-                animator.SetTrigger("Hit");
-            }
+        hit = true;
+        float temp = Damage;
+        Damage = Damage - armor;
+        health = health - Mathf.Clamp(Damage, temp / 5f, temp);
+        Debug.Log(Mathf.Clamp(Damage, temp / 5f, temp));
 
-        
+        rigidBody.AddForce(ImpactDirection * Force);
+        if (damageDisplay != null)
+        {
+
+            DisplayDamage(Damage);
+        }
+        if (health <= 0)
+        {
+            animator.SetTrigger("Dead");
+        }
+        else
+        {
+            animator.SetTrigger("Hit");
+        }
+
+
 
     }
 

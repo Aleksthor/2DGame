@@ -531,10 +531,10 @@ GameObject:
   - component: {fileID: 2701774237059698686}
   - component: {fileID: 7786833958229510009}
   - component: {fileID: 5229183808333042091}
+  - component: {fileID: 5124443601381004229}
   - component: {fileID: 5418712534925498077}
   - component: {fileID: 802166648826861726}
   - component: {fileID: 440710697657966124}
-  - component: {fileID: 5124443601381004229}
   - component: {fileID: 1565753630134019874}
   - component: {fileID: 2687841890594263797}
   m_Layer: 0
@@ -599,6 +599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 40
   maxHealth: 40
+  armor: 0
   weaponCollider: {fileID: 3946364886066134100}
   healthBar: {fileID: 1727985557731018211}
   damageDisplay: {fileID: 3287091167116989639}
@@ -606,6 +607,23 @@ MonoBehaviour:
   MageShard: {fileID: 0}
   speedMultiplier: 1
   hit: 0
+--- !u!114 &5124443601381004229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3776090965816088465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99e03695110125479803fee021168a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 1.2
+  attackRange: 1.5
+  FOV: 6
+  MovementSpeed: 2
+  playerTransform: {fileID: 0}
 --- !u!50 &5418712534925498077
 Rigidbody2D:
   serializedVersion: 4
@@ -673,25 +691,9 @@ MonoBehaviour:
   Effect: {fileID: 3698449023099415120}
   direction: {x: 0, y: 0}
   flipLastDirection: 0
-  leftAttackLocalPosition: {x: -0.18, y: 0}
+  leftAttackLocalPosition: {x: -0.15, y: 0}
+  rightAttackLocalPosition: {x: 0.15, y: 0}
   localEnemyScript: {fileID: 5229183808333042091}
---- !u!114 &5124443601381004229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3776090965816088465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99e03695110125479803fee021168a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackSpeed: 1.2
-  attackRange: 2
-  FOV: 6
-  MovementSpeed: 2
-  playerTransform: {fileID: 0}
 --- !u!210 &1565753630134019874
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -1019,11 +1021,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.027329206, y: 0.10269076}
+    - - {x: 0.017209817, y: 0.11605249}
       - {x: -0.12207025, y: 0.03572479}
       - {x: -0.082194686, y: -0.11667681}
-      - {x: 0.05031085, y: -0.11212188}
-      - {x: 0.06285703, y: 0.040279835}
+      - {x: 0.114892416, y: -0.12102973}
+      - {x: 0.14302728, y: 0.029145116}
 --- !u!114 &8141310931057938836
 MonoBehaviour:
   m_ObjectHideFlags: 0

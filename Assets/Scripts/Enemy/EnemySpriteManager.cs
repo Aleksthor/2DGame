@@ -21,7 +21,7 @@ public class EnemySpriteManager : MonoBehaviour
     private bool attacking = false;
 
     public Vector2 leftAttackLocalPosition = new Vector2(0f, 0f);
-    private Vector2 rightAttackLocalPosition = new Vector2(-0f, 0f);
+    public Vector2 rightAttackLocalPosition = new Vector2(-0f, 0f);
 
     public LocalEnemyScript localEnemyScript;
     private Vector2 playerPosition;
