@@ -253,6 +253,22 @@ public class GoblinSpriteDirection : MonoBehaviour
         attacking = false;
     }
 
+    public void StopMove()
+    {
+        if (gameObject != null)
+        {
+            GameEvents.current.EnemyStartAttack(gameObject);
+        }
+    }
+
+
+    public void StartMove()
+    {
+        if (gameObject != null)
+        {
+            GameEvents.current.EnemyStopAttack(gameObject);
+        }
+    }
     public void TurnOffAttack()
     {
         attacking = false;

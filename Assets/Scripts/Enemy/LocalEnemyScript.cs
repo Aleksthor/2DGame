@@ -63,12 +63,13 @@ public class LocalEnemyScript : MonoBehaviour
 
         player = PlayerManager.Instance;
         playerTransform = PlayerSingleton.instance.transform;
-
-
         animator = gameObject.GetComponent<Animator>();
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
         maxHealth = health;
-
+        if (isBoss)
+        {
+            healthBar = HUDSingleton.instance.transform.Find("Bossbar").GetComponent<Slider>();
+        }
         if (damageDisplay != null)
         { 
             damageDisplay.gameObject.SetActive(false);
@@ -230,7 +231,41 @@ public class LocalEnemyScript : MonoBehaviour
     }
 
 
+    public void DashAttack()
+    {
+        Vector2 direction = transform.position - playerTransform.position;
+        transform.position = (Vector2)playerTransform.position + (direction.normalized * 2f);
 
+
+        animator.SetTrigger("Attack");
+        GameEvents.current.EnemyMeleeAttack((Vector2)playerTransform.position);
+        GoblinSpriteDirection gsp;
+        if (transform.GetComponent<GoblinSpriteDirection>() != null)
+        {
+            gsp = transform.GetComponent<GoblinSpriteDirection>();
+            if (playerTransform.position.x - transform.position.x < 0)
+            {
+                gsp.Flip(false);
+            }
+            else
+            {
+                gsp.Flip(true);
+            }
+        }
+        EnemySpriteManager esm;
+        if (transform.GetComponent<EnemySpriteManager>() != null)
+        {
+            esm = transform.GetComponent<EnemySpriteManager>();
+            if (playerTransform.position.x - transform.position.x < 0)
+            {
+                esm.Flip(false);
+            }
+            else
+            {
+                esm.Flip(true);
+            }
+        }
+    }
 
 
     public void ColliderOn()
