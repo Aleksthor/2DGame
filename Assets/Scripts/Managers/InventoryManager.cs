@@ -140,7 +140,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
 
         // Sends these events and updates the player with these
         Debug.Log("Weapon Was Changed");
-        PlayerManager.Instance.staminaPerHit = weapon.staminaUse;
+
         GameEvents.current.ChangeWeapon(weapon);
         GameEvents.current.ChangeWeaponCollider(weapon.colliderPointX, weapon.colliderPointY, (int)weapon.weaponType);
         GameEvents.current.ChangeWeaponAbility(weapon.ability1, weapon.ability2, weapon.ability3, weapon.ability1Icon, weapon.ability2Icon, weapon.ability3Icon);
@@ -170,6 +170,14 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
             SpriteManager.Instance.canDualWield = false;
             GameEvents.current.ShowShield();
         }
+        PlayerManager.Instance.staminaPerHit = weapon.staminaUse;
+        if (secondaryWeapon != null)
+        {
+            if (currentWeapon.canDualWield && secondaryWeapon.canDualWield)
+            {
+                PlayerManager.Instance.staminaPerHit = weapon.staminaUse + secondaryWeapon.staminaUse;
+            }
+        }
 
         UpdateStats();
 
@@ -193,11 +201,14 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         {
             if (currentWeapon.canDualWield && weapon.canDualWield)
             {
+                GameEvents.current.UpdateSecondaryWeapon(weapon);
                 GameEvents.current.ShowSecondary(weapon);
+                PlayerManager.Instance.staminaPerHit = weapon.staminaUse + currentWeapon.staminaUse;
             }
             else
             {
                 GameEvents.current.RemoveSecondary();
+                PlayerManager.Instance.staminaPerHit = currentWeapon.staminaUse;
             }
         }
         secondaryWeapon = weapon;

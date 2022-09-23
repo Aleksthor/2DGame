@@ -53,6 +53,11 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
     private bool defenseBuffActive = false;
 
 
+    // Where to spawn on a new scene
+
+    public Vector2 spawnPosition;
+
+
 
     private void Start()
     {
@@ -303,5 +308,8 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
             SetManaValue(baseManaRegen);
         }
     }
+
+
+
 }
 

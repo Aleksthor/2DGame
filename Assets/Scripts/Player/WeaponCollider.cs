@@ -11,10 +11,14 @@ public class WeaponCollider : MonoBehaviour
     [SerializeField] public float speedMultiplier = 1f;
     [SerializeField] public float slowDownLength = 0f;
 
+
+
     private float damageBefore;
     private bool boostNextAttack = false;
     private float damageBoost;
     private bool didCrit;
+
+    public int weapon;
 
 
 
@@ -27,6 +31,7 @@ public class WeaponCollider : MonoBehaviour
         GameEvents.current.OnChangeStats += ChangeStats;
         GameEvents.current.OnBoostNextAttack += BoostNextAttack;
         GameEvents.current.OnDontBoostNextAttack += DontBoostNextAttack;
+        GameEvents.current.OnUpdateSecondaryWeapon += UpdateSecondaryWeapon;
         damageBefore = damage;
     }
 
@@ -37,18 +42,39 @@ public class WeaponCollider : MonoBehaviour
 
     private void ChangeStats(float Damage, float magicDamage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, float CritRate, float CritDamage, Vector2 localPosition)
     {
+        if (weapon == 0)
+        {
+            damage = Damage;
+            knockbackForce = KnockBackForce;
+            speedMultiplier = SpeedMultiplier;
+            slowDownLength = SlowDownLength;
+            critRate = CritRate;
+            critRate = Mathf.Clamp(critRate, 0, 70);
 
-        damage = Damage;
-        knockbackForce = KnockBackForce;
-        speedMultiplier = SpeedMultiplier;
-        slowDownLength = SlowDownLength;
-        critRate = CritRate;
-        critRate = Mathf.Clamp(critRate, 0, 70);
+            critDamage = CritDamage;
 
-        critDamage = CritDamage;
+            damageBefore = Damage;
+        }
 
-        damageBefore = Damage;
 
+    }
+
+
+    private void UpdateSecondaryWeapon(Weapon Weapon)
+    {
+        if (weapon == 1)
+        {
+            damage = Weapon.damage;
+            knockbackForce = Weapon.knockBackForce;
+            speedMultiplier = Weapon.speedMultiplier;
+            slowDownLength = Weapon.slowDownLength;
+            critRate = Weapon.critRate;
+            critRate = Mathf.Clamp(critRate, 0, 70);
+
+            critDamage = Weapon.critDamage;
+
+            damageBefore = Weapon.damage;
+        }
     }
 
 

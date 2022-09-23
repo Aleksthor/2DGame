@@ -774,6 +774,7 @@ MonoBehaviour:
   knockbackForce: 40
   speedMultiplier: 1
   slowDownLength: 0
+  weapon: 1
 --- !u!60 &149138574127894961
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1844,6 +1845,7 @@ MonoBehaviour:
   knockbackForce: 40
   speedMultiplier: 1
   slowDownLength: 0
+  weapon: 0
 --- !u!1 &8768689880247992915
 GameObject:
   m_ObjectHideFlags: 0

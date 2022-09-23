@@ -293,6 +293,15 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+    public event Action<Weapon> OnUpdateSecondaryWeapon;
+    public void UpdateSecondaryWeapon(Weapon weapon)
+    {
+        if(OnUpdateSecondaryWeapon != null)
+        {
+            OnUpdateSecondaryWeapon(weapon);
+        }
+    }
+
     public event Action<float, float, float, float, float, float, float, float, float, Vector2> OnUpdateInventoryStats;
     public void UpdateInventoryStats(float damage, float magicFamage, float knockbackForce, float speedMultiplier, float slowDownLength, float manaCost, float force, float critRate, float critDamage, Vector2 localPosition)
     {
