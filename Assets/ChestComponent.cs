@@ -21,14 +21,14 @@ public class ChestComponent : MonoBehaviour
 
     private void Update()
     {
-        if (open)
-        {
-            openTime -= Time.deltaTime;
-            if(openTime < 0f)
-            {
-                animator.SetTrigger("Close");
-            }
-        }
+        //if (open)
+        //{
+        //    openTime -= Time.deltaTime;
+        //    if(openTime < 0f)
+        //    {
+        //        animator.SetTrigger("Close");
+        //    }
+        //}
 
         if (Vector2.Distance(playerObject.transform.position,transform.position) < ChestRange && !open)
         {
