@@ -387,7 +387,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0044038296, y: -0.14092195}
+  m_Offset: {x: -0.0044038296, y: -0.13946165}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -398,7 +398,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.11071946, y: 0.041590348}
+  m_Size: {x: 0.11071946, y: 0.038669795}
   m_EdgeRadius: 0
 --- !u!114 &5750339228152643405
 MonoBehaviour:
@@ -455,11 +455,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9236dc61fe4b74743aedf0e958c9f427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDamage: 10
+  strongAttackDamage: 15
   attackSpeed: 3
   attackRange: 2.5
   FOV: 10
   MovementSpeed: 2
   strongAttackChance: 50
+  waitToDash: 5
+  effect: {fileID: 8096557702922142553, guid: bd4d19b9caba93f43a25b7bd2666752f, type: 3}
   playerTransform: {fileID: 0}
 --- !u!114 &5394334746562266757
 MonoBehaviour:
@@ -636,8 +640,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280558799
-  m_fontColor: {r: 0.8113208, g: 0.14159843, b: 0.14159843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

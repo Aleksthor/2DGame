@@ -81,6 +81,7 @@ MonoBehaviour:
   damageDisplay: {fileID: 1132229106446023870}
   MageOrb: {fileID: 8919191057245788580, guid: 6aba79173167a3d42938fe05256cab86, type: 3}
   MageShard: {fileID: 3269026680114006147, guid: 7839f896486c51747be44a2f0c5efbdc, type: 3}
+  isBoss: 0
   speedMultiplier: 1
   hit: 0
 --- !u!95 &530532823470142425
@@ -926,8 +927,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280558799
-  m_fontColor: {r: 0.8113208, g: 0.14159843, b: 0.14159843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

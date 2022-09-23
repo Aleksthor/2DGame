@@ -9,7 +9,9 @@ public class ChestComponent : MonoBehaviour
     private Animator animator;
     public GameObject SpawnableItem;
     private bool open = false;
+#pragma warning disable 414
     private float openTime = 0f;
+#pragma warning restore 414
     private GameObject playerObject;
     public float ChestRange = 2f;
 

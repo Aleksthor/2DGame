@@ -12,7 +12,8 @@ public class GoblinSmallBossBT : BehaviorTrees.BehaviorTree
     public float FOV = 6f;
     public float MovementSpeed = 2f;
     public float strongAttackChance = 50;
-    
+    public float waitToDash = 5f;
+    public UnityEngine.GameObject effect;
 
 
     public UnityEngine.Transform playerTransform;
@@ -38,9 +39,16 @@ public class GoblinSmallBossBT : BehaviorTrees.BehaviorTree
             new Sequence(new List<Node>
             {
                 new TaskCheckIfPlayerInAttackRange(transform, playerTransform, attackRange),
-                new TaskWait(attackSpeed),
+                new TaskWait(attackSpeed, 10f),
                 new TaskAttackandStrongAttack(transform, playerTransform, strongAttackChance, attackDamage, strongAttackDamage),
             }),
+            new Sequence(new List<Node>
+                {
+                    new TaskCheckPlayerInFOV(transform, playerTransform, FOV),
+                    new TaskMinRange(transform, playerTransform, 4f),
+                    new TaskWait(waitToDash, 0f),
+                    new TaskDashAttack(transform, playerTransform, effect),
+                }),
             new Sequence(new List<Node>
             {
                 new TaskCheckPlayerInFOV(transform, playerTransform, FOV),

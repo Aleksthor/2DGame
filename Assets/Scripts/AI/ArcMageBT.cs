@@ -32,13 +32,13 @@ public class ArcMageBT : BehaviorTrees.BehaviorTree
             new Sequence(new List<Node>
             {
                 new TaskMaxRange(transform, playerTransform, FOV/2f),
-                new TaskWait(WaitTimeOrb),
+                new TaskWait(WaitTimeOrb, 10f),
                 new TaskShootOrb(transform),
             }),
             new Sequence(new List<Node>
             {
                 new TaskMaxRange(transform, playerTransform, FOV),
-                new TaskWait(WaitTimeShards),
+                new TaskWait(WaitTimeShards, 10f),
                 new TaskShootShard(transform),
             }),
             new Sequence(new List<Node>

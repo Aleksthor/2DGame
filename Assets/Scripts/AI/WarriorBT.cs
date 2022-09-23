@@ -50,7 +50,7 @@ public class WarriorBT : BehaviorTrees.BehaviorTree
             new Sequence(new List<Node>
             {
                 new TaskCheckIfPlayerInAttackRange(transform, playerTransform, attackRange),
-                new TaskWait(attackSpeed),
+                new TaskWait(attackSpeed, 10f),
                 new TaskAttack(transform, playerTransform),
             }),
             new Sequence(new List<Node>

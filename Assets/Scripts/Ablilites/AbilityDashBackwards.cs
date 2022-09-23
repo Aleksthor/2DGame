@@ -25,7 +25,7 @@ public class AbilityDashBackwards : Ability
         Vector2 newPosition = (Vector2)parent.transform.position - direction.normalized * dashLength;
 
 
-        RaycastHit2D hit = Physics2D.Raycast(parent.transform.position, direction.normalized, dashLength, layerMask);
+        RaycastHit2D hit = Physics2D.Raycast(parent.transform.position, direction.normalized * -1f, dashLength, layerMask);
 
         if (hit)
         {

@@ -9,9 +9,10 @@ public class TaskWait : Node
     public float waitTime;
     public float waitClock = 10;
 
-    public TaskWait(float Seconds)
+    public TaskWait(float Seconds, float start)
     {
         waitTime = Seconds;
+        waitClock = start;
     }
 
     public override NodeState Evaluate()

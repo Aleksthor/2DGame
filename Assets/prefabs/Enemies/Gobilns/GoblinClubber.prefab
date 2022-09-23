@@ -159,8 +159,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278200319
-  m_fontColor: {r: 1, g: 0.15225314, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1231,6 +1231,7 @@ MonoBehaviour:
   damageDisplay: {fileID: 7297198590423818470}
   MageOrb: {fileID: 0}
   MageShard: {fileID: 0}
+  isBoss: 0
   speedMultiplier: 1
   hit: 0
 --- !u!114 &1668383449134690655

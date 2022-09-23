@@ -82,7 +82,7 @@ public class LocalEnemyScript : MonoBehaviour
     {
         if (isBoss)
         {
-            if (Vector2.Distance(transform.position, playerTransform.position) < 10)
+            if (Vector2.Distance(transform.position, playerTransform.position) < 15)
             {
                 healthBar.gameObject.SetActive(true);
             }
@@ -139,7 +139,7 @@ public class LocalEnemyScript : MonoBehaviour
             else
             {
                 
-                    damageDisplay.GetComponent<TMPro.TextMeshProUGUI>().color = new Color32(200, 35, 35, 255);
+                    damageDisplay.GetComponent<TMPro.TextMeshProUGUI>().color = new Color32(255, 255, 255, 255);
 
             }
             Vector2 direction = ((Vector2)transform.position - (Vector2)playerPosition).normalized;
@@ -217,6 +217,10 @@ public class LocalEnemyScript : MonoBehaviour
         hit = false;
         if (health <= 0)
         {
+            if (isBoss)
+            {
+                healthBar.gameObject.SetActive(false);
+            }
             GameEvents.current.OnWeaponCollission -= WeaponCollission;
 
             GameEvents.current.DestroyObject(gameObject);
