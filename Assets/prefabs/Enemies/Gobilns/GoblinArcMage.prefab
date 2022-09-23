@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4032464496373871326}
+  - component: {fileID: 5033889546873425704}
   - component: {fileID: 1668108134705213172}
   - component: {fileID: 530532823470142425}
   - component: {fileID: 5778204630599548508}
   - component: {fileID: 755574473971835140}
-  - component: {fileID: 5033889546873425704}
   - component: {fileID: 6740251401688045700}
   - component: {fileID: 1076491570000878254}
   - component: {fileID: 5009717146299874571}
@@ -44,6 +44,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5033889546873425704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37057609040010941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47d0d3398fcca64e855b3801d971170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FOV: 10
+  MovementSpeed: 3
+  WaitTimeOrb: 4
+  WaitTimeShards: 3
+  playerTransform: {fileID: 0}
 --- !u!114 &1668108134705213172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,6 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   maxHealth: 200
+  armor: 0
   weaponCollider: {fileID: 3767994117819882413}
   healthBar: {fileID: 6372276176852038865}
   damageDisplay: {fileID: 1132229106446023870}
@@ -161,23 +179,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.13017395, y: 0.053985655}
   m_EdgeRadius: 0
---- !u!114 &5033889546873425704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37057609040010941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c47d0d3398fcca64e855b3801d971170, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FOV: 10
-  MovementSpeed: 3
-  WaitTimeOrb: 2
-  WaitTimeShards: 3
-  playerTransform: {fileID: 0}
 --- !u!114 &6740251401688045700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +215,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 5
+  m_LinearDrag: 20
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

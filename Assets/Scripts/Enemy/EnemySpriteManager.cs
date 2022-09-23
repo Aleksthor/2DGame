@@ -33,8 +33,6 @@ public class EnemySpriteManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Weapon = transform.Find("Weapon").GetComponent<Transform>();
-        Effect = transform.Find("Effects").GetComponent<Transform>();
 
         Frame1 = transform.position;
         if(localEnemyScript == null)

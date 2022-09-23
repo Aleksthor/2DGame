@@ -572,6 +572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 40
   maxHealth: 40
+  armor: 0
   weaponCollider: {fileID: 8752289547499195623}
   healthBar: {fileID: 125196070054682668}
   damageDisplay: {fileID: 270671823276183100}
@@ -598,6 +599,7 @@ MonoBehaviour:
   direction: {x: -0.09, y: 0}
   flipLastDirection: 0
   leftAttackLocalPosition: {x: -0.09, y: 0}
+  rightAttackLocalPosition: {x: -0, y: 0}
   localEnemyScript: {fileID: -5815491392598414940}
 --- !u!50 &6576056209308576016
 Rigidbody2D:
@@ -612,7 +614,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 5
+  m_LinearDrag: 20
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

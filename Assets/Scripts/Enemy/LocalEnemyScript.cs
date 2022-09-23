@@ -31,6 +31,8 @@ public class LocalEnemyScript : MonoBehaviour
     private Transform orbSpawnPoint;
     private Transform playerTransform;
 
+    public bool isBoss = false;
+
 
 
     #region Function Variables
@@ -59,7 +61,8 @@ public class LocalEnemyScript : MonoBehaviour
     {
         weaponCollider.enabled = false;
 
-        player = FindObjectOfType<PlayerManager>();
+        player = PlayerManager.Instance;
+        playerTransform = PlayerSingleton.instance.transform;
 
 
         animator = gameObject.GetComponent<Animator>();
@@ -77,7 +80,17 @@ public class LocalEnemyScript : MonoBehaviour
 
     public void Update()
     {
-
+        if (isBoss)
+        {
+            if (Vector2.Distance(transform.position, playerTransform.position) < 10)
+            {
+                healthBar.gameObject.SetActive(true);
+            }
+            else
+            {
+                healthBar.gameObject.SetActive(false);
+            }
+        }
         if (resetSpeed)
         {
             if (resetAgain)

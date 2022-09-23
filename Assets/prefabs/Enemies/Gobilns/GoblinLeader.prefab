@@ -1233,6 +1233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   maxHealth: 50
+  armor: 0
   weaponCollider: {fileID: 4910410392311390403}
   healthBar: {fileID: 4449359775235164884}
   damageDisplay: {fileID: 999469176986295036}
@@ -1252,7 +1253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99e03695110125479803fee021168a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 2.5
+  attackSpeed: 3
   attackRange: 2.5
   FOV: 6
   MovementSpeed: 1
@@ -1271,6 +1272,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
   flipLastDirection: 0
+  left: {x: 0.01, y: 0.12}
+  right: {x: -0.01, y: 0.12}
 --- !u!60 &4721920806708628863
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1367,7 +1370,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 5
+  m_LinearDrag: 20
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

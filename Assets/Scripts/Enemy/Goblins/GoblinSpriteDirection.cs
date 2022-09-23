@@ -30,8 +30,8 @@ public class GoblinSpriteDirection : MonoBehaviour
     private bool attacking = false;
 
     // Weapon Position on each direction
-    private Vector2 left = new Vector2(0.01f, 0.12f);  
-    private Vector2 right = new Vector2(-0.01f, 0.12f);
+    public Vector2 left = new Vector2(0.01f, 0.12f);  
+    public Vector2 right = new Vector2(-0.01f, 0.12f);
 
     // Reference to the most central enemy script
     private LocalEnemyScript localEnemyScript;
