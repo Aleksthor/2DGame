@@ -14,8 +14,9 @@ public class Portal : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             SceneManager.LoadScene(SceneName);
+            LoadingScreen.Instance.LoadScene(SceneName);
             PlayerSingleton.instance.transform.position = spawnPosition;
-            
+            DataPersistenceManager.instance.SaveGame();
         }
     }
 }

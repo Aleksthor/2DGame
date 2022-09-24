@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
+public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersistence
 {
 
 
@@ -85,6 +85,27 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
         // run this last to clamp values
         UpdateStats();
         
+    }
+
+
+    public void LoadData(GameData data)
+    {
+        health = data.health;
+        maxHealth = data.maxHealth;
+        stamina = data.stamina;
+        maxStamina = data.maxStamina;
+        mana = data.mana;
+        maxMana = data.maxMana;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.health = health;
+        data.maxHealth = maxHealth;
+        data.stamina = stamina;
+        data.maxStamina = maxStamina;
+        data.mana = mana;
+        data.maxMana = maxMana;
     }
 
     void UpdateStats()

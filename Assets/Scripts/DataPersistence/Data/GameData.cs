@@ -6,7 +6,16 @@ using UnityEngine;
 [System.Serializable]
 public class GameData 
 {
+
+    /**   PLayer   */
     public Vector2 position;
+
+    public float health;
+    public float maxHealth;
+    public float stamina;
+    public float maxStamina;
+    public float mana;
+    public float maxMana;
 
 
     /**  Inventory  */

@@ -5,10 +5,11 @@ using System.Linq;
 
 public class DataPersistenceManager : MonoBehaviour
 {
+    public static DataPersistenceManager instance { get; private set; }
 
     [Header("File Storage Config")]
     [SerializeField] private string fileName;
-    public static DataPersistenceManager instance { get; private set; }
+
 
     private GameData gameData;
 
@@ -74,10 +75,10 @@ public class DataPersistenceManager : MonoBehaviour
         fileDataHandler.Save(gameData);
     }
 
-    private void OnApplicationQuit()
-    {
-        SaveGame();
-    }
+    //private void OnApplicationQuit()
+    //{
+    //    SaveGame();
+    //}
 
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()
