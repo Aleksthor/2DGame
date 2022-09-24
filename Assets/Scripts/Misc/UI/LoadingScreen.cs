@@ -46,7 +46,7 @@ public class LoadingScreen : SingletonMonoBehaviour<LoadingScreen>
 
     private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-
-        loadingScreen.SetActive(false);
+        if(loadingScreen != null)
+            loadingScreen.SetActive(false);
     }
 }

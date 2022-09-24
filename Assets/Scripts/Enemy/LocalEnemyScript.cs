@@ -32,7 +32,7 @@ public class LocalEnemyScript : MonoBehaviour
     private Transform playerTransform;
 
     public bool isBoss = false;
-
+    private bool chestSpawned = false;
 
 
     #region Function Variables
@@ -183,6 +183,12 @@ public class LocalEnemyScript : MonoBehaviour
         }
         if (health <= 0)
         {
+            if (isBoss && !chestSpawned)
+            {
+                transform.GetComponent<LocalBossScript>().SpawnChest();
+                chestSpawned = true;
+            }
+           
             animator.SetTrigger("Dead");
         }
         else

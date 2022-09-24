@@ -7,6 +7,26 @@ public class BossManager : MonoBehaviour, IDataPersistence
 {
     public static BossManager instance;
 
+    [Header("Goblin Small Boss")]
+    [Header("Boss")]
+    [SerializeField] public bool goblinSmallBossDead = false;
+    [SerializeField] public GameObject goblinSmallBoss;
+    [SerializeField] public Vector2 goblinSmallBossLocation;
+    [Header("Other Objects Attached")]
+    [SerializeField] public GameObject rock;
+    [SerializeField] public Vector2 rockLocation;
+
+
+
+    [Header("Goblin Arc Mage")]
+    [Header("Boss")]
+    [SerializeField] public bool goblinArcMageDead = false;
+    [SerializeField] public GameObject goblinArcMage;
+    [SerializeField] public Vector2 goblinArcMagePosition;
+
+
+
+    private IEnumerator coroutine;
 
     private void Awake()
     {
@@ -22,17 +42,6 @@ public class BossManager : MonoBehaviour, IDataPersistence
 
 
 
-#pragma warning disable 414
-    [Header("Goblin Small Boss")]
-    [Header("Boss")]
-    [SerializeField] public bool goblinSmallBossDead = false;
-    [SerializeField] public GameObject goblinSmallBoss;
-    [SerializeField] public Vector2 goblinSmallBossLocation;
-    [Header("Other Objects Attached")]
-    [SerializeField] public GameObject rock;
-    [SerializeField] public Vector2 rockLocation;
-#pragma warning restore 414
-
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnLevelFinishedLoading;
@@ -46,24 +55,36 @@ public class BossManager : MonoBehaviour, IDataPersistence
 
     private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        switch (scene.name)
+        StartCoroutine(SpawnBoss(scene.name));
+
+    }
+
+
+    IEnumerator SpawnBoss(string sceneName)
+    {
+        yield return new WaitForSeconds(0.3f);
+        switch (sceneName)
         {
             case "FirstArena":
                 if (goblinSmallBossDead != true)
                 {
                     GameObject GoblinSmallBoss = Instantiate(goblinSmallBoss, goblinSmallBossLocation, transform.rotation);
                     GoblinSmallBoss.GetComponent<RemoveItemOnDeath>().objectToRemove = Instantiate(rock, rockLocation, transform.rotation);
-                    
                 }
-                
+                break;
+            case "GoblinCave":
+                if (goblinArcMageDead != true)
+                {
+                    Instantiate(goblinArcMage, goblinArcMagePosition, transform.rotation);
+                }
+
+
                 break;
 
             default:
                 break;
         }
-
     }
-
 
 
     // DataPersistence
@@ -71,12 +92,13 @@ public class BossManager : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         goblinSmallBossDead = data.goblinSmallBossDead;
+        goblinArcMageDead = data.goblinArcMageDead;
     }
 
     public void SaveData(ref GameData data)
     {
         data.goblinSmallBossDead = goblinSmallBossDead;
-        
+        data.goblinArcMageDead = goblinArcMageDead;
     }
 
 

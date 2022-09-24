@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 218413601570151876}
   - component: {fileID: 3046511189178873820}
   m_Layer: 0
-  m_Name: PurpleBook
+  m_Name: WhiteBook
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -628,12 +628,12 @@ MonoBehaviour:
   - {fileID: 2206993873739200310}
   - {fileID: 1783921549247132288}
   - {fileID: 7111272894835716164}
-  Weapon: {fileID: 0}
-  Effect: {fileID: 0}
+  Weapon: {fileID: 3959943113886406902}
+  Effect: {fileID: 1288391427633698973}
   direction: {x: -0.09, y: 0}
   flipLastDirection: 0
   leftAttackLocalPosition: {x: -0.09, y: 0}
-  rightAttackLocalPosition: {x: -0, y: 0}
+  rightAttackLocalPosition: {x: 0.09, y: 0}
   localEnemyScript: {fileID: -5815491392598414940}
 --- !u!60 &4944805753548419865
 PolygonCollider2D:

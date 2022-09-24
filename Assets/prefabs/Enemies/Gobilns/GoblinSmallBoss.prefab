@@ -264,6 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 63426079442986744}
   - component: {fileID: 23245224044745062}
+  - component: {fileID: 6276562192614482824}
   - component: {fileID: 3899537854521541981}
   - component: {fileID: 7480949944173170202}
   - component: {fileID: 9022452653154048445}
@@ -272,7 +273,6 @@ GameObject:
   - component: {fileID: 1561774330071187590}
   - component: {fileID: 5394334746562266757}
   - component: {fileID: 7620577716129049216}
-  - component: {fileID: 6276562192614482824}
   m_Layer: 0
   m_Name: GoblinSmallBoss
   m_TagString: Enemy
@@ -311,6 +311,29 @@ SortingGroup:
   m_SortingLayerID: -1103112865
   m_SortingLayer: 2
   m_SortingOrder: 0
+--- !u!114 &6276562192614482824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3403219862492592466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90a53b4c3119771468300623abc53e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossName: 0
+  Chest: {fileID: 1525471442761610389, guid: a67e36b0a640a014a8b8a4f4c13003bf, type: 3}
+  chestLocation: {x: 12, y: 3}
+  highChanceItem: []
+  highChance: 60
+  midChanceItem:
+  - {fileID: 11400000, guid: 4e097036d77b38b4992cd253252fcc0a, type: 2}
+  midChance: 25
+  lowChanceItem:
+  - {fileID: 11400000, guid: 4f3120963a5de3045890f1b2fa68d540, type: 2}
+  lowChance: 10
 --- !u!50 &3899537854521541981
 Rigidbody2D:
   serializedVersion: 4
@@ -496,19 +519,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToRemove: {fileID: 0}
---- !u!114 &6276562192614482824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3403219862492592466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90a53b4c3119771468300623abc53e70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossName: 0
 --- !u!1 &3915185144691980301
 GameObject:
   m_ObjectHideFlags: 0

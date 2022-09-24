@@ -40,6 +40,7 @@ public class GameData
 
     /**   Bosses   */
     public bool goblinSmallBossDead;
+    public bool goblinArcMageDead;
 
 
     // What ever we pass into the constructor will be our initial values when we start a new game
@@ -47,6 +48,13 @@ public class GameData
     public GameData()
     {
         goblinSmallBossDead = false;
+        goblinArcMageDead = false;
+        health = 50;
+        maxHealth = 50;
+        stamina = 100;
+        maxStamina = 100;
+        mana = 75;
+        maxMana = 75;
     }
 
 

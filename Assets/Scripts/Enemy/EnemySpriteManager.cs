@@ -39,7 +39,6 @@ public class EnemySpriteManager : MonoBehaviour
         {
             localEnemyScript = gameObject.GetComponent<LocalEnemyScript>();
         }
-       
 
         GameEvents.current.OnEnemyMeleeAttack += EnemyMeleeAttack;
 

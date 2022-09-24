@@ -42,17 +42,17 @@ public class ProjectileCollider : MonoBehaviour
 
                 didCrit = false;
 
+                if (hasDeathAnimation)
+                {
+                    gameObject.GetComponent<Animator>().SetTrigger("Hit");
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
 
             }
 
-            if (hasDeathAnimation)
-            {
-                gameObject.GetComponent<Animator>().SetTrigger("Hit");
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
 
         }
     }
