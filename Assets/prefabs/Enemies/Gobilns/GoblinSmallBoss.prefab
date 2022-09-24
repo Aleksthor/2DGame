@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 1561774330071187590}
   - component: {fileID: 5394334746562266757}
   - component: {fileID: 7620577716129049216}
+  - component: {fileID: 6276562192614482824}
   m_Layer: 0
   m_Name: GoblinSmallBoss
   m_TagString: Enemy
@@ -413,8 +414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af92e51484655c540abff646ac6aa242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 0
+  health: 70
+  maxHealth: 70
   armor: 0
   weaponCollider: {fileID: 8236240549438406704}
   healthBar: {fileID: 0}
@@ -495,6 +496,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToRemove: {fileID: 0}
+--- !u!114 &6276562192614482824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3403219862492592466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90a53b4c3119771468300623abc53e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossName: 0
 --- !u!1 &3915185144691980301
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
-public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
+public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataPersistence
 {
-    public List<Item> inventory;
+    public List<Item> inventory = new List<Item>();
     public float currentWeight;
     public float maxWeight;
 
@@ -36,6 +37,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
     private float swapTime = 0.5f;
     private float swapClock = 0;
     private bool swap = false;
+
+    public Weapon starterWeapon;
 
 
 
@@ -83,10 +86,205 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
     }
 
 
+    public void LoadData(GameData data)
+    {
+
+        inventory = data.inventory;
+
+        #region Equipped Items
+        if (data.currentWeapon != null)
+        {
+            List<Item> currentweapon = new List<Item>();
+
+            currentweapon = data.currentWeapon;
+            if(currentweapon.Count > 0)
+                currentWeapon = (Weapon)currentweapon[0];
+            
+
+        }
+        if (data.secondaryWeapon != null)
+        {
+            List<Item> secondaryweapon = new List<Item>();
+
+            secondaryweapon = data.secondaryWeapon;
+            if (secondaryweapon.Count > 0)
+                secondaryWeapon = (Weapon)secondaryweapon[0];
+        }
+        if (data.currentShield != null)
+        {
+            List<Item> currentshield = new List<Item>();
+
+            currentshield = data.currentShield;
+            if (currentshield.Count > 0)
+                currentShield = (Shield)currentshield[0];
+        }
+
+        if (data.currentHead != null)
+        {
+            List<Item> currenthead = new List<Item>();
+
+            currenthead = data.currentHead;
+            if (currenthead.Count > 0)
+                currentHead = (Equipment)currenthead[0];
+        }
+        if (data.currentChest != null)
+        {
+            List<Item> currentchest = new List<Item>();
+
+            currentchest = data.currentChest;
+            if (currentchest.Count > 0)
+                currentChest = (Equipment)currentchest[0];
+        }
+        if (data.currentPants != null)
+        {
+            List<Item> currentpants = new List<Item>();
+
+            currentpants = data.currentPants;
+            if (currentpants.Count > 0)
+                currentPants = (Equipment)currentpants[0];
+        }
+        if (data.currentShoes != null)
+        {
+            List<Item> currentshoes = new List<Item>();
+
+            currentshoes = data.currentShoes;
+            if (currentshoes.Count > 0)
+                currentShoes = (Equipment)currentshoes[0];
+        }
+
+        if (data.currentNecklace != null)
+        {
+            List<Item> currentnecklace = new List<Item>();
+
+            currentnecklace = data.currentNecklace;
+            if (currentnecklace.Count > 0)
+                currentNecklace = (Equipment)currentnecklace[0];
+        }
+        if (data.currentEarrings != null)
+        {
+            List<Item> currentearrings = new List<Item>();
+
+            currentearrings = data.currentEarrings;
+            if (currentearrings.Count > 0)
+                currentEarrings = (Equipment)currentearrings[0];
+        }
+        if (data.currentRing1 != null)
+        {
+            List<Item> currentring1 = new List<Item>();
+
+            currentring1 = data.currentRing1;
+            if (currentring1.Count > 0)
+                currentRing1 = (Equipment)currentring1[0];
+        }
+        if (data.currentRing2 != null)
+        {
+            List<Item> currentring2 = new List<Item>();
+
+            currentring2 = data.currentRing2;
+            if (currentring2.Count > 0)
+                currentRing2 = (Equipment)currentring2[0];
+        }
+
+        #endregion
+
+
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.inventory = inventory;
+
+        #region Current Equipment
+        if (currentWeapon != null)
+        {
+            List<Item> currentweapon = new List<Item>();
+            currentweapon.Add(currentWeapon);
+            data.currentWeapon = currentweapon;
+        }
+
+        if (secondaryWeapon != null)
+        {
+            List<Item> secondaryweapon = new List<Item>();
+            secondaryweapon.Add(secondaryWeapon);
+            data.secondaryWeapon = secondaryweapon;
+        }
+
+        if (currentShield != null)
+        {
+            List<Item> currentshield = new List<Item>();
+            currentshield.Add(currentShield);
+            data.currentShield = currentshield;
+        }
+
+
+        if (currentHead != null)
+        {
+            List<Item> currenthead = new List<Item>();
+            currenthead.Add(currentHead);
+            data.currentHead = currenthead;
+        }
+        if (currentChest != null)
+        {
+            List<Item> currentchest = new List<Item>();
+            currentchest.Add(currentChest);
+            data.currentChest = currentchest;
+        }
+        if (currentPants != null)
+        {
+            List<Item> currentpants = new List<Item>();
+            currentpants.Add(currentPants);
+            data.currentPants = currentpants;
+        }
+        if (currentShoes != null)
+        {
+            List<Item> currentshoes = new List<Item>();
+            currentshoes.Add(currentShoes);
+            data.currentShoes = currentshoes;
+        }
+
+        if (currentNecklace != null)
+        {
+            List<Item> currentnecklace = new List<Item>();
+            currentnecklace.Add(currentNecklace);
+            data.currentNecklace = currentnecklace;
+        }
+        if (currentEarrings != null)
+        {
+            List<Item> currentearrings = new List<Item>();
+            currentearrings.Add(currentEarrings);
+            data.currentEarrings = currentearrings;
+        }
+        if (currentRing1 != null)
+        {
+            List<Item> currentring1 = new List<Item>();
+            currentring1.Add(currentRing1);
+            data.currentRing1 = currentring1;
+        }
+        if (currentRing2 != null)
+        {
+            List<Item> currentring2 = new List<Item>();
+            currentring2.Add(currentRing2);
+            data.currentRing2 = currentring2;
+        }
+        #endregion
+    }
+
 
     private void Start()
     {
-
+        if (currentWeapon == null)
+        {
+            currentWeapon = starterWeapon;
+        }
+        else
+        {
+            ChangeWeapon(currentWeapon);
+        }
+        if (inventory == null)
+        {
+            inventory = new List<Item>();
+        }
+        
 
         GameEvents.current.OnAddItem += AddItem;
         GameEvents.current.OnRemoveItem += RemoveItem;
@@ -417,25 +615,274 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
                     Destroy(item.gameObject);
                 }
                 currentWeight = 0;
-
-                foreach (Item item in inventory)
+                if (inventory.Count > 0)
                 {
-                    currentWeight += (item.itemWeight * item.stackAmount);
-                    if (item.itemType != Item.ItemType.Weapon)
+
+                    foreach (Item item in inventory)
                     {
-                        if (item.itemType != Item.ItemType.Equipment)
+                        currentWeight += (item.itemWeight * item.stackAmount);
+                        if (item.itemType != Item.ItemType.Weapon)
                         {
-                            if(item.itemType != Item.ItemType.Shield)
+                            if (item.itemType != Item.ItemType.Equipment)
+                            {
+                                if(item.itemType != Item.ItemType.Shield)
+                                {
+                                    GameObject obj = Instantiate(uiObject, uiContent);
+                                    obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
+                                    obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
+                                    obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
+                                    obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = item.stackAmount.ToString() ;
+
+
+                                    obj.GetComponent<InventoryItem>().item = item;
+                                    obj.GetComponent<Image>().color = new Color(130, 130, 130);
+                                    switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
+                                    {
+                                        case 0:
+
+                                            obj.GetComponent<Image>().color = new Color32(130, 130, 130, 100);
+                                            break;
+                                        case 1:
+
+                                            obj.GetComponent<Image>().color = new Color32(110, 190, 80, 100);
+                                            break;
+                                        case 2:
+
+                                            obj.GetComponent<Image>().color = new Color32(50, 140, 175, 100);
+                                            break;
+                                        case 3:
+
+                                            obj.GetComponent<Image>().color = new Color32(185, 80, 190, 100);
+                                            break;
+                                        case 4:
+
+                                            obj.GetComponent<Image>().color = new Color32(220, 150, 50, 100);
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                    obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
+                                }
+                            
+                            }
+
+                        }
+                    }
+                }
+               
+                currentTab = 0;
+                weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
+                #endregion 
+                break;
+            case 1:
+                #region WeaponsTab
+
+                foreach (Transform item in uiContent)
+                {
+                    Destroy(item.gameObject);
+                }
+                currentWeight = 0;
+                if (inventory.Count > 0)
+                {
+
+                    foreach (Item item in inventory)
+                    {
+
+                        currentWeight += (item.itemWeight * item.stackAmount);
+                        if (item.itemType == Item.ItemType.Weapon)
+                        {
+                            GameObject obj = Instantiate(uiObject, uiContent);
+                            obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
+                            obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
+                            obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
+                            obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
+
+
+                            obj.GetComponent<InventoryItem>().item = item;
+                        
+                            obj.GetComponent<Image>().color = new Color(130, 130, 130);
+                            switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
+                            {
+                                case 0:
+
+                                    obj.GetComponent<Image>().color = new Color32(130, 130, 130, 100);
+                                    break;
+                                case 1:
+
+                                    obj.GetComponent<Image>().color = new Color32(110, 190, 80, 100);
+                                    break;
+                                case 2:
+
+                                    obj.GetComponent<Image>().color = new Color32(50, 140, 175, 100);
+                                    break;
+                                case 3:
+
+                                    obj.GetComponent<Image>().color = new Color32(185, 80, 190, 100);
+                                    break;
+                                case 4:
+
+                                    obj.GetComponent<Image>().color = new Color32(220, 150, 50, 100);
+                                    break;
+                                default:
+                                    break;
+                            }
+                            obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
+                        }
+                    }
+                }
+                weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
+                currentTab = 1;
+                #endregion
+                break;
+            case 2:
+                #region Consumables
+
+                foreach (Transform item in uiContent)
+                {
+                    Destroy(item.gameObject);
+                }
+                currentWeight = 0;
+                if (inventory.Count > 0)
+                {
+
+
+                    currentTab = 2;
+                    foreach (Item item in inventory)
+                    {
+                    
+                        currentWeight += item.itemWeight;
+                        if (item.itemType == Item.ItemType.Consumable)
+                        {
+                            GameObject obj = Instantiate(uiObject, uiContent);
+                            obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
+                            obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
+                            obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
+
+                
+                            obj.GetComponent<InventoryItem>().item = item;
+                            obj.GetComponent<Image>().color = new Color(130, 130, 130);
+                            switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
+                            {
+                                case 0:
+
+                                    obj.GetComponent<Image>().color = new Color32(130, 130, 130, 100);
+                                    break;
+                                case 1:
+
+                                    obj.GetComponent<Image>().color = new Color32(110, 190, 80, 100);
+                                    break;
+                                case 2:
+
+                                    obj.GetComponent<Image>().color = new Color32(50, 140, 175, 100);
+                                    break;
+                                case 3:
+
+                                    obj.GetComponent<Image>().color = new Color32(185, 80, 190, 100);
+                                    break;
+                                case 4:
+
+                                    obj.GetComponent<Image>().color = new Color32(220, 150, 50, 100);
+                                    break;
+                                default:
+                                    break;
+                            }
+                            obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
+                        }
+                    }
+                }
+                weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
+                #endregion
+                break;
+            case 3:
+                #region Materials
+
+
+                foreach (Transform item in uiContent)
+                {
+                    Destroy(item.gameObject);
+                }
+                currentWeight = 0;
+                if (inventory.Count > 0)
+                {
+
+                    foreach (Item item in inventory)
+                    {
+                        currentWeight += (item.itemWeight * item.stackAmount);
+                        if (item.itemType == Item.ItemType.Material)
+                        {
+                            GameObject obj = Instantiate(uiObject, uiContent);
+                            obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
+                            obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
+                            obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
+                            obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = item.stackAmount.ToString();
+
+
+                            obj.GetComponent<InventoryItem>().item = item;
+                            switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
+                            {
+                                case 0:
+                               
+                                    obj.GetComponent<Image>().color = new Color32(130, 130, 130,100);
+                                    break;
+                                case 1:
+                                
+                                    obj.GetComponent<Image>().color = new Color32(110, 190, 80,100);
+                                    break;
+                                case 2:
+                               
+                                    obj.GetComponent<Image>().color = new Color32(50, 140, 175,100);
+                                    break;
+                                case 3:
+                                
+                                    obj.GetComponent<Image>().color = new Color32(185, 80, 190,100);
+                                    break;
+                                case 4:
+                                
+                                    obj.GetComponent<Image>().color = new Color32(220, 150, 50,100);
+                                    break;
+                                default:
+                                    break;
+                            }
+                            obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
+                        }
+                    }
+                }
+                weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
+                currentTab = 3;
+                #endregion
+                break;
+            case 4:
+                #region Armor
+
+
+                foreach (Transform item in uiContent)
+                {
+                    Destroy(item.gameObject);
+                }
+                currentWeight = 0;
+                if (inventory.Count > 0)
+                {
+
+                    foreach (Item item in inventory)
+                    {
+                        currentWeight += (item.itemWeight * item.stackAmount);
+                        if (item.itemType == Item.ItemType.Equipment)
+                        {
+                            Equipment equipment = (Equipment)item;
+                            if (equipment.equipmentType == Equipment.EquipmentType.Head ||
+                                equipment.equipmentType == Equipment.EquipmentType.Chest ||
+                                equipment.equipmentType == Equipment.EquipmentType.Pants ||
+                                equipment.equipmentType == Equipment.EquipmentType.Shoes)
+
                             {
                                 GameObject obj = Instantiate(uiObject, uiContent);
                                 obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
                                 obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
                                 obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
-                                obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = item.stackAmount.ToString() ;
+                                obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
 
 
                                 obj.GetComponent<InventoryItem>().item = item;
-                                obj.GetComponent<Image>().color = new Color(130, 130, 130);
                                 switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
                                 {
                                     case 0:
@@ -463,256 +910,9 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
                                 }
                                 obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
                             }
-                            
                         }
-
-                    }
-                }
-               
-                currentTab = 0;
-                weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
-                #endregion 
-                break;
-            case 1:
-                #region WeaponsTab
-
-                foreach (Transform item in uiContent)
-                {
-                    Destroy(item.gameObject);
-                }
-                currentWeight = 0;
-
-                foreach (Item item in inventory)
-                {
-
-                    currentWeight += (item.itemWeight * item.stackAmount);
-                    if (item.itemType == Item.ItemType.Weapon)
-                    {
-                        GameObject obj = Instantiate(uiObject, uiContent);
-                        obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
-                        obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
-                        obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
-                        obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
-
-
-                        obj.GetComponent<InventoryItem>().item = item;
-                        
-                        obj.GetComponent<Image>().color = new Color(130, 130, 130);
-                        switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
-                        {
-                            case 0:
-
-                                obj.GetComponent<Image>().color = new Color32(130, 130, 130, 100);
-                                break;
-                            case 1:
-
-                                obj.GetComponent<Image>().color = new Color32(110, 190, 80, 100);
-                                break;
-                            case 2:
-
-                                obj.GetComponent<Image>().color = new Color32(50, 140, 175, 100);
-                                break;
-                            case 3:
-
-                                obj.GetComponent<Image>().color = new Color32(185, 80, 190, 100);
-                                break;
-                            case 4:
-
-                                obj.GetComponent<Image>().color = new Color32(220, 150, 50, 100);
-                                break;
-                            default:
-                                break;
-                        }
-                        obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
-                    }
-                }
-                weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
-                currentTab = 1;
-                #endregion
-                break;
-            case 2:
-                #region Consumables
-
-                foreach (Transform item in uiContent)
-                {
-                    Destroy(item.gameObject);
-                }
-                currentWeight = 0;
-
-                foreach (Item item in inventory)
-                {
-                    currentWeight += (item.itemWeight * item.stackAmount);
-                    if (item.itemType == Item.ItemType.Consumable)
-                    {
-                        GameObject obj = Instantiate(uiObject, uiContent);
-                        obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
-                        obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
-                        obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
-                        obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = item.stackAmount.ToString();
-                        obj.GetComponent<InventoryItem>().item = item;
-                        obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
-                    }
-                }
-                currentTab = 2;
-                foreach (Item item in inventory)
-                {
                     
-                    currentWeight += item.itemWeight;
-                    if (item.itemType == Item.ItemType.Consumable)
-                    {
-                        GameObject obj = Instantiate(uiObject, uiContent);
-                        obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
-                        obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
-                        obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
-
-                
-                        obj.GetComponent<InventoryItem>().item = item;
-                        obj.GetComponent<Image>().color = new Color(130, 130, 130);
-                        switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
-                        {
-                            case 0:
-
-                                obj.GetComponent<Image>().color = new Color32(130, 130, 130, 100);
-                                break;
-                            case 1:
-
-                                obj.GetComponent<Image>().color = new Color32(110, 190, 80, 100);
-                                break;
-                            case 2:
-
-                                obj.GetComponent<Image>().color = new Color32(50, 140, 175, 100);
-                                break;
-                            case 3:
-
-                                obj.GetComponent<Image>().color = new Color32(185, 80, 190, 100);
-                                break;
-                            case 4:
-
-                                obj.GetComponent<Image>().color = new Color32(220, 150, 50, 100);
-                                break;
-                            default:
-                                break;
-                        }
-                        obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
                     }
-                }
-                weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
-                #endregion
-                break;
-            case 3:
-                #region Materials
-
-
-                foreach (Transform item in uiContent)
-                {
-                    Destroy(item.gameObject);
-                }
-                currentWeight = 0;
-
-                foreach (Item item in inventory)
-                {
-                    currentWeight += (item.itemWeight * item.stackAmount);
-                    if (item.itemType == Item.ItemType.Material)
-                    {
-                        GameObject obj = Instantiate(uiObject, uiContent);
-                        obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
-                        obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
-                        obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
-                        obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = item.stackAmount.ToString();
-
-
-                        obj.GetComponent<InventoryItem>().item = item;
-                        switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
-                        {
-                            case 0:
-                               
-                                obj.GetComponent<Image>().color = new Color32(130, 130, 130,100);
-                                break;
-                            case 1:
-                                
-                                obj.GetComponent<Image>().color = new Color32(110, 190, 80,100);
-                                break;
-                            case 2:
-                               
-                                obj.GetComponent<Image>().color = new Color32(50, 140, 175,100);
-                                break;
-                            case 3:
-                                
-                                obj.GetComponent<Image>().color = new Color32(185, 80, 190,100);
-                                break;
-                            case 4:
-                                
-                                obj.GetComponent<Image>().color = new Color32(220, 150, 50,100);
-                                break;
-                            default:
-                                break;
-                        }
-                        obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
-                    }
-                }
-                weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
-                currentTab = 3;
-                #endregion
-                break;
-            case 4:
-                #region Armor
-
-
-                foreach (Transform item in uiContent)
-                {
-                    Destroy(item.gameObject);
-                }
-                currentWeight = 0;
-
-                foreach (Item item in inventory)
-                {
-                    currentWeight += (item.itemWeight * item.stackAmount);
-                    if (item.itemType == Item.ItemType.Equipment)
-                    {
-                        Equipment equipment = (Equipment)item;
-                        if (equipment.equipmentType == Equipment.EquipmentType.Head ||
-                            equipment.equipmentType == Equipment.EquipmentType.Chest ||
-                            equipment.equipmentType == Equipment.EquipmentType.Pants ||
-                            equipment.equipmentType == Equipment.EquipmentType.Shoes)
-
-                        {
-                            GameObject obj = Instantiate(uiObject, uiContent);
-                            obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
-                            obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
-                            obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
-                            obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
-
-
-                            obj.GetComponent<InventoryItem>().item = item;
-                            switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
-                            {
-                                case 0:
-
-                                    obj.GetComponent<Image>().color = new Color32(130, 130, 130, 100);
-                                    break;
-                                case 1:
-
-                                    obj.GetComponent<Image>().color = new Color32(110, 190, 80, 100);
-                                    break;
-                                case 2:
-
-                                    obj.GetComponent<Image>().color = new Color32(50, 140, 175, 100);
-                                    break;
-                                case 3:
-
-                                    obj.GetComponent<Image>().color = new Color32(185, 80, 190, 100);
-                                    break;
-                                case 4:
-
-                                    obj.GetComponent<Image>().color = new Color32(220, 150, 50, 100);
-                                    break;
-                                default:
-                                    break;
-                            }
-                            obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
-                        }
-                    }
-                    
                 }
                 weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
                 currentTab = 4;
@@ -727,51 +927,54 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
                     Destroy(item.gameObject);
                 }
                 currentWeight = 0;
-
-                foreach (Item item in inventory)
+                if (inventory.Count > 0)
                 {
-                    currentWeight += (item.itemWeight * item.stackAmount);
-                    if (item.itemType == Item.ItemType.Equipment)
+
+                    foreach (Item item in inventory)
                     {
-                        Equipment equipment = (Equipment)item;
-                        if (equipment.equipmentType == Equipment.EquipmentType.Necklace ||
-                            equipment.equipmentType == Equipment.EquipmentType.Earring ||
-                            equipment.equipmentType == Equipment.EquipmentType.Ring)
-
+                        currentWeight += (item.itemWeight * item.stackAmount);
+                        if (item.itemType == Item.ItemType.Equipment)
                         {
-                            GameObject obj = Instantiate(uiObject, uiContent);
-                            obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
-                            obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
-                            obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
-                            obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
+                            Equipment equipment = (Equipment)item;
+                            if (equipment.equipmentType == Equipment.EquipmentType.Necklace ||
+                                equipment.equipmentType == Equipment.EquipmentType.Earring ||
+                                equipment.equipmentType == Equipment.EquipmentType.Ring)
 
-                            obj.GetComponent<InventoryItem>().item = item;
-                            switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
                             {
-                                case 0:
+                                GameObject obj = Instantiate(uiObject, uiContent);
+                                obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
+                                obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
+                                obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
+                                obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
 
-                                    obj.GetComponent<Image>().color = new Color32(130, 130, 130, 100);
-                                    break;
-                                case 1:
+                                obj.GetComponent<InventoryItem>().item = item;
+                                switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
+                                {
+                                    case 0:
 
-                                    obj.GetComponent<Image>().color = new Color32(110, 190, 80, 100);
-                                    break;
-                                case 2:
+                                        obj.GetComponent<Image>().color = new Color32(130, 130, 130, 100);
+                                        break;
+                                    case 1:
 
-                                    obj.GetComponent<Image>().color = new Color32(50, 140, 175, 100);
-                                    break;
-                                case 3:
+                                        obj.GetComponent<Image>().color = new Color32(110, 190, 80, 100);
+                                        break;
+                                    case 2:
 
-                                    obj.GetComponent<Image>().color = new Color32(185, 80, 190, 100);
-                                    break;
-                                case 4:
+                                        obj.GetComponent<Image>().color = new Color32(50, 140, 175, 100);
+                                        break;
+                                    case 3:
 
-                                    obj.GetComponent<Image>().color = new Color32(220, 150, 50, 100);
-                                    break;
-                                default:
-                                    break;
+                                        obj.GetComponent<Image>().color = new Color32(185, 80, 190, 100);
+                                        break;
+                                    case 4:
+
+                                        obj.GetComponent<Image>().color = new Color32(220, 150, 50, 100);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
                             }
-                            obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
                         }
                     }
                 }
@@ -788,49 +991,52 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
                     Destroy(item.gameObject);
                 }
                 currentWeight = 0;
-
-                foreach (Item item in inventory)
+                if (inventory.Count > 0)
                 {
-                    currentWeight += (item.itemWeight * item.stackAmount);
-                    if (item.itemType == Item.ItemType.Shield)
+
+                    foreach (Item item in inventory)
                     {
-
-
-                        GameObject obj = Instantiate(uiObject, uiContent);
-                        obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
-                        obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
-                        obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
-                        obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
-
-                        obj.GetComponent<InventoryItem>().item = item;
-                        switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
+                        currentWeight += (item.itemWeight * item.stackAmount);
+                        if (item.itemType == Item.ItemType.Shield)
                         {
-                            case 0:
 
-                                obj.GetComponent<Image>().color = new Color32(130, 130, 130, 100);
-                                break;
-                            case 1:
 
-                                obj.GetComponent<Image>().color = new Color32(110, 190, 80, 100);
-                                break;
-                            case 2:
+                            GameObject obj = Instantiate(uiObject, uiContent);
+                            obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
+                            obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
+                            obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * item.stackAmount).ToString();
+                            obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
 
-                                obj.GetComponent<Image>().color = new Color32(50, 140, 175, 100);
-                                break;
-                            case 3:
+                            obj.GetComponent<InventoryItem>().item = item;
+                            switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
+                            {
+                                case 0:
 
-                                obj.GetComponent<Image>().color = new Color32(185, 80, 190, 100);
-                                break;
-                            case 4:
+                                    obj.GetComponent<Image>().color = new Color32(130, 130, 130, 100);
+                                    break;
+                                case 1:
 
-                                obj.GetComponent<Image>().color = new Color32(220, 150, 50, 100);
-                                break;
-                            default:
-                                break;
+                                    obj.GetComponent<Image>().color = new Color32(110, 190, 80, 100);
+                                    break;
+                                case 2:
+
+                                    obj.GetComponent<Image>().color = new Color32(50, 140, 175, 100);
+                                    break;
+                                case 3:
+
+                                    obj.GetComponent<Image>().color = new Color32(185, 80, 190, 100);
+                                    break;
+                                case 4:
+
+                                    obj.GetComponent<Image>().color = new Color32(220, 150, 50, 100);
+                                    break;
+                                default:
+                                    break;
 
                                 
+                            }
+                            obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
                         }
-                        obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
                     }
                 }
                 weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();

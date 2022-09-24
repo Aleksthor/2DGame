@@ -45,6 +45,8 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
 
     void Start()
     {
+       
+
         weaponCollider = transform.Find("Hand").transform.Find("Weapon").GetComponent<PolygonCollider2D>();
         weaponCollider2 = transform.Find("Hand2").transform.Find("Weapon2").GetComponent<PolygonCollider2D>();
         player = PlayerManager.Instance;

@@ -129,6 +129,7 @@ MonoBehaviour:
   defenseBuff: []
   defenseBuffTime: []
   baseDefense: 0
+  spawnPosition: {x: 0, y: 0}
 --- !u!1 &1651769332527878949
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,6 +336,8 @@ Transform:
   - {fileID: 757605050248562774}
   - {fileID: 6587945096053421919}
   - {fileID: 2725330162312687353}
+  - {fileID: 4949527206930008796}
+  - {fileID: 5560096081787757456}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -457,6 +460,55 @@ MonoBehaviour:
   shield: 0
   attack: 0
   inventoryOpen: 0
+--- !u!1 &4636206482792096945
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4949527206930008796}
+  - component: {fileID: 4362245293877138452}
+  m_Layer: 0
+  m_Name: BossManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4949527206930008796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4636206482792096945}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2076017503924805235}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4362245293877138452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4636206482792096945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8fb9515c9c7a53439d1ebccad43f993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goblinSmallBossDead: 0
+  goblinSmallBoss: {fileID: 3403219862492592466, guid: 0bb415f0392a0fe468267c97878191dc, type: 3}
+  goblinSmallBossLocation: {x: 0, y: 0}
+  rock: {fileID: 6843267607461251873, guid: 6d22de5ea24d97c46a5ecee3ee22ccfe, type: 3}
+  rockLocation: {x: 1, y: 10}
 --- !u!1 &6248820782117560840
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +585,52 @@ MonoBehaviour:
   uiContent: {fileID: 0}
   uiItemInfo: {fileID: 0}
   weight: {fileID: 0}
+  starterWeapon: {fileID: 11400000, guid: 82282237d5c536f448de0f09c45d9d17, type: 2}
+--- !u!1 &7430866410012045161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5560096081787757456}
+  - component: {fileID: 8890590612491579149}
+  m_Layer: 0
+  m_Name: DataPersistenceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5560096081787757456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7430866410012045161}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2076017503924805235}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8890590612491579149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7430866410012045161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc08846dc42374a4c841df90cf8281ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: 
 --- !u!1 &8201428679708295401
 GameObject:
   m_ObjectHideFlags: 0
