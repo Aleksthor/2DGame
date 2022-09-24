@@ -10,7 +10,6 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Enter");
         if (other.gameObject.tag == "Player")
         {
             SceneManager.LoadScene(SceneName);

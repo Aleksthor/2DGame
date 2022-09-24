@@ -186,6 +186,7 @@ public class LocalEnemyScript : MonoBehaviour
             if (isBoss && !chestSpawned)
             {
                 transform.GetComponent<LocalBossScript>().SpawnChest();
+                transform.GetComponent<LocalBossScript>().Die();
                 chestSpawned = true;
             }
            

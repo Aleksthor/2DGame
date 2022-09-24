@@ -30,15 +30,15 @@ public class LocalBossScript : MonoBehaviour
 
 
 
-    private void OnDestroy()
+    public void Die()
     {
         switch (bossName)
         {
             case BossName.GoblinSmallBoss:
-                BossManager.instance.goblinSmallBossDead = true;
+                BossManager.Instance.goblinSmallBossDead = true;
                 break;
             case BossName.GoblinArcMage:
-                BossManager.instance.goblinArcMageDead = true;
+                BossManager.Instance.goblinArcMageDead = true;
                 break;
 
             default:

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BossManager : MonoBehaviour, IDataPersistence
+public class BossManager : SingletonMonoBehaviour<BossManager>, IDataPersistence
 {
-    public static BossManager instance;
+
 
     [Header("Goblin Small Boss")]
     [Header("Boss")]
@@ -18,6 +18,7 @@ public class BossManager : MonoBehaviour, IDataPersistence
 
 
 
+
     [Header("Goblin Arc Mage")]
     [Header("Boss")]
     [SerializeField] public bool goblinArcMageDead = false;
@@ -25,20 +26,7 @@ public class BossManager : MonoBehaviour, IDataPersistence
     [SerializeField] public Vector2 goblinArcMagePosition;
 
 
-
-    private IEnumerator coroutine;
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-
-        }
-    }
+    private float timer = -1f;
 
 
 
@@ -52,10 +40,22 @@ public class BossManager : MonoBehaviour, IDataPersistence
         SceneManager.sceneLoaded -= OnLevelFinishedLoading;
     }
 
+    private void Update()
+    {
+        if (timer > 0f)
+        {
+            timer -= Time.deltaTime;    
+        }
+    }
 
     private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        StartCoroutine(SpawnBoss(scene.name));
+        if (timer < 0f)
+        {
+            Debug.Log("FinishedLoading - Start Coroutine");
+            StartCoroutine(SpawnBoss(scene.name));
+            timer = 0.5f;
+        }
 
     }
 
@@ -66,6 +66,7 @@ public class BossManager : MonoBehaviour, IDataPersistence
         switch (sceneName)
         {
             case "FirstArena":
+
                 if (goblinSmallBossDead != true)
                 {
                     GameObject GoblinSmallBoss = Instantiate(goblinSmallBoss, goblinSmallBossLocation, transform.rotation);
@@ -73,9 +74,11 @@ public class BossManager : MonoBehaviour, IDataPersistence
                 }
                 break;
             case "GoblinCave":
-                if (goblinArcMageDead != true)
+
+                if (goblinArcMageDead != true )
                 {
                     Instantiate(goblinArcMage, goblinArcMagePosition, transform.rotation);
+
                 }
 
 
@@ -84,6 +87,7 @@ public class BossManager : MonoBehaviour, IDataPersistence
             default:
                 break;
         }
+        
     }
 
 
