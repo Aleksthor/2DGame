@@ -11,19 +11,12 @@ public class WeaponCollider : MonoBehaviour
     [SerializeField] public float speedMultiplier = 1f;
     [SerializeField] public float slowDownLength = 0f;
 
-
-
     private float damageBefore;
     private bool boostNextAttack = false;
     private float damageBoost;
     private bool didCrit;
 
     public int weapon;
-
-
-
-
-
 
 
     void Start()
@@ -132,7 +125,12 @@ public class WeaponCollider : MonoBehaviour
 
         if (other.tag == "Plant")
         {
-            other.GetComponent<PickupComponent>().PickupHit();
+            other.GetComponent<CollectableComponent>().PickupHit();
+        }
+
+        if (other.tag == "Tree")
+        {
+            other.GetComponent<TreeComponent>().PickupHit();
         }
 
 

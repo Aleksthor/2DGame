@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4469ce37af5b8cb4ea928379ef6c3d2d, type: 3}
   m_Name: Ring
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: c3934304bc8ac7149b017a7e03cadc68, type: 3}
   itemName: Ring
   itemDescription: +2 Armor
   itemType: 3
   itemRarity: 1
   itemWeight: 0.1
   isStackable: 0
-  stackAmount: 1
   equipmentType: 6
   armor: 2
   bonusDamage: 0
