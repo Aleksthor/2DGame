@@ -177,7 +177,7 @@ public class WeaponSlot : MonoBehaviour, IDropHandler
                         obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = secondary.itemSprite;
                         obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (secondary.itemWeight * secondary.stackAmount).ToString();
                         obj.GetComponent<InventoryItem>().item = secondary;
-                        obj.transform.parent = transform;
+                        obj.transform.SetParent(transform);
                         obj.GetComponent<DragDrop>().enabled = false;
                         obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
                         obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;

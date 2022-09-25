@@ -29,7 +29,6 @@ public class BossManager : SingletonMonoBehaviour<BossManager>, IDataPersistence
     private float timer = -1f;
 
 
-
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnLevelFinishedLoading;
@@ -63,6 +62,7 @@ public class BossManager : SingletonMonoBehaviour<BossManager>, IDataPersistence
     IEnumerator SpawnBoss(string sceneName)
     {
         yield return new WaitForSeconds(0.3f);
+        timer = -1f;
         switch (sceneName)
         {
             case "FirstArena":
