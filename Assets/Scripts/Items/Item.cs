@@ -36,6 +36,6 @@ public class Item : ScriptableObject
     public float itemWeight = 0f;
 
     public bool isStackable = false;
-    public int stackAmount = 1;
+
 }
 

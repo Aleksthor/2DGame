@@ -135,7 +135,7 @@ public class WeaponSlot : MonoBehaviour, IDropHandler
                         GameObject obj = Instantiate(uiObject, transform);
                         obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = current.itemName;
                         obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = current.itemSprite;
-                        obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (current.itemWeight * current.stackAmount).ToString();
+                        obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = "";
                         obj.GetComponent<InventoryItem>().item = current;
                         obj.transform.SetParent(transform);
                         obj.GetComponent<DragDrop>().enabled = false;
@@ -175,10 +175,35 @@ public class WeaponSlot : MonoBehaviour, IDropHandler
                         GameObject obj = Instantiate(uiObject, transform);
                         obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = secondary.itemName;
                         obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = secondary.itemSprite;
-                        obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (secondary.itemWeight * secondary.stackAmount).ToString();
+                        obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = "";
                         obj.GetComponent<InventoryItem>().item = secondary;
                         obj.transform.SetParent(transform);
                         obj.GetComponent<DragDrop>().enabled = false;
+                        switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
+                        {
+                            case 0:
+
+                                obj.GetComponent<Image>().color = new Color32(130, 130, 130, 100);
+                                break;
+                            case 1:
+
+                                obj.GetComponent<Image>().color = new Color32(110, 190, 80, 100);
+                                break;
+                            case 2:
+
+                                obj.GetComponent<Image>().color = new Color32(50, 140, 175, 100);
+                                break;
+                            case 3:
+
+                                obj.GetComponent<Image>().color = new Color32(185, 80, 190, 100);
+                                break;
+                            case 4:
+
+                                obj.GetComponent<Image>().color = new Color32(220, 150, 50, 100);
+                                break;
+                            default:
+                                break;
+                        }
                         obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
                         obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
                     }

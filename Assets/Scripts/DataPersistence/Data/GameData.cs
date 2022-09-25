@@ -19,7 +19,7 @@ public class GameData
 
 
     /**  Inventory  */
-    public List<Item> inventory;
+    public List<InventorySlot> inventory;
 
 
     public List<Item> currentWeapon;

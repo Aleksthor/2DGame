@@ -98,9 +98,6 @@ public class WeaponCollider : MonoBehaviour
 
         if (other.tag == "Enemy")
         {
-
-
-
             if (other.GetType() == typeof(PolygonCollider2D))
             {
 
@@ -130,13 +127,15 @@ public class WeaponCollider : MonoBehaviour
                 boostNextAttack = false;
 
             }
-
-
-
-
-
-
         }
+
+
+        if (other.tag == "Plant")
+        {
+            other.GetComponent<PickupComponent>().PickupHit();
+        }
+
+
     }
 
 

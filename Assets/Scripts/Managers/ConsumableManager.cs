@@ -99,10 +99,7 @@ public class ConsumableManager : SingletonMonoBehaviour<ConsumableManager>
                     {
                         cooldownTime1 -= Time.deltaTime;
                     }
-                    if (consumable1.stackAmount <= 0)
-                    {
-                        consumable1 = null;
-                    }
+
 
                     break;
                 case ConsumableState.active:
@@ -313,7 +310,6 @@ public class ConsumableManager : SingletonMonoBehaviour<ConsumableManager>
     public void ChangeConsumable1(Consumable consumable)
     {
 
-        stackAmount1 = consumable.stackAmount;
         consumable1 = consumable;
 
     }
@@ -321,14 +317,12 @@ public class ConsumableManager : SingletonMonoBehaviour<ConsumableManager>
     {
 
 
-        stackAmount2 = consumable.stackAmount;
         consumable2 = consumable;
 
     }
     public void ChangeConsumable3(Consumable consumable)
     {
 
-        stackAmount3 = consumable.stackAmount;
         consumable3 = consumable;
 
     }
