@@ -33,25 +33,43 @@ public class ObjectActivator : MonoBehaviour
 
             for (int i = activatorObjects.Count - 1; i > -1; i--)
             {
-
-                if (Vector2.Distance(playerObject.transform.position, activatorObjects[i].transform.position) > renderDistance)
+                if (activatorObjects[i].GetComponent<RenderDistance>().isSpawner)
                 {
+                    if (Vector2.Distance(playerObject.transform.position, activatorObjects[i].transform.position) > renderDistance)
+                    {
 
-                    activatorObjects[i].SetActive(false);
-                    activatorObjects[i].GetComponent<EnemySpawner>().ResetPosition();
+                        activatorObjects[i].SetActive(false);
+                        activatorObjects[i].GetComponent<EnemySpawner>().ResetPosition();
 
+                    }
+                    else
+                    {
+
+                        activatorObjects[i].SetActive(true);
+
+
+                    }
+
+                    if (activatorObjects[i].GetComponent<EnemySpawner>().enemiesDead)
+                    {
+                        activatorObjects[i].SetActive(false);
+                    }
                 }
                 else
                 {
+                    if (Vector2.Distance(playerObject.transform.position, activatorObjects[i].transform.position) > renderDistance)
+                    {
 
-                    activatorObjects[i].SetActive(true);
-                    
+                        activatorObjects[i].SetActive(false);
 
-                }
+                    }
+                    else
+                    {
 
-                if(activatorObjects[i].GetComponent<EnemySpawner>().enemiesDead)
-                {
-                    activatorObjects[i].SetActive(false);
+                        activatorObjects[i].SetActive(true);
+
+
+                    }
                 }
             }
         }

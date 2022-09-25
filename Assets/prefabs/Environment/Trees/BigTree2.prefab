@@ -1264,6 +1264,7 @@ GameObject:
   - component: {fileID: 7767984524722127471}
   - component: {fileID: 8221253026645768329}
   - component: {fileID: -7702551272818109944}
+  - component: {fileID: 4582414431244905560}
   m_Layer: 0
   m_Name: BigTree2
   m_TagString: Tree
@@ -1397,6 +1398,21 @@ MonoBehaviour:
   maxHealth: 4
   min: 1
   max: 3
+--- !u!114 &4582414431244905560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2782475041588044951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c9a7f927679d8469a3d7a08963d1a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawnManager: {fileID: 0}
+  objectActivator: {fileID: 0}
+  isSpawner: 0
 --- !u!1 &2951503417060884667
 GameObject:
   m_ObjectHideFlags: 0
@@ -3843,7 +3859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6682036019509733058
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3942,7 +3958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1997964067195527301
 RectTransform:
   m_ObjectHideFlags: 0
