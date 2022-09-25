@@ -57,19 +57,23 @@ public class ObjectActivator : MonoBehaviour
                 }
                 else
                 {
-                    if (Vector2.Distance(playerObject.transform.position, activatorObjects[i].transform.position) > renderDistance)
+                    if (!activatorObjects[i].GetComponent<RenderDistance>().isDead)
                     {
+                        if (Vector2.Distance(playerObject.transform.position, activatorObjects[i].transform.position) > renderDistance)
+                        {
 
-                        activatorObjects[i].SetActive(false);
+                            activatorObjects[i].SetActive(false);
 
+                        }
+                        else
+                        {
+
+                            activatorObjects[i].SetActive(true);
+
+
+                        }
                     }
-                    else
-                    {
-
-                        activatorObjects[i].SetActive(true);
-
-
-                    }
+                    
                 }
             }
         }

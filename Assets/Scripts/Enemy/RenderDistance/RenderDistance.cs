@@ -7,6 +7,7 @@ public class RenderDistance : MonoBehaviour
     [SerializeField] private GameObject enemySpawnManager;
     [SerializeField] private ObjectActivator objectActivator;
     public bool isSpawner;
+    public bool isDead;
 
 
     // Start is called before the first frame update
