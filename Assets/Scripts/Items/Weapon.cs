@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[System.Serializable]
+
+[CreateAssetMenu(menuName = "Weapon")]
+
 public class Weapon : Item
 {
 

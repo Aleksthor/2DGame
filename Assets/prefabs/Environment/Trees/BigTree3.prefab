@@ -1038,7 +1038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a3c9ad81a9d8d4383f1fedf74c56e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 1024817304291180776, guid: 6a28853f5d332264db8157736a94a734, type: 3}
+  item: {fileID: 11400000, guid: 4597c98ec74b6b646a4ec121b2f5ec82, type: 2}
   health: 4
   maxHealth: 4
   min: 1
@@ -1058,7 +1058,6 @@ MonoBehaviour:
   enemySpawnManager: {fileID: 0}
   objectActivator: {fileID: 0}
   isSpawner: 0
-  isDead: 0
 --- !u!1 &2951503417060884667
 GameObject:
   m_ObjectHideFlags: 0

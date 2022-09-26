@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e4894514823f0429dec3d40e818eee, type: 3}
+  m_Name: Bow1
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: -415446080585258355, guid: 10e77d711a4372a4b8679362511b9d01, type: 3}
+  itemName: Bow 1
+  itemDescription: This can shoot pointy stuff
+  itemType: 0
+  itemRarity: 2
+  itemWeight: 1.5
+  isStackable: 0
+  stackAmount: 1
+  localPosition: {x: 0.02, y: 0}
+  weaponType: 5
+  damage: 5
+  knockBackForce: 50
+  critDamage: 1.5
+  critRate: 25
+  isTwoHanded: 0
+  canDualWield: 0
+  staminaUse: 50
+  bowSprites:
+  - {fileID: -8620833474484916134, guid: b4330c4fd80476542aa68aa6d3aab2fd, type: 3}
+  - {fileID: 4816620848291997996, guid: b4330c4fd80476542aa68aa6d3aab2fd, type: 3}
+  - {fileID: 1694919788714502473, guid: b4330c4fd80476542aa68aa6d3aab2fd, type: 3}
+  - {fileID: -6726224330064862255, guid: b4330c4fd80476542aa68aa6d3aab2fd, type: 3}
+  - {fileID: -3591492296475996349, guid: b4330c4fd80476542aa68aa6d3aab2fd, type: 3}
+  - {fileID: 8509740273710014419, guid: b4330c4fd80476542aa68aa6d3aab2fd, type: 3}
+  - {fileID: 8472179819995376430, guid: b4330c4fd80476542aa68aa6d3aab2fd, type: 3}
+  magicDamage: 0
+  force: 10
+  manaCost: 0
+  staffBA: 0
+  wandBA: 0
+  speedMultiplier: 1
+  slowDownLength: 0
+  colliderPointX:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  colliderPointY:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  ability1: {fileID: 11400000, guid: f255b6c2912d5e44db453c6942787ff5, type: 2}
+  ability2: {fileID: 0}
+  ability3: {fileID: 0}
+  ability1Icon: {fileID: 21300000, guid: 37a4ce8d9cc385146b41f3e05678d1f9, type: 3}
+  ability2Icon: {fileID: 0}
+  ability3Icon: {fileID: 0}

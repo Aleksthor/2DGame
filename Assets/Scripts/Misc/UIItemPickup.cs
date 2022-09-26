@@ -38,7 +38,7 @@ public class UIItemPickup : MonoBehaviour
 
         item = itemPickedUp;
 
-        itemName.text = item.itemName;
+        itemName.text = item.name;
 
 
         if (item.isStackable)

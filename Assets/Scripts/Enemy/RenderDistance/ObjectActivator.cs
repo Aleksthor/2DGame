@@ -9,10 +9,12 @@ public class ObjectActivator : MonoBehaviour
     [SerializeField] private float renderDistance;
 
     private GameObject playerObject;
+    private PlayerManager player;
     public List<GameObject> activatorObjects;
 
     void Awake()
     {
+        player = FindObjectOfType<PlayerManager>();
         activatorObjects = new List<GameObject>();
     }
 
