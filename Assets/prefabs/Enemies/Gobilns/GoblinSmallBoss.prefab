@@ -326,13 +326,12 @@ MonoBehaviour:
   bossName: 0
   Chest: {fileID: 1525471442761610389, guid: a67e36b0a640a014a8b8a4f4c13003bf, type: 3}
   chestLocation: {x: 12, y: 3}
-  highChanceItem: []
-  highChance: 60
-  midChanceItem:
-  - {fileID: 11400000, guid: 4e097036d77b38b4992cd253252fcc0a, type: 2}
+  highChanceItem:
+  - {fileID: 1868218010068571963, guid: 6ef0448d2287b834889861b735fd563c, type: 3}
+  highChance: 100
+  midChanceItem: []
   midChance: 25
-  lowChanceItem:
-  - {fileID: 11400000, guid: 4f3120963a5de3045890f1b2fa68d540, type: 2}
+  lowChanceItem: []
   lowChance: 10
 --- !u!50 &3899537854521541981
 Rigidbody2D:

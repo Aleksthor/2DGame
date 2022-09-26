@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4629520950462135918
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -902594004163771451, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: m_Size.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: -902594004163771451, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: m_Size.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: -902594004163771451, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1269225226898710512, guid: 48573bf416a19fd4ba7e3611745c3be4, type: 3}
+    - target: {fileID: -902594004163771451, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.force
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.damage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.staffBA
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.critRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.itemName
+      value: Water Staff
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.manaCost
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.critDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.itemRarity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.itemSprite
+      value: 
+      objectReference: {fileID: 1269225226898710512, guid: 48573bf416a19fd4ba7e3611745c3be4, type: 3}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.itemWeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.staminaUse
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.weaponType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.magicDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.knockBackForce
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.itemDescription
+      value: 'Water Staff '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.localPosition.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.localPosition.y
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.speedMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561132789143548882, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561132789143548882, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561132789143548882, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -18.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561132789143548882, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.478133
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561132789143548882, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561132789143548882, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561132789143548882, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561132789143548882, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561132789143548882, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561132789143548882, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561132789143548882, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689204292726432643, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: m_Name
+      value: SpawnableItem (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}

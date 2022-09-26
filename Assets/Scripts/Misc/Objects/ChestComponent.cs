@@ -5,9 +5,8 @@ using UnityEngine;
 public class ChestComponent : MonoBehaviour
 {
     
-    public List<Item> items = new List<Item>();
+    public List<GameObject> items = new List<GameObject>();
     private Animator animator;
-    public GameObject SpawnableItem;
     private bool open = false;
 #pragma warning disable 414
     private float openTime = 0f;
@@ -46,13 +45,12 @@ public class ChestComponent : MonoBehaviour
 
     public void OpenChest()
     {
-        foreach(Item item in items)
+        foreach(GameObject item in items)
         {
             float x = Random.Range(-2, 2);
             float y = Random.Range(-2, 2);
-            GameObject spawnableItem = Instantiate(SpawnableItem, new Vector2(transform.position.x+x , transform.position.y+y), transform.rotation);
-            //spawnableItem.GetComponent<ItemGameObject>().item = item;
-            spawnableItem.GetComponent<SpriteRenderer>().sprite = item.itemSprite;
+            GameObject spawnableItem = Instantiate(item, new Vector2(transform.position.x+x , transform.position.y+y), transform.rotation);
+
         }
     }
 
