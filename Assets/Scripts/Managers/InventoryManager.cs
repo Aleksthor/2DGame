@@ -9,7 +9,7 @@ using UnityEditor;
 [System.Serializable]
 public class InventorySlot
 {
-    [SerializeReference] public Item item;
+    public Item item;
     public int stackAmount;
 
     public InventorySlot(Item Item, int Amount)
@@ -29,7 +29,7 @@ public class InventorySlot
 
 public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataPersistence
 {
-    [SerializeReference] public List<InventorySlot> inventory = new List<InventorySlot>();
+    public List<InventorySlot> inventory = new List<InventorySlot>();
     public float currentWeight;
     public float maxWeight;
 
