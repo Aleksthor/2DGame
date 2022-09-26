@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu]
+[System.Serializable]
 public class AbilityBuffDefense : Ability
 {
     [Header("This Ability")]
@@ -14,7 +14,7 @@ public class AbilityBuffDefense : Ability
 
     public override void Activate(GameObject parent)
     {
-        Instantiate(buffEffect, parent.transform);
+        Object.Instantiate(buffEffect, parent.transform);
         GameEvents.current.AbilityBuffDefense(defensebuff);
 
     }

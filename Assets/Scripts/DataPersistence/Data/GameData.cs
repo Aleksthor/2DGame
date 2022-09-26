@@ -25,19 +25,19 @@ public class GameData
     public List<InventorySlot> inventory;
 
 
-    public List<Item> currentWeapon;
-    public List<Item> secondaryWeapon;
-    public List<Item> currentShield;
+    public Weapon currentWeapon;
+    public Weapon secondaryWeapon;
+    public Shield currentShield;
 
-    public List<Item> currentHead;
-    public List<Item> currentChest;
-    public List<Item> currentPants;
-    public List<Item> currentShoes;
+    public Equipment currentHead;
+    public Equipment currentChest;
+    public Equipment currentPants;
+    public Equipment currentShoes;
 
-    public List<Item> currentNecklace;
-    public List<Item> currentEarrings;
-    public List<Item> currentRing1;
-    public List<Item> currentRing2;
+    public Equipment currentNecklace;
+    public Equipment currentEarrings;
+    public Equipment currentRing1;
+    public Equipment currentRing2;
 
 
 

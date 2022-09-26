@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[System.Serializable]
 public class AbilityDashBackwards : Ability
 {
 
@@ -18,7 +18,7 @@ public class AbilityDashBackwards : Ability
     public override void Activate(GameObject parent)
     {
 
-        GameObject spawnedObject = Instantiate(effect, parent.transform.position, parent.transform.rotation);
+        GameObject spawnedObject = Object.Instantiate(effect, parent.transform.position, parent.transform.rotation);
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         Vector2 direction = mainCam.ScreenToWorldPoint(Input.mousePosition) - parent.transform.position;
         spawnedObject.transform.right = direction * -1f;

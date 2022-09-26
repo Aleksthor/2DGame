@@ -51,7 +51,7 @@ public class ChestComponent : MonoBehaviour
             float x = Random.Range(-2, 2);
             float y = Random.Range(-2, 2);
             GameObject spawnableItem = Instantiate(SpawnableItem, new Vector2(transform.position.x+x , transform.position.y+y), transform.rotation);
-            spawnableItem.GetComponent<ItemGameObject>().item = item;
+            //spawnableItem.GetComponent<ItemGameObject>().item = item;
             spawnableItem.GetComponent<SpriteRenderer>().sprite = item.itemSprite;
         }
     }

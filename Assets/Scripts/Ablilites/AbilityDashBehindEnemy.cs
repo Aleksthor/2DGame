@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[System.Serializable]
 public class AbilityDashBehindEnemy : Ability
 {
     [Header("This Ability")]
@@ -52,9 +52,9 @@ public class AbilityDashBehindEnemy : Ability
 
             if (Vector2.Distance(parent.transform.position, closestEnemy.transform.position) < range)
             {
-                GameObject spawnedObject = Instantiate(effect, parent.transform.position, parent.transform.rotation);
+                GameObject spawnedObject = Object.Instantiate(effect, parent.transform.position, parent.transform.rotation);
                 spawnedObject.transform.right = closestEnemy.transform.position - parent.transform.position;
-                Instantiate(buffEffect, parent.transform);
+                Object.Instantiate(buffEffect, parent.transform);
                 
 
                 #region Goblin

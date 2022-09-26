@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[System.Serializable]
 public class AbilityFirePit : Ability
 {
     [Header("This Ability")]
@@ -51,7 +51,7 @@ public class AbilityFirePit : Ability
             {
                 mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
-                Instantiate(firePitObject, new Vector2(mainCam.ScreenToWorldPoint(Input.mousePosition).x, mainCam.ScreenToWorldPoint(Input.mousePosition).y), parent.transform.rotation);
+                Object.Instantiate(firePitObject, new Vector2(mainCam.ScreenToWorldPoint(Input.mousePosition).x, mainCam.ScreenToWorldPoint(Input.mousePosition).y), parent.transform.rotation);
             }
             else
             {
@@ -59,7 +59,7 @@ public class AbilityFirePit : Ability
 
                 Vector2 direction = mainCam.ScreenToWorldPoint(Input.mousePosition) - parent.transform.position;
 
-                Instantiate(firePitObject, parent.transform.position + (Vector3)direction.normalized * (range - 2f), parent.transform.rotation);
+                Object.Instantiate(firePitObject, parent.transform.position + (Vector3)direction.normalized * (range - 2f), parent.transform.rotation);
             }
 
             GameEvents.current.UseMana(manaCost);

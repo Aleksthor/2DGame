@@ -7,9 +7,9 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
 {
 
     // 3 current abilites
-    public Ability ability1;
-    public Ability ability2;
-    public Ability ability3;
+    [SerializeReference] public Ability ability1;
+    [SerializeReference] public Ability ability2;
+    [SerializeReference] public Ability ability3;
 
     private PlayerManager playerManager;
     private GameObject playerObject;

@@ -9,7 +9,7 @@ using UnityEditor;
 [System.Serializable]
 public class InventorySlot
 {
-    public Item item;
+    [SerializeReference] public Item item;
     public int stackAmount;
 
     public InventorySlot(Item Item, int Amount)
@@ -29,7 +29,7 @@ public class InventorySlot
 
 public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataPersistence
 {
-    public List<InventorySlot> inventory = new List<InventorySlot>();
+    [SerializeReference] public List<InventorySlot> inventory = new List<InventorySlot>();
     public float currentWeight;
     public float maxWeight;
 
@@ -158,95 +158,73 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
         #region Equipped Items
         if (data.currentWeapon != null)
         {
-            List<Item> currentweapon = new List<Item>();
+           
 
-            currentweapon = data.currentWeapon;
-            if(currentweapon.Count > 0)
-                currentWeapon = (Weapon)currentweapon[0];
-            
+            currentWeapon = data.currentWeapon;      
 
         }
         if (data.secondaryWeapon != null)
         {
-            List<Item> secondaryweapon = new List<Item>();
 
-            secondaryweapon = data.secondaryWeapon;
-            if (secondaryweapon.Count > 0)
-                secondaryWeapon = (Weapon)secondaryweapon[0];
+            secondaryWeapon = data.secondaryWeapon;
+
         }
         if (data.currentShield != null)
         {
-            List<Item> currentshield = new List<Item>();
 
-            currentshield = data.currentShield;
-            if (currentshield.Count > 0)
-                currentShield = (Shield)currentshield[0];
+            currentShield = data.currentShield;
+
         }
 
         if (data.currentHead != null)
         {
-            List<Item> currenthead = new List<Item>();
 
-            currenthead = data.currentHead;
-            if (currenthead.Count > 0)
-                currentHead = (Equipment)currenthead[0];
+            currentHead = data.currentHead;
+
         }
         if (data.currentChest != null)
         {
-            List<Item> currentchest = new List<Item>();
 
-            currentchest = data.currentChest;
-            if (currentchest.Count > 0)
-                currentChest = (Equipment)currentchest[0];
+
+            currentChest = data.currentChest;
+
         }
         if (data.currentPants != null)
         {
-            List<Item> currentpants = new List<Item>();
 
-            currentpants = data.currentPants;
-            if (currentpants.Count > 0)
-                currentPants = (Equipment)currentpants[0];
+            currentPants = data.currentPants;
+
         }
         if (data.currentShoes != null)
         {
-            List<Item> currentshoes = new List<Item>();
-
-            currentshoes = data.currentShoes;
-            if (currentshoes.Count > 0)
-                currentShoes = (Equipment)currentshoes[0];
+          
+            currentShoes = data.currentShoes;
+         
         }
 
         if (data.currentNecklace != null)
         {
-            List<Item> currentnecklace = new List<Item>();
+           
+            currentNecklace = data.currentNecklace;
 
-            currentnecklace = data.currentNecklace;
-            if (currentnecklace.Count > 0)
-                currentNecklace = (Equipment)currentnecklace[0];
         }
         if (data.currentEarrings != null)
         {
-            List<Item> currentearrings = new List<Item>();
 
-            currentearrings = data.currentEarrings;
-            if (currentearrings.Count > 0)
-                currentEarrings = (Equipment)currentearrings[0];
+            currentEarrings = data.currentEarrings;
+
         }
         if (data.currentRing1 != null)
         {
-            List<Item> currentring1 = new List<Item>();
 
-            currentring1 = data.currentRing1;
-            if (currentring1.Count > 0)
-                currentRing1 = (Equipment)currentring1[0];
+            currentRing1 = data.currentRing1;
+
         }
         if (data.currentRing2 != null)
         {
-            List<Item> currentring2 = new List<Item>();
 
-            currentring2 = data.currentRing2;
-            if (currentring2.Count > 0)
-                currentRing2 = (Equipment)currentring2[0];
+            currentRing2 = data.currentRing2;
+
         }
 
         #endregion
@@ -261,74 +239,64 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
         #region Current Equipment
         if (currentWeapon != null)
         {
-            List<Item> currentweapon = new List<Item>();
-            currentweapon.Add(currentWeapon);
-            data.currentWeapon = currentweapon;
+
+            data.currentWeapon = currentWeapon;
         }
 
         if (secondaryWeapon != null)
         {
-            List<Item> secondaryweapon = new List<Item>();
-            secondaryweapon.Add(secondaryWeapon);
-            data.secondaryWeapon = secondaryweapon;
+
+            data.secondaryWeapon = secondaryWeapon;
         }
 
         if (currentShield != null)
         {
-            List<Item> currentshield = new List<Item>();
-            currentshield.Add(currentShield);
-            data.currentShield = currentshield;
+
+            data.currentShield = currentShield;
         }
 
 
         if (currentHead != null)
         {
-            List<Item> currenthead = new List<Item>();
-            currenthead.Add(currentHead);
-            data.currentHead = currenthead;
+
+            data.currentHead = currentHead;
         }
         if (currentChest != null)
         {
-            List<Item> currentchest = new List<Item>();
-            currentchest.Add(currentChest);
-            data.currentChest = currentchest;
+
+            data.currentChest = currentChest;
         }
         if (currentPants != null)
         {
-            List<Item> currentpants = new List<Item>();
-            currentpants.Add(currentPants);
-            data.currentPants = currentpants;
+
+            data.currentPants = currentPants;
         }
         if (currentShoes != null)
         {
-            List<Item> currentshoes = new List<Item>();
-            currentshoes.Add(currentShoes);
-            data.currentShoes = currentshoes;
+
+            data.currentShoes = currentShoes;
         }
 
         if (currentNecklace != null)
         {
-            List<Item> currentnecklace = new List<Item>();
-            currentnecklace.Add(currentNecklace);
-            data.currentNecklace = currentnecklace;
+
+
+            data.currentNecklace = currentNecklace;
         }
         if (currentEarrings != null)
         {
-            List<Item> currentearrings = new List<Item>();
-            currentearrings.Add(currentEarrings);
-            data.currentEarrings = currentearrings;
+
+            data.currentEarrings = currentEarrings;
         }
         if (currentRing1 != null)
         {
-            List<Item> currentring1 = new List<Item>();
-            currentring1.Add(currentRing1);
-            data.currentRing1 = currentring1;
+
+            data.currentRing1 = currentRing1;
         }
         if (currentRing2 != null)
         {
-            List<Item> currentring2 = new List<Item>();
-            currentring2.Add(currentRing2);
-            data.currentRing2 = currentring2;
+
+            data.currentRing2 = currentRing2;
         }
         #endregion
     }

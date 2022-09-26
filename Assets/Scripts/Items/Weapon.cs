@@ -4,8 +4,8 @@ using UnityEngine;
 
 
 
-[CreateAssetMenu(menuName = "Weapon")]
 
+[System.Serializable]
 public class Weapon : Item
 {
 
@@ -66,9 +66,9 @@ public class Weapon : Item
     public double[] colliderPointY;
 
     [Header("Weapon Abilites")]
-    public Ability ability1;
-    public Ability ability2;
-    public Ability ability3;
+    [SerializeReference] public Ability ability1;
+    [SerializeReference] public Ability ability2;
+    [SerializeReference] public Ability ability3;
 
     public Sprite ability1Icon;
     public Sprite ability2Icon;

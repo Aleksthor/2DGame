@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu]
+
+[System.Serializable]
 public class AbilityWaterSlam : Ability
 {
     [Header("This Ability")]
@@ -50,7 +51,7 @@ public class AbilityWaterSlam : Ability
             {
                 mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
-                Instantiate(waterWaveObject, new Vector2(mainCam.ScreenToWorldPoint(Input.mousePosition).x, mainCam.ScreenToWorldPoint(Input.mousePosition).y), parent.transform.rotation);
+                Object.Instantiate(waterWaveObject, new Vector2(mainCam.ScreenToWorldPoint(Input.mousePosition).x, mainCam.ScreenToWorldPoint(Input.mousePosition).y), parent.transform.rotation);
             }
             else
             {
@@ -58,7 +59,7 @@ public class AbilityWaterSlam : Ability
 
                 Vector2 direction = mainCam.ScreenToWorldPoint(Input.mousePosition) - parent.transform.position;
 
-                Instantiate(waterWaveObject, parent.transform.position + (Vector3)direction.normalized * (range - 2f), parent.transform.rotation);
+                Object.Instantiate(waterWaveObject, parent.transform.position + (Vector3)direction.normalized * (range - 2f), parent.transform.rotation);
             }
 
             GameEvents.current.UseMana(manaCost);

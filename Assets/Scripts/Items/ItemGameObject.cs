@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemGameObject : MonoBehaviour
 {
 
-    public Item item;
+    public Weapon weapon;
     private GameObject playerObject;
     public float pickupRange = 1f;
 
@@ -24,7 +24,7 @@ public class ItemGameObject : MonoBehaviour
             transform.position = Vector2.Lerp(transform.position, playerObject.transform.position, Time.deltaTime);
             if (Vector2.Distance(playerObject.transform.position, transform.position) < pickupRange * 0.2f)
             {
-                InventoryManager.Instance.AddItem(item);
+                InventoryManager.Instance.AddItem(weapon);
                 Destroy(gameObject);  
             }
 
