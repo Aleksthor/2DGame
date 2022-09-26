@@ -129,7 +129,7 @@ public class WeaponSlot : MonoBehaviour, IDropHandler
             switch(slotIndex)
             {
                 case 1:
-                    if (current != null)
+                    if (current.itemSprite != null)
                     {
                         
                         GameObject obj = Instantiate(uiObject, transform);
@@ -170,7 +170,7 @@ public class WeaponSlot : MonoBehaviour, IDropHandler
 
                     break;
                 case 2:
-                    if (secondary != null)
+                    if (secondary.itemSprite != null)
                     {
                         GameObject obj = Instantiate(uiObject, transform);
                         obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = secondary.itemName;
