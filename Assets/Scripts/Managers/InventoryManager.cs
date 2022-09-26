@@ -633,7 +633,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
                     foreach (InventorySlot inventorySlot in inventory)
                     {
-                        Item item = inventorySlot.item;
+                        Item item = new Item();
+                        item = inventorySlot.item;
                         currentWeight += (item.itemWeight * inventorySlot.stackAmount);
                         if (item.itemType != Item.ItemType.Weapon)
                         {
@@ -701,7 +702,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                     
                     foreach (InventorySlot inventorySlot in inventory)
                     {
-                        Item item = inventorySlot.item;
+                        Item item = new Item();
+                        item = inventorySlot.item;
                         currentWeight += (item.itemWeight * inventorySlot.stackAmount);
                         if (item.itemType == Item.ItemType.Weapon)
                         {
@@ -763,7 +765,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                     currentTab = 2;
                     foreach (InventorySlot inventorySlot in inventory)
                     {
-                        Item item = inventorySlot.item;
+                        Item item = new Item();
+                        item = inventorySlot.item;
                         currentWeight += item.itemWeight;
                         if (item.itemType == Item.ItemType.Consumable)
                         {
@@ -821,7 +824,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
                     foreach (InventorySlot inventorySlot in inventory)
                     {
-                        Item item = inventorySlot.item;
+                        Item item = new Item();
+                        item = inventorySlot.item;
                         currentWeight += (item.itemWeight * inventorySlot.stackAmount);
                         if (item.itemType == Item.ItemType.Material)
                         {
@@ -880,7 +884,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
                     foreach (InventorySlot inventorySlot in inventory)
                     {
-                        Item item = inventorySlot.item;
+                        Item item = new Item();
+                        item = inventorySlot.item;
                         currentWeight += (item.itemWeight * inventorySlot.stackAmount);
                         if (item.itemType == Item.ItemType.Equipment)
                         {
@@ -948,7 +953,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
                     foreach (InventorySlot inventorySlot in inventory)
                     {
-                        Item item = inventorySlot.item;
+                        Item item = new Item();
+                        item = inventorySlot.item;
                         currentWeight += (item.itemWeight * inventorySlot.stackAmount);
                         if (item.itemType == Item.ItemType.Equipment)
                         {
@@ -1013,7 +1019,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
                     foreach (InventorySlot inventorySlot in inventory)
                     {
-                        Item item = inventorySlot.item;
+                        Item item = new Item();
+                        item = inventorySlot.item;
                         currentWeight += (item.itemWeight * inventorySlot.stackAmount);
                         if (item.itemType == Item.ItemType.Shield)
                         {
