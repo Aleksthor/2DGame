@@ -28,7 +28,7 @@ public class AbilityDash : Ability
         
         if (hit)
         {
-            Debug.Log(direction.y);
+            
             if (direction.y < 0f)
             {
                 parent.transform.position = new Vector2(hit.point.x,hit.point.y + 0.5f);

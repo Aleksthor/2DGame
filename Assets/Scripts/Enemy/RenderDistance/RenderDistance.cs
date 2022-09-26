@@ -15,7 +15,6 @@ public class RenderDistance : MonoBehaviour
     {
         enemySpawnManager = GameObject.Find("EnemySpawnManager").gameObject;
         objectActivator = enemySpawnManager.GetComponent<ObjectActivator>();
-
         objectActivator.activatorObjects.Add(gameObject);
     }
 

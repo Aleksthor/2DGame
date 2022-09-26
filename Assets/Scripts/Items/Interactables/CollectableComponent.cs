@@ -14,7 +14,6 @@ public class CollectableComponent : MonoBehaviour
         health -= 1;
         if (health <= 0)
         {
-            transform.GetComponent<RenderDistance>().isDead = true;
             InventoryManager.Instance.AddItemToStack(item, Random.Range(min,max));
             gameObject.SetActive(false);
         }

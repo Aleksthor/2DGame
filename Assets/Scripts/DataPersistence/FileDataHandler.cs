@@ -54,7 +54,7 @@ public class FileDataHandler
 
 
             // serialize the c# game data object into json
-            string dataToStore = JsonUtility.ToJson(data,true);
+            string dataToStore = JsonUtility.ToJson(data,false);
 
             // write the serialize data to the file - ugly syntax
             using (FileStream stream = new FileStream(fullPath, FileMode.Create))

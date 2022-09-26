@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Potion")]
+[System.Serializable]
 public class Potion : Consumable
 {
     public override void Activate(GameObject parent)
