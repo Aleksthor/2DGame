@@ -38,7 +38,7 @@ public class UIItemPickup : MonoBehaviour
 
         item = itemPickedUp;
 
-        itemName.text = item.name;
+        itemName.text = item.itemName;
 
 
         if (item.isStackable)
@@ -63,7 +63,7 @@ public class UIItemPickup : MonoBehaviour
                 image.color = new Color32(90, 160, 180, 255);
                 break;
             case Item.ItemRarity.Epic:
-                image.color = new Color32(170, 190, 180, 255);
+                image.color = new Color32(180, 60, 150, 255);
                 break;
             case Item.ItemRarity.Legendary:
                 image.color = new Color32(220, 170, 60, 255);
