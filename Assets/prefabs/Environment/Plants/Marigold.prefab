@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4899108524422366655}
   - component: {fileID: 3151900358101022304}
   m_Layer: 0
-  m_Name: BlueBell
+  m_Name: Marigold
   m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -933199083, guid: 85599e6bfca6dbc4f9e13ab2a31f5b4f, type: 3}
+  m_Sprite: {fileID: 834930288, guid: a367f8e89ee090645958b40b89b763e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -139,9 +139,9 @@ MonoBehaviour:
   item:
     itemSprite: {fileID: -933199083, guid: 85599e6bfca6dbc4f9e13ab2a31f5b4f, type: 3}
     spriteAtlasPath: Items/Item-Isedal
-    spriteIndex: 193
+    spriteIndex: 192
     isActive: 1
-    itemName: Blue Bell
+    itemName: Marigold
     itemDescription: Can be use to make certain potions
     itemType: 2
     itemRarity: 0

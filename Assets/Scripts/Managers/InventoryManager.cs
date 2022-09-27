@@ -9,16 +9,32 @@ using UnityEditor;
 [System.Serializable]
 public class InventorySlot
 {
-    [SerializeReference] public Item item;
+    [SerializeField] public Item item;
     public int stackAmount;
 
     public InventorySlot(Item Item, int Amount)
     {
         item = Item;
-
-
         stackAmount = Amount;
-        
+      
+    }
+
+    public void AddAmount(int value)
+    {
+        stackAmount += value;
+    }
+}
+
+[System.Serializable]
+public class ConsumableInventorySlot
+{
+    [SerializeField] public Consumable consumable;
+    public int stackAmount;
+    public ConsumableInventorySlot(Consumable Consumable, int Amount)
+    {
+        consumable = Consumable;
+        stackAmount = Amount;
+
     }
 
     public void AddAmount(int value)
@@ -29,7 +45,13 @@ public class InventorySlot
 
 public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataPersistence
 {
-    [SerializeReference] public List<InventorySlot> inventory = new List<InventorySlot>();
+    [SerializeField] public List<InventorySlot> itemInventory = new List<InventorySlot>();
+    [SerializeField] public List<Weapon> weaponInventory = new List<Weapon>();
+    [SerializeField] public List<Equipment> equipmentInventory = new List<Equipment>();
+    [SerializeField] public List<Shield> shieldInventory = new List<Shield>();
+    [SerializeField] public List<ConsumableInventorySlot> consumableInventory = new List<ConsumableInventorySlot>();
+
+
     public float currentWeight;
     public float maxWeight;
 
@@ -57,7 +79,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
     private Transform PickupItems;
     public GameObject pickupItem;
 
-    private int currentTab = 0;
+    public int currentTab = 0;
 
     private float swapTime = 0.5f;
     private float swapClock = 0;
@@ -65,7 +87,65 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
     public Weapon starterWeapon;
 
+    private void Start()
+    {
+        if (currentWeapon.isActive == false)
+        {
+            currentWeapon = starterWeapon;
+            currentWeapon.isActive = true;
+        }
+        else
+        {
+            ChangeWeapon(currentWeapon);
+        }
+        if (itemInventory == null)
+        {
+            itemInventory = new List<InventorySlot>();
+        }
+        if (weaponInventory == null)
+        {
+            weaponInventory = new List<Weapon>();
+        }
+        if (equipmentInventory == null)
+        {
+            equipmentInventory = new List<Equipment>();
+        }
+        if (shieldInventory == null)
+        {
+            shieldInventory = new List<Shield>();
+        }
+        if (consumableInventory == null)
+        {
+            consumableInventory = new List<ConsumableInventorySlot>();
+        }
 
+        GameEvents.current.OnAddItem += AddItem;
+        GameEvents.current.OnRemoveItem += RemoveItem;
+
+        GameEvents.current.OnChangeCurrentWeapon += ChangeCurrentWeapon;
+
+        GameEvents.current.OnChangeSecondaryWeapon += ChangeSecondaryWeapon;
+        GameEvents.current.OnRemoveCurrentSecondaryItem += RemoveCurrentSecondaryItem;
+
+        GameEvents.current.OnChangeCurrentShield += ChangeCurrentShield;
+        GameEvents.current.OnRemoveCurrentShield += RemoveCurrentShield;
+
+        GameEvents.current.OnChangeCurrentEquipment += ChangeCurrentEquipment;
+        GameEvents.current.OnRemoveCurrentEquipment += RemoveCurrentEquipment;
+
+        if (currentWeapon.isActive)
+        {
+            GameEvents.current.ChangeWeaponAbility(currentWeapon.ability1, currentWeapon.ability2, currentWeapon.ability3);
+        }
+
+        uiContent = HUDSingleton.instance.transform.Find("Inventory").transform.Find("ItemList").transform.Find("Viewport").transform.Find("Content").transform;
+        uiItemInfo = HUDSingleton.instance.transform.Find("Inventory").transform.Find("ItemInfo").transform;
+        weight = HUDSingleton.instance.transform.Find("Inventory").transform.Find("ItemList").transform.Find("CurrentWeight").transform;
+        PickupItems = HUDSingleton.instance.transform.Find("PickupItems").transform.Find("Viewport").transform.Find("Content").transform;
+
+
+        StartCoroutine(SpawnCurrentWeapon());
+    }
 
     public void AddItem(Item item)
     { 
@@ -74,18 +154,102 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
         hudNotice.GetComponent<UIItemPickup>().PickUp(item, 1);
 
         bool hasItem = false;
-        for (int i = 0; i < inventory.Count; i++)
+
+        switch(item.itemType)
         {
-            if (inventory[i].item == item)
-            {
-                hasItem = true;
+            case Item.ItemType.Weapon:
+
+                #region Weapon
+                for (int i = 0; i < weaponInventory.Count; i++)
+                {
+                    if (weaponInventory[i].itemName == item.itemName)
+                    {
+                        hasItem = true;
+                        break;
+                    }
+                }
+                if (!hasItem)
+                {
+                    weaponInventory.Add((Weapon)item);
+                }
+                #endregion
+
                 break;
-            }
+            case Item.ItemType.Equipment:
+
+                #region Equipment
+                for (int i = 0; i < equipmentInventory.Count; i++)
+                {
+                    if (equipmentInventory[i].itemName == item.itemName)
+                    {
+                        hasItem = true;
+                        break;
+                    }
+                }
+                if (!hasItem)
+                {
+                    equipmentInventory.Add((Equipment)item);
+                }
+                #endregion
+
+                break;
+            case Item.ItemType.Consumable:
+
+                #region Consumable
+                for (int i = 0; i < consumableInventory.Count; i++)
+                {
+                    if (consumableInventory[i].consumable.itemName == item.itemName)
+                    {
+                        hasItem = true;
+                        break;
+                    }
+                }
+                if (!hasItem)
+                {
+                    consumableInventory.Add(new ConsumableInventorySlot((Consumable)item, 1));
+                }
+                #endregion
+
+                break;
+            case Item.ItemType.Shield:
+
+                #region Shield
+                for (int i = 0; i < shieldInventory.Count; i++)
+                {
+                    if (shieldInventory[i].itemName == item.itemName)
+                    {
+                        hasItem = true;
+                        break;
+                    }
+                }
+                if (!hasItem)
+                {
+                    shieldInventory.Add((Shield)item);
+                }
+                #endregion
+                
+                break;
+            default:
+
+                #region Default
+                for (int i = 0; i < itemInventory.Count; i++)
+                {
+                    if (itemInventory[i].item.itemName == item.itemName)
+                    {
+                        hasItem = true;
+                        break;
+                    }
+                }
+                if (!hasItem)
+                {
+                    itemInventory.Add(new InventorySlot(item, 1));
+                }
+                #endregion
+
+                break;
+
         }
-        if (!hasItem)
-        {
-            inventory.Add(new InventorySlot(item, 1));
-        }
+        
 
 
         // Update all stats
@@ -99,19 +263,56 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
         hudNotice.GetComponent<UIItemPickup>().PickUp(item, amount);
 
         bool hasItem = false;
-        for (int i = 0; i < inventory.Count; i++)
+
+        switch (item.itemType)
         {
-            if (inventory[i].item == item)
-            {
-                inventory[i].AddAmount(amount);
-                hasItem = true;
+            case Item.ItemType.Weapon:
                 break;
-            }
+            case Item.ItemType.Equipment:
+                break;
+            case Item.ItemType.Consumable:
+
+                #region Consumable
+                for (int i = 0; i < consumableInventory.Count; i++)
+                {
+                    if (consumableInventory[i].consumable.itemName == item.itemName)
+                    {
+                        consumableInventory[i].AddAmount(amount);
+                        hasItem = true;
+                        break;
+                    }
+                }
+                if (!hasItem)
+                {
+                    consumableInventory.Add(new ConsumableInventorySlot((Consumable)item, amount));
+                }
+                #endregion
+
+                break;
+            case Item.ItemType.Shield:
+                break;
+            default:
+
+                #region Default
+                for (int i = 0; i < itemInventory.Count; i++)
+                {
+                    if (itemInventory[i].item.itemName == item.itemName)
+                    {
+                        itemInventory[i].AddAmount(amount);
+                        hasItem = true;
+                        break;
+                    }
+                }
+                if (!hasItem)
+                {
+                    itemInventory.Add(new InventorySlot(item, amount));
+                }
+                #endregion
+
+                break;
+
         }
-        if (!hasItem)
-        {
-            inventory.Add(new InventorySlot(item, amount));
-        }
+        
 
         // Update all stats
         UpdateStats();
@@ -119,30 +320,107 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
     public void RemoveItem(Item item)
     {
-        for (int i = 0; i < inventory.Count; i++)
+
+        switch (item.itemType)
         {
-            if (inventory[i].item == item)
-            {
-                inventory.RemoveAt(i);
-            }
+            case Item.ItemType.Weapon:
+                for (int i = 0; i < weaponInventory.Count; i++)
+                {
+                    if (weaponInventory[i].itemName == item.itemName)
+                    {
+                        weaponInventory.RemoveAt(i);
+                    }
+                }
+                break;
+            case Item.ItemType.Equipment:
+                for (int i = 0; i < equipmentInventory.Count; i++)
+                {
+                    if (equipmentInventory[i].itemName == item.itemName)
+                    {
+                        equipmentInventory.RemoveAt(i);
+                    }
+                }
+                break;
+            case Item.ItemType.Consumable:
+                for (int i = 0; i < consumableInventory.Count; i++)
+                {
+                    if (consumableInventory[i].consumable.itemName == item.itemName)
+                    {
+                        consumableInventory.RemoveAt(i);
+                    }
+                }
+                break;
+            case Item.ItemType.Shield:
+                for (int i = 0; i < shieldInventory.Count; i++)
+                {
+                    if (shieldInventory[i].itemName == item.itemName)
+                    {
+                        shieldInventory.RemoveAt(i);
+                    }
+                }
+                break;
+            default:
+                for (int i = 0; i < itemInventory.Count; i++)
+                {
+                    if (itemInventory[i].item.itemName == item.itemName)
+                    {
+                        itemInventory.RemoveAt(i);
+                    }
+                }
+                break;
+
         }
+        
+
         UpdateStats();
 
     }
     public void RemoveItemStack(Item item, int amount)
     {
-        for (int i = 0; i < inventory.Count; i++)
+
+
+        switch (item.itemType)
         {
-            if (inventory[i].item == item)
-            {
-                inventory[i].stackAmount -= amount;
-                if (inventory[i].stackAmount < 0)
+            case Item.ItemType.Weapon:
+                
+                break;
+            case Item.ItemType.Equipment:
+                
+                break;
+            case Item.ItemType.Consumable:
+                for (int i = 0; i < consumableInventory.Count; i++)
                 {
-                    inventory.RemoveAt(i);
+                    if (consumableInventory[i].consumable.itemName == item.itemName)
+                    {
+                        consumableInventory[i].stackAmount -= amount;
+                        if (consumableInventory[i].stackAmount < 0)
+                        {
+                            consumableInventory.RemoveAt(i);
+                        }
+
+                    }
                 }
-               
-            }
+                break;
+            case Item.ItemType.Shield:
+                
+                break;
+            default:
+                for (int i = 0; i < itemInventory.Count; i++)
+                {
+                    if (itemInventory[i].item.itemName == item.itemName)
+                    {
+                        itemInventory[i].stackAmount -= amount;
+                        if (itemInventory[i].stackAmount < 0)
+                        {
+                            itemInventory.RemoveAt(i);
+                        }
+
+                    }
+                }
+                break;
+
         }
+        
         UpdateStats();
 
     }
@@ -152,79 +430,180 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
     public void LoadData(GameData data)
     {
+        if (data.itemInventory != null)
+        {
+            itemInventory = data.itemInventory;
+            foreach (InventorySlot itemSlot in itemInventory)
+            {
+                Sprite[] sprites = Resources.LoadAll<Sprite>(itemSlot.item.spriteAtlasPath);
+                itemSlot.item.itemSprite = sprites[itemSlot.item.spriteIndex];
+            }
+        }
 
-        inventory = data.inventory;
+        if (data.weaponInventory != null)
+        {
+            weaponInventory = data.weaponInventory;
+            foreach (Weapon weapon in weaponInventory)
+            {
+                Sprite[] sprites = Resources.LoadAll<Sprite>(weapon.spriteAtlasPath);
+                weapon.itemSprite = sprites[weapon.spriteIndex];
+            }
+        }
 
-        #region Equipped Items
+        if (data.equipmentInventory != null)
+        {
+            equipmentInventory = data.equipmentInventory;
+            foreach (Equipment equipment in equipmentInventory)
+            {
+                Sprite[] sprites = Resources.LoadAll<Sprite>(equipment.spriteAtlasPath);
+                equipment.itemSprite = sprites[equipment.spriteIndex];
+            }
+        }
+
+
+        if (data.shieldInventory != null)
+        {
+            shieldInventory = data.shieldInventory;
+            foreach (Shield shield in shieldInventory)
+            {
+                Sprite[] sprites = Resources.LoadAll<Sprite>(shield.spriteAtlasPath);
+                shield.itemSprite = sprites[shield.spriteIndex];
+            }
+        }
+
+
+        if (data.consumableInventory != null)
+        {
+            consumableInventory = data.consumableInventory;
+            foreach (ConsumableInventorySlot consumableSlot in consumableInventory)
+            {
+                Sprite[] sprites = Resources.LoadAll<Sprite>(consumableSlot.consumable.spriteAtlasPath);
+                consumableSlot.consumable.itemSprite = sprites[consumableSlot.consumable.spriteIndex];
+            }
+        }
+
         if (data.currentWeapon != null)
         {
-           
-
-            currentWeapon = data.currentWeapon;      
-
+            #region Equipped Items
+            if (data.currentWeapon.isActive)
+            {
+                currentWeapon = data.currentWeapon;
+                Sprite[] sprite = Resources.LoadAll<Sprite>(currentWeapon.spriteAtlasPath);
+                currentWeapon.itemSprite = sprite[currentWeapon.spriteIndex];
+            }
         }
+
+
         if (data.secondaryWeapon != null)
         {
-
-            secondaryWeapon = data.secondaryWeapon;
-
+            if (data.secondaryWeapon.isActive)
+            {
+                secondaryWeapon = data.secondaryWeapon;
+                Sprite[] sprite = Resources.LoadAll<Sprite>(secondaryWeapon.spriteAtlasPath);
+                secondaryWeapon.itemSprite = sprite[secondaryWeapon.spriteIndex];
+            }
         }
+
+
         if (data.currentShield != null)
         {
-
-            currentShield = data.currentShield;
-
+            if (data.currentShield.isActive)
+            {
+                currentShield = data.currentShield;
+                Sprite[] sprite = Resources.LoadAll<Sprite>(currentShield.spriteAtlasPath);
+                currentShield.itemSprite = sprite[currentShield.spriteIndex];
+            }
         }
+
 
         if (data.currentHead != null)
         {
-
-            currentHead = data.currentHead;
-
+            if (data.currentHead.isActive)
+            {
+                currentHead = data.currentHead;
+                Sprite[] sprite = Resources.LoadAll<Sprite>(currentHead.spriteAtlasPath);
+                currentHead.itemSprite = sprite[currentHead.spriteIndex];
+            }
         }
+
+
         if (data.currentChest != null)
         {
-
-
-            currentChest = data.currentChest;
-
+            if (data.currentChest.isActive)
+            {
+                currentChest = data.currentChest;
+                Sprite[] sprite = Resources.LoadAll<Sprite>(currentChest.spriteAtlasPath);
+                currentChest.itemSprite = sprite[currentChest.spriteIndex];
+            }
         }
+
         if (data.currentPants != null)
         {
-
-            currentPants = data.currentPants;
-
+            if (data.currentPants.isActive)
+            {
+                currentPants = data.currentPants;
+                Sprite[] sprite = Resources.LoadAll<Sprite>(currentPants.spriteAtlasPath);
+                currentPants.itemSprite = sprite[currentPants.spriteIndex];
+            }
         }
+
+
         if (data.currentShoes != null)
         {
-          
-            currentShoes = data.currentShoes;
-         
+            if (data.currentShoes.isActive)
+            {
+                currentShoes = data.currentShoes;
+                Sprite[] sprite = Resources.LoadAll<Sprite>(currentShoes.spriteAtlasPath);
+                currentShoes.itemSprite = sprite[currentShoes.spriteIndex];
+            }
         }
+
 
         if (data.currentNecklace != null)
         {
-           
-            currentNecklace = data.currentNecklace;
-
+            if (data.currentNecklace.isActive)
+            {
+                currentNecklace = data.currentNecklace;
+                Sprite[] sprite = Resources.LoadAll<Sprite>(currentNecklace.spriteAtlasPath);
+                currentNecklace.itemSprite = sprite[currentNecklace.spriteIndex];
+            }
         }
+
         if (data.currentEarrings != null)
         {
+            if (data.currentEarrings.isActive)
+            {
 
-            currentEarrings = data.currentEarrings;
+                currentEarrings = data.currentEarrings;
+                Sprite[] sprite = Resources.LoadAll<Sprite>(currentEarrings.spriteAtlasPath);
+                currentEarrings.itemSprite = sprite[currentEarrings.spriteIndex];
 
+            }
         }
+
+
         if (data.currentRing1 != null)
         {
+            if (data.currentRing1.isActive)
+            {
 
-            currentRing1 = data.currentRing1;
+                currentRing1 = data.currentRing1;
+                Sprite[] sprite = Resources.LoadAll<Sprite>(currentRing1.spriteAtlasPath);
+                currentRing1.itemSprite = sprite[currentRing1.spriteIndex];
 
+            }
         }
+
         if (data.currentRing2 != null)
         {
+            if (data.currentRing2.isActive)
+            {
 
-            currentRing2 = data.currentRing2;
+                currentRing2 = data.currentRing2;
+                Sprite[] sprite = Resources.LoadAll<Sprite>(currentRing2.spriteAtlasPath);
+                currentRing2.itemSprite = sprite[currentRing2.spriteIndex];
 
+            }
         }
 
         #endregion
@@ -232,9 +611,13 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
-        data.inventory = inventory;
+        data.itemInventory = itemInventory;
+        data.weaponInventory = weaponInventory;
+        data.equipmentInventory = equipmentInventory;
+        data.shieldInventory = shieldInventory;
+        data.consumableInventory = consumableInventory;
 
         #region Current Equipment
         if (currentWeapon != null)
@@ -302,47 +685,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
     }
 
 
-    private void Start()
-    {
-        if (currentWeapon == null)
-        {
-            currentWeapon = starterWeapon;
-        }
-        else
-        {
-            ChangeWeapon(currentWeapon);
-        }
-        if (inventory == null)
-        {
-            inventory = new List<InventorySlot>();
-        }
-        
 
-        GameEvents.current.OnAddItem += AddItem;
-        GameEvents.current.OnRemoveItem += RemoveItem;
-
-        GameEvents.current.OnChangeCurrentWeapon += ChangeCurrentWeapon;
-
-        GameEvents.current.OnChangeSecondaryWeapon += ChangeSecondaryWeapon;
-        GameEvents.current.OnRemoveCurrentSecondaryItem += RemoveCurrentSecondaryItem;
-
-        GameEvents.current.OnChangeCurrentShield += ChangeCurrentShield;
-        GameEvents.current.OnRemoveCurrentShield += RemoveCurrentShield;
-
-        GameEvents.current.OnChangeCurrentEquipment += ChangeCurrentEquipment;
-        GameEvents.current.OnRemoveCurrentEquipment += RemoveCurrentEquipment;
-
-        if (currentWeapon != null)
-        {
-            GameEvents.current.ChangeWeaponAbility(currentWeapon.ability1, currentWeapon.ability2, currentWeapon.ability3, currentWeapon.ability1Icon, currentWeapon.ability2Icon, currentWeapon.ability3Icon);
-        }
-
-        uiContent = HUDSingleton.instance.transform.Find("Inventory").transform.Find("ItemList").transform.Find("Viewport").transform.Find("Content").transform;
-        uiItemInfo = HUDSingleton.instance.transform.Find("Inventory").transform.Find("ItemInfo").transform;
-        weight = HUDSingleton.instance.transform.Find("Inventory").transform.Find("ItemList").transform.Find("CurrentWeight").transform;
-        PickupItems = HUDSingleton.instance.transform.Find("PickupItems").transform.Find("Viewport").transform.Find("Content").transform;
-
-    }
 
     // Debug purposes in Update
     void Update()
@@ -374,7 +717,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
         GameEvents.current.ChangeWeapon(weapon);
         GameEvents.current.ChangeWeaponCollider(weapon.colliderPointX, weapon.colliderPointY, (int)weapon.weaponType);
-        GameEvents.current.ChangeWeaponAbility(weapon.ability1, weapon.ability2, weapon.ability3, weapon.ability1Icon, weapon.ability2Icon, weapon.ability3Icon);
+        GameEvents.current.ChangeWeaponAbility(weapon.ability1, weapon.ability2, weapon.ability3);
        
         PlayerSingleton.instance.gameObject.GetComponent<Animator>().SetInteger("StaffAttackType", (int)weapon.staffBA);
         PlayerSingleton.instance.gameObject.GetComponent<Animator>().SetInteger("WandAttackType", (int)weapon.wandBA);
@@ -402,7 +745,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
             GameEvents.current.ShowShield();
         }
         PlayerManager.Instance.staminaPerHit = weapon.staminaUse;
-        if (secondaryWeapon != null)
+        if (secondaryWeapon.isActive)
         {
             if (currentWeapon.canDualWield && secondaryWeapon.canDualWield)
             {
@@ -416,9 +759,9 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
     public void ChangeCurrentWeapon(Weapon weapon)
     {
-        if (currentWeapon != null)
+        if (currentWeapon.isActive)
         {
-            inventory.Add(new InventorySlot(currentWeapon, 1));                 
+            weaponInventory.Add(currentWeapon);                 
         }
         currentWeapon = weapon;
         AbilityManager.Instance.ResetCooldowns();
@@ -428,7 +771,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
     public void ChangeSecondaryWeapon(Weapon weapon)
     {
-        if (currentWeapon != null)
+        if (currentWeapon.isActive)
         {
             if (currentWeapon.canDualWield && weapon.canDualWield)
             {
@@ -567,7 +910,6 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                 #region Pants
 
                 currentPants = null;
-
                 #endregion
                 break;
             case Equipment.EquipmentType.Shoes:
@@ -636,8 +978,31 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
         uiItemInfo.Find("Background").transform.Find("Info4").GetComponent<TMPro.TextMeshProUGUI>().text = "";
         uiItemInfo.Find("Background").transform.Find("text-Description").GetComponent<TMPro.TextMeshProUGUI>().text = "";
         uiItemInfo.Find("Background").transform.Find("Description").GetComponent<TMPro.TextMeshProUGUI>().text = "";
+        currentWeight = 0;
 
-      
+        #region Weight
+        foreach (InventorySlot inventorySlot1 in itemInventory)
+        {
+            currentWeight += (inventorySlot1.item.itemWeight * inventorySlot1.stackAmount);
+        }
+        foreach (Weapon weapon1 in weaponInventory)
+        {
+            currentWeight += weapon1.itemWeight;
+        }
+        foreach (Equipment equipment1 in equipmentInventory)
+        {
+            currentWeight += equipment1.itemWeight;
+        }
+        foreach (Shield shield1 in shieldInventory)
+        {
+            currentWeight += shield1.itemWeight;
+        }
+        foreach (ConsumableInventorySlot inventorySlot1 in consumableInventory)
+        {
+            currentWeight += (inventorySlot1.consumable.itemWeight * inventorySlot1.stackAmount);
+        }
+        #endregion
+
         switch (i)
         {
             case 0:
@@ -647,14 +1012,14 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                 {
                     Destroy(item.gameObject);
                 }
-                currentWeight = 0;
-                if (inventory.Count > 0)
+                
+                if (itemInventory.Count > 0)
                 {
 
-                    foreach (InventorySlot inventorySlot in inventory)
+                    foreach (InventorySlot inventorySlot in itemInventory)
                     {
                         Item item = inventorySlot.item;
-                        currentWeight += (item.itemWeight * inventorySlot.stackAmount);
+                       
                         if (item.itemType != Item.ItemType.Weapon)
                         {
                             if (item.itemType != Item.ItemType.Equipment)
@@ -666,7 +1031,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                                     obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
                                     obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * inventorySlot.stackAmount).ToString();
                                     obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = inventorySlot.stackAmount.ToString() ;
-
+                                    obj.GetComponent<InventoryItem>().amount = inventorySlot.stackAmount;
 
                                     obj.GetComponent<InventoryItem>().item = item;
                                     obj.GetComponent<Image>().color = new Color(130, 130, 130);
@@ -715,25 +1080,25 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                 {
                     Destroy(item.gameObject);
                 }
-                currentWeight = 0;
-                if (inventory.Count > 0)
+               
+                if (weaponInventory.Count > 0)
                 {
                     
-                    foreach (InventorySlot inventorySlot in inventory)
+                    foreach (Weapon item in weaponInventory)
                     {
-                        Item item = inventorySlot.item;
-                        currentWeight += (item.itemWeight * inventorySlot.stackAmount);
+                        
+                        
                         if (item.itemType == Item.ItemType.Weapon)
                         {
                             GameObject obj = Instantiate(uiObject, uiContent);
                             obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
                             obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
-                            obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * inventorySlot.stackAmount).ToString();
+                            obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemWeight.ToString();
                             obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
 
 
                             obj.GetComponent<InventoryItem>().item = item;
-                        
+
                             obj.GetComponent<Image>().color = new Color(130, 130, 130);
                             switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
                             {
@@ -775,25 +1140,26 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                 {
                     Destroy(item.gameObject);
                 }
-                currentWeight = 0;
-                if (inventory.Count > 0)
+                
+                if (consumableInventory.Count > 0)
                 {
 
 
                     currentTab = 2;
-                    foreach (InventorySlot inventorySlot in inventory)
+                    foreach (ConsumableInventorySlot inventorySlot in consumableInventory)
                     {
-                        Item item = inventorySlot.item;
-                        currentWeight += item.itemWeight;
+                        Item item = inventorySlot.consumable;
+                       
                         if (item.itemType == Item.ItemType.Consumable)
                         {
                             GameObject obj = Instantiate(uiObject, uiContent);
                             obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
                             obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
                             obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * inventorySlot.stackAmount).ToString();
+                            obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = inventorySlot.stackAmount.ToString();
 
-                
                             obj.GetComponent<InventoryItem>().item = item;
+                            obj.GetComponent<InventoryItem>().amount = inventorySlot.stackAmount;
                             obj.GetComponent<Image>().color = new Color(130, 130, 130);
                             switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
                             {
@@ -835,14 +1201,14 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                 {
                     Destroy(item.gameObject);
                 }
-                currentWeight = 0;
-                if (inventory.Count > 0)
+                
+                if (itemInventory.Count > 0)
                 {
 
-                    foreach (InventorySlot inventorySlot in inventory)
+                    foreach (InventorySlot inventorySlot in itemInventory)
                     {
                         Item item = inventorySlot.item;
-                        currentWeight += (item.itemWeight * inventorySlot.stackAmount);
+                       
                         if (item.itemType == Item.ItemType.Material)
                         {
                             GameObject obj = Instantiate(uiObject, uiContent);
@@ -853,6 +1219,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
 
                             obj.GetComponent<InventoryItem>().item = item;
+                            obj.GetComponent<InventoryItem>().amount = inventorySlot.stackAmount;
                             switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
                             {
                                 case 0:
@@ -882,7 +1249,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                         }
                     }
                 }
-                weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
+                
                 currentTab = 3;
                 #endregion
                 break;
@@ -894,14 +1261,14 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                 {
                     Destroy(item.gameObject);
                 }
-                currentWeight = 0;
-                if (inventory.Count > 0)
+                
+                if (equipmentInventory.Count > 0)
                 {
 
-                    foreach (InventorySlot inventorySlot in inventory)
+                    foreach (Equipment item in equipmentInventory)
                     {
-                        Item item = inventorySlot.item;
-                        currentWeight += (item.itemWeight * inventorySlot.stackAmount);
+                        
+                        
                         if (item.itemType == Item.ItemType.Equipment)
                         {
                             Equipment equipment = (Equipment)item;
@@ -914,7 +1281,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                                 GameObject obj = Instantiate(uiObject, uiContent);
                                 obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
                                 obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
-                                obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * inventorySlot.stackAmount).ToString();
+                                obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemWeight.ToString();
                                 obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
 
 
@@ -950,7 +1317,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                     
                     }
                 }
-                weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
+               
                 currentTab = 4;
                 #endregion
                 break;
@@ -962,14 +1329,14 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                 {
                     Destroy(item.gameObject);
                 }
-                currentWeight = 0;
-                if (inventory.Count > 0)
+                
+                if (equipmentInventory.Count > 0)
                 {
 
-                    foreach (InventorySlot inventorySlot in inventory)
+                    foreach (Equipment item in equipmentInventory)
                     {
-                        Item item = inventorySlot.item;
-                        currentWeight += (item.itemWeight * inventorySlot.stackAmount);
+                        
+                        //currentWeight += (item.itemWeight * inventorySlot.stackAmount);
                         if (item.itemType == Item.ItemType.Equipment)
                         {
                             Equipment equipment = (Equipment)item;
@@ -981,7 +1348,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                                 GameObject obj = Instantiate(uiObject, uiContent);
                                 obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
                                 obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
-                                obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * inventorySlot.stackAmount).ToString();
+                                obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemWeight.ToString();
                                 obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
 
                                 obj.GetComponent<InventoryItem>().item = item;
@@ -1015,7 +1382,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                         }
                     }
                 }
-                weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
+                
                 currentTab = 5;
                 #endregion
                 break;
@@ -1027,14 +1394,14 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                 {
                     Destroy(item.gameObject);
                 }
-                currentWeight = 0;
-                if (inventory.Count > 0)
+                
+                if (shieldInventory.Count > 0)
                 {
 
-                    foreach (InventorySlot inventorySlot in inventory)
+                    foreach (Shield item in shieldInventory)
                     {
-                        Item item = inventorySlot.item;
-                        currentWeight += (item.itemWeight * inventorySlot.stackAmount);
+                        
+                        
                         if (item.itemType == Item.ItemType.Shield)
                         {
 
@@ -1042,7 +1409,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                             GameObject obj = Instantiate(uiObject, uiContent);
                             obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemName;
                             obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = item.itemSprite;
-                            obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (item.itemWeight * inventorySlot.stackAmount).ToString();
+                            obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = item.itemWeight.ToString();
                             obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
 
                             obj.GetComponent<InventoryItem>().item = item;
@@ -1077,7 +1444,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                         }
                     }
                 }
-                weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
+                
                 currentTab = 6;
                 #endregion
                 break;
@@ -1085,7 +1452,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                 break;
         }
 
-
+        weight.GetComponent<TMPro.TextMeshProUGUI>().text = currentWeight.ToString();
         GameEvents.current.InventoryRefresh(currentWeapon, secondaryWeapon);
         Debug.Log("Inventory Refreshed");
     }
@@ -1093,56 +1460,43 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
     private void SwapWeapon()
     {
-        if (currentWeapon != null && secondaryWeapon != null)
+        if (currentWeapon.isActive && secondaryWeapon.isActive)
         {
-            Weapon weapon = currentWeapon;
-            if (secondaryWeapon != null)
-            {
-                currentWeapon = secondaryWeapon;
-            }
-            else
-            {
-                currentWeapon = null;
-            }
+            Weapon weapon = currentWeapon;           
+            currentWeapon = secondaryWeapon;           
             secondaryWeapon = weapon;
-            if (currentWeapon != null)
-            {
-                ChangeWeapon(currentWeapon);
-            }
+
+
             
-            UpdateInventoryTab(currentTab);
-
-            GameEvents.current.SwapWeapon();
-        }
-        if (currentWeapon == null && secondaryWeapon != null)
-        {
-
-            currentWeapon = secondaryWeapon;                       
-            secondaryWeapon = null;            
             ChangeWeapon(currentWeapon);
             
-
+            
             UpdateInventoryTab(currentTab);
 
             GameEvents.current.SwapWeapon();
         }
+        
 
        
     }
 
-    public void SpawnCurrentWeapon()
-    {     
+    IEnumerator SpawnCurrentWeapon()
+    {
+        yield return new WaitForSeconds(0.3f);
         GameEvents.current.InventoryRefresh(currentWeapon, secondaryWeapon);
     }
 
-
+    public void SpawnCurrentWeapons()
+    {
+        GameEvents.current.InventoryRefresh(currentWeapon, secondaryWeapon);
+    }
 
     private void UpdateStats()
     {
         #region Damage
         float damage = 0f;
         float equipmentDamageBoost = 0f;
-        if (currentWeapon != null)
+        if (currentWeapon.isActive)
         {
             damage += currentWeapon.damage;
         }
@@ -1152,7 +1506,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
         #region MagicDamage
         float magicDamage = 0f;
-        if (currentWeapon != null)
+        if (currentWeapon.isActive)
         {
             magicDamage += currentWeapon.magicDamage;
         }
@@ -1161,42 +1515,42 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
         #region Armor
         float armor = 0f;
-        if (currentHead != null)
+        if (currentHead.isActive)
         {
             equipmentDamageBoost += currentHead.bonusDamage;
             armor += currentHead.armor;
         }
-        if(currentChest != null)
+        if(currentChest.isActive)
         {
             equipmentDamageBoost += currentChest.bonusDamage;
             armor += currentChest.armor;
         }
-        if (currentPants != null)
+        if (currentPants.isActive)
         {
             equipmentDamageBoost += currentPants.bonusDamage;
             armor += currentPants.armor;
         }
-        if(currentShoes != null)
+        if(currentShoes.isActive)
         {
             equipmentDamageBoost += currentShoes.bonusDamage;
             armor += currentShoes.armor;
         }
-        if(currentNecklace != null)
+        if(currentNecklace.isActive)
         {
             equipmentDamageBoost += currentNecklace.bonusDamage;
             armor += currentNecklace.armor;
         }
-        if(currentEarrings != null)
+        if(currentEarrings.isActive)
         {
             equipmentDamageBoost += currentEarrings.bonusDamage;
             armor += currentEarrings.armor;
         }
-        if(currentRing1 != null)
+        if(currentRing1.isActive)
         {
             equipmentDamageBoost += currentRing1.bonusDamage;
             armor += currentRing1.armor;
         }
-        if(currentRing2 != null)
+        if(currentRing2.isActive)
         {
             equipmentDamageBoost += currentRing2.bonusDamage;
             armor += currentRing2.armor;
@@ -1207,7 +1561,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
         #region Crit
         float critRate = 0f;
         float critDamage = 1f;
-        if (currentWeapon != null)
+        if (currentWeapon.isActive)
         {
             critRate += currentWeapon.critRate;
             critDamage *= currentWeapon.critDamage;
@@ -1217,7 +1571,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
         #region KnockBackForce
         float knockBackForce = 0f;
-        if (currentWeapon != null)
+        if (currentWeapon.isActive)
         {
             knockBackForce += currentWeapon.knockBackForce;
         }
@@ -1226,7 +1580,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
         #region SlowDebuff
         float slowDebuff = 0f;
-        if (currentWeapon != null)
+        if (currentWeapon.isActive)
         {
             slowDebuff += currentWeapon.speedMultiplier;
         }
@@ -1235,7 +1589,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
         #region SlowDebuffTime
         float slowDebuffTime = 0;
-        if (currentWeapon != null)
+        if (currentWeapon.isActive)
         {
             slowDebuffTime += currentWeapon.slowDownLength;
         }
@@ -1243,7 +1597,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
         #region Mana
         float manaCost = 0f;
-        if (currentWeapon != null)
+        if (currentWeapon.isActive)
         {
             manaCost += currentWeapon.manaCost;
         }
@@ -1251,7 +1605,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
         #region ShotForce
         float shotForce = 0f;
-        if (currentWeapon != null)
+        if (currentWeapon.isActive)
         {
             shotForce = currentWeapon.force;
         }
@@ -1259,7 +1613,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
         #region LocalPosition
         Vector2 localPos = new Vector2(0f, 0f);
-        if (currentWeapon != null)
+        if (currentWeapon.isActive)
         {
             localPos = currentWeapon.localPosition;
         }

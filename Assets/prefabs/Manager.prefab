@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2725330162312687353}
   - component: {fileID: 8461311359298076872}
+  - component: {fileID: 3130616215243897753}
   m_Layer: 0
   m_Name: ConsumableManager
   m_TagString: Untagged
@@ -44,51 +45,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60108aa7f6927d745883da4f706bf30d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potion1: {fileID: 0}
   consumable1:
     itemSprite: {fileID: 0}
+    spriteAtlasPath: 
+    spriteIndex: 0
+    isActive: 0
     itemName: 
     itemDescription: 
     itemType: 0
     itemRarity: 0
     itemWeight: 0
     isStackable: 0
+    consumableType: 0
     consumableName: 
     cooldownTime: 0
     activeTime: 0
     hpHealing: 0
     manaHealing: 0
-    hasBuff: 0
-    buffIcon: {fileID: 0}
+  stackAmount1: 0
+  potion2: {fileID: 0}
   consumable2:
     itemSprite: {fileID: 0}
+    spriteAtlasPath: 
+    spriteIndex: 0
+    isActive: 0
     itemName: 
     itemDescription: 
     itemType: 0
     itemRarity: 0
     itemWeight: 0
     isStackable: 0
+    consumableType: 0
     consumableName: 
     cooldownTime: 0
     activeTime: 0
     hpHealing: 0
     manaHealing: 0
-    hasBuff: 0
-    buffIcon: {fileID: 0}
+  stackAmount2: 0
+  potion3: {fileID: 0}
   consumable3:
     itemSprite: {fileID: 0}
+    spriteAtlasPath: 
+    spriteIndex: 0
+    isActive: 0
     itemName: 
     itemDescription: 
     itemType: 0
     itemRarity: 0
     itemWeight: 0
     isStackable: 0
+    consumableType: 0
     consumableName: 
     cooldownTime: 0
     activeTime: 0
     hpHealing: 0
     manaHealing: 0
-    hasBuff: 0
-    buffIcon: {fileID: 0}
+  stackAmount3: 0
   cooldownTime1: 0
   activeTime1: 0
   cooldownIcon1: {fileID: 0}
@@ -99,10 +112,24 @@ MonoBehaviour:
   activeTime3: 0
   cooldownIcon3: {fileID: 0}
   buffParent: {fileID: 0}
-  uiObject: {fileID: 0}
+  uiObject: {fileID: 4513455475149660618, guid: 209efaadd39b9a04a989dde68beace17, type: 3}
   key1: 104
   key2: 103
   key3: 102
+--- !u!114 &3130616215243897753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045030493458375516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137bdce8376c0b7448d77667a095a6f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasBuff: 0
+  buffIcon: {fileID: 0}
 --- !u!1 &1579662712790032619
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,11 +627,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57fbb99686cf0ed4e990f9c2f7501789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: []
+  itemInventory: []
+  weaponInventory: []
+  equipmentInventory: []
+  shieldInventory: []
+  consumableInventory: []
   currentWeight: 0
   maxWeight: 200
   currentWeapon:
     itemSprite: {fileID: 776136188158623729, guid: 41472c987a1935e499a2719fe4f07224, type: 3}
+    spriteAtlasPath: 
+    spriteIndex: 0
+    isActive: 1
     itemName: Iron Sword
     itemDescription: Slah
     itemType: 0
@@ -670,14 +704,14 @@ MonoBehaviour:
     - -0.019999999552965164
     - -0.019999999552965164
     - 0.009999999776482582
-    ability1: {fileID: 0}
-    ability2: {fileID: 0}
-    ability3: {fileID: 0}
-    ability1Icon: {fileID: 0}
-    ability2Icon: {fileID: 0}
-    ability3Icon: {fileID: 0}
+    ability1: 0
+    ability2: 5
+    ability3: 0
   secondaryWeapon:
     itemSprite: {fileID: 0}
+    spriteAtlasPath: 
+    spriteIndex: 0
+    isActive: 0
     itemName: 
     itemDescription: 
     itemType: 0
@@ -703,14 +737,14 @@ MonoBehaviour:
     slowDownLength: 0
     colliderPointX: []
     colliderPointY: []
-    ability1: {fileID: 0}
-    ability2: {fileID: 0}
-    ability3: {fileID: 0}
-    ability1Icon: {fileID: 0}
-    ability2Icon: {fileID: 0}
-    ability3Icon: {fileID: 0}
+    ability1: 0
+    ability2: 0
+    ability3: 0
   currentShield:
     itemSprite: {fileID: 0}
+    spriteAtlasPath: 
+    spriteIndex: 0
+    isActive: 0
     itemName: 
     itemDescription: 
     itemType: 0
@@ -720,6 +754,9 @@ MonoBehaviour:
     block: 0
   currentHead:
     itemSprite: {fileID: 0}
+    spriteAtlasPath: 
+    spriteIndex: 0
+    isActive: 0
     itemName: 
     itemDescription: 
     itemType: 0
@@ -731,6 +768,9 @@ MonoBehaviour:
     bonusDamage: 0
   currentChest:
     itemSprite: {fileID: 0}
+    spriteAtlasPath: 
+    spriteIndex: 0
+    isActive: 0
     itemName: 
     itemDescription: 
     itemType: 0
@@ -742,6 +782,9 @@ MonoBehaviour:
     bonusDamage: 0
   currentPants:
     itemSprite: {fileID: 0}
+    spriteAtlasPath: 
+    spriteIndex: 0
+    isActive: 0
     itemName: 
     itemDescription: 
     itemType: 0
@@ -753,6 +796,9 @@ MonoBehaviour:
     bonusDamage: 0
   currentShoes:
     itemSprite: {fileID: 0}
+    spriteAtlasPath: 
+    spriteIndex: 0
+    isActive: 0
     itemName: 
     itemDescription: 
     itemType: 0
@@ -764,6 +810,9 @@ MonoBehaviour:
     bonusDamage: 0
   currentNecklace:
     itemSprite: {fileID: 0}
+    spriteAtlasPath: 
+    spriteIndex: 0
+    isActive: 0
     itemName: 
     itemDescription: 
     itemType: 0
@@ -775,6 +824,9 @@ MonoBehaviour:
     bonusDamage: 0
   currentEarrings:
     itemSprite: {fileID: 0}
+    spriteAtlasPath: 
+    spriteIndex: 0
+    isActive: 0
     itemName: 
     itemDescription: 
     itemType: 0
@@ -786,6 +838,9 @@ MonoBehaviour:
     bonusDamage: 0
   currentRing1:
     itemSprite: {fileID: 0}
+    spriteAtlasPath: 
+    spriteIndex: 0
+    isActive: 0
     itemName: 
     itemDescription: 
     itemType: 0
@@ -797,6 +852,9 @@ MonoBehaviour:
     bonusDamage: 0
   currentRing2:
     itemSprite: {fileID: 0}
+    spriteAtlasPath: 
+    spriteIndex: 0
+    isActive: 0
     itemName: 
     itemDescription: 
     itemType: 0
@@ -808,8 +866,12 @@ MonoBehaviour:
     bonusDamage: 0
   uiObject: {fileID: 4513455475149660618, guid: 209efaadd39b9a04a989dde68beace17, type: 3}
   pickupItem: {fileID: 1859770256390172355, guid: 0259850f7139bb7499669950cbb20695, type: 3}
+  currentTab: 0
   starterWeapon:
     itemSprite: {fileID: 0}
+    spriteAtlasPath: 
+    spriteIndex: 0
+    isActive: 0
     itemName: 
     itemDescription: 
     itemType: 0
@@ -835,12 +897,9 @@ MonoBehaviour:
     slowDownLength: 0
     colliderPointX: []
     colliderPointY: []
-    ability1: {fileID: 0}
-    ability2: {fileID: 0}
-    ability3: {fileID: 0}
-    ability1Icon: {fileID: 0}
-    ability2Icon: {fileID: 0}
-    ability3Icon: {fileID: 0}
+    ability1: 0
+    ability2: 0
+    ability3: 0
 --- !u!1 &7430866410012045161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,6 +1066,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6587945096053421919}
   - component: {fileID: 7619836390122470533}
+  - component: {fileID: 8702538505341612216}
+  - component: {fileID: 8749577454495486384}
+  - component: {fileID: 3858102663891301077}
+  - component: {fileID: 3004010245076270004}
+  - component: {fileID: 7260099311775307777}
+  - component: {fileID: 6742232938218550905}
   m_Layer: 0
   m_Name: AbilityManager
   m_TagString: Untagged
@@ -1061,6 +1126,140 @@ MonoBehaviour:
   key1: 113
   key2: 101
   key3: 114
+  dashSprite: {fileID: 21300000, guid: 4a7845fc91e292547850bb3c34b390ec, type: 3}
+  dashBehindEnemySprite: {fileID: 21300000, guid: 261e9c65c94ca314ebb2f0d24b571984, type: 3}
+  dashBackwardsSprite: {fileID: 21300000, guid: 4a7845fc91e292547850bb3c34b390ec, type: 3}
+  firePitSprite: {fileID: 21300000, guid: 291c884fe33a0a942a47688e66852a93, type: 3}
+  waterSlamSprite: {fileID: 21300000, guid: b28bdfe7afba89543bb003f77d08cd36, type: 3}
+  buffDefenseSprite: {fileID: 21300000, guid: 2891f0f310a19b44f94090317ee2691a, type: 3}
+--- !u!114 &8702538505341612216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201428679708295401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c13f06d807f964886355e5bd19396f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: Buff Defense
+  cooldownTime: 20
+  activeTime: 10
+  manaCost: 5
+  hasBuff: 1
+  buffIcon: {fileID: 21300000, guid: 2891f0f310a19b44f94090317ee2691a, type: 3}
+  defensebuff: 5
+  buffEffect: {fileID: 299322722182664663, guid: 641c22e3e418d5a4db6508aa7aa8d2a4, type: 3}
+--- !u!114 &8749577454495486384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201428679708295401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cacf0f86e061719419736edcb6239e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: Dash
+  cooldownTime: 20
+  activeTime: 1
+  manaCost: 5
+  hasBuff: 0
+  buffIcon: {fileID: 0}
+  dashLength: 5
+  effect: {fileID: 8096557702922142553, guid: bd4d19b9caba93f43a25b7bd2666752f, type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!114 &3858102663891301077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201428679708295401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fbe8cb41b911624181f88bab0ba474f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: DashBehindEnemy
+  cooldownTime: 30
+  activeTime: 2
+  manaCost: 5
+  hasBuff: 1
+  buffIcon: {fileID: 21300000, guid: cf508280f1b927146bb1eb9f6f7ee273, type: 3}
+  range: 10
+  damageBoost: 2
+  effect: {fileID: 8096557702922142553, guid: bd4d19b9caba93f43a25b7bd2666752f, type: 3}
+  buffEffect: {fileID: 299322722182664663, guid: 641c22e3e418d5a4db6508aa7aa8d2a4, type: 3}
+--- !u!114 &3004010245076270004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201428679708295401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 037f24ef8bd271c41b582a4cf12efa3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: Dash BAckwards
+  cooldownTime: 30
+  activeTime: 1
+  manaCost: 5
+  hasBuff: 0
+  buffIcon: {fileID: 0}
+  dashLength: 5
+  effect: {fileID: 8096557702922142553, guid: bd4d19b9caba93f43a25b7bd2666752f, type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!114 &7260099311775307777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201428679708295401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab5c31f1bc5519499b49e2d9eb14ba5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: Fire Pit
+  cooldownTime: 30
+  activeTime: 1.6
+  manaCost: 5
+  hasBuff: 0
+  buffIcon: {fileID: 0}
+  range: 7
+  firePitObject: {fileID: 4849053168341352889, guid: 5a9d3381c0460ab45b0d653ea2451eec, type: 3}
+--- !u!114 &6742232938218550905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201428679708295401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e949b7b86c6d447ac5b4ee1cc88862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: Water Slame
+  cooldownTime: 20
+  activeTime: 1.5
+  manaCost: 5
+  hasBuff: 0
+  buffIcon: {fileID: 0}
+  range: 7
+  waterWaveObject: {fileID: 4182180318318713808, guid: f8a9257b39dd8af41a280a81e6ff6fb3, type: 3}
 --- !u!1 &8281306039312005146
 GameObject:
   m_ObjectHideFlags: 0

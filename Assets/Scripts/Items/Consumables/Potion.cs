@@ -2,24 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Potion : Consumable
+public class Potion : MonoBehaviour
 {
-    public override void Activate(GameObject parent)
+
+
+    [Header("Buff")]
+    public bool hasBuff;
+    public Sprite buffIcon;
+
+    public void Activate(float hp, float mana)
     {
 
-        PlayerManager.Instance.SetHealthValue(hpHealing);
-        PlayerManager.Instance.SetHealthValue(manaHealing);
+        PlayerManager.Instance.SetHealthValue(hp);
+        PlayerManager.Instance.SetHealthValue(mana);
 
     }
 
 
-    public override void DeActivate(GameObject parent)
+    public void DeActivate(GameObject parent)
     {
         
     }
 
 
-    public override void Trigger(GameObject parent)
-    {
+    public void Trigger(GameObject parent)
+    { 
+
     }
 }

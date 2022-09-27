@@ -58,14 +58,41 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
     GameObject buffIcon3;
 
 
+
+    private AbilityDash dash;
+    private AbilityDashBehindEnemy dashBehindEnemy;
+    private AbilityDashBackwards dashBackwards;
+    private AbilityFirePit firePit;
+    private AbilityWaterSlam waterSlam;
+    private AbilityBuffDefense buffDefense;
+
+    public Sprite dashSprite;
+    public Sprite dashBehindEnemySprite;
+    public Sprite dashBackwardsSprite;
+    public Sprite firePitSprite;
+    public Sprite waterSlamSprite;
+    public Sprite buffDefenseSprite;
+
     public void Start()
     {
+        
         playerManager = PlayerManager.Instance;
         playerObject = PlayerSingleton.instance.gameObject;
         GameEvents.current.OnChangeWeaponAbility += ChangeAbilities;
         cooldownIcon1 = HUDSingleton.instance.transform.Find("Ability1").GetComponent<Slider>();
         cooldownIcon2 = HUDSingleton.instance.transform.Find("Ability2").GetComponent<Slider>();
         cooldownIcon3 = HUDSingleton.instance.transform.Find("Ability3").GetComponent<Slider>();
+
+        dash = transform.GetComponent<AbilityDash>();
+        dashBehindEnemy = transform.GetComponent<AbilityDashBehindEnemy>();
+        dashBackwards = transform.GetComponent<AbilityDashBackwards>();
+        firePit = transform.GetComponent<AbilityFirePit>();
+        waterSlam = transform.GetComponent<AbilityWaterSlam>();
+        buffDefense = transform.GetComponent<AbilityBuffDefense>();
+
+        ability1 = dash;
+        ability2 = dash;
+        ability3 = dash;
     }
 
 
@@ -81,7 +108,7 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
             switch (state1)
             {
                 case AbilityState.ready:
-                    if (Input.GetKeyDown(key1) && !(cooldownTime1 > 0) && (playerManager.GetManaValue() - ability1.manaCost) > 0) 
+                    if (Input.GetKeyDown(key1) && (cooldownTime1 <= 0) && (playerManager.GetManaValue() - ability1.manaCost) > 0) 
                     {
                         Debug.Log("Ability 1 is Active");
                         cooldownIcon1.value = 1f;
@@ -170,7 +197,7 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
             switch (state2)
             {
                 case AbilityState.ready:
-                    if (Input.GetKeyDown(key2) && !(cooldownTime2 > 0))
+                    if (Input.GetKeyDown(key2) && (cooldownTime2 <= 0) && (playerManager.GetManaValue() - ability2.manaCost) > 0)
                     {
                         Debug.Log("Ability 2 is Active");
                         ability2.Activate(playerObject);
@@ -252,7 +279,7 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
             switch (state3)
             {
                 case AbilityState.ready:
-                    if (Input.GetKeyDown(key3) && !(cooldownTime1 > 0))
+                    if (Input.GetKeyDown(key3) && (cooldownTime3 <= 0) && (playerManager.GetManaValue() - ability3.manaCost) > 0)
                     {
                         Debug.Log("Ability 3 is Active");
                         cooldownIcon3.value = 1f;
@@ -347,7 +374,7 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
 
 
 
-    private void ChangeAbilities(Ability Ability1, Ability Ability2, Ability Ability3, Sprite Sprite1, Sprite Sprite2, Sprite Sprite3)
+    private void ChangeAbilities(Weapon.AbilityType Ability1, Weapon.AbilityType Ability2, Weapon.AbilityType Ability3)
     {
 
 
@@ -362,125 +389,156 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
         cooldownTime3 = temp3;
 
         #region Ability1
-        if (ability1 != null)
+
+        ability1.DeActivate(playerObject);
+        Debug.Log("Ability 1 Deactivated");
+        if (ability1.hasBuff)
         {
-            ability1.DeActivate(playerObject);
-            Debug.Log("Ability 1 Deactivated");
-            if (ability1.hasBuff)
+            foreach (Transform child in buffParent)
             {
-                foreach (Transform child in buffParent)
+                Debug.Log(child);
+                if (child.GetComponent<Image>().sprite == buffIcon1.GetComponent<Image>().sprite)
                 {
-                    Debug.Log(child);
-                    if (child.GetComponent<Image>().sprite == buffIcon1.GetComponent<Image>().sprite)
-                    {
-                        Destroy(child.gameObject);
-                    }
+                    Destroy(child.gameObject);
                 }
             }
-
-            state1 = AbilityState.ready;
-        }
-        if (Ability1 != null)
-        {
-            ability1 = Ability1;
-            cooldownIcon1.value = cooldownTime1 / ability1.cooldownTime;
-
-        }
-        else
-        {
-            ability1 = null;
-
         }
 
-        if (Sprite1 != null)
+        state1 = AbilityState.ready;
+
+        switch (Ability1)
         {
-            cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = Sprite1;
+            case Weapon.AbilityType.Dash:
+                ability1 = dash;
+                cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = dashSprite;
+                break;
+            case Weapon.AbilityType.DashBehindEnemy:
+                ability1 = dashBehindEnemy;
+                cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = dashBehindEnemySprite;
+                break;
+            case Weapon.AbilityType.DashBackwards:
+                ability1 = dashBackwards;
+                cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = dashBackwardsSprite;
+                break;
+            case Weapon.AbilityType.FirePit:
+                ability1 = firePit;
+                cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = firePitSprite;
+                break;
+            case Weapon.AbilityType.WaterWaterSlam:
+                ability1 = waterSlam;
+                cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = waterSlamSprite;
+                break;
+            case Weapon.AbilityType.BuffDefense:
+                ability1 = buffDefense;
+                cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = buffDefenseSprite;
+                break;
+            default:
+                cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = null;
+                break;
         }
-        else
-        {
-            cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = null;
-        }
+
 
         #endregion
 
         #region Ability2
-        if (ability2 != null)
+
+        ability2.DeActivate(playerObject);
+        Debug.Log("Ability 2 Deactivated");
+        if (ability2.hasBuff)
         {
-            ability2.DeActivate(playerObject);
-            Debug.Log("Ability 2 Deactivated");
-            if (ability2.hasBuff)
+            foreach (Transform child in buffParent)
             {
-                foreach (Transform child in buffParent)
+                Debug.Log(child);
+                if (child.GetComponent<Image>().sprite == buffIcon2.GetComponent<Image>().sprite)
                 {
-                    Debug.Log(child);
-                    if (child.GetComponent<Image>().sprite == buffIcon2.GetComponent<Image>().sprite)
-                    {
-                        Destroy(child.gameObject);
-                    }
+                    Destroy(child.gameObject);
                 }
             }
-            state2 = AbilityState.ready;
         }
+        state2 = AbilityState.ready;
 
 
-        if (Ability2 != null)
-        {
-            ability2 = Ability2;
-            cooldownIcon2.value = cooldownTime2 / ability2.cooldownTime;
-        }
-        else
-        {
-            ability2 = null;
-        }
 
-        if (Sprite2 != null)
+        switch (Ability2)
         {
-            cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = Sprite2;
-        }
-        else
-        {
-            cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = null;
+            case Weapon.AbilityType.Dash:
+                ability2 = dash;
+                cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = dashSprite;
+                break;
+            case Weapon.AbilityType.DashBehindEnemy:
+                ability2 = dashBehindEnemy;
+                cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = dashBehindEnemySprite;
+                break;
+            case Weapon.AbilityType.DashBackwards:
+                ability2 = dashBackwards;
+                cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = dashBackwardsSprite;
+                break;
+            case Weapon.AbilityType.FirePit:
+                ability2 = firePit;
+                cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = firePitSprite;
+                break;
+            case Weapon.AbilityType.WaterWaterSlam:
+                ability2 = waterSlam;
+                cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = waterSlamSprite;
+                break;
+            case Weapon.AbilityType.BuffDefense:
+                ability2 = buffDefense;
+                cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = buffDefenseSprite;
+                break;
+            default:
+                cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = null;
+                break;
         }
 
         #endregion
 
         #region Ability3
-        if (ability3 != null)
+
+        ability3.DeActivate(playerObject);
+        Debug.Log("Ability 3 Deactivated");
+        if (ability3.hasBuff)
         {
-            ability3.DeActivate(playerObject);
-            Debug.Log("Ability 3 Deactivated");
-            if (ability3.hasBuff)
+            foreach (Transform child in buffParent)
             {
-                foreach (Transform child in buffParent)
+                Debug.Log(child);
+                if (child.GetComponent<Image>().sprite == buffIcon3.GetComponent<Image>().sprite)
                 {
-                    Debug.Log(child);
-                    if (child.GetComponent<Image>().sprite == buffIcon3.GetComponent<Image>().sprite)
-                    {
-                        Destroy(child.gameObject);
-                    }
+                    Destroy(child.gameObject);
                 }
             }
-            state3 = AbilityState.ready;
         }
-
-        if (ability3 != null)
-        {
-            ability3 = Ability3;
-            cooldownIcon3.value = cooldownTime3 / ability3.cooldownTime;
-        }
-        else
-        {
-            ability3 = null;
-        }
+        state3 = AbilityState.ready;
 
 
-        if (Sprite3 != null)
+        switch (Ability3)
         {
-            cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = Sprite3;
-        }
-        else
-        {
-            cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = null;
+            case Weapon.AbilityType.Dash:
+                ability3 = dash;
+                cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = dashSprite;
+                break;
+            case Weapon.AbilityType.DashBehindEnemy:
+                ability3 = dashBehindEnemy;
+                cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = dashBehindEnemySprite;
+                break;
+            case Weapon.AbilityType.DashBackwards:
+                ability3 = dashBackwards;
+                cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = dashBackwardsSprite;
+                break;
+            case Weapon.AbilityType.FirePit:
+                ability3 = firePit;
+                cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = firePitSprite;
+                break;
+            case Weapon.AbilityType.WaterWaterSlam:
+                ability3 = waterSlam;
+                cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = waterSlamSprite;
+                break;
+            case Weapon.AbilityType.BuffDefense:
+                ability3 = buffDefense;
+                cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = buffDefenseSprite;
+                break;
+            default:
+                cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = null;
+                break;
         }
 
         #endregion

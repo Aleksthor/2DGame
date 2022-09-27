@@ -22,8 +22,11 @@ public class GameData
 
 
     /**  Inventory  */
-    public List<InventorySlot> inventory;
-
+    public List<InventorySlot> itemInventory;
+    public List<Weapon> weaponInventory;
+    public List<Equipment> equipmentInventory;
+    public List<Shield> shieldInventory;   
+    public List<ConsumableInventorySlot> consumableInventory;
 
     public Weapon currentWeapon;
     public Weapon secondaryWeapon;
@@ -39,7 +42,13 @@ public class GameData
     public Equipment currentRing1;
     public Equipment currentRing2;
 
-
+    /**  Active Consumable */
+    public Consumable consumable1;
+    public int consumableStackAmount1;
+    public Consumable consumable2;
+    public int consumableStackAmount2;
+    public Consumable consumable3;
+    public int consumableStackAmount3;
 
     /**   Bosses   */
     public bool goblinSmallBossDead;

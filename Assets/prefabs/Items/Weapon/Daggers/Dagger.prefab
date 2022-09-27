@@ -28,6 +28,18 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.ability1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.ability2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
+      propertyPath: weapon.ability3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992331036338134062, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
       propertyPath: weapon.critRate
       value: 40
       objectReference: {fileID: 0}
@@ -273,7 +285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4689204292726432643, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}
       propertyPath: m_Name
-      value: SpawnableItem (1)
+      value: Dagger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 517476c292cec1e4eb80a32a7bcd3999, type: 3}

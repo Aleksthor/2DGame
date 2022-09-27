@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventoryItem : MonoBehaviour
 {
     public Item item;
-
+    public int amount;
     public Transform uiItemInfo;
 
 

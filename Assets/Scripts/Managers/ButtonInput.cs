@@ -65,7 +65,7 @@ public class ButtonInput : SingletonMonoBehaviour<ButtonInput>
             {
                 HUDSingleton.instance.transform.Find("Inventory").gameObject.SetActive(true);
                 InventoryManager.Instance.UpdateInventoryTab(0);
-                InventoryManager.Instance.SpawnCurrentWeapon();
+                InventoryManager.Instance.SpawnCurrentWeapons();
                 inventoryOpen = true;
             }
 

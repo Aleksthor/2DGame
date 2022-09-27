@@ -687,7 +687,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a3c9ad81a9d8d4383f1fedf74c56e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 4597c98ec74b6b646a4ec121b2f5ec82, type: 2}
+  item:
+    itemSprite: {fileID: 21300000, guid: 0e1ccb64303778e4081913a6d9cca677, type: 3}
+    spriteAtlasPath: Items/Wood Log
+    spriteIndex: 0
+    isActive: 1
+    itemName: Wood
+    itemDescription: Can be used to craft certain items
+    itemType: 2
+    itemRarity: 0
+    itemWeight: 0.5
+    isStackable: 1
   health: 2
   maxHealth: 2
   min: 1
@@ -707,6 +717,7 @@ MonoBehaviour:
   enemySpawnManager: {fileID: 0}
   objectActivator: {fileID: 0}
   isSpawner: 0
+  isDead: 0
 --- !u!1 &2899518967952571830
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 523924207733705422}
+  - component: {fileID: 3151900358101022304}
   - component: {fileID: 5653377000670376673}
   - component: {fileID: 2934669923850339500}
   - component: {fileID: 4899108524422366655}
-  - component: {fileID: 3151900358101022304}
   m_Layer: 0
-  m_Name: BlueBell
+  m_Name: Tulip
   m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,6 +35,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3151900358101022304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941761197957272798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f8152c3372d324cbd44cae4ad2748b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemSprite: {fileID: 367533670, guid: a367f8e89ee090645958b40b89b763e8, type: 3}
+    spriteAtlasPath: Items/Item-Isedal
+    spriteIndex: 194
+    isActive: 1
+    itemName: Tulip
+    itemDescription: Can be use to make certain potions
+    itemType: 2
+    itemRarity: 1
+    itemWeight: 0.1
+    isStackable: 1
+  health: 1
+  min: 1
+  max: 2
 --- !u!212 &5653377000670376673
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -76,7 +102,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -933199083, guid: 85599e6bfca6dbc4f9e13ab2a31f5b4f, type: 3}
+  m_Sprite: {fileID: 367533670, guid: a367f8e89ee090645958b40b89b763e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,29 +150,3 @@ SortingGroup:
   m_SortingLayerID: -1103112865
   m_SortingLayer: 2
   m_SortingOrder: 0
---- !u!114 &3151900358101022304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3941761197957272798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3f8152c3372d324cbd44cae4ad2748b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item:
-    itemSprite: {fileID: -933199083, guid: 85599e6bfca6dbc4f9e13ab2a31f5b4f, type: 3}
-    spriteAtlasPath: Items/Item-Isedal
-    spriteIndex: 193
-    isActive: 1
-    itemName: Blue Bell
-    itemDescription: Can be use to make certain potions
-    itemType: 2
-    itemRarity: 0
-    itemWeight: 0.1
-    isStackable: 1
-  health: 1
-  min: 2
-  max: 4

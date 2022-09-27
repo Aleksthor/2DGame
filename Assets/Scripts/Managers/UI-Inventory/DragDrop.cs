@@ -17,6 +17,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         rectTransform = GetComponent<RectTransform>();
         inventoryItem = GetComponent<InventoryItem>();
         canvasGroup = GetComponent<CanvasGroup>();
+        startParent = HUDSingleton.instance.transform.Find("Inventory").transform.Find("ItemList").transform.Find("Viewport").transform.Find("Content").transform;
     }
 
     private void Start()

@@ -5,6 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class Consumable : Item 
 {
+    public enum ConsumableType
+    {
+        Potion
+    };
+
+    public ConsumableType consumableType; 
     public string consumableName;
     public float cooldownTime;
     public float activeTime;
@@ -13,13 +19,7 @@ public class Consumable : Item
     public float manaHealing;
 
 
-
-    [Header("Buff")]
-    public bool hasBuff;
-    public Sprite buffIcon;
+    
 
 
-    public virtual void Activate(GameObject parent) { }
-    public virtual void Trigger(GameObject parent) { }
-    public virtual void DeActivate(GameObject parent) { }
 }

@@ -129,13 +129,14 @@ public class WeaponSlot : MonoBehaviour, IDropHandler
             switch(slotIndex)
             {
                 case 1:
-                    if (current.itemSprite != null)
+                    if (current.isActive)
                     {
                         
                         GameObject obj = Instantiate(uiObject, transform);
                         obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = current.itemName;
                         obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = current.itemSprite;
-                        obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = "";
+                        obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = current.itemWeight.ToString();
+                        obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
                         obj.GetComponent<InventoryItem>().item = current;
                         obj.transform.SetParent(transform);
                         obj.GetComponent<DragDrop>().enabled = false;
@@ -170,12 +171,13 @@ public class WeaponSlot : MonoBehaviour, IDropHandler
 
                     break;
                 case 2:
-                    if (secondary.itemSprite != null)
+                    if (secondary.isActive)
                     {
                         GameObject obj = Instantiate(uiObject, transform);
                         obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = secondary.itemName;
                         obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = secondary.itemSprite;
-                        obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = "";
+                        obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = secondary.itemWeight.ToString();
+                        obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
                         obj.GetComponent<InventoryItem>().item = secondary;
                         obj.transform.SetParent(transform);
                         obj.GetComponent<DragDrop>().enabled = false;

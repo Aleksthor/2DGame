@@ -458,12 +458,12 @@ public class GameEvents : MonoBehaviour
 
     // Change Weapon Ability
 
-    public event Action<Ability, Ability, Ability, Sprite, Sprite, Sprite> OnChangeWeaponAbility;
-    public void ChangeWeaponAbility(Ability ability1, Ability ability2, Ability ability3, Sprite sprite1, Sprite sprite2, Sprite sprite3) 
+    public event Action<Weapon.AbilityType, Weapon.AbilityType, Weapon.AbilityType> OnChangeWeaponAbility;
+    public void ChangeWeaponAbility(Weapon.AbilityType ability1, Weapon.AbilityType ability2, Weapon.AbilityType ability3) 
     {
         if (OnChangeWeaponAbility != null)
         {
-            OnChangeWeaponAbility(ability1, ability2, ability3, sprite1, sprite2, sprite3);
+            OnChangeWeaponAbility(ability1, ability2, ability3);
         }
     }
 

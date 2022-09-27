@@ -65,14 +65,21 @@ public class Weapon : Item
     public double[] colliderPointX;
     public double[] colliderPointY;
 
-    [Header("Weapon Abilites")]
-    [SerializeReference] public Ability ability1;
-    [SerializeReference] public Ability ability2;
-    [SerializeReference] public Ability ability3;
+    public enum AbilityType
+    {
+        Dash,
+        DashBehindEnemy,
+        DashBackwards,
+        FirePit,
+        WaterWaterSlam,
+        BuffDefense
+    };
 
-    public Sprite ability1Icon;
-    public Sprite ability2Icon;
-    public Sprite ability3Icon;
+    [Header("Weapon Abilites")]
+    [SerializeReference] public AbilityType ability1;
+    [SerializeReference] public AbilityType ability2;
+    [SerializeReference] public AbilityType ability3;
+
 
 
 

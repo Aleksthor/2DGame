@@ -99,7 +99,7 @@ public class BossManager : SingletonMonoBehaviour<BossManager>, IDataPersistence
         goblinArcMageDead = data.goblinArcMageDead;
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         data.goblinSmallBossDead = goblinSmallBossDead;
         data.goblinArcMageDead = goblinArcMageDead;

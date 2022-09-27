@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+
 public class Ability : MonoBehaviour
 {
+
+    
+
     public string abilityName;
     public float cooldownTime;
     public float activeTime;

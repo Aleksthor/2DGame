@@ -28,6 +28,9 @@ public class Item
 
     [Header("Item Variables")]
     public Sprite itemSprite;
+    public string spriteAtlasPath;
+    public int spriteIndex;
+    public bool isActive;
     public string itemName;
     public string itemDescription;
 

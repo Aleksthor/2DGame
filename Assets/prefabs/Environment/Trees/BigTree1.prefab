@@ -1095,7 +1095,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a3c9ad81a9d8d4383f1fedf74c56e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 4597c98ec74b6b646a4ec121b2f5ec82, type: 2}
+  item:
+    itemSprite: {fileID: 21300000, guid: 0e1ccb64303778e4081913a6d9cca677, type: 3}
+    spriteAtlasPath: Items/Wood Log
+    spriteIndex: 0
+    isActive: 1
+    itemName: Wood Log
+    itemDescription: 
+    itemType: 0
+    itemRarity: 0
+    itemWeight: 0
+    isStackable: 0
   health: 5
   maxHealth: 5
   min: 3
@@ -1115,6 +1125,7 @@ MonoBehaviour:
   enemySpawnManager: {fileID: 0}
   objectActivator: {fileID: 0}
   isSpawner: 0
+  isDead: 0
 --- !u!1 &2836434419923503442
 GameObject:
   m_ObjectHideFlags: 0

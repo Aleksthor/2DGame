@@ -98,7 +98,7 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
         maxMana = data.maxMana;
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         data.health = health;
         data.maxHealth = maxHealth;

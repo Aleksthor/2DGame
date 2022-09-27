@@ -44,17 +44,20 @@ public class ConsumableSlot : MonoBehaviour, IDropHandler
         if (gameObject.transform.Find("ItemUI(Clone)") == null && current != null)
         {
 
-            GameEvents.current.AddItem(current.GetComponent<InventoryItem>().item);
+            
             switch(slotIndex)
             {
+                case 0:
+                    InventoryManager.Instance.AddItemToStack(current.GetComponent<InventoryItem>().item, ConsumableManager.Instance.stackAmount1);
+                    ConsumableManager.Instance.potion1 = null;
+                    break;
                 case 1:
-                    ConsumableManager.Instance.consumable1 = null;
+                    InventoryManager.Instance.AddItemToStack(current.GetComponent<InventoryItem>().item, ConsumableManager.Instance.stackAmount2);
+                    ConsumableManager.Instance.potion2 = null;
                     break;
                 case 2:
-                    ConsumableManager.Instance.consumable2 = null;
-                    break;
-                case 3:
-                    ConsumableManager.Instance.consumable3 = null;
+                    InventoryManager.Instance.AddItemToStack(current.GetComponent<InventoryItem>().item, ConsumableManager.Instance.stackAmount3);
+                    ConsumableManager.Instance.potion3 = null;
                     break;
                 default:
                     break;
@@ -94,8 +97,7 @@ public class ConsumableSlot : MonoBehaviour, IDropHandler
                         eventData.pointerDrag.transform.SetSiblingIndex(1);
                         eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
                         eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, -50f);
-                        Debug.Log(consumable);
-                        ConsumableManager.Instance.ChangeConsumable1(consumable);
+                        ConsumableManager.Instance.ChangeConsumable1(consumable, eventData.pointerDrag.GetComponent<InventoryItem>().amount);
                         GameEvents.current.RemoveItem(consumable);
 
                         current = eventData.pointerDrag;
@@ -122,7 +124,7 @@ public class ConsumableSlot : MonoBehaviour, IDropHandler
                         eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, -50f);
 
                         GameEvents.current.RemoveItem(consumable);
-                        ConsumableManager.Instance.ChangeConsumable2(consumable);
+                        ConsumableManager.Instance.ChangeConsumable2(consumable, eventData.pointerDrag.GetComponent<InventoryItem>().amount);
                         current = eventData.pointerDrag;
 
                 
@@ -146,7 +148,7 @@ public class ConsumableSlot : MonoBehaviour, IDropHandler
                         eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, -50f);
 
                         GameEvents.current.RemoveItem(consumable);
-                        ConsumableManager.Instance.ChangeConsumable3(consumable);
+                        ConsumableManager.Instance.ChangeConsumable3(consumable, eventData.pointerDrag.GetComponent<InventoryItem>().amount);
                         current = eventData.pointerDrag;
                         #endregion
                         break;
