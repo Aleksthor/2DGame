@@ -47,6 +47,8 @@ public class Weapon : Item
     public bool canDualWield;
     public float staminaUse;
     public List<Sprite> bowSprites;
+    public string bowSpriteLocation;
+    public List<int> bowSpriteIndex;
 
     [Header("Magic Variables")]
     public float magicDamage;

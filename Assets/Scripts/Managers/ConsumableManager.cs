@@ -236,7 +236,7 @@ public class ConsumableManager : SingletonMonoBehaviour<ConsumableManager>, IDat
                         Debug.Log("Consumable 2 Activated");
                         stackAmount2 -= 1;
                         HUDSingleton.instance.transform.Find("Potion2").Find("PotionSlot2").Find("ItemUI(Clone)").transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = stackAmount2.ToString();
-                        HUDSingleton.instance.transform.Find("Potion1").Find("PotionSlot1").Find("ItemUI(Clone)").transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (consumable2.itemWeight * stackAmount2).ToString();
+                        HUDSingleton.instance.transform.Find("Potion2").Find("PotionSlot2").Find("ItemUI(Clone)").transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (consumable2.itemWeight * stackAmount2).ToString();
                         potion2.Activate(consumable2.hpHealing, consumable2.manaHealing);
                         cooldownIcon2.value = 1f;
                         state2 = ConsumableState.active;
@@ -313,7 +313,7 @@ public class ConsumableManager : SingletonMonoBehaviour<ConsumableManager>, IDat
                         Debug.Log("Consumable 3 Activated");
                         stackAmount3 -= 1;
                         HUDSingleton.instance.transform.Find("Potion3").Find("PotionSlot3").Find("ItemUI(Clone)").transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = stackAmount3.ToString();
-                        HUDSingleton.instance.transform.Find("Potion1").Find("PotionSlot1").Find("ItemUI(Clone)").transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (consumable3.itemWeight * stackAmount3).ToString();
+                        HUDSingleton.instance.transform.Find("Potion3").Find("PotionSlot3").Find("ItemUI(Clone)").transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (consumable3.itemWeight * stackAmount3).ToString();
                         potion3.Activate(consumable3.hpHealing, consumable3.manaHealing);
                         cooldownIcon3.value = 1f;
                         state3 = ConsumableState.active;

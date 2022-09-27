@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
-
+using UnityEngine.SceneManagement;
 
 
 [System.Serializable]
@@ -89,15 +89,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
     private void Start()
     {
-        if (currentWeapon.isActive == false)
-        {
-            currentWeapon = starterWeapon;
-            currentWeapon.isActive = true;
-        }
-        else
-        {
-            ChangeWeapon(currentWeapon);
-        }
+       
+
         if (itemInventory == null)
         {
             itemInventory = new List<InventorySlot>();
@@ -145,6 +138,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
 
         StartCoroutine(SpawnCurrentWeapon());
+
+
     }
 
     public void AddItem(Item item)
@@ -447,6 +442,18 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
             {
                 Sprite[] sprites = Resources.LoadAll<Sprite>(weapon.spriteAtlasPath);
                 weapon.itemSprite = sprites[weapon.spriteIndex];
+
+                if(weapon.weaponType == Weapon.WeaponType.Bow)
+                {
+                    
+                    Sprite[] bowSprites = Resources.LoadAll<Sprite>(weapon.bowSpriteLocation);
+                    for (int i = 0; i < 8;i ++)
+                    {
+                        weapon.bowSprites[i] = bowSprites[weapon.bowSpriteIndex[i]];
+                    }
+                    
+                }
+                
             }
         }
 
@@ -490,6 +497,17 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                 currentWeapon = data.currentWeapon;
                 Sprite[] sprite = Resources.LoadAll<Sprite>(currentWeapon.spriteAtlasPath);
                 currentWeapon.itemSprite = sprite[currentWeapon.spriteIndex];
+
+                if (currentWeapon.weaponType == Weapon.WeaponType.Bow)
+                {
+
+                    Sprite[] bowSprites = Resources.LoadAll<Sprite>(currentWeapon.bowSpriteLocation);
+                    for (int i = 0; i < currentWeapon.bowSprites.Count; i++)
+                    {
+                        currentWeapon.bowSprites[i] = bowSprites[currentWeapon.bowSpriteIndex[i]];
+                    }
+
+                }
             }
         }
 
@@ -501,6 +519,17 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                 secondaryWeapon = data.secondaryWeapon;
                 Sprite[] sprite = Resources.LoadAll<Sprite>(secondaryWeapon.spriteAtlasPath);
                 secondaryWeapon.itemSprite = sprite[secondaryWeapon.spriteIndex];
+
+                if (secondaryWeapon.weaponType == Weapon.WeaponType.Bow)
+                {
+
+                    Sprite[] bowSprites = Resources.LoadAll<Sprite>(secondaryWeapon.bowSpriteLocation);
+                    for (int i = 0; i < 8; i++)
+                    {
+                        secondaryWeapon.bowSprites[i] = bowSprites[secondaryWeapon.bowSpriteIndex[i]];
+                    }
+
+                }
             }
         }
 
@@ -1482,7 +1511,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
     IEnumerator SpawnCurrentWeapon()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
+        ChangeWeapon(currentWeapon);
         GameEvents.current.InventoryRefresh(currentWeapon, secondaryWeapon);
     }
 
