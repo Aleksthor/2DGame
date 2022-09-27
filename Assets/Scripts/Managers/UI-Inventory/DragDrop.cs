@@ -23,7 +23,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private void Start()
     {
         canvas = GameObject.Find("UI_Canvas").GetComponent<Canvas>();
-        startParent = transform.parent;
+      
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -43,6 +43,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         
         gameObject.transform.SetParent(startParent, false);
+        InventoryManager.Instance.UpdateInventoryTab(InventoryManager.Instance.currentTab);
         canvasGroup.blocksRaycasts = true;                                          
     }
 

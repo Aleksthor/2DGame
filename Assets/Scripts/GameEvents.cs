@@ -540,5 +540,15 @@ public class GameEvents : MonoBehaviour
     }
 
 
+    public event Action OnSpawnCurrentEquipment;
+    public void SpawnCurrentEquipment()
+    {
+        if (OnSpawnCurrentEquipment != null)
+        {
+            OnSpawnCurrentEquipment();
+        }
+    }
+
+
     //
 }

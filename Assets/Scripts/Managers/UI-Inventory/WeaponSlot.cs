@@ -19,17 +19,21 @@ public class WeaponSlot : MonoBehaviour, IDropHandler
 
 
     private bool swapped = false;
-
-
-    private void Start()
+    private void Awake()
     {
         GameEvents.current.OnSwapWeapon += SwapWeapon;
         GameEvents.current.OnInventoryRefresh += InventoryRefresh;
     }
 
+    private void Start()
+    {
+        uiItemInfo = HUDSingleton.instance.transform.Find("Inventory").transform.Find("ItemInfo").transform;
+
+    }
+
     private void Update()
     {
-        
+       
         if (swapped)
         {
             framesCount++;
@@ -49,6 +53,7 @@ public class WeaponSlot : MonoBehaviour, IDropHandler
         {
             GameEvents.current.AddItem(current.GetComponent<InventoryItem>().item);
             GameEvents.current.RemoveCurrentSecondaryItem((Weapon)current.GetComponent<InventoryItem>().item);
+            
             framesCount = 0;
             current = null;
             
@@ -121,7 +126,7 @@ public class WeaponSlot : MonoBehaviour, IDropHandler
        
     }
 
-    private void InventoryRefresh(Weapon current, Weapon secondary)
+    private void InventoryRefresh(Weapon Current, Weapon secondary)
     {
         if (gameObject.transform.Find("ItemUI(Clone)") == null)
         {
@@ -129,85 +134,94 @@ public class WeaponSlot : MonoBehaviour, IDropHandler
             switch(slotIndex)
             {
                 case 1:
-                    if (current.isActive)
+                    if (Current != null)
                     {
-                        
-                        GameObject obj = Instantiate(uiObject, transform);
-                        obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = current.itemName;
-                        obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = current.itemSprite;
-                        obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = current.itemWeight.ToString();
-                        obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
-                        obj.GetComponent<InventoryItem>().item = current;
-                        obj.transform.SetParent(transform);
-                        obj.GetComponent<DragDrop>().enabled = false;
-                        switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
+
+                        if (Current.isActive)
                         {
-                            case 0:
+                        
+                            GameObject obj = Instantiate(uiObject, transform);
+                            obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = Current.itemName;
+                            obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = Current.itemSprite;
+                            obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = Current.itemWeight.ToString();
+                            obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
+                            obj.GetComponent<InventoryItem>().item = Current;
+                            obj.transform.SetParent(transform);
+                            obj.GetComponent<DragDrop>().enabled = false;
+                            switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
+                            {
+                                case 0:
 
-                                obj.GetComponent<Image>().color = new Color32(130, 130, 130, 100);
-                                break;
-                            case 1:
+                                    obj.GetComponent<Image>().color = new Color32(130, 130, 130, 100);
+                                    break;
+                                case 1:
 
-                                obj.GetComponent<Image>().color = new Color32(110, 190, 80, 100);
-                                break;
-                            case 2:
+                                    obj.GetComponent<Image>().color = new Color32(110, 190, 80, 100);
+                                    break;
+                                case 2:
 
-                                obj.GetComponent<Image>().color = new Color32(50, 140, 175, 100);
-                                break;
-                            case 3:
+                                    obj.GetComponent<Image>().color = new Color32(50, 140, 175, 100);
+                                    break;
+                                case 3:
 
-                                obj.GetComponent<Image>().color = new Color32(185, 80, 190, 100);
-                                break;
-                            case 4:
+                                    obj.GetComponent<Image>().color = new Color32(185, 80, 190, 100);
+                                    break;
+                                case 4:
 
-                                obj.GetComponent<Image>().color = new Color32(220, 150, 50, 100);
-                                break;
-                            default:
-                                break;
+                                    obj.GetComponent<Image>().color = new Color32(220, 150, 50, 100);
+                                    break;
+                                default:
+                                    break;
+                            }
+                            obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
+                            obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
+                            current = obj;
                         }
-                        obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
-                        obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
                     }
 
                     break;
                 case 2:
-                    if (secondary.isActive)
+                    if (secondary != null)
                     {
-                        GameObject obj = Instantiate(uiObject, transform);
-                        obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = secondary.itemName;
-                        obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = secondary.itemSprite;
-                        obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = secondary.itemWeight.ToString();
-                        obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
-                        obj.GetComponent<InventoryItem>().item = secondary;
-                        obj.transform.SetParent(transform);
-                        obj.GetComponent<DragDrop>().enabled = false;
-                        switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
+
+                        if (secondary.isActive)
                         {
-                            case 0:
+                            GameObject obj = Instantiate(uiObject, transform);
+                            obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = secondary.itemName;
+                            obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = secondary.itemSprite;
+                            obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = secondary.itemWeight.ToString();
+                            obj.transform.Find("StackAmount").GetComponent<TMPro.TextMeshProUGUI>().text = "";
+                            obj.GetComponent<InventoryItem>().item = secondary;
+                            obj.transform.SetParent(transform);
+                            switch ((int)obj.GetComponent<InventoryItem>().item.itemRarity)
+                            {
+                                case 0:
 
-                                obj.GetComponent<Image>().color = new Color32(130, 130, 130, 100);
-                                break;
-                            case 1:
+                                    obj.GetComponent<Image>().color = new Color32(130, 130, 130, 100);
+                                    break;
+                                case 1:
 
-                                obj.GetComponent<Image>().color = new Color32(110, 190, 80, 100);
-                                break;
-                            case 2:
+                                    obj.GetComponent<Image>().color = new Color32(110, 190, 80, 100);
+                                    break;
+                                case 2:
 
-                                obj.GetComponent<Image>().color = new Color32(50, 140, 175, 100);
-                                break;
-                            case 3:
+                                    obj.GetComponent<Image>().color = new Color32(50, 140, 175, 100);
+                                    break;
+                                case 3:
 
-                                obj.GetComponent<Image>().color = new Color32(185, 80, 190, 100);
-                                break;
-                            case 4:
+                                    obj.GetComponent<Image>().color = new Color32(185, 80, 190, 100);
+                                    break;
+                                case 4:
 
-                                obj.GetComponent<Image>().color = new Color32(220, 150, 50, 100);
-                                break;
-                            default:
-                                break;
+                                    obj.GetComponent<Image>().color = new Color32(220, 150, 50, 100);
+                                    break;
+                                default:
+                                    break;
+                            }
+                            obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
+                            obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
+                            current = obj;
                         }
-                        obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
-                        obj.GetComponent<InventoryItem>().uiItemInfo = uiItemInfo;
                     }
                     break;
                 default:

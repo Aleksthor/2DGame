@@ -8,6 +8,13 @@ public class InventoryItem : MonoBehaviour
     public int amount;
     public Transform uiItemInfo;
 
+    public void Start()
+    {
+        if (uiItemInfo == null)
+        {
+            uiItemInfo = HUDSingleton.instance.transform.Find("Inventory").transform.Find("ItemInfo").transform;
+        }
+    }
 
     public void UpdateItemInfo()
     {

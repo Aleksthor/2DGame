@@ -447,7 +447,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                 {
                     
                     Sprite[] bowSprites = Resources.LoadAll<Sprite>(weapon.bowSpriteLocation);
-                    for (int i = 0; i < 8;i ++)
+                    for (int i = 0; i < weapon.bowSprites.Count; i ++)
                     {
                         weapon.bowSprites[i] = bowSprites[weapon.bowSpriteIndex[i]];
                     }
@@ -524,7 +524,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                 {
 
                     Sprite[] bowSprites = Resources.LoadAll<Sprite>(secondaryWeapon.bowSpriteLocation);
-                    for (int i = 0; i < 8; i++)
+                    for (int i = 0; i < secondaryWeapon.bowSprites.Count; i++)
                     {
                         secondaryWeapon.bowSprites[i] = bowSprites[secondaryWeapon.bowSpriteIndex[i]];
                     }
@@ -823,6 +823,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
         if (weapon == secondaryWeapon)
         {
             secondaryWeapon = null;
+            secondaryWeapon = new Weapon();
         }
 
         UpdateStats();
@@ -847,6 +848,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
         if (shield == currentShield)
         {
             currentShield = null;
+            currentShield = new Shield();
         }
 
         UpdateStats();
@@ -925,41 +927,42 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                 #region Head
 
                 currentHead = null;
-
+                currentHead = new Equipment();
                 #endregion
                 break;
             case Equipment.EquipmentType.Chest:
                 #region Chest
 
                 currentChest = null;
-
+                currentChest = new Equipment();
                 #endregion
                 break;
             case Equipment.EquipmentType.Pants:
                 #region Pants
 
                 currentPants = null;
+                currentPants = new Equipment();
                 #endregion
                 break;
             case Equipment.EquipmentType.Shoes:
                 #region Shoes
 
                 currentShoes = null;
-
+                currentShoes = new Equipment();
                 #endregion
                 break;
             case Equipment.EquipmentType.Necklace:
                 #region Necklace
 
                 currentNecklace = null;
-
+                currentNecklace = new Equipment();
                 #endregion
                 break;
             case Equipment.EquipmentType.Earring:
                 #region Earrings
 
                 currentEarrings = null;
-
+                currentEarrings = new Equipment();
                 #endregion
                 break;
             case Equipment.EquipmentType.Ring:
@@ -968,7 +971,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                     #region Ring1
 
                     currentRing1 = null;
-
+                    currentRing1 = new Equipment();
                     #endregion
                 }
                 if (slotIndex == 7)
@@ -976,7 +979,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
                     #region Ring2
 
                     currentRing2 = null;
-
+                    currentRing2 = new Equipment();
                     #endregion
                 }
                 break;
@@ -1513,12 +1516,15 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
     {
         yield return new WaitForSeconds(0.1f);
         ChangeWeapon(currentWeapon);
+        GameEvents.current.SpawnCurrentEquipment();
         GameEvents.current.InventoryRefresh(currentWeapon, secondaryWeapon);
     }
 
     public void SpawnCurrentWeapons()
     {
+        GameEvents.current.SpawnCurrentEquipment();
         GameEvents.current.InventoryRefresh(currentWeapon, secondaryWeapon);
+
     }
 
     private void UpdateStats()
@@ -1545,45 +1551,70 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
         #region Armor
         float armor = 0f;
-        if (currentHead.isActive)
+        if (currentHead != null)
         {
-            equipmentDamageBoost += currentHead.bonusDamage;
-            armor += currentHead.armor;
+
+            if (currentHead.isActive)
+            {
+                equipmentDamageBoost += currentHead.bonusDamage;
+                armor += currentHead.armor;
+            }
         }
-        if(currentChest.isActive)
+        if (currentChest != null)
         {
-            equipmentDamageBoost += currentChest.bonusDamage;
-            armor += currentChest.armor;
+            if (currentChest.isActive)
+            {
+                equipmentDamageBoost += currentChest.bonusDamage;
+                armor += currentChest.armor;
+            }
         }
-        if (currentPants.isActive)
+        if (currentPants != null)
         {
-            equipmentDamageBoost += currentPants.bonusDamage;
-            armor += currentPants.armor;
+            if (currentPants.isActive)
+            {
+                equipmentDamageBoost += currentPants.bonusDamage;
+                armor += currentPants.armor;
+            }
         }
-        if(currentShoes.isActive)
+        if (currentShoes != null)
         {
-            equipmentDamageBoost += currentShoes.bonusDamage;
-            armor += currentShoes.armor;
+            if (currentShoes.isActive)
+            {
+                equipmentDamageBoost += currentShoes.bonusDamage;
+                armor += currentShoes.armor;
+            }
         }
-        if(currentNecklace.isActive)
+        if (currentNecklace != null)
         {
-            equipmentDamageBoost += currentNecklace.bonusDamage;
-            armor += currentNecklace.armor;
+            if (currentNecklace.isActive)
+            {
+                equipmentDamageBoost += currentNecklace.bonusDamage;
+                armor += currentNecklace.armor;
+            }
         }
-        if(currentEarrings.isActive)
+        if (currentEarrings != null)
         {
-            equipmentDamageBoost += currentEarrings.bonusDamage;
-            armor += currentEarrings.armor;
+            if (currentEarrings.isActive)
+            {
+                equipmentDamageBoost += currentEarrings.bonusDamage;
+                armor += currentEarrings.armor;
+            }
         }
-        if(currentRing1.isActive)
+        if (currentRing1 != null)
         {
-            equipmentDamageBoost += currentRing1.bonusDamage;
-            armor += currentRing1.armor;
+            if (currentRing1.isActive)
+            {
+                equipmentDamageBoost += currentRing1.bonusDamage;
+                armor += currentRing1.armor;
+            }
         }
-        if(currentRing2.isActive)
+        if (currentRing2 != null)
         {
-            equipmentDamageBoost += currentRing2.bonusDamage;
-            armor += currentRing2.armor;
+            if (currentRing2.isActive)
+            {
+                equipmentDamageBoost += currentRing2.bonusDamage;
+                armor += currentRing2.armor;
+            }
         }
         damage += equipmentDamageBoost;
         #endregion

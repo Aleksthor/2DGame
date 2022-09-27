@@ -392,6 +392,7 @@ public class ConsumableManager : SingletonMonoBehaviour<ConsumableManager>, IDat
         {
             ChangeConsumable1(consumable1, stackAmount1);
             GameObject obj = Instantiate(uiObject, consumableSlot1);
+            consumableSlot1.GetComponent<ConsumableSlot>().current = obj;
             obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = consumable1.itemName;
             obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = consumable1.itemSprite;
             obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (consumable1.itemWeight * stackAmount1).ToString();
@@ -431,6 +432,7 @@ public class ConsumableManager : SingletonMonoBehaviour<ConsumableManager>, IDat
         {
             ChangeConsumable2(consumable2, stackAmount2);
             GameObject obj = Instantiate(uiObject, consumableSlot2);
+            consumableSlot2.GetComponent<ConsumableSlot>().current = obj;
             obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = consumable2.itemName;
             obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = consumable2.itemSprite;
             obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (consumable2.itemWeight * stackAmount2).ToString();
@@ -470,6 +472,7 @@ public class ConsumableManager : SingletonMonoBehaviour<ConsumableManager>, IDat
         {
             ChangeConsumable3(consumable3, stackAmount3);
             GameObject obj = Instantiate(uiObject, consumableSlot3);
+            consumableSlot3.GetComponent<ConsumableSlot>().current = obj;
             obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>().text = consumable3.itemName;
             obj.transform.Find("ItemSprite").GetComponent<Image>().sprite = consumable3.itemSprite;
             obj.transform.Find("ItemWeight").GetComponent<TMPro.TextMeshProUGUI>().text = (consumable3.itemWeight * stackAmount3).ToString();

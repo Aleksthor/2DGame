@@ -17,9 +17,9 @@ public class ConsumableSlot : MonoBehaviour, IDropHandler
     private bool swapped = false;
 
 
-
     private void Start()
     {
+        
     }
 
 
@@ -63,7 +63,7 @@ public class ConsumableSlot : MonoBehaviour, IDropHandler
                     break;
 
             }
-
+            InventoryManager.Instance.UpdateInventoryTab(InventoryManager.Instance.currentTab);
             framesCount = 0;
             current = null;
         }
