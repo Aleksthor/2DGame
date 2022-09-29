@@ -39,6 +39,7 @@ public class Weapon : Item
 
     [Header("Weapon Variables")]
     public WeaponType weaponType;
+    public WeaponCollider.DamageType damageType;
     public float damage;
     public float knockBackForce;
     public float critDamage;
@@ -49,6 +50,8 @@ public class Weapon : Item
     public List<Sprite> bowSprites;
     public string bowSpriteLocation;
     public List<int> bowSpriteIndex;
+
+    public int poise;
 
     [Header("Magic Variables")]
     public float magicDamage;
@@ -69,6 +72,7 @@ public class Weapon : Item
 
     public enum AbilityType
     {
+        None,
         Dash,
         DashBehindEnemy,
         DashBackwards,

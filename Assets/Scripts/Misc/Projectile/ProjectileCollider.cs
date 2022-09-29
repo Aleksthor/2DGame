@@ -5,11 +5,13 @@ using UnityEngine;
 public class ProjectileCollider : MonoBehaviour
 {
     [SerializeField] public float damage = 5f;
+    [SerializeField] public WeaponCollider.DamageType damageType;
     [SerializeField] public float critRate = 0f;
     [SerializeField] public float critDamage = 2f;
     [SerializeField] public float knockbackForce = 40f;
     [SerializeField] public float speedMultiplier = 1f;
     [SerializeField] public float slowDownLength = 0f;
+    [SerializeField] public int poise = 0;
 
     public bool hasDeathAnimation = false;
 
@@ -38,7 +40,7 @@ public class ProjectileCollider : MonoBehaviour
                 }
 
                 Debug.Log("Damage : " + damage);
-                GameEvents.current.WeaponCollission(other.gameObject, damage, knockbackForce, speedMultiplier, slowDownLength, gameObject.transform.position, didCrit);
+                GameEvents.current.WeaponCollission(other.gameObject, damage, knockbackForce, speedMultiplier, slowDownLength, gameObject.transform.position, didCrit, damageType, poise);
 
                 didCrit = false;
 

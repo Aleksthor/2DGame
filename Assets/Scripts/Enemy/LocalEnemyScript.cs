@@ -10,6 +10,7 @@ public class LocalEnemyScript : MonoBehaviour
     public float maxHealth;
 
     public float armor;
+    public int poiseResistance;
 
 
     // Local Components
@@ -128,7 +129,7 @@ public class LocalEnemyScript : MonoBehaviour
     }
 
 
-    private void WeaponCollission(GameObject GO, float damage, float knockbackForce, float speedMultiplier, float slowDownLength, Vector2 playerPosition, bool crit)
+    private void WeaponCollission(GameObject GO, float damage, float knockbackForce, float speedMultiplier, float slowDownLength, Vector2 playerPosition, bool crit, WeaponCollider.DamageType damageType, int poise)
     {
         if (GameObject.ReferenceEquals(GO, gameObject))
         {
@@ -144,7 +145,7 @@ public class LocalEnemyScript : MonoBehaviour
 
             }
             Vector2 direction = ((Vector2)transform.position - (Vector2)playerPosition).normalized;
-            Hit(damage, direction, knockbackForce, speedMultiplier);
+            Hit(damage, direction, knockbackForce, speedMultiplier, damageType, poise);
             resetSpeedTime = slowDownLength;
         }
 
@@ -152,7 +153,7 @@ public class LocalEnemyScript : MonoBehaviour
     }
 
 
-    public void Hit(float Damage, Vector2 ImpactDirection, float Force, float slowdownRatio)
+    public void Hit(float Damage, Vector2 ImpactDirection, float Force, float slowdownRatio, WeaponCollider.DamageType damageType, int poise)
     {
 
         if (slowdownRatio != 1)
@@ -169,11 +170,13 @@ public class LocalEnemyScript : MonoBehaviour
 
 
 
-        hit = true;
+        
         float temp = Damage;
-        Damage = Damage - armor;
+        if (damageType == WeaponCollider.DamageType.Physical)
+        {
+            Damage = Damage - (armor/2);
+        }
         health = health - Mathf.Clamp(Damage, temp / 5f, temp);
-        Debug.Log(Mathf.Clamp(Damage, temp / 5f, temp));
 
         rigidBody.AddForce(ImpactDirection * Force);
         if (damageDisplay != null)
@@ -194,7 +197,12 @@ public class LocalEnemyScript : MonoBehaviour
         }
         else
         {
-            animator.SetTrigger("Hit");
+            if(poiseResistance <= poise)
+            {
+                animator.SetTrigger("Hit");
+                hit = true;
+            }
+            
         }
 
 

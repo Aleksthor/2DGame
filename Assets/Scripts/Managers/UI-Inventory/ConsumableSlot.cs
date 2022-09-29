@@ -75,91 +75,94 @@ public class ConsumableSlot : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag != null)
         {
-            Consumable consumable = (Consumable)eventData.pointerDrag.GetComponent<InventoryItem>().item;
-            if (consumable != null)
+            if (eventData.pointerDrag.GetComponent<InventoryItem>().item.itemType == Item.ItemType.Consumable)
             {
-                switch (slotIndex)
+                Consumable consumable = (Consumable)eventData.pointerDrag.GetComponent<InventoryItem>().item;
+                if (consumable != null)
                 {
-                    case 0:
-                        #region ConsumableSlot1
+                    switch (slotIndex)
+                    {
+                        case 0:
+                            #region ConsumableSlot1
 
-                        eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
-                        eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
-                        foreach (Transform child in gameObject.transform)
-                        {
-                            if (child.tag == "UIElement")
+                            eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                            eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
+                            foreach (Transform child in gameObject.transform)
                             {
-                                GameObject.Destroy(child.gameObject);
+                                if (child.tag == "UIElement")
+                                {
+                                    GameObject.Destroy(child.gameObject);
+                                }
+
                             }
-                            
-                        }
-                        eventData.pointerDrag.transform.SetParent(transform, false);
-                        eventData.pointerDrag.transform.SetSiblingIndex(1);
-                        eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
-                        eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, -50f);
-                        ConsumableManager.Instance.ChangeConsumable1(consumable, eventData.pointerDrag.GetComponent<InventoryItem>().amount);
-                        GameEvents.current.RemoveItem(consumable);
+                            eventData.pointerDrag.transform.SetParent(transform, false);
+                            eventData.pointerDrag.transform.SetSiblingIndex(1);
+                            eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+                            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, -50f);
+                            ConsumableManager.Instance.ChangeConsumable1(consumable, eventData.pointerDrag.GetComponent<InventoryItem>().amount);
+                            GameEvents.current.RemoveItem(consumable);
 
-                        current = eventData.pointerDrag;
-                      
+                            current = eventData.pointerDrag;
 
 
-                        #endregion
-                        break;
-                    case 1:
-                        #region ConsumableSlot2
-                        eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
-                        eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
-                        foreach (Transform child in gameObject.transform)
-                        {
-                            if (child.tag == "UIElement")
+
+                            #endregion
+                            break;
+                        case 1:
+                            #region ConsumableSlot2
+                            eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                            eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
+                            foreach (Transform child in gameObject.transform)
                             {
-                                GameObject.Destroy(child.gameObject);
+                                if (child.tag == "UIElement")
+                                {
+                                    GameObject.Destroy(child.gameObject);
+                                }
+
                             }
+                            eventData.pointerDrag.transform.SetParent(transform, false);
+                            eventData.pointerDrag.transform.SetSiblingIndex(1);
+                            eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+                            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, -50f);
 
-                        }
-                        eventData.pointerDrag.transform.SetParent(transform, false);
-                        eventData.pointerDrag.transform.SetSiblingIndex(1);
-                        eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
-                        eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, -50f);
+                            GameEvents.current.RemoveItem(consumable);
+                            ConsumableManager.Instance.ChangeConsumable2(consumable, eventData.pointerDrag.GetComponent<InventoryItem>().amount);
+                            current = eventData.pointerDrag;
 
-                        GameEvents.current.RemoveItem(consumable);
-                        ConsumableManager.Instance.ChangeConsumable2(consumable, eventData.pointerDrag.GetComponent<InventoryItem>().amount);
-                        current = eventData.pointerDrag;
 
-                
-                        #endregion
-                        break;
-                    case 2:
-                        #region ConsumableSlot3
-                        eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
-                        eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
-                        foreach (Transform child in gameObject.transform)
-                        {
-                            if (child.tag == "UIElement")
+                            #endregion
+                            break;
+                        case 2:
+                            #region ConsumableSlot3
+                            eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                            eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
+                            foreach (Transform child in gameObject.transform)
                             {
-                                GameObject.Destroy(child.gameObject);
+                                if (child.tag == "UIElement")
+                                {
+                                    GameObject.Destroy(child.gameObject);
+                                }
+
                             }
+                            eventData.pointerDrag.transform.SetParent(transform, false);
+                            eventData.pointerDrag.transform.SetSiblingIndex(1);
+                            eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+                            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, -50f);
 
-                        }
-                        eventData.pointerDrag.transform.SetParent(transform, false);
-                        eventData.pointerDrag.transform.SetSiblingIndex(1);
-                        eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
-                        eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, -50f);
+                            GameEvents.current.RemoveItem(consumable);
+                            ConsumableManager.Instance.ChangeConsumable3(consumable, eventData.pointerDrag.GetComponent<InventoryItem>().amount);
+                            current = eventData.pointerDrag;
+                            #endregion
+                            break;
 
-                        GameEvents.current.RemoveItem(consumable);
-                        ConsumableManager.Instance.ChangeConsumable3(consumable, eventData.pointerDrag.GetComponent<InventoryItem>().amount);
-                        current = eventData.pointerDrag;
-                        #endregion
-                        break;
+                        default:
+                            break;
 
-                    default:
-                        break;
+                    }
 
+
+                    swapped = true;
                 }
-
-
-                swapped = true;
             }
 
         }

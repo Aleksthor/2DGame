@@ -69,197 +69,200 @@ public class ArmorSlot : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag != null)
         {
-            Equipment equipment = (Equipment)eventData.pointerDrag.GetComponent<InventoryItem>().item;
-            if (equipment != null)
+            if (eventData.pointerDrag.GetComponent<InventoryItem>().item.itemType == Item.ItemType.Equipment)
             {
-                switch (slotIndex)
+                Equipment equipment = (Equipment)eventData.pointerDrag.GetComponent<InventoryItem>().item;
+                if (equipment != null)
                 {
-                    case 0:
-                        #region Head
-                        if (equipment.equipmentType == Equipment.EquipmentType.Head)
-                        {
-                            eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
-                            eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
-                            foreach (Transform child in gameObject.transform)
+                    switch (slotIndex)
+                    {
+                        case 0:
+                            #region Head
+                            if (equipment.equipmentType == Equipment.EquipmentType.Head)
                             {
-                                GameObject.Destroy(child.gameObject);
+                                eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                                eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
+                                foreach (Transform child in gameObject.transform)
+                                {
+                                    GameObject.Destroy(child.gameObject);
+                                }
+                                eventData.pointerDrag.transform.SetParent(transform, false);
+                                eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+                                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
+
+                                GameEvents.current.RemoveItem(equipment);
+                                GameEvents.current.ChangeCurrentEquipment(equipment, slotIndex);
+                                current = eventData.pointerDrag;
+                                // Game Event Change Head
+
                             }
-                            eventData.pointerDrag.transform.SetParent(transform, false);
-                            eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
-                            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
-
-                            GameEvents.current.RemoveItem(equipment);
-                            GameEvents.current.ChangeCurrentEquipment(equipment, slotIndex);
-                            current = eventData.pointerDrag;
-                            // Game Event Change Head
-
-                        }
-                        #endregion
-                        break;
-                    case 1:
-                        #region Chest
-                        if (equipment.equipmentType == Equipment.EquipmentType.Chest)
-                        {
-                            eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
-                            eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
-                            foreach (Transform child in gameObject.transform)
+                            #endregion
+                            break;
+                        case 1:
+                            #region Chest
+                            if (equipment.equipmentType == Equipment.EquipmentType.Chest)
                             {
-                                GameObject.Destroy(child.gameObject);
+                                eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                                eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
+                                foreach (Transform child in gameObject.transform)
+                                {
+                                    GameObject.Destroy(child.gameObject);
+                                }
+                                eventData.pointerDrag.transform.SetParent(transform, false);
+                                eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+                                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
+
+                                GameEvents.current.RemoveItem(equipment);
+                                GameEvents.current.ChangeCurrentEquipment(equipment, slotIndex);
+                                current = eventData.pointerDrag;
+
+
                             }
-                            eventData.pointerDrag.transform.SetParent(transform, false);
-                            eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
-                            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
-
-                            GameEvents.current.RemoveItem(equipment);
-                            GameEvents.current.ChangeCurrentEquipment(equipment, slotIndex);
-                            current = eventData.pointerDrag;
-                            
-
-                        }
-                        #endregion
-                        break;
-                    case 2:
-                        #region Pants
-                        if (equipment.equipmentType == Equipment.EquipmentType.Pants)
-                        {
-                            eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
-                            eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
-                            foreach (Transform child in gameObject.transform)
+                            #endregion
+                            break;
+                        case 2:
+                            #region Pants
+                            if (equipment.equipmentType == Equipment.EquipmentType.Pants)
                             {
-                                GameObject.Destroy(child.gameObject);
+                                eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                                eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
+                                foreach (Transform child in gameObject.transform)
+                                {
+                                    GameObject.Destroy(child.gameObject);
+                                }
+                                eventData.pointerDrag.transform.SetParent(transform, false);
+                                eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+                                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
+
+                                GameEvents.current.RemoveItem(equipment);
+                                GameEvents.current.ChangeCurrentEquipment(equipment, slotIndex);
+                                current = eventData.pointerDrag;
+
+
                             }
-                            eventData.pointerDrag.transform.SetParent(transform, false);
-                            eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
-                            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
-
-                            GameEvents.current.RemoveItem(equipment);
-                            GameEvents.current.ChangeCurrentEquipment(equipment, slotIndex);
-                            current = eventData.pointerDrag;
-                            
-
-                        }
-                        #endregion
-                        break;
-                    case 3:
-                        #region Shoes
-                        if (equipment.equipmentType == Equipment.EquipmentType.Shoes)
-                        {
-                            eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
-                            eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
-                            foreach (Transform child in gameObject.transform)
+                            #endregion
+                            break;
+                        case 3:
+                            #region Shoes
+                            if (equipment.equipmentType == Equipment.EquipmentType.Shoes)
                             {
-                                GameObject.Destroy(child.gameObject);
+                                eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                                eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
+                                foreach (Transform child in gameObject.transform)
+                                {
+                                    GameObject.Destroy(child.gameObject);
+                                }
+                                eventData.pointerDrag.transform.SetParent(transform, false);
+                                eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+                                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
+
+                                GameEvents.current.RemoveItem(equipment);
+                                GameEvents.current.ChangeCurrentEquipment(equipment, slotIndex);
+                                current = eventData.pointerDrag;
+
+
                             }
-                            eventData.pointerDrag.transform.SetParent(transform, false);
-                            eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
-                            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
-
-                            GameEvents.current.RemoveItem(equipment);
-                            GameEvents.current.ChangeCurrentEquipment(equipment, slotIndex);
-                            current = eventData.pointerDrag;
-                            
-
-                        }
-                        #endregion
-                        break;
-                    case 4:
-                        #region Necklace
-                        if (equipment.equipmentType == Equipment.EquipmentType.Necklace)
-                        {
-                            eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
-                            eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
-                            foreach (Transform child in gameObject.transform)
+                            #endregion
+                            break;
+                        case 4:
+                            #region Necklace
+                            if (equipment.equipmentType == Equipment.EquipmentType.Necklace)
                             {
-                                GameObject.Destroy(child.gameObject);
+                                eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                                eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
+                                foreach (Transform child in gameObject.transform)
+                                {
+                                    GameObject.Destroy(child.gameObject);
+                                }
+                                eventData.pointerDrag.transform.SetParent(transform, false);
+                                eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+                                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
+
+
+                                GameEvents.current.RemoveItem(equipment);
+                                GameEvents.current.ChangeCurrentEquipment(equipment, slotIndex);
+                                current = eventData.pointerDrag;
+
+
                             }
-                            eventData.pointerDrag.transform.SetParent(transform, false);
-                            eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
-                            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
-
-
-                            GameEvents.current.RemoveItem(equipment);
-                            GameEvents.current.ChangeCurrentEquipment(equipment, slotIndex);
-                            current = eventData.pointerDrag;
-                            
-
-                        }
-                        #endregion
-                        break;
-                    case 5:
-                        #region Earrings
-                        if (equipment.equipmentType == Equipment.EquipmentType.Earring  )
-                        {
-                            eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
-                            eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
-                            foreach (Transform child in gameObject.transform)
+                            #endregion
+                            break;
+                        case 5:
+                            #region Earrings
+                            if (equipment.equipmentType == Equipment.EquipmentType.Earring)
                             {
-                                GameObject.Destroy(child.gameObject);
+                                eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                                eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
+                                foreach (Transform child in gameObject.transform)
+                                {
+                                    GameObject.Destroy(child.gameObject);
+                                }
+                                eventData.pointerDrag.transform.SetParent(transform, false);
+                                eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+                                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
+
+                                GameEvents.current.RemoveItem(equipment);
+                                GameEvents.current.ChangeCurrentEquipment(equipment, slotIndex);
+                                current = eventData.pointerDrag;
+
+
                             }
-                            eventData.pointerDrag.transform.SetParent(transform, false);
-                            eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
-                            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
-
-                            GameEvents.current.RemoveItem(equipment);
-                            GameEvents.current.ChangeCurrentEquipment(equipment, slotIndex);
-                            current = eventData.pointerDrag;
-                            
-
-                        }
-                        #endregion
-                        break;
-                    case 6:
-                        #region Ring
-                        if (equipment.equipmentType == Equipment.EquipmentType.Ring)
-                        {
-                            
-                            eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
-                            eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
-                            foreach (Transform child in gameObject.transform)
+                            #endregion
+                            break;
+                        case 6:
+                            #region Ring
+                            if (equipment.equipmentType == Equipment.EquipmentType.Ring)
                             {
-                                GameObject.Destroy(child.gameObject);
+
+                                eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
+                                eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
+                                foreach (Transform child in gameObject.transform)
+                                {
+                                    GameObject.Destroy(child.gameObject);
+                                }
+                                eventData.pointerDrag.transform.SetParent(transform, false);
+                                eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+                                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
+
+                                GameEvents.current.RemoveItem(equipment);
+                                GameEvents.current.ChangeCurrentEquipment(equipment, slotIndex);
+                                current = eventData.pointerDrag;
+
+
                             }
-                            eventData.pointerDrag.transform.SetParent(transform, false);
-                            eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
-                            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
-
-                            GameEvents.current.RemoveItem(equipment);
-                            GameEvents.current.ChangeCurrentEquipment(equipment, slotIndex);
-                            current = eventData.pointerDrag;
-                            
-
-                        }
-                        #endregion
-                        break;
-                    case 7:
-                        #region Ring
-                        if (equipment.equipmentType == Equipment.EquipmentType.Ring)
-                        {
-                            eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
-                            eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
-
-                            foreach (Transform child in gameObject.transform)
+                            #endregion
+                            break;
+                        case 7:
+                            #region Ring
+                            if (equipment.equipmentType == Equipment.EquipmentType.Ring)
                             {
-                                GameObject.Destroy(child.gameObject);
+                                eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                                eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
+
+                                foreach (Transform child in gameObject.transform)
+                                {
+                                    GameObject.Destroy(child.gameObject);
+                                }
+                                eventData.pointerDrag.transform.SetParent(transform, false);
+                                eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+                                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
+
+                                GameEvents.current.RemoveItem(equipment);
+                                GameEvents.current.ChangeCurrentEquipment(equipment, slotIndex);
+                                current = eventData.pointerDrag;
+
+
                             }
-                            eventData.pointerDrag.transform.SetParent(transform, false);
-                            eventData.pointerDrag.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
-                            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
+                            #endregion
+                            break;
+                        default:
+                            break;
 
-                            GameEvents.current.RemoveItem(equipment);
-                            GameEvents.current.ChangeCurrentEquipment(equipment, slotIndex);
-                            current = eventData.pointerDrag;
-                            
+                    }
 
-                        }
-                        #endregion
-                        break;
-                    default:
-                        break;
 
+                    swapped = true;
                 }
-
-
-                swapped = true;
             }
 
         }

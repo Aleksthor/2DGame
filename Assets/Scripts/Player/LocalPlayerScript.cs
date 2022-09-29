@@ -34,6 +34,7 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
     private float magicDamage = 5f;
     private float speedMultiplier = 1f;
     private float slowDownLength = 1f;
+    private int poise = 0;
 
     public Vector2 localPosition;
     private Sprite weaponSprite;
@@ -208,6 +209,7 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
         arrowObject.GetComponent<ProjectileCollider>().speedMultiplier = weaponCollider.speedMultiplier;
         arrowObject.GetComponent<ProjectileCollider>().slowDownLength = weaponCollider.slowDownLength;
         arrowObject.GetComponent<ProjectileCollider>().damage = PlayerManager.Instance.meleeDamage;
+        arrowObject.GetComponent<ProjectileCollider>().poise = poise;
         arrowObject.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
 
     }
@@ -317,7 +319,7 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
     }
 
     #endregion
-    private void ChangeStats(float Damage, float MagicDamage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, float critRate, float critDamage, Vector2 LocalPosition)
+    private void ChangeStats(float Damage, float MagicDamage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, float critRate, float critDamage, Vector2 LocalPosition, int Poise)
     {
         manaCost = ManaCost;
         force = Force;
@@ -325,6 +327,7 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
         localPosition = LocalPosition;
         speedMultiplier = SpeedMultiplier;
         slowDownLength = SlowDownLength;
+        poise = Poise;
     }
 
 

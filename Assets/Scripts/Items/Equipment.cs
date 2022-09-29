@@ -22,6 +22,7 @@ public class Equipment : Item
 
     public EquipmentType equipmentType;
     public float armor;
-    public float bonusDamage;
+    public float bonusMeleeDamage;
+    public float bonusMagicDamage;
 
 }

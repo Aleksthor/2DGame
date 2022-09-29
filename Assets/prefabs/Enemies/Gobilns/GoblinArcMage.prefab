@@ -100,6 +100,7 @@ MonoBehaviour:
   health: 200
   maxHealth: 200
   armor: 0
+  poiseResistance: 0
   weaponCollider: {fileID: 3767994117819882413}
   healthBar: {fileID: 0}
   damageDisplay: {fileID: 1132229106446023870}
@@ -751,7 +752,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -805979042926521695, guid: ee320d32492a5f748b45f3051575df6a, type: 3}
+  m_Sprite: {fileID: -7822557088816962964, guid: d981f49262194a045b0c726adaadf847, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -970,7 +971,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 3486615233059589364, guid: 0eba768b5091f8e439f54757ba9bf338, type: 3}
+  m_Sprite: {fileID: -2384528892281073502, guid: ff30b3c813555da49a10ea764f4f37b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

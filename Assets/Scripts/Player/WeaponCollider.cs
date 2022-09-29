@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class WeaponCollider : MonoBehaviour
 {
+    public enum DamageType
+    {
+        Physical,
+        Magic
+    };
+
+
+
     [SerializeField] public float damage = 5f;
+    [SerializeField] public DamageType damageType;
     [SerializeField] public float critRate = 0f;
     [SerializeField] public float critDamage = 2f;
     [SerializeField] public float knockbackForce = 40f;
     [SerializeField] public float speedMultiplier = 1f;
     [SerializeField] public float slowDownLength = 0f;
+    [SerializeField] public int poise;
 
     private float damageBefore;
     private bool boostNextAttack = false;
@@ -25,15 +35,17 @@ public class WeaponCollider : MonoBehaviour
         GameEvents.current.OnBoostNextAttack += BoostNextAttack;
         GameEvents.current.OnDontBoostNextAttack += DontBoostNextAttack;
         GameEvents.current.OnUpdateSecondaryWeapon += UpdateSecondaryWeapon;
+        GameEvents.current.OnUpdateDamageType += UpdateDamageType;
         damageBefore = damage;
     }
 
-    private void Update()
+    private void UpdateDamageType(WeaponCollider.DamageType DamageType)
     {
-
+        damageType = DamageType;
     }
+ 
 
-    private void ChangeStats(float Damage, float magicDamage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, float CritRate, float CritDamage, Vector2 localPosition)
+    private void ChangeStats(float Damage, float magicDamage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, float CritRate, float CritDamage, Vector2 localPosition, int Poise)
     {
         if (weapon == 0)
         {
@@ -43,9 +55,8 @@ public class WeaponCollider : MonoBehaviour
             slowDownLength = SlowDownLength;
             critRate = CritRate;
             critRate = Mathf.Clamp(critRate, 0, 70);
-
             critDamage = CritDamage;
-
+            poise = Poise;
             damageBefore = Damage;
         }
 
@@ -61,6 +72,7 @@ public class WeaponCollider : MonoBehaviour
             knockbackForce = Weapon.knockBackForce;
             speedMultiplier = Weapon.speedMultiplier;
             slowDownLength = Weapon.slowDownLength;
+            damageType = InventoryManager.Instance.secondaryWeapon.damageType;
             critRate = Weapon.critRate;
             critRate = Mathf.Clamp(critRate, 0, 70);
 
@@ -114,7 +126,7 @@ public class WeaponCollider : MonoBehaviour
                 }
 
                 Debug.Log("Damage : " + damage);
-                GameEvents.current.WeaponCollission(other.gameObject, damage, knockbackForce, speedMultiplier, slowDownLength, gameObject.transform.position, didCrit);
+                GameEvents.current.WeaponCollission(other.gameObject, damage, knockbackForce, speedMultiplier, slowDownLength, gameObject.transform.position, didCrit, damageType, poise);
                 damage = damageBefore;
                 didCrit = false;
                 boostNextAttack = false;

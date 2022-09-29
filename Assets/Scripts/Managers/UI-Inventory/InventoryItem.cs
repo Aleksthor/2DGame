@@ -97,11 +97,11 @@ public class InventoryItem : MonoBehaviour
                 uiItemInfo.Find("Background").transform.Find("text-1").GetComponent<TMPro.TextMeshProUGUI>().text = "Armor";
                 uiItemInfo.Find("Background").transform.Find("Info1").GetComponent<TMPro.TextMeshProUGUI>().text = equipment.armor.ToString();
 
-                uiItemInfo.Find("Background").transform.Find("text-3").GetComponent<TMPro.TextMeshProUGUI>().text = "";
-                uiItemInfo.Find("Background").transform.Find("Info3").GetComponent<TMPro.TextMeshProUGUI>().text = "";
+                uiItemInfo.Find("Background").transform.Find("text-3").GetComponent<TMPro.TextMeshProUGUI>().text = "Melee Damage Boost";
+                uiItemInfo.Find("Background").transform.Find("Info3").GetComponent<TMPro.TextMeshProUGUI>().text = equipment.bonusMeleeDamage.ToString();
 
-                uiItemInfo.Find("Background").transform.Find("text-4").GetComponent<TMPro.TextMeshProUGUI>().text = "";
-                uiItemInfo.Find("Background").transform.Find("Info4").GetComponent<TMPro.TextMeshProUGUI>().text = "";
+                uiItemInfo.Find("Background").transform.Find("text-4").GetComponent<TMPro.TextMeshProUGUI>().text = "Magic Damage Boost";
+                uiItemInfo.Find("Background").transform.Find("Info4").GetComponent<TMPro.TextMeshProUGUI>().text = equipment.bonusMagicDamage.ToString();
 
                 uiItemInfo.Find("Background").transform.Find("text-Description").GetComponent<TMPro.TextMeshProUGUI>().text = "Description";
                 uiItemInfo.Find("Background").transform.Find("Description").GetComponent<TMPro.TextMeshProUGUI>().text = equipment.itemDescription;

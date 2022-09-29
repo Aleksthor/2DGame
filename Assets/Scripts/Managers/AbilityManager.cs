@@ -389,17 +389,20 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
         cooldownTime3 = temp3;
 
         #region Ability1
-
-        ability1.DeActivate(playerObject);
-        Debug.Log("Ability 1 Deactivated");
-        if (ability1.hasBuff)
+        if (ability1 != null)
         {
-            foreach (Transform child in buffParent)
+
+            ability1.DeActivate(playerObject);
+            Debug.Log("Ability 1 Deactivated");
+            if (ability1.hasBuff)
             {
-                Debug.Log(child);
-                if (child.GetComponent<Image>().sprite == buffIcon1.GetComponent<Image>().sprite)
+                foreach (Transform child in buffParent)
                 {
-                    Destroy(child.gameObject);
+                    Debug.Log(child);
+                    if (child.GetComponent<Image>().sprite == buffIcon1.GetComponent<Image>().sprite)
+                    {
+                        Destroy(child.gameObject);
+                    }
                 }
             }
         }
@@ -433,6 +436,7 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
                 cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = buffDefenseSprite;
                 break;
             default:
+                ability1 = null;
                 cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = null;
                 break;
         }
@@ -441,20 +445,24 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
         #endregion
 
         #region Ability2
-
-        ability2.DeActivate(playerObject);
-        Debug.Log("Ability 2 Deactivated");
-        if (ability2.hasBuff)
+        if (ability3 != null)
         {
-            foreach (Transform child in buffParent)
+            ability2.DeActivate(playerObject);
+            Debug.Log("Ability 2 Deactivated");
+            if (ability2.hasBuff)
             {
-                Debug.Log(child);
-                if (child.GetComponent<Image>().sprite == buffIcon2.GetComponent<Image>().sprite)
+                foreach (Transform child in buffParent)
                 {
-                    Destroy(child.gameObject);
+                    Debug.Log(child);
+                    if (child.GetComponent<Image>().sprite == buffIcon2.GetComponent<Image>().sprite)
+                    {
+                        Destroy(child.gameObject);
+                    }
                 }
             }
+
         }
+            
         state2 = AbilityState.ready;
 
 
@@ -486,6 +494,7 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
                 cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = buffDefenseSprite;
                 break;
             default:
+                ability2 = null;
                 cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = null;
                 break;
         }
@@ -493,17 +502,19 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
         #endregion
 
         #region Ability3
-
-        ability3.DeActivate(playerObject);
-        Debug.Log("Ability 3 Deactivated");
-        if (ability3.hasBuff)
+        if (ability3 != null)
         {
-            foreach (Transform child in buffParent)
+            ability3.DeActivate(playerObject);
+            Debug.Log("Ability 3 Deactivated");
+            if (ability3.hasBuff)
             {
-                Debug.Log(child);
-                if (child.GetComponent<Image>().sprite == buffIcon3.GetComponent<Image>().sprite)
+                foreach (Transform child in buffParent)
                 {
-                    Destroy(child.gameObject);
+                    Debug.Log(child);
+                    if (child.GetComponent<Image>().sprite == buffIcon3.GetComponent<Image>().sprite)
+                    {
+                        Destroy(child.gameObject);
+                    }
                 }
             }
         }
@@ -537,6 +548,7 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
                 cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = buffDefenseSprite;
                 break;
             default:
+                ability3 = null;
                 cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = null;
                 break;
         }

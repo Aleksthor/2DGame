@@ -1531,7 +1531,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
     {
         #region Damage
         float damage = 0f;
-        float equipmentDamageBoost = 0f;
+        float equipmentMeleeDamageBoost = 0f;
+        float equipmentMagicDamageBoost = 0f;
         if (currentWeapon.isActive)
         {
             damage += currentWeapon.damage;
@@ -1556,7 +1557,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
 
             if (currentHead.isActive)
             {
-                equipmentDamageBoost += currentHead.bonusDamage;
+                equipmentMeleeDamageBoost += currentHead.bonusMeleeDamage;
+                equipmentMagicDamageBoost += currentHead.bonusMagicDamage;
                 armor += currentHead.armor;
             }
         }
@@ -1564,7 +1566,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
         {
             if (currentChest.isActive)
             {
-                equipmentDamageBoost += currentChest.bonusDamage;
+                equipmentMeleeDamageBoost += currentChest.bonusMeleeDamage;
+                equipmentMagicDamageBoost += currentChest.bonusMagicDamage;
                 armor += currentChest.armor;
             }
         }
@@ -1572,7 +1575,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
         {
             if (currentPants.isActive)
             {
-                equipmentDamageBoost += currentPants.bonusDamage;
+                equipmentMeleeDamageBoost += currentPants.bonusMeleeDamage;
+                equipmentMagicDamageBoost += currentPants.bonusMagicDamage;
                 armor += currentPants.armor;
             }
         }
@@ -1580,7 +1584,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
         {
             if (currentShoes.isActive)
             {
-                equipmentDamageBoost += currentShoes.bonusDamage;
+                equipmentMeleeDamageBoost += currentShoes.bonusMeleeDamage;
+                equipmentMagicDamageBoost += currentShoes.bonusMagicDamage;
                 armor += currentShoes.armor;
             }
         }
@@ -1588,7 +1593,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
         {
             if (currentNecklace.isActive)
             {
-                equipmentDamageBoost += currentNecklace.bonusDamage;
+                equipmentMeleeDamageBoost += currentNecklace.bonusMeleeDamage;
+                equipmentMagicDamageBoost += currentNecklace.bonusMagicDamage;
                 armor += currentNecklace.armor;
             }
         }
@@ -1596,7 +1602,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
         {
             if (currentEarrings.isActive)
             {
-                equipmentDamageBoost += currentEarrings.bonusDamage;
+                equipmentMeleeDamageBoost += currentEarrings.bonusMeleeDamage;
+                equipmentMagicDamageBoost += currentEarrings.bonusMagicDamage;
                 armor += currentEarrings.armor;
             }
         }
@@ -1604,7 +1611,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
         {
             if (currentRing1.isActive)
             {
-                equipmentDamageBoost += currentRing1.bonusDamage;
+                equipmentMeleeDamageBoost += currentRing1.bonusMeleeDamage;
+                equipmentMagicDamageBoost += currentRing1.bonusMagicDamage;
                 armor += currentRing1.armor;
             }
         }
@@ -1612,11 +1620,13 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
         {
             if (currentRing2.isActive)
             {
-                equipmentDamageBoost += currentRing2.bonusDamage;
+                equipmentMeleeDamageBoost += currentRing2.bonusMeleeDamage;
+                equipmentMagicDamageBoost += currentRing2.bonusMagicDamage;
                 armor += currentRing2.armor;
             }
         }
-        damage += equipmentDamageBoost;
+        magicDamage += equipmentMagicDamageBoost;
+        damage += equipmentMeleeDamageBoost;
         #endregion
 
         #region Crit
@@ -1680,11 +1690,11 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, IDataP
         }
 
         #endregion
-        
 
+        GameEvents.current.UpdateDamageType(currentWeapon.damageType);
         GameEvents.current.UpdateArmorStat(armor);
         GameEvents.current.UpdateInventoryStats(damage, magicDamage, knockBackForce, slowDebuff,
-slowDebuffTime, manaCost, shotForce, critRate, critDamage, localPos);
+slowDebuffTime, manaCost, shotForce, critRate, critDamage, localPos, currentWeapon.poise);
     }
 
 

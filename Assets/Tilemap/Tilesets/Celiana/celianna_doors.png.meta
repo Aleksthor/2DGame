@@ -1,0 +1,6812 @@
+fileFormatVersion: 2
+guid: 22d15d8513713a247a893bb39951a640
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: celianna_doors_1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bb7de3d8d9318f4f88a741cb144a059
+      internalID: -871823993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_2
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11120530a5213704481731d1d9069199
+      internalID: 561075662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_3
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecca48a2a2b31bf4eadb8941f9340b4e
+      internalID: -1860134523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_8
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 619b6156c3d130644b7b221d2830db51
+      internalID: 1131745588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_9
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 598edcf0348c2144f8f9abcb3144bb22
+      internalID: -2094881550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_10
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 582210a9ca001e940a02015fe02bed6d
+      internalID: 186218651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_11
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e16f7b4c2f74a949ac1b72e0b4aaec0
+      internalID: -1161424592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_12
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec865bfc60ebbd24185fb8622fe0a312
+      internalID: 1284671503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_13
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e4e8e795c6d0d749a83daaa19d2d96c
+      internalID: -2081115896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_14
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3ab67724934af54887f49a3cf8004b1
+      internalID: 208040588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_15
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d898113333e74bd40999f188af66ccc3
+      internalID: 1807636128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_20
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a8562b917c2e7e4585d65c226619de2
+      internalID: 519420668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_21
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63e799653f975de458519b7c706a3c5a
+      internalID: 1812693499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_22
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c52ffa5783b31884dbf0dd9376b36ea9
+      internalID: -1266916350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_23
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4d2fe8e0226594419414fcb1e553601
+      internalID: 425960078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_24
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c63fb56433554f241850c65d06a9b307
+      internalID: -280976006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_25
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5d346dfbdd2126448e0138b33928283
+      internalID: 868184910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_26
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 621de1a08d8bcd94cb45874d8283793d
+      internalID: 1481901362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_27
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd15883e67f07c742bf673f284552478
+      internalID: -1514957336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_30
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 435
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcdf08e18c67a924b967ac9be1860e2d
+      internalID: 1694561374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_31
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 435
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99c0ba1bf4b59074690770da77fddbfe
+      internalID: -409793677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_32
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 435
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0ccf5d2e02f83e4ab9533ef41dfe688
+      internalID: -1978204893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_33
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 435
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caec0337ec628d040aa24d3c3f923b82
+      internalID: -521903727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_35
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 435
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05ad40ae6d08a044397f9895f51ac977
+      internalID: -1766664154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_36
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 435
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04a4a3827d36a0945aa4aad045dea758
+      internalID: 1027246946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_37
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 435
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88ba8d6a5068280478e40c71db61eb45
+      internalID: 25747211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_38
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 435
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a446544b877656c4f80e6cdc735cd736
+      internalID: -2079337362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_39
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0df43a933846ada4f9d713691f229555
+      internalID: -1799090119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_40
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69434f623095acd498f43a012beac092
+      internalID: 394734978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_41
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65759deb651b95d4dbe673c2b6049c73
+      internalID: 2062341434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_42
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63ef9975a58e4f94297d0fb139b0f853
+      internalID: 690296285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_43
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a3fab41a3119004e8aa0d287ade456d
+      internalID: -2116672353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_44
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef99dc86c8b20d949b2075c0f4879f5c
+      internalID: -1896638768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_45
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c8001993f634e44bbbf1db748ec66c4
+      internalID: -1890182832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_46
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f2ae22e9f2f17c4f98455fb6d3d40ea
+      internalID: 255218567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_49
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 419
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 461e50287ec6e3f4bb7e7b796ca78558
+      internalID: -171348806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_50
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 419
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8665423490a3eec48b13e5e62d95248e
+      internalID: -37674845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_51
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 419
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deaac482eea4b9e4780b75fad6ed3a00
+      internalID: -355873439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_52
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 419
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d10a2f9b2950564eb23bff90e5ec1ba
+      internalID: 707239336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_54
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 419
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c88b5a36bc20784ebd39e001c638e74
+      internalID: 1333440539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_55
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 419
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 030b4c7e0f3189a45b464c89662ae928
+      internalID: -442128553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_56
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 419
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60e888f8886b94241ba2106cdf618205
+      internalID: -1701456690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_57
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 419
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5133438, y: 0.5934162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 286b8305d3fa0f642a98ff014d27d3bb
+      internalID: -2122234927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_58
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c8a1657df30c10489e0ede90095de0b
+      internalID: 543558663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_59
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f88e7ff1dbf2424e9643e4c336bfd13
+      internalID: 363885845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_60
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1042b2803dfacee4bb6132624be77dae
+      internalID: 744516717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_61
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b64e714973e893348b2c12eb67a4552c
+      internalID: -941537226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_62
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abf03665c145daf488b0834dc254859c
+      internalID: 1839026602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_63
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06b3709aa398ca34cb3a9f9dd674604f
+      internalID: 1008086971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_64
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e33ccb855e74b84394963344d6f0ef5
+      internalID: -1481369710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_65
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f884c2b67d0cb44b4837c8d851a8ae
+      internalID: 2119735601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_68
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 403
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55f90f31cf810ae42bcfe23c71d8a2a8
+      internalID: 872092840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_69
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 403
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a226e7a082fdc04a88ac4f9bc2fc426
+      internalID: 873891155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_70
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 403
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c7d00a44dad4e4e8e5b5cb5f03f5a5
+      internalID: -896580341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_71
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 403
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f90e6c9d3c80e449961dd338ec321ce
+      internalID: 121731312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_73
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 403
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ead499e33d65ca4d8a71c315b7644c9
+      internalID: 1651702164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_74
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 403
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 693021a9c2e8edb4c8b7164481747be4
+      internalID: 32483030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_75
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 403
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35b11c7be39944343b4c6df7ba479a4b
+      internalID: -327068251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_76
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 403
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c27fb83d28dd44147bc3b5ca287fbc7d
+      internalID: -1053089313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_78
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 385
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0d845d80065cca4ba63551b0570c039
+      internalID: -34255541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_79
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 385
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd17fce0445fe544d89c5551ff3a6a47
+      internalID: -692389231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_80
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 385
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7a2021055e01e441a894fd9569f8f40
+      internalID: 554395266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_82
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 385
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37a7f468232f76f48a216eb938823ddd
+      internalID: -1055867530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_83
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9b3cfd16b1063d488efd37fbeb66119
+      internalID: 1051561401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_84
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f175c4f262a7be49941500bca31227f
+      internalID: -128332029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_91
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 369
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a779fdb11b1a58645aa8d068be4d14db
+      internalID: 2008031089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_92
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 369
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdf743e0445b2e34ca1a3784bd070109
+      internalID: -1235822720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_93
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 369
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb251df0a1c796240bb438b9ead636da
+      internalID: -1800770445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_94
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 369
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 016428195478ea346b7bd1d31a1c9df2
+      internalID: -193787814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_95
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 369
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baa38b5a12d21a14499dc52d1826c283
+      internalID: 611005499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_96
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 369
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 444904c70959cbb47b4fa1242e428fde
+      internalID: -1579877467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_97
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 369
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 796e80fdf7f9f024d884f5772a08179e
+      internalID: -1797109737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_98
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 369
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d8f0daee63f3b34ba2ac8b2ed90527a
+      internalID: -1455098180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_99
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4cd9c86e78c56b489d936b7e68e54e2
+      internalID: 978631375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_101
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 380
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58f839fb1dfa99e4c88035e57e70ad63
+      internalID: 1030846923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_102
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 380
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 192287324c420ca45a3acc7a7e0aed21
+      internalID: -1131604217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_103
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 380
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b39a256d241cd64ea36703492e486fe
+      internalID: 772130936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_104
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 380
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9da94c348ac0ede47b28b8e747a007db
+      internalID: -62815726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_106
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 353
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28e6bbea0ff64ce408690ced3be1cf6b
+      internalID: 1191962313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_107
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 353
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a280861fdae284c429e2ca1517cb1643
+      internalID: -907204628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_108
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 353
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e463aa0fc83ed14599492893e71fe0d
+      internalID: -1915620412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_109
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 353
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a5608399bad37d418859df3b16badad
+      internalID: 225517402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_110
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 353
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2ca99f66ffb4f041a1873c1825cf1cf
+      internalID: 110382117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_111
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 353
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb57f55c235edaf41803b76279c4e315
+      internalID: -563947946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_112
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 353
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcdc89e78227d3d40b2a888825de26ab
+      internalID: -598906403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_113
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 353
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f33cf1af7829a049b2385a2c2e478e2
+      internalID: 1807994248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_116
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 364
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bcd2cbd2d8ff9647baa6d881863afd6
+      internalID: 2066782376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_117
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 364
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 980fc5c7dcb3db240afdc12cf0e829c8
+      internalID: -36680297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_118
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 364
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: affdb43a4c3a8b84194645a6309151ad
+      internalID: -408155616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_119
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 364
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 322e012d4caaa0b41bf8b692364401a4
+      internalID: 1787893501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_124
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 337
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 006ccb50473fef14abae59eea644bf3b
+      internalID: -1070105684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_125
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 337
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 526e098432eb7664ba0ae9fca18acbb6
+      internalID: 892595367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_126
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 337
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 283634cb2910b3949aea6473b65fc302
+      internalID: -1675758810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_127
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 337
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8a2419ce8bf8d541a8741adbd47c124
+      internalID: 1776646164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_128
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 337
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64437675c7822a24ebd73c37b6fb3783
+      internalID: 1739307791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_129
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 337
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f06038c5d82e4274d8b0a59c1dfe73da
+      internalID: -892760594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_130
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 385
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb76fba710488e541922458b7ba3a751
+      internalID: -300563140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_131
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 337
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 502b4adc7cc776f44ad6834c8d8ba462
+      internalID: 29418810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_134
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 348
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83520c535d8359a44b95f859d715e822
+      internalID: -147490812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_135
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 348
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 702c8ba9599f49e49bf16bb7b319de3f
+      internalID: 102203832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_136
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 348
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa9c8a3c2cc462345ae01393636c1b65
+      internalID: -1744737481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_137
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 348
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdfcd07aaaa4a1a4c86b5c32959f4934
+      internalID: -1349038077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_143
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 321
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43de0ebf3be44bc4291cbdeba5cdab4b
+      internalID: -2129475777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_144
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 321
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40a5b2695bb816247a8eb837bb095ab5
+      internalID: -852893159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_145
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 321
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a101d42fc4d391b4897d91be6bf9cbfe
+      internalID: -631842512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_146
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 321
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96c8cd2bd91a70b4e9d5c0fb67cb1e24
+      internalID: -737568056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_147
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 321
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 749e302e8880ea74d88b7a953fbb5b80
+      internalID: -1020558143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_148
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 321
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.48712254, y: 0.5000019}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 581c9bcce8ef5794cb3aa55c0ed7761f
+      internalID: 1820395731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_149
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 337
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 357b3389d402bcc4a9c8cd363cc90a9b
+      internalID: 1177663691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_150
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 321
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aab92029f090d947bf613eca73230dc
+      internalID: -1640524359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_159
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 321
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ccffed891b03244da57bb5c7c7c9dbb
+      internalID: -589130615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_163
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 385
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29ee06a8d74dd2b4c8ce30a3633d3b3b
+      internalID: 2109669453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_164
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 293
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8ca138d0bdbd67479663d934ce2c1f9
+      internalID: -2132837872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_165
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 293
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b9974899b647ac4592c3b25b9ec6741
+      internalID: 1490552423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_166
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 293
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01a687dc883cec14d969f064afe4316a
+      internalID: -920130341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_167
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 293
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49157e22395cef74da89fab402e68129
+      internalID: -1476978322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_168
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 293
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.6, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b280b47841f75146a5018e85d93903a
+      internalID: 150372082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_169
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 293
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79fb400b7b506ee44b51d9612332aa9c
+      internalID: -1289767094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_170
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 293
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78a04e9ecd99493478042a2111c3ea91
+      internalID: 2068066365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_171
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 293
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.42288208, y: 0.51101685}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d14c9c6c8a0e9f64696af930f83eb59e
+      internalID: 415142784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_172
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 293
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 007e9635d3585754891f0b7b280c5481
+      internalID: -1065274865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_173
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 293
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90290f04585748d4995a4ef8d9076d73
+      internalID: -1722857208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_174
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 293
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8df4e273505669b4288a9b25396f6b67
+      internalID: 851407116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_176
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 283
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f87da29c3c2f75543bde279d2d4269a3
+      internalID: 1255836741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_177
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 283
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3be46ad7934e4c64ca553319a5a7ef52
+      internalID: 917611624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_178
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 283
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c16377527752e24499ff28e1a72b775d
+      internalID: -1264309004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_179
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 283
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a4ca803f0548241bfe6b30f738caf0
+      internalID: 1167253149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_180
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 283
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2beb552bdcb79345918ca05243a69ba
+      internalID: -1519274674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_181
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 283
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04a4ccede9f9b9b429735095c8e86308
+      internalID: -2090913976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_182
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 283
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f951e0930bd282c48a1ff13b43a64c66
+      internalID: -1490653801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_183
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 283
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 299fb73667af33445b8cf61b4397e54e
+      internalID: 1380406705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_185
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 283
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1631c6a09dcafcb438eb68021e42615f
+      internalID: -885977062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_186
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 283
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e22cc4cc01576574bab51443cb64af1b
+      internalID: -1677005091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_192
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 293
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afff5bf604dafb14998aa60ae70ff342
+      internalID: -2138792631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_193
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 277
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bcb7ce153c3dc54e9d03ba19c053822
+      internalID: 1115682679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_194
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 277
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e63db90350e02d341b490fd6c1f86f01
+      internalID: 232905106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_195
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 277
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24c1582ab23e8bf448d6df98f4fabf21
+      internalID: -347159382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_196
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 277
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.6, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b93d714f1fa0d14da8599119dce05a3
+      internalID: 1259150642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_197
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 277
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dad232d7a4a1bf43b3a94b98e6a6fcc
+      internalID: -731263925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_198
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 277
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee3af2be91c2ea5479caa467b4eed2f4
+      internalID: 113835407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_199
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 277
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 344bf2f43e5a6cd4c8cc5e3834ac7ca6
+      internalID: 450471707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_200
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 277
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 136f1feab1b15d243bc13378812f9aa9
+      internalID: -687282975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_201
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 277
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8d5e5057ccf74c4cbc2aefaf0b3a38a
+      internalID: 1070140488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_202
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 277
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9157f3f52bd28fb478128a49b33bc795
+      internalID: 602575527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_204
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 267
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a0d2374a26ac9f4880a64a1082241b4
+      internalID: 1636097037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_205
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 267
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f5cc8f9af786904ba6bcc4e377c681f
+      internalID: 741572203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_206
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 267
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450b88a98c3b33743a391c9d6eead42a
+      internalID: -1154385963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_207
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 267
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d94de57400dc1498437172466b0c8a
+      internalID: -1882296808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_208
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 267
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d5e2af2ee8cded47ab941c1a05a41a0
+      internalID: 824744634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_209
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 267
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f41c274906864324f9b0ec6d6d393ed8
+      internalID: -540180370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_210
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 267
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6db93cec9994ae0479ea05459b0b7396
+      internalID: 1014089893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_211
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 267
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2347c4cc2e123e54e8586270b22b6e24
+      internalID: -633395931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_213
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 267
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb9f6627b1029da45aecac356e2ed750
+      internalID: 1079245339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_214
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 267
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39a32defae2379845b10bed21b15388f
+      internalID: 643822189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_220
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 261
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 142dff2f2e778b34186e008e79d308e8
+      internalID: 540646253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_221
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 277
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67ec78a947c1baa4c8aa746861c4dc7c
+      internalID: -235432928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_222
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 261
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14419cac93ba031488e8d3dd511b9d97
+      internalID: -1135992343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_223
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 277
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c8bd7e945027964b9517ae72bc59498
+      internalID: -501534213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_224
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 261
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.6, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e91b7319f080e249a6f8f3c6c5de883
+      internalID: 826848069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_225
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 261
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 929724b95f02a894599693150e8687bb
+      internalID: 1333250705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_226
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 261
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f79ab20c3d43f17409868b95fa750f6b
+      internalID: 1839899615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_227
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 261
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db5733717f045d9449a5ef1d8f886217
+      internalID: 1271321186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_228
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 261
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 377fcd94c5b6f8f408d675ebd830ce4e
+      internalID: -2086767538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_229
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 261
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d6f6aaa046069b4aa2719411368b649
+      internalID: 1144687245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_230
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 261
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 471dfe5afbff08e428ccf4457bdeef5d
+      internalID: 915247822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_232
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 251
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0dac762460642f4d9605f90f02015a7
+      internalID: 1755726616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_233
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 251
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d489adfecd553341aae630c8c7951e4
+      internalID: -457244706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_234
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 251
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6acc504a462e204489b5a54e6e2ea64f
+      internalID: -661254220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_235
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 251
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 796865bb54596114aa7c099c9c078c35
+      internalID: 612757957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_236
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 251
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbd219ccd27b93940a93b32993df3751
+      internalID: 2039578381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_237
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 251
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84f8f502c6dd97b4fa347797abbf126d
+      internalID: 2004652453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_238
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 251
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1ea938471a50544a8b6478e2a24a7e2
+      internalID: -60503730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_239
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 251
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a6e720ce88ce8f4db8e0dd57949fcec
+      internalID: -519460818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_241
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 251
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 693dba53cfc410c41835f06e7ef190bb
+      internalID: -1160468392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_242
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 251
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17e4d13e38570c94290067b363ee0216
+      internalID: -860266350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_248
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 245
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d1e6e178d8e7934c8c896c1d4354604
+      internalID: -352285839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_249
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 261
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f86cfcbd1754824ab527e0c420d16f2
+      internalID: -292635463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_250
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 261
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6060767b94d47e74bbf8dc3026f00a8e
+      internalID: 539083906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_251
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 261
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1651a38941df59b4981e7b80747a88f3
+      internalID: 266807163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_252
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 245
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.6, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bfcef0f7153a8a4a8a313d1c94c26db
+      internalID: 1215668197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_253
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 245
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30ba3c5282ef0aa48a9a8fceabb3349b
+      internalID: -2144734379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_254
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 245
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08114d66ed9a47c4e81f949451b5df31
+      internalID: 881406653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_255
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 245
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f71efa5c8d78af84aa5b03b005589b67
+      internalID: 179256721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_256
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 245
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e550f61cafa6d23419fff39aef9f6da1
+      internalID: -2133144441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_257
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 245
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5beaf3079178b71459c604c90465a7dd
+      internalID: 630426553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_258
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 245
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 287b7d0780dfef14cb64cc60ebd55b9f
+      internalID: -627157664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_260
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 235
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bac2de1684396142b842d49a7521b00
+      internalID: 1065256659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_261
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 235
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d783bf3252c17be4ba726cce6d1f461d
+      internalID: 1495862893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_262
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 235
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be13975746dc51d48a498a94ef02c48a
+      internalID: -216031483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_263
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 235
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7881e4862b8d804e874d56ce380fd46
+      internalID: -1180189880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_264
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 235
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ba59471749d18b4d82876046b26e5e8
+      internalID: 225060733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_265
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 235
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08bb0c3aea9bc045987a2409eb6a97e
+      internalID: -2085830650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_266
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 235
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a5c710a117a45d499c158e3d1f131cc
+      internalID: 400368646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_267
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 235
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d4631ceca860f64693d9ae1f6264c18
+      internalID: 2067271368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_269
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 235
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df20c0993016ae74496f99707ee329f9
+      internalID: -1991703639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_270
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 235
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56ca0e886f3599d40ac16d35ce3cfab8
+      internalID: 97659555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_276
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 229
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0240c399c349f014e8b54c7eb82664d1
+      internalID: -1444025743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_277
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 245
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b9a2756306c5524591850c101bc4d05
+      internalID: -2015678131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_278
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 245
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6ad5cd5c6c6bef458873daa8e21ae9f
+      internalID: -1285801924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_279
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 245
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc4eebcb2ffe6464bac1bd942ffbacb8
+      internalID: 1393188588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_280
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 229
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.6, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fbf0b010c12a5b499e2a6b8db184f9a
+      internalID: 598724265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_281
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 229
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8009dcd430db2b4493a41c533f0677c
+      internalID: 2012411868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_282
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 229
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0159e3f8d513dbb49832d1092056da96
+      internalID: 217467810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_283
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 229
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b1f1a114e013847b70d2694f5382cc
+      internalID: 1643118990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_284
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 229
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 415a47d89a6fd6c44b18dcd2585f1594
+      internalID: 979985116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_285
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 229
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8766bcee51f1c04bb435d419f173850
+      internalID: 1796851246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_286
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 229
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6edbb5e55cfc0947bcd91e25619499b
+      internalID: 1219510202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_304
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 213
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 373d53a3eb2c2c341af724e024dafea7
+      internalID: 569022502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_305
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 213
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0159022e4bdc5be42b0f1638ce3d3b17
+      internalID: 1521485698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_306
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 213
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b30f652e71305a94fb5fed1445b16f42
+      internalID: 246927455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_307
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 213
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b37c319e711fc9439c68ebb0d61be6c
+      internalID: 1607252096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_308
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 197
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.6, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee2a2189fd1403a4488935bf04c78dce
+      internalID: 1129653437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_309
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 213
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.6, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea7fe2192c7a24a4f8b8284ecfe42bbe
+      internalID: 974459507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_310
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 213
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7f952a4f65169444b837cbafaceec1a
+      internalID: -416831368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_311
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 213
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94cbaad71f6fe9045a01abc2b89b3981
+      internalID: -314217962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_312
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 213
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb9d26bf6af9f804c95c5471be2090ac
+      internalID: -1258554302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_313
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 213
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52924b9023a456843a9e44c572cc455e
+      internalID: -1409477597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_314
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 213
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e87c6a4a2723f4597d89dad58344c9
+      internalID: 266260458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_315
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 229
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf67f212d2ddfd4f83f966df7468e94
+      internalID: 21783152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_324
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 283
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98e9067f6deac96499a576bc4394775c
+      internalID: 1679837938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_325
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 251
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7fc8926a4278144aa1ce8f149cb535d
+      internalID: -415416054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_326
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 267
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42e598bbcd84bc848b8f4dc28e7603f0
+      internalID: 713892984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_327
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 251
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d657e9250eb4694093f2a3e6f209271
+      internalID: 1327907509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_328
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 235
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24c2291b1e976e3499e94194c677e3b6
+      internalID: 308548418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_329
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 235
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d667fea0898e757428667128dcf4fb38
+      internalID: -2111824994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_330
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 235
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b1f445807f815849bf45c452373acab
+      internalID: -244471445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_331
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 251
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24392acc29b103141a15fcae9b08ed3e
+      internalID: 576546252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_332
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 197
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 669b6478ed8189748b523d62e4129685
+      internalID: -1085115994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_333
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 197
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4bb95a4cc9299843a5abcfb04d1239f
+      internalID: -1217579567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_334
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 197
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cd34139309b5d143a7d4074b6661a6d
+      internalID: 254436969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_335
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 197
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3570bebb7460b647b43ffd4a143353c
+      internalID: 1607469373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_336
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 213
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02d6dc83d6274a944acbaf40c39a0025
+      internalID: 1112462677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_337
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 181
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.6, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cd5efd6c20cbb543a52b1be85a4cd74
+      internalID: -1451807161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_338
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 213
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98c57b4b1bb20cd42a6c7899a75d8225
+      internalID: -920393692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_339
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 197
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d3839edeb8340b49b105dd4f097cd3f
+      internalID: -791833216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_340
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 197
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efbaa9c9e3ccfc84c8d70ddf281c27cb
+      internalID: -214567066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_341
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 197
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2c348f721c77694aba8a0e0d6968f43
+      internalID: 607288502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_342
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 197
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0116316dadb2f734bbd356a1e8c9c405
+      internalID: -1424634645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_343
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 229
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71d2b2ce34fa0104dbc812a5ffd2a739
+      internalID: 1545839246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_354
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 283
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3627ee8b49e533840870b6f813d3437b
+      internalID: -669204166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_355
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 235
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26d47a43391306b4a8b2a465ac86ec90
+      internalID: 1363337113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_356
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 267
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f868d61fae5fc124ea56a3fe7c4e97a0
+      internalID: -1621893192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_357
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 267
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d8c8bba12601ff4ca6394048f0311a6
+      internalID: -904488352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_358
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 267
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 262047171a063e84cb82bd600ffb2725
+      internalID: 1357064503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_359
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 251
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3248c48d8b9bacf4cac30e14f607c1c1
+      internalID: -1163079748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_360
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 181
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d54d32c19ad2a1c4781c1df81c88f3ec
+      internalID: -458176854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_361
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 181
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75f7d8091fdf1594b839077ee4513f6c
+      internalID: -800209205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_362
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 181
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08368b141cb15914db458a0992a2c8af
+      internalID: 1094541721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_363
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 181
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b1b8c81f9948f54092d0e4297cdffa0
+      internalID: 137152602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_364
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 197
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e3b1a5b7274ed540be09c11c6c5b258
+      internalID: 2055514044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_365
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 165
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.6, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e521fb36edcb2e24cb5af4ac3e5cbea4
+      internalID: -1328764841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_366
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 197
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 080fa3968e986e04dbbf183fa249e0cc
+      internalID: 682560219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_367
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 181
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f596f03add3d5342bc32c029648cdb5
+      internalID: -1847848083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_368
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 181
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac46ae19dff7e4c4f80e6c43b54c82a3
+      internalID: 1185974743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_369
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 197
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2352aa4dc9eb3c943b1007d3ec4012e5
+      internalID: -1824987257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_370
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 181
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf429743dea693c46ad9a220a18e9bb0
+      internalID: -377875051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_371
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 229
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5e11b8bc3a6ad342b0a7ea4061bd520
+      internalID: -618448841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_385
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 283
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c71a092e3c7a6ad439d6d0f461e14aa0
+      internalID: 664033286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_386
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 283
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 181721c7d96483042baadf9c86160abf
+      internalID: 777763602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_388
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 165
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acc6bd1c3a5407748802541bcf0dc7d4
+      internalID: -852457379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_389
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 165
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29690da40da290f4a810c97463fd18d8
+      internalID: 159529134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_390
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 165
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df517854e9b09a8449bbb7cec500635b
+      internalID: -655886305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_391
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 165
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bd592890b810e14d89421faa22a3d22
+      internalID: -1774836064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_392
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 181
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f3060193fc1ee249a45011d9ec2fe28
+      internalID: -1938570626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_393
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 149
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.6, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee53aaebd7a2435479d6a3d875f4c006
+      internalID: -1365093041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_394
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 181
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 578ac06478a39c14dacaf5f16c3a9b24
+      internalID: -634189583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_395
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 181
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d77a1b337c1a844419caa21d882141f7
+      internalID: -1042374621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_396
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 181
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ca692412abffc14c98e330af91e5f2f
+      internalID: -1927342406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_397
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 165
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b356a7f4e86830e43a9471e618003f40
+      internalID: -527285241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_398
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 165
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3f3186d445255849bea181fb7d3ef7e
+      internalID: -647434970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_399
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 229
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 749bbdcade1d3974ab2d891467bffa5c
+      internalID: 107039618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_416
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 149
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e32ca94dfc42e374eb1fba47f93130d1
+      internalID: -1852186128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_417
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f2e6d7468a7adf4d9385685939bdbd9
+      internalID: -2064771271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_418
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 934aa5b9d356cca48b5b4bdcc24ab4da
+      internalID: -1800423956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_419
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 165
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e82d377c992b1d543935117286eb6005
+      internalID: -932287912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_420
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0412f467fe55c364195164f65bf4d2ef
+      internalID: -441124865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_421
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c09215c6beb47d04fbc1dab6ab29e70c
+      internalID: -269858274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_422
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 165
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed7d6f468769e4408242e1317cee30f
+      internalID: -1403795231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_423
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 149
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecf065ce4da4f63468b7488035cb4249
+      internalID: 998582239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_424
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 165
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d34c8b158ad55741b6861e8b388a33e
+      internalID: 1819817745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_425
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 165
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21f6382c2f2cc054e8d56745a049008e
+      internalID: 82723380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_426
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09e6639d109f63d408f66313491c6385
+      internalID: -419861651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_427
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 245
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfc59e3cc6c22a74b8c1e9e6689486e3
+      internalID: 1781877417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_434
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfb543e60597ec94cb453f26f72d724d
+      internalID: -1694817812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_435
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a770694ca87a0f546bff8896592ab321
+      internalID: -220793213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_436
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9f3ad6f8863f50438bc242679e128c7
+      internalID: 1843588554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_437
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 165
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e914915b08c8714fa73140d959a27ba
+      internalID: -1590546806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_438
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad306815b18a4cd4ea7b358c8fc64f60
+      internalID: 85519079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: celianna_doors_4
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 123
+        width: 2
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a31f5e474325614ea30c6118ee99ed3
+      internalID: -256964930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      celianna_doors_75: -327068251
+      celianna_doors_594: -1715798597
+      celianna_doors_201: 1070140488
+      celianna_doors_189: 101827001
+      celianna_doors_111: -563947946
+      celianna_doors_296: -161746888
+      celianna_doors_402: 1884671503
+      celianna_doors_145: -631842512
+      celianna_doors_313: -1409477597
+      celianna_doors_448: 1988028997
+      celianna_doors_271: -477363626
+      celianna_doors_268: -826248754
+      celianna_doors_324: 1679837938
+      celianna_doors_380: -1036864125
+      celianna_doors_352: -2126372767
+      celianna_doors_482: -1230496293
+      celianna_doors_29: 534514390
+      celianna_doors_358: 1357064503
+      celianna_doors_497: 1057010151
+      celianna_doors_561: 193711761
+      celianna_doors_309: 974459507
+      celianna_doors_371: -618448841
+      celianna_doors_575: -1814838805
+      celianna_doors_527: -1539202448
+      celianna_doors_146: -737568056
+      celianna_doors_94: -193787814
+      celianna_doors_481: -979309339
+      celianna_doors_493: -630619893
+      celianna_doors_563: -1326047634
+      celianna_doors_620: -632709551
+      celianna_doors_167: -1476978322
+      celianna_doors_8: 1131745588
+      celianna_doors_468: 31592941
+      celianna_doors_328: 308548418
+      celianna_doors_605: 1086291835
+      celianna_doors_415: -37678474
+      celianna_doors_55: -442128553
+      celianna_doors_143: -2129475777
+      celianna_doors_278: -1285801924
+      celianna_doors_359: -1163079748
+      celianna_doors_435: -220793213
+      celianna_doors_28: 569953592
+      celianna_doors_460: 1279040397
+      celianna_doors_241: -1160468392
+      celianna_doors_19: -412799924
+      celianna_doors_583: -1479069585
+      celianna_doors_333: -1217579567
+      celianna_doors_453: 1100670555
+      celianna_doors_455: -338123863
+      celianna_doors_263: -1180189880
+      celianna_doors_473: -862060669
+      celianna_doors_280: 598724265
+      celianna_doors_615: 1210303174
+      celianna_doors_518: 870819017
+      celianna_doors_253: -2144734379
+      celianna_doors_286: 1219510202
+      celianna_doors_449: 877656341
+      celianna_doors_276: -1444025743
+      celianna_doors_582: 537070522
+      celianna_doors_509: 2023887110
+      celianna_doors_228: -2086767538
+      celianna_doors_345: 214881585
+      celianna_doors_353: 1636885882
+      celianna_doors_323: 43948481
+      celianna_doors_614: 560883700
+      celianna_doors_394: -634189583
+      celianna_doors_461: -1399624281
+      celianna_doors_135: 102203832
+      celianna_doors_160: -1606159947
+      celianna_doors_38: -2079337362
+      celianna_doors_163: 2109669453
+      celianna_doors_300: 709904824
+      celianna_doors_391: -1774836064
+      celianna_doors_279: 1393188588
+      celianna_doors_59: 363885845
+      celianna_doors_196: 1259150642
+      celianna_doors_503: 751824179
+      celianna_doors_555: -1924718634
+      celianna_doors_114: -1859524761
+      celianna_doors_310: -416831368
+      celianna_doors_200: -687282975
+      celianna_doors_210: 1014089893
+      celianna_doors_188: 1535058575
+      celianna_doors_191: 1008744105
+      celianna_doors_317: -968100478
+      celianna_doors_289: 1777817261
+      celianna_doors_57: -2122234927
+      celianna_doors_66: 2039200901
+      celianna_doors_547: 715632475
+      celianna_doors_95: 611005499
+      celianna_doors_139: 342770506
+      celianna_doors_612: -75236775
+      celianna_doors_341: 607288502
+      celianna_doors_119: 1787893501
+      celianna_doors_187: -313189513
+      celianna_doors_202: 602575527
+      celianna_doors_584: -1126745888
+      celianna_doors_475: -1557886261
+      celianna_doors_154: -547286215
+      celianna_doors_16: 1960458127
+      celianna_doors_295: -1196980552
+      celianna_doors_73: 1651702164
+      celianna_doors_418: -1800423956
+      celianna_doors_131: 29418810
+      celianna_doors_180: -1519274674
+      celianna_doors_140: 1769538257
+      celianna_doors_52: 707239336
+      celianna_doors_68: 872092840
+      celianna_doors_216: 794019892
+      celianna_doors_117: -36680297
+      celianna_doors_346: -1640076274
+      celianna_doors_238: -60503730
+      celianna_doors_465: 2095535277
+      celianna_doors_108: -1915620412
+      celianna_doors_322: 879673867
+      celianna_doors_104: -62815726
+      celianna_doors_161: 1501411148
+      celianna_doors_41: 2062341434
+      celianna_doors_517: 1214165039
+      celianna_doors_164: -2132837872
+      celianna_doors_239: -519460818
+      celianna_doors_50: -37674845
+      celianna_doors_217: 460435042
+      celianna_doors_134: -147490812
+      celianna_doors_515: 869229466
+      celianna_doors_422: -1403795231
+      celianna_doors_607: 1421728703
+      celianna_doors_523: -775312218
+      celianna_doors_398: -647434970
+      celianna_doors_569: 1486412781
+      celianna_doors_166: -920130341
+      celianna_doors_490: 1394444459
+      celianna_doors_580: 212271345
+      celianna_doors_193: 1115682679
+      celianna_doors_32: -1978204893
+      celianna_doors_31: -409793677
+      celianna_doors_356: -1621893192
+      celianna_doors_118: -408155616
+      celianna_doors_69: 873891155
+      celianna_doors_172: -1065274865
+      celianna_doors_130: -300563140
+      celianna_doors_47: -609557693
+      celianna_doors_169: -1289767094
+      celianna_doors_513: -1896654929
+      celianna_doors_287: 1206638079
+      celianna_doors_194: 232905106
+      celianna_doors_548: 636841060
+      celianna_doors_84: -128332029
+      celianna_doors_606: 1874550350
+      celianna_doors_573: -1124013910
+      celianna_doors_443: -1013067334
+      celianna_doors_156: -680223543
+      celianna_doors_386: 777763602
+      celianna_doors_568: -1334783088
+      celianna_doors_528: 1009244786
+      celianna_doors_151: 1769410528
+      celianna_doors_487: -1936724870
+      celianna_doors_293: 1324467888
+      celianna_doors_33: -521903727
+      celianna_doors_152: 1180721693
+      celianna_doors_336: 1112462677
+      celianna_doors_204: 1636097037
+      celianna_doors_332: -1085115994
+      celianna_doors_552: 2139382962
+      celianna_doors_258: -627157664
+      celianna_doors_339: -791833216
+      celianna_doors_74: 32483030
+      celianna_doors_150: -1640524359
+      celianna_doors_381: -1091285100
+      celianna_doors_526: 1206137431
+      celianna_doors_591: 662150471
+      celianna_doors_98: -1455098180
+      celianna_doors_303: 2000675564
+      celianna_doors_374: -903522354
+      celianna_doors_335: 1607469373
+      celianna_doors_566: 1377953687
+      celianna_doors_564: 2086301827
+      celianna_doors_357: -904488352
+      celianna_doors_507: 2013692103
+      celianna_doors_10: 186218651
+      celianna_doors_234: -661254220
+      celianna_doors_106: 1191962313
+      celianna_doors_436: 1843588554
+      celianna_doors_544: -1970466019
+      celianna_doors_603: -1493382865
+      celianna_doors_565: 1423012345
+      celianna_doors_142: -293544453
+      celianna_doors_254: 881406653
+      celianna_doors_348: 2055417345
+      celianna_doors_420: -441124865
+      celianna_doors_464: -1902496061
+      celianna_doors_489: -916573298
+      celianna_doors_221: -235432928
+      celianna_doors_388: -852457379
+      celianna_doors_11: -1161424592
+      celianna_doors_318: 30038217
+      celianna_doors_138: 536693588
+      celianna_doors_387: 769441298
+      celianna_doors_405: -1572475677
+      celianna_doors_247: -1193509803
+      celianna_doors_87: 1600936485
+      celianna_doors_101: 1030846923
+      celianna_doors_243: -2029575438
+      celianna_doors_144: -852893159
+      celianna_doors_49: -171348806
+      celianna_doors_470: 3004013
+      celianna_doors_15: 1807636128
+      celianna_doors_532: 931269010
+      celianna_doors_611: -29350861
+      celianna_doors_190: -705697913
+      celianna_doors_319: -1112789265
+      celianna_doors_361: -800209205
+      celianna_doors_256: -2133144441
+      celianna_doors_431: -1935611689
+      celianna_doors_219: -1583051498
+      celianna_doors_588: 1268445541
+      celianna_doors_113: 1807994248
+      celianna_doors_428: 1835443731
+      celianna_doors_299: -866932392
+      celianna_doors_14: 208040588
+      celianna_doors_577: 1663201776
+      celianna_doors_337: -1451807161
+      celianna_doors_199: 450471707
+      celianna_doors_351: -484601116
+      celianna_doors_132: -1699371200
+      celianna_doors_171: 415142784
+      celianna_doors_67: 375535186
+      celianna_doors_81: 658719007
+      celianna_doors_269: -1991703639
+      celianna_doors_536: 827321883
+      celianna_doors_240: 410835235
+      celianna_doors_272: 134442059
+      celianna_doors_340: -214567066
+      celianna_doors_491: 363139650
+      celianna_doors_301: -1404038357
+      celianna_doors_432: -366433291
+      celianna_doors_197: -731263925
+      celianna_doors_218: -1304369572
+      celianna_doors_520: -78477963
+      celianna_doors_260: 1065256659
+      celianna_doors_400: 1160869455
+      celianna_doors_224: 826848069
+      celianna_doors_100: -1150393010
+      celianna_doors_458: 220716847
+      celianna_doors_546: 504218907
+      celianna_doors_248: -352285839
+      celianna_doors_480: 654172839
+      celianna_doors_572: -1335283842
+      celianna_doors_597: -305886494
+      celianna_doors_599: 1336692638
+      celianna_doors_148: 1820395731
+      celianna_doors_375: -128455616
+      celianna_doors_235: 612757957
+      celianna_doors_390: -655886305
+      celianna_doors_556: 1660588993
+      celianna_doors_537: 1660732961
+      celianna_doors_427: 1781877417
+      celianna_doors_617: 1709611896
+      celianna_doors_312: -1258554302
+      celianna_doors_330: -244471445
+      celianna_doors_452: 555192576
+      celianna_doors_92: -1235822720
+      celianna_doors_225: 1333250705
+      celianna_doors_213: 1079245339
+      celianna_doors_51: -355873439
+      celianna_doors_110: 110382117
+      celianna_doors_377: 219618429
+      celianna_doors_168: 150372082
+      celianna_doors_382: -482897183
+      celianna_doors_378: -2054278847
+      celianna_doors_370: -377875051
+      celianna_doors_542: 744749647
+      celianna_doors_21: 1812693499
+      celianna_doors_105: 109227804
+      celianna_doors_463: -30189026
+      celianna_doors_89: -1496755301
+      celianna_doors_255: 179256721
+      celianna_doors_0: 932389447
+      celianna_doors_554: 220900875
+      celianna_doors_433: -204532555
+      celianna_doors_512: -1923767873
+      celianna_doors_129: -892760594
+      celianna_doors_329: -2111824994
+      celianna_doors_522: -480101765
+      celianna_doors_259: -242740629
+      celianna_doors_18: -61965192
+      celianna_doors_376: -1750414214
+      celianna_doors_426: -419861651
+      celianna_doors_64: -1481369710
+      celianna_doors_153: -910684466
+      celianna_doors_560: 126668693
+      celianna_doors_184: 1012140482
+      celianna_doors_347: 1365205431
+      celianna_doors_35: -1766664154
+      celianna_doors_396: -1927342406
+      celianna_doors_409: -2128559392
+      celianna_doors_246: -1102871032
+      celianna_doors_37: 25747211
+      celianna_doors_342: -1424634645
+      celianna_doors_438: 85519079
+      celianna_doors_302: 1632920365
+      celianna_doors_24: -280976006
+      celianna_doors_45: -1890182832
+      celianna_doors_233: -457244706
+      celianna_doors_600: 980383950
+      celianna_doors_494: 704605877
+      celianna_doors_506: 1419023683
+      celianna_doors_559: -942710962
+      celianna_doors_379: -265601398
+      celianna_doors_545: 445949269
+      celianna_doors_26: 1481901362
+      celianna_doors_355: 1363337113
+      celianna_doors_315: 21783152
+      celianna_doors_367: -1847848083
+      celianna_doors_326: 713892984
+      celianna_doors_71: 121731312
+      celianna_doors_93: -1800770445
+      celianna_doors_344: 1765382520
+      celianna_doors_223: -501534213
+      celianna_doors_524: -891102426
+      celianna_doors_416: -1852186128
+      celianna_doors_407: 487612217
+      celianna_doors_609: 159156336
+      celianna_doors_587: -1715105829
+      celianna_doors_349: -556260906
+      celianna_doors_334: 254436969
+      celianna_doors_408: 1495981895
+      celianna_doors_543: 182656931
+      celianna_doors_195: -347159382
+      celianna_doors_209: -540180370
+      celianna_doors_155: -183266119
+      celianna_doors_270: 97659555
+      celianna_doors_176: 1255836741
+      celianna_doors_285: 1796851246
+      celianna_doors_173: -1722857208
+      celianna_doors_245: -126864956
+      celianna_doors_267: 2067271368
+      celianna_doors_472: 75842671
+      celianna_doors_205: 741572203
+      celianna_doors_252: 1215668197
+      celianna_doors_2: 561075662
+      celianna_doors_384: -1578489350
+      celianna_doors_474: -602511221
+      celianna_doors_521: 1215221646
+      celianna_doors_325: -415416054
+      celianna_doors_457: -1783140542
+      celianna_doors_226: 1839899615
+      celianna_doors_207: -1882296808
+      celianna_doors_112: -598906403
+      celianna_doors_44: -1896638768
+      celianna_doors_423: 998582239
+      celianna_doors_182: -1490653801
+      celianna_doors_504: 1647516075
+      celianna_doors_311: -314217962
+      celianna_doors_60: 744516717
+      celianna_doors_576: -498037452
+      celianna_doors_414: -1099075889
+      celianna_doors_571: 1442497752
+      celianna_doors_158: 1472426160
+      celianna_doors_519: 1130947460
+      celianna_doors_469: -1185925761
+      celianna_doors_136: -1744737481
+      celianna_doors_126: -1675758810
+      celianna_doors_162: 1953889951
+      celianna_doors_4: -256964930
+      celianna_doors_305: 1521485698
+      celianna_doors_538: -2052866595
+      celianna_doors_618: 990479085
+      celianna_doors_133: 2029292227
+      celianna_doors_578: 1990601328
+      celianna_doors_274: 2042605802
+      celianna_doors_478: 1096539252
+      celianna_doors_116: 2066782376
+      celianna_doors_198: 113835407
+      celianna_doors_558: -123908903
+      celianna_doors_505: -342258236
+      celianna_doors_540: -1393429625
+      celianna_doors_291: -380556737
+      celianna_doors_277: -2015678131
+      celianna_doors_389: 159529134
+      celianna_doors_604: -1583059445
+      celianna_doors_159: -589130615
+      celianna_doors_43: -2116672353
+      celianna_doors_393: -1365093041
+      celianna_doors_103: 772130936
+      celianna_doors_383: -1980764090
+      celianna_doors_541: 1268652212
+      celianna_doors_23: 425960078
+      celianna_doors_229: 1144687245
+      celianna_doors_462: -2068491474
+      celianna_doors_459: -483713227
+      celianna_doors_125: 892595367
+      celianna_doors_232: 1755726616
+      celianna_doors_316: 797536716
+      celianna_doors_533: -1406313700
+      celianna_doors_511: -1006622528
+      celianna_doors_62: 1839026602
+      celianna_doors_592: -1609849790
+      celianna_doors_354: -669204166
+      celianna_doors_261: 1495862893
+      celianna_doors_321: 1098538972
+      celianna_doors_404: 1840516051
+      celianna_doors_567: -574916289
+      celianna_doors_595: 141609533
+      celianna_doors_502: -904428050
+      celianna_doors_222: -1135992343
+      celianna_doors_230: 915247822
+      celianna_doors_96: -1579877467
+      celianna_doors_141: 1885311326
+      celianna_doors_46: 255218567
+      celianna_doors_417: -2064771271
+      celianna_doors_500: -1028307329
+      celianna_doors_251: 266807163
+      celianna_doors_501: -1405742830
+      celianna_doors_97: -1797109737
+      celianna_doors_149: 1177663691
+      celianna_doors_203: 1809248372
+      celianna_doors_451: 830430777
+      celianna_doors_27: -1514957336
+      celianna_doors_338: -920393692
+      celianna_doors_308: 1129653437
+      celianna_doors_372: 227667723
+      celianna_doors_115: -828674598
+      celianna_doors_585: 326823216
+      celianna_doors_557: 1814226499
+      celianna_doors_430: -858323908
+      celianna_doors_446: -1007795343
+      celianna_doors_392: -1938570626
+      celianna_doors_549: 689408810
+      celianna_doors_424: 1819817745
+      celianna_doors_596: -1504879695
+      celianna_doors_613: -1335175824
+      celianna_doors_13: -2081115896
+      celianna_doors_78: -34255541
+      celianna_doors_466: 1364744694
+      celianna_doors_531: -295862048
+      celianna_doors_467: 128980912
+      celianna_doors_122: -1321324490
+      celianna_doors_79: -692389231
+      celianna_doors_304: 569022502
+      celianna_doors_579: -1326227922
+      celianna_doors_63: 1008086971
+      celianna_doors_123: -843476309
+      celianna_doors_137: -1349038077
+      celianna_doors_85: 1495142277
+      celianna_doors_288: -2052982827
+      celianna_doors_227: 1271321186
+      celianna_doors_236: 2039578381
+      celianna_doors_183: 1380406705
+      celianna_doors_242: -860266350
+      celianna_doors_275: 241212205
+      celianna_doors_3: -1860134523
+      celianna_doors_283: 1643118990
+      celianna_doors_429: 800818964
+      celianna_doors_42: 690296285
+      celianna_doors_1: -871823993
+      celianna_doors_9: -2094881550
+      celianna_doors_208: 824744634
+      celianna_doors_124: -1070105684
+      celianna_doors_170: 2068066365
+      celianna_doors_178: -1264309004
+      celianna_doors_331: 576546252
+      celianna_doors_297: -1574948189
+      celianna_doors_442: 53615609
+      celianna_doors_290: 972074982
+      celianna_doors_192: -2138792631
+      celianna_doors_91: 2008031089
+      celianna_doors_551: 385969887
+      celianna_doors_479: 1315324742
+      celianna_doors_510: -1264868487
+      celianna_doors_214: 643822189
+      celianna_doors_61: -941537226
+      celianna_doors_298: 689091303
+      celianna_doors_6: 1882033675
+      celianna_doors_20: 519420668
+      celianna_doors_48: 1599922817
+      celianna_doors_244: -234594894
+      celianna_doors_65: 2119735601
+      celianna_doors_619: 561115477
+      celianna_doors_206: -1154385963
+      celianna_doors_589: -170607778
+      celianna_doors_231: -1428723317
+      celianna_doors_265: -2085830650
+      celianna_doors_165: 1490552423
+      celianna_doors_343: 1545839246
+      celianna_doors_320: 537050413
+      celianna_doors_444: -1141433760
+      celianna_doors_88: -2062405579
+      celianna_doors_25: 868184910
+      celianna_doors_186: -1677005091
+      celianna_doors_486: -1050581297
+      celianna_doors_439: -113377905
+      celianna_doors_273: 263001158
+      celianna_doors_496: -1169577153
+      celianna_doors_284: 979985116
+      celianna_doors_83: 1051561401
+      celianna_doors_56: -1701456690
+      celianna_doors_179: 1167253149
+      celianna_doors_598: -976871253
+      celianna_doors_215: 588301183
+      celianna_doors_456: -1969332148
+      celianna_doors_362: 1094541721
+      celianna_doors_365: -1328764841
+      celianna_doors_397: -527285241
+      celianna_doors_360: -458176854
+      celianna_doors_5: -1557839635
+      celianna_doors_30: 1694561374
+      celianna_doors_157: 1054094591
+      celianna_doors_147: -1020558143
+      celianna_doors_488: -431784157
+      celianna_doors_419: -932287912
+      celianna_doors_174: 851407116
+      celianna_doors_492: 767045804
+      celianna_doors_262: -216031483
+      celianna_doors_76: -1053089313
+      celianna_doors_434: -1694817812
+      celianna_doors_413: -1812179398
+      celianna_doors_471: -2107237660
+      celianna_doors_107: -907204628
+      celianna_doors_40: 394734978
+      celianna_doors_211: -633395931
+      celianna_doors_445: 1231986623
+      celianna_doors_495: -529252120
+      celianna_doors_562: 941061287
+      celianna_doors_80: 554395266
+      celianna_doors_406: 1543670763
+      celianna_doors_292: -67600758
+      celianna_doors_411: 1019631273
+      celianna_doors_403: -1946932696
+      celianna_doors_412: -780258796
+      celianna_doors_237: 2004652453
+      celianna_doors_450: -1890164403
+      celianna_doors_90: 2020150898
+      celianna_doors_581: 988484878
+      celianna_doors_366: 682560219
+      celianna_doors_590: 2000115778
+      celianna_doors_12: 1284671503
+      celianna_doors_282: 217467810
+      celianna_doors_553: -401264050
+      celianna_doors_369: -1824987257
+      celianna_doors_54: 1333440539
+      celianna_doors_530: 322376151
+      celianna_doors_484: 1696786545
+      celianna_doors_77: 1937809314
+      celianna_doors_120: 1305276314
+      celianna_doors_102: -1131604217
+      celianna_doors_570: -1718977706
+      celianna_doors_306: 246927455
+      celianna_doors_307: 1607252096
+      celianna_doors_534: 1819042749
+      celianna_doors_39: -1799090119
+      celianna_doors_498: -1800519688
+      celianna_doors_608: -1928213350
+      celianna_doors_250: 539083906
+      celianna_doors_483: 450635630
+      celianna_doors_220: 540646253
+      celianna_doors_601: 393128896
+      celianna_doors_314: 266260458
+      celianna_doors_177: 917611624
+      celianna_doors_53: 635985165
+      celianna_doors_363: 137152602
+      celianna_doors_185: -885977062
+      celianna_doors_175: -1512894187
+      celianna_doors_508: -890366130
+      celianna_doors_602: -1054010556
+      celianna_doors_109: 225517402
+      celianna_doors_121: -261321149
+      celianna_doors_36: 1027246946
+      celianna_doors_257: 630426553
+      celianna_doors_17: -1829626013
+      celianna_doors_128: 1739307791
+      celianna_doors_281: 2012411868
+      celianna_doors_425: 82723380
+      celianna_doors_437: -1590546806
+      celianna_doors_266: 400368646
+      celianna_doors_516: -43989342
+      celianna_doors_447: 2073519663
+      celianna_doors_373: -2012528299
+      celianna_doors_86: -1660758785
+      celianna_doors_610: 36400696
+      celianna_doors_499: 370169666
+      celianna_doors_82: -1055867530
+      celianna_doors_327: 1327907509
+      celianna_doors_7: 328608412
+      celianna_doors_58: 543558663
+      celianna_doors_535: 1359103719
+      celianna_doors_574: -2137447348
+      celianna_doors_99: 978631375
+      celianna_doors_264: 225060733
+      celianna_doors_364: 2055514044
+      celianna_doors_586: -1048507933
+      celianna_doors_525: 1902783708
+      celianna_doors_395: -1042374621
+      celianna_doors_72: -1641683745
+      celianna_doors_212: 145047768
+      celianna_doors_529: -350254874
+      celianna_doors_477: -1386047978
+      celianna_doors_401: -2055270607
+      celianna_doors_70: -896580341
+      celianna_doors_127: 1776646164
+      celianna_doors_476: 837333997
+      celianna_doors_350: 896689052
+      celianna_doors_399: 107039618
+      celianna_doors_616: 1378788813
+      celianna_doors_410: -289660210
+      celianna_doors_593: 1511121530
+      celianna_doors_34: -1312643895
+      celianna_doors_514: 853594129
+      celianna_doors_539: -199984627
+      celianna_doors_22: -1266916350
+      celianna_doors_550: 92614749
+      celianna_doors_368: 1185974743
+      celianna_doors_385: 664033286
+      celianna_doors_440: -1107696780
+      celianna_doors_485: 1661762883
+      celianna_doors_181: -2090913976
+      celianna_doors_249: -292635463
+      celianna_doors_294: -904949415
+      celianna_doors_454: 683597352
+      celianna_doors_421: -269858274
+      celianna_doors_441: -1944990109
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

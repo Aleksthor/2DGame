@@ -79,24 +79,24 @@ public class GameEvents : MonoBehaviour
 
     // When our weapon hits something
 
-    public event Action<GameObject, float, float, float, float, Vector2, bool> OnWeaponCollission;
-    public void WeaponCollission(GameObject gameObject, float damage, float knockbackForce, float speedMultiplier, float slowDownLength, Vector2 playerPosition, bool crit)
+    public event Action<GameObject, float, float, float, float, Vector2, bool, WeaponCollider.DamageType, int> OnWeaponCollission;
+    public void WeaponCollission(GameObject gameObject, float damage, float knockbackForce, float speedMultiplier, float slowDownLength, Vector2 playerPosition, bool crit, WeaponCollider.DamageType damageType, int poise)
     {
         if (OnWeaponCollission != null)
         {
-            OnWeaponCollission(gameObject, damage, knockbackForce, speedMultiplier, slowDownLength, playerPosition, crit);
+            OnWeaponCollission(gameObject, damage, knockbackForce, speedMultiplier, slowDownLength, playerPosition, crit, damageType, poise);
         }
     }
 
 
     // When the enemy hits us
 
-    public event Action<float, float> OnEnemyWeaponCollission;
-    public void EnemyWeaponCollission(float damage, float knockbackForce)
+    public event Action<float, float, WeaponCollider.DamageType> OnEnemyWeaponCollission;
+    public void EnemyWeaponCollission(float damage, float knockbackForce, WeaponCollider.DamageType damageType)
     {
         if (OnEnemyWeaponCollission != null)
         {
-            OnEnemyWeaponCollission(damage, knockbackForce);
+            OnEnemyWeaponCollission(damage, knockbackForce, damageType);
         }
     }
 
@@ -284,12 +284,12 @@ public class GameEvents : MonoBehaviour
     // When we want to change the stats in player. Make a similar event if you cant pass in all variables
 
 
-    public event Action<float, float, float, float, float, float, float, float, float, Vector2> OnChangeStats;
-    public void ChangeStats(float damage, float magicFamage, float knockbackForce, float speedMultiplier, float slowDownLength, float manaCost, float force, float critRate, float critDamage, Vector2 localPosition)
+    public event Action<float, float, float, float, float, float, float, float, float, Vector2, int > OnChangeStats;
+    public void ChangeStats(float damage, float magicFamage, float knockbackForce, float speedMultiplier, float slowDownLength, float manaCost, float force, float critRate, float critDamage, Vector2 localPosition, int poise)
     {
         if (OnChangeStats != null)
         {
-            OnChangeStats(damage, magicFamage, knockbackForce, speedMultiplier, slowDownLength, manaCost, force, critRate, critDamage, localPosition);
+            OnChangeStats(damage, magicFamage, knockbackForce, speedMultiplier, slowDownLength, manaCost, force, critRate, critDamage, localPosition, poise);
         }
     }
 
@@ -302,12 +302,12 @@ public class GameEvents : MonoBehaviour
         }
     }
 
-    public event Action<float, float, float, float, float, float, float, float, float, Vector2> OnUpdateInventoryStats;
-    public void UpdateInventoryStats(float damage, float magicFamage, float knockbackForce, float speedMultiplier, float slowDownLength, float manaCost, float force, float critRate, float critDamage, Vector2 localPosition)
+    public event Action<float, float, float, float, float, float, float, float, float, Vector2, int > OnUpdateInventoryStats;
+    public void UpdateInventoryStats(float damage, float magicFamage, float knockbackForce, float speedMultiplier, float slowDownLength, float manaCost, float force, float critRate, float critDamage, Vector2 localPosition, int poise)
     {
         if (OnUpdateInventoryStats != null)
         {
-            OnUpdateInventoryStats(damage, magicFamage, knockbackForce, speedMultiplier, slowDownLength, manaCost, force, critRate, critDamage, localPosition);
+            OnUpdateInventoryStats(damage, magicFamage, knockbackForce, speedMultiplier, slowDownLength, manaCost, force, critRate, critDamage, localPosition, poise);
         }
     }
 
@@ -549,6 +549,14 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+    public event Action<WeaponCollider.DamageType> OnUpdateDamageType;
+    public void UpdateDamageType(WeaponCollider.DamageType damageType)
+    {
+        if (OnUpdateDamageType != null)
+        {
+            OnUpdateDamageType(damageType);
+        }
+    }
 
     //
 }

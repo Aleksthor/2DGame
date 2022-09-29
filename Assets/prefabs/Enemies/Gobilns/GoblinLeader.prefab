@@ -597,7 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7cae2c3e67baf479f0e8f3d88fad5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 14
+  damage: 7.5
 --- !u!1 &4770604996690801669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,8 +1231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af92e51484655c540abff646ac6aa242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  maxHealth: 50
+  health: 45
+  maxHealth: 45
   armor: 0
   weaponCollider: {fileID: 4910410392311390403}
   healthBar: {fileID: 4449359775235164884}

@@ -44,6 +44,7 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
     [SerializeField] float slowDebuff;
     [SerializeField] float slowDownLength;
     [SerializeField] Vector2 localPosition;
+    [SerializeField] int poise;
 
 
     [Header("Buff Stats")]
@@ -173,20 +174,27 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
 
 
 
-    private void Hit(float damage, float knockbackForce)
+    private void Hit(float damage, float knockbackForce, WeaponCollider.DamageType damageType)
     {
         float hitDamage = 0;
-        if (movementManager.isShielding)
+        if (damageType == WeaponCollider.DamageType.Physical)
         {
-            hitDamage = damage - armor;
-            hitDamage = Mathf.Clamp(hitDamage, damage / 5, damage);
-            health -= hitDamage * 0.5f;
+            if (movementManager.isShielding)
+            {
+                hitDamage = damage - (armor/2);
+                hitDamage = Mathf.Clamp(hitDamage, damage / 5, damage);
+                health -= hitDamage * 0.5f;
+            }
+            else
+            {
+                hitDamage = damage - (armor / 2);
+                hitDamage = Mathf.Clamp(hitDamage, damage / 5, damage);
+                health -= hitDamage;
+            }
         }
         else
         {
-            hitDamage = damage - armor;
-            hitDamage = Mathf.Clamp(hitDamage, damage / 5, damage);
-            health -= hitDamage;
+            health -= damage;
         }
         playerAnimator.SetTrigger("Hit");
         if (health <= 0)
@@ -196,7 +204,7 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
     }
 
 
-    private void UpdateInventoryStats(float Damage, float MagicDamage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, float CritRate, float CritDamage, Vector2 LocalPosition)
+    private void UpdateInventoryStats(float Damage, float MagicDamage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, float CritRate, float CritDamage, Vector2 LocalPosition, int Poise)
     {
         meleeDamage = Damage;
         magicDamage = MagicDamage;
@@ -208,7 +216,7 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
         critRate = CritRate;
         critDamage = CritDamage;
         localPosition = LocalPosition;
-
+        poise = Poise;
 
 
 
@@ -236,11 +244,11 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
         float CritRate = critRate;
         float CritDamage = critDamage;
         Vector2 LocalPos = localPosition;
-           
+        int Poise = poise;   
 
 
         GameEvents.current.ChangeStats(Damage, MagicDamage, KnockBackForce, SlowDebuff,
-    SlowDebuffTime, ManaCost, ShotForce, CritRate, CritDamage, LocalPos);
+    SlowDebuffTime, ManaCost, ShotForce, CritRate, CritDamage, LocalPos, Poise);
     }
 
 

@@ -51,14 +51,15 @@ MonoBehaviour:
     spriteIndex: 0
     isActive: 1
     itemName: Earrings
-    itemDescription: +1 Attack +1 Defense
+    itemDescription: +1 Damage +1 Defense
     itemType: 3
     itemRarity: 0
     itemWeight: 0.1
     isStackable: 0
     equipmentType: 5
     armor: 1
-    bonusDamage: 1
+    bonusMeleeDamage: 1
+    bonusMagicDamage: 0
   pickupRange: 1
 --- !u!212 &611516904400996619
 SpriteRenderer:

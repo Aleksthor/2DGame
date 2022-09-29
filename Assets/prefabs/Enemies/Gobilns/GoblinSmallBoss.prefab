@@ -439,6 +439,7 @@ MonoBehaviour:
   health: 70
   maxHealth: 70
   armor: 0
+  poiseResistance: 0
   weaponCollider: {fileID: 8236240549438406704}
   healthBar: {fileID: 0}
   damageDisplay: {fileID: 4837053721275009104}
@@ -810,8 +811,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -839858341170916326, guid: 6934d4d76106cd14b86b5a6b2943c8fb, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 1356126674362637384, guid: bff33c223513758479f3b65312edbacf, type: 3}
+  m_Color: {r: 0.34820557, g: 0.26383945, b: 0.46226418, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -954,6 +955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  damageType: 0
 --- !u!1 &7760356167909779098
 GameObject:
   m_ObjectHideFlags: 0

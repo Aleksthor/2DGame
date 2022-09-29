@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class EnemyWeaponCollider : MonoBehaviour
 {
+    
+
+
 
     private Movement movement;
 
     [Header("Attack Variables")]
     public float damage = 10f;
+    public WeaponCollider.DamageType damageType;
 
     private float delay = 0.05f;
     private float delayClock = 0f;
@@ -47,7 +51,7 @@ public class EnemyWeaponCollider : MonoBehaviour
 
         if (other.tag == "Player" && !doDelay && other.GetType() == typeof(PolygonCollider2D))
         {
-            GameEvents.current.EnemyWeaponCollission(damage, 0f);
+            GameEvents.current.EnemyWeaponCollission(damage, 0f, damageType);
 
 
             doDelay = true;
