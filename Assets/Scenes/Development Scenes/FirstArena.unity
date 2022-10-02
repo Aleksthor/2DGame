@@ -36885,6 +36885,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1612932060}
     m_Modifications:
+    - target: {fileID: 1429490031159742649, guid: 4b6a31a200ab6f44380fe3da7e247977, type: 3}
+      propertyPath: uniqueID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429490031159742649, guid: 4b6a31a200ab6f44380fe3da7e247977, type: 3}
+      propertyPath: treeData.uniqueID
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2782475041588044951, guid: 4b6a31a200ab6f44380fe3da7e247977, type: 3}
       propertyPath: m_Name
       value: Tree3
@@ -37390,10 +37398,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7501996237833907389, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
-      propertyPath: currentWeapon.ability1
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7501996237833907389, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
       propertyPath: inventory.Array.data[0]
       value: -2
       objectReference: {fileID: 0}
@@ -37401,10 +37405,6 @@ PrefabInstance:
       propertyPath: currentWeapon.ability1Icon
       value: 
       objectReference: {fileID: 21300000, guid: 4a7845fc91e292547850bb3c34b390ec, type: 3}
-    - target: {fileID: 7501996237833907389, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
-      propertyPath: currentWeapon.spriteAtlasPath
-      value: Weapons/sword
-      objectReference: {fileID: 0}
     - target: {fileID: 7501996237833907389, guid: 06341b5ece9516540988c4c65c3c6b1f, type: 3}
       propertyPath: currentWeapon.spriteTranslator
       value: Weapon/melee weapons/sword_1
@@ -37582,7 +37582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9175787710919748045, guid: 0cff33024a4148e4989ad39b09dbaae3, type: 3}
       propertyPath: orthographic size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cff33024a4148e4989ad39b09dbaae3, type: 3}
@@ -57780,11 +57780,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1856979907}
-  - {fileID: 654591878}
   - {fileID: 601703577}
   - {fileID: 438743000}
   - {fileID: 248343943}
   - {fileID: 1614661136}
+  - {fileID: 654591878}
   - {fileID: 609464882}
   - {fileID: 542614277}
   m_Father: {fileID: 0}
@@ -57855,6 +57855,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1612932060}
     m_Modifications:
+    - target: {fileID: 1429490031159742649, guid: 4b6a31a200ab6f44380fe3da7e247977, type: 3}
+      propertyPath: uniqueID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429490031159742649, guid: 4b6a31a200ab6f44380fe3da7e247977, type: 3}
+      propertyPath: treeData.uniqueID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429490031159742649, guid: 4b6a31a200ab6f44380fe3da7e247977, type: 3}
+      propertyPath: treeData.treeState
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2782475041588044951, guid: 4b6a31a200ab6f44380fe3da7e247977, type: 3}
       propertyPath: m_Name
       value: Tree2
@@ -58682,9 +58694,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 1612932060}
     m_Modifications:
     - target: {fileID: 827087993286967625, guid: 954f48c56e690154d977b22e9659a904, type: 3}
+      propertyPath: uniqueID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 827087993286967625, guid: 954f48c56e690154d977b22e9659a904, type: 3}
       propertyPath: item.itemSprite
       value: 
       objectReference: {fileID: 21300000, guid: 0e1ccb64303778e4081913a6d9cca677, type: 3}
+    - target: {fileID: 827087993286967625, guid: 954f48c56e690154d977b22e9659a904, type: 3}
+      propertyPath: treeData.uniqueID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2535343316124455911, guid: 954f48c56e690154d977b22e9659a904, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

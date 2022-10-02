@@ -65,6 +65,8 @@ public class DataPersistenceManager : MonoBehaviour
     public void SaveGame()
     {
         Debug.Log("Saved Game");
+
+
         //pass the data to other scripts so they ca update it
         foreach (IDataPersistence dataObject in dataPersistenceObjects)
         {

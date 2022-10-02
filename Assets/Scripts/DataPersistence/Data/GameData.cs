@@ -55,6 +55,10 @@ public class GameData
     public bool goblinArcMageDead;
 
 
+    /** Trees */
+    public List<TreeData> trees = new List<TreeData>();
+
+
     // What ever we pass into the constructor will be our initial values when we start a new game
 
     public GameData()
