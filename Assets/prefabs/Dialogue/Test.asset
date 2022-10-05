@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d7b596bd206d941b9a3ec7203db32c, type: 3}
   m_Name: a034f3fd-1e1d-4ad3-814b-b76fc9c98cf1
   m_EditorClassIdentifier: 
-  text: 
+  text: Hey
   children:
   - 7b776dbb-9c10-450f-a6f3-990f860f1ba8
   rect:
@@ -34,13 +34,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d7b596bd206d941b9a3ec7203db32c, type: 3}
   m_Name: 7b776dbb-9c10-450f-a6f3-990f860f1ba8
   m_EditorClassIdentifier: 
-  text: 
+  text: Whats Up
   children:
   - f3c217d3-204a-408e-96c6-1cebe3e6d6ec
   rect:
     serializedVersion: 2
-    x: 594
-    y: 87
+    x: 542
+    y: 78
     width: 200
     height: 100
   isPlayerSpeaking: 0
@@ -56,12 +56,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d7b596bd206d941b9a3ec7203db32c, type: 3}
   m_Name: f3c217d3-204a-408e-96c6-1cebe3e6d6ec
   m_EditorClassIdentifier: 
-  text: 
+  text: Nothing
   children: []
   rect:
     serializedVersion: 2
-    x: 835
-    y: 87
+    x: 816
+    y: 78
     width: 200
     height: 100
   isPlayerSpeaking: 1
@@ -77,13 +77,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d7b596bd206d941b9a3ec7203db32c, type: 3}
   m_Name: e9d12e22-1807-4e3f-a3f7-2e73ed6b636f
   m_EditorClassIdentifier: 
-  text: 
+  text: Hi
   children:
   - 7b776dbb-9c10-450f-a6f3-990f860f1ba8
   rect:
     serializedVersion: 2
-    x: 288
-    y: 164
+    x: 295
+    y: 175
     width: 200
     height: 100
   isPlayerSpeaking: 1
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e537159c56c0b794983d48f6070d52cf, type: 3}
-  m_Name: New Dialogue
+  m_Name: Test
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 8226085082592840814}
@@ -117,14 +117,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d7b596bd206d941b9a3ec7203db32c, type: 3}
   m_Name: 9ec60ddb-b982-48a7-bd62-d0dea87e88ae
   m_EditorClassIdentifier: 
-  text: 
+  text: Hello
   children:
   - a034f3fd-1e1d-4ad3-814b-b76fc9c98cf1
   - e9d12e22-1807-4e3f-a3f7-2e73ed6b636f
   rect:
     serializedVersion: 2
-    x: 19
-    y: 87
+    x: 38
+    y: 82
     width: 200
     height: 100
   isPlayerSpeaking: 0

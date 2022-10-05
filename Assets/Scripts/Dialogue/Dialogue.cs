@@ -121,6 +121,16 @@ namespace Dialogue
         {
             
         }
+
+
+        public DialogueNode GetRootNode()
+        {
+            if (nodes.Count > 0)
+                return nodes[0];
+
+            else
+                return null;
+        }
     }
 
 

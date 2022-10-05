@@ -272,7 +272,7 @@ public class ArmorSlot : MonoBehaviour, IDropHandler
 
     public void SpawnCurrentEquipment()
     {
-        Debug.Log("Running");
+        
         InventoryManager inventoryManager = InventoryManager.Instance;
 
         switch (slotIndex)

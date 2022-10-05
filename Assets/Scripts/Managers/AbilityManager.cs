@@ -34,7 +34,7 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
     [SerializeField] Transform buffParent;
     [SerializeField] GameObject uiObject;
 
-
+    [SerializeField] Sprite backgroundImage;
 
     enum AbilityState
     {
@@ -437,7 +437,7 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
                 break;
             default:
                 ability1 = null;
-                cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = null;
+                cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = backgroundImage;
                 break;
         }
 
@@ -495,7 +495,7 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
                 break;
             default:
                 ability2 = null;
-                cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = null;
+                cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = backgroundImage;
                 break;
         }
 
@@ -549,7 +549,7 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
                 break;
             default:
                 ability3 = null;
-                cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = null;
+                cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = backgroundImage;
                 break;
         }
 
