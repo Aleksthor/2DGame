@@ -558,5 +558,16 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+
+
+
+    public event Action OnConversationUpdated;
+    public void ConversationUpdated()
+    {
+        if (OnConversationUpdated != null)
+        {
+            OnConversationUpdated();
+        }
+    }
     //
 }

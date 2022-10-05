@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4228485542360153231}
   - component: {fileID: -6008344128733029852}
+  - component: {fileID: 4146612332411694997}
   m_Layer: 0
   m_Name: Town1 Blacksmith
   m_TagString: Untagged
@@ -55,6 +56,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4146612332411694997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126070968457581683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9988d3a8e1ad4468b4e18098695c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactRange: 3
+  AIDialogue: {fileID: 0}
 --- !u!1 &3158390649670024878
 GameObject:
   m_ObjectHideFlags: 0

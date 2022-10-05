@@ -13,8 +13,8 @@ namespace Dialogue
 
         Dictionary<string, DialogueNode> nodeLookup = new Dictionary<string, DialogueNode>();
 
-        #region Awake / OnValidate
-        // This will not be included in the final build
+
+
 
         // setup our dictionary for searching
         private void OnValidate()
@@ -25,7 +25,8 @@ namespace Dialogue
                 nodeLookup[node.name] = node;
             }
         }
-        #endregion
+
+
 
         // return all nodes in this object as IEnumerable. IEnumerable is any "object" as long as its in a List. (Not only List)
         public IEnumerable<DialogueNode> GetAllNodes()
@@ -47,7 +48,30 @@ namespace Dialogue
              
         }
 
+        public IEnumerable<DialogueNode> GetPlayerChildren(DialogueNode currentNode)
+        {
+            foreach (DialogueNode node in GetAllChildren(currentNode))
+            {
+                if (node.IsPlayerSpeaking())
+                {
+                    yield return node;
+                }
+            }
 
+            
+        }
+
+
+        public IEnumerable<DialogueNode> GetAIChildren(DialogueNode currentNode)
+        {
+            foreach (DialogueNode node in GetAllChildren(currentNode))
+            {
+                if (!node.IsPlayerSpeaking())
+                {
+                    yield return node;
+                }
+            }
+        }
 
 #if UNITY_EDITOR
 
@@ -63,6 +87,7 @@ namespace Dialogue
 
         private DialogueNode MakeNode(DialogueNode parent)
         {
+            Debug.Log("2");
             DialogueNode newNode = CreateInstance<DialogueNode>();
             newNode.name = Guid.NewGuid().ToString();
             if (parent != null)
