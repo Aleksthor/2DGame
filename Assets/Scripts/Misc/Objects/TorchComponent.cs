@@ -14,15 +14,15 @@ public class TorchComponent : MonoBehaviour
     private void Update()
     {
 
-        if (DayNightCycle.Instance.IsDay())
-        {
-            animator.SetBool("Day", true);
+        //if (DayNightCycle.Instance.IsDay())
+        //{
+        //    animator.SetBool("Day", true);
 
-        }
-        else
-        {
-            animator.SetBool("Day", false);
+        //}
+        //else
+        //{
+        //    animator.SetBool("Day", false);
 
-        }
+        //}
     }
 }

@@ -63,6 +63,7 @@ public class GameData
 
     public GameData()
     {
+        position = new Vector2(3, -20);
         goblinSmallBossDead = false;
         goblinArcMageDead = false;
         health = 50;

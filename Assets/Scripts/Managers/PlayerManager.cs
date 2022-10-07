@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,7 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
 
     [Header("Mana Stats")]
     [SerializeField] float mana = 50;
+
     [SerializeField] float maxMana = 50;
     [SerializeField] float baseManaRegen = 1.2f;
     [SerializeField] float baseManaRegenSpeed = 2;
@@ -53,10 +55,21 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
     [SerializeField] float baseDefense;
     private bool defenseBuffActive = false;
 
-
+    private Transform deathScreen;
     // Where to spawn on a new scene
 
     public Vector2 spawnPosition;
+    private LocalPlayerScript localPlayerScript;
+
+    public void Respawn()
+    {
+        health = maxHealth;
+        mana = maxMana;
+        stamina = maxStamina;
+
+        localPlayerScript.StopAttack();
+
+    }
 
 
 
@@ -66,6 +79,8 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
         playerAnimator = playerObject.GetComponent<Animator>();
         playerHUD = HUD.Instance;
         movementManager = Movement.Instance;
+        deathScreen = HUDSingleton.instance.transform.Find("DeathScreen").transform;
+        localPlayerScript = playerObject.GetComponent<LocalPlayerScript>();
 
         GameEvents.current.OnEnemyWeaponCollission += Hit;
         GameEvents.current.OnUpdateArmor += UpdateArmorStat;
@@ -91,6 +106,11 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
 
     public void LoadData(GameData data)
     {
+        if (playerObject != null)
+        {
+            playerObject.transform.position = data.position;
+        }
+       
         health = data.health;
         maxHealth = data.maxHealth;
         stamina = data.stamina;
@@ -107,6 +127,7 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
         data.maxStamina = maxStamina;
         data.mana = mana;
         data.maxMana = maxMana;
+        data.position = playerObject.transform.position;
     }
 
     void UpdateStats()
@@ -199,6 +220,7 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
         playerAnimator.SetTrigger("Hit");
         if (health <= 0)
         {
+            deathScreen.gameObject.SetActive(true);
             playerAnimator.SetBool("Dead", true);
         }
     }

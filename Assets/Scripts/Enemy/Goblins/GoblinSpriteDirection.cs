@@ -84,7 +84,7 @@ public class GoblinSpriteDirection : MonoBehaviour
             flipState = true;
         }
 
-        if (!attacking || localEnemyScript.hit)
+        if (!attacking || !localEnemyScript.hit)
         {
 
             // flip mechanism
@@ -161,31 +161,35 @@ public class GoblinSpriteDirection : MonoBehaviour
                
             }
 
-            Quaternion rotation;
-            Vector2 attackDirection = playerPosition - (Vector2)transform.position;
-            if (attackDirection.x > 0f)
+            if (attacking)
             {
-                rotation = Quaternion.FromToRotation(new Vector2(1f, 0f), attackDirection);
+                Quaternion rotation;
+                Vector2 attackDirection = playerPosition - (Vector2)transform.position;
+                if (attackDirection.x > 0f)
+                {
+                    rotation = Quaternion.FromToRotation(new Vector2(1f, 0f), attackDirection);
+                }
+                else
+                {
+                    rotation = Quaternion.FromToRotation(new Vector2(-1f, 0f), attackDirection);
+                }
+
+
+
+                Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x, Hand.transform.localPosition.y + (attackDirection.y / 20f));
+
+                Hand.transform.rotation = rotation * Hand.transform.rotation;
+                Effect.transform.right = attackDirection * -1f;
+                Effect.transform.localPosition = attackDirection.normalized / 10f;
+                Effect.transform.localPosition = new Vector2(Effect.transform.localPosition.x, Effect.transform.localPosition.y - 0.05f);
+                if (flipLastDirection)
+                {
+
+                    Effect.transform.right = attackDirection;
+
+                }
             }
-            else
-            {
-                rotation = Quaternion.FromToRotation(new Vector2(-1f, 0f), attackDirection);
-            }
 
-
-
-            Hand.transform.localPosition = new Vector2(Hand.transform.localPosition.x, Hand.transform.localPosition.y + (attackDirection.y / 20f));
-
-            Hand.transform.rotation = rotation * Hand.transform.rotation;
-            Effect.transform.right = attackDirection * -1f;
-            Effect.transform.localPosition = attackDirection.normalized / 10f;
-            Effect.transform.localPosition = new Vector2(Effect.transform.localPosition.x , Effect.transform.localPosition.y - 0.05f);
-            if (flipLastDirection)
-            {
-
-                Effect.transform.right = attackDirection;
-
-            }
         }
         
 
@@ -277,6 +281,7 @@ public class GoblinSpriteDirection : MonoBehaviour
     public void OnDestroy()
     {
         GameEvents.current.OnEnemyMeleeAttack -= EnemyMeleeAttack;
+        GameEvents.current.DestroyObject(gameObject);
     }
 
 }

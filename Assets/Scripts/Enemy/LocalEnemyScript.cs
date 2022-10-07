@@ -12,6 +12,7 @@ public class LocalEnemyScript : MonoBehaviour
     public float armor;
     public int poiseResistance;
 
+    private bool canInterupt = true;
 
     // Local Components
     public PolygonCollider2D weaponCollider;
@@ -199,7 +200,11 @@ public class LocalEnemyScript : MonoBehaviour
         {
             if(poiseResistance <= poise)
             {
-                animator.SetTrigger("Hit");
+
+                if (canInterupt)
+                {
+                    animator.SetTrigger("Hit");
+                }
                 hit = true;
             }
             
@@ -334,5 +339,21 @@ public class LocalEnemyScript : MonoBehaviour
     public void TurnOffBoxCollission()
     {
         transform.GetComponent<BoxCollider2D>().enabled = false;
+    }
+
+    private void OnDestroy()
+    {
+        GameEvents.current.OnWeaponCollission -= WeaponCollission;
+        GameEvents.current.DestroyObject(gameObject);
+    }
+
+    public void CannotInterupt()
+    {
+        canInterupt = false;
+    }
+
+    public void CanInterupt()
+    {
+        canInterupt = true;
     }
 }
