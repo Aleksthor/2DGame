@@ -23,7 +23,7 @@ public class GameEvents : MonoBehaviour
         }
     }
 
-    #region Player Attack
+    #region Player
 
     // Start of a player attack 
 
@@ -73,6 +73,16 @@ public class GameEvents : MonoBehaviour
         if (OnWeaponCollission != null)
         {
             OnWeaponCollission(gameObject, damage, knockbackForce, speedMultiplier, slowDownLength, playerPosition, crit, damageType, poise);
+        }
+    }
+
+    // use mana
+    public event Action<float> OnGainXP;
+    public void GainXP(float xp)
+    {
+        if (OnGainXP != null)
+        {
+            OnGainXP(xp);
         }
     }
     #endregion
@@ -569,4 +579,6 @@ public class GameEvents : MonoBehaviour
     //
 
     #endregion
+
+
 }

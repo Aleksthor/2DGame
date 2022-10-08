@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersistence
 {
 
@@ -33,6 +33,13 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
     [SerializeField] float baseManaRegenSpeed = 2;
     [SerializeField] float baseManaRegenClock = 2;
 
+    [Header("XP")]
+    [SerializeField] public int currentLevel;
+    [SerializeField] public int maxLevel;
+    [SerializeField] public float currentXPAmount;
+    [SerializeField] public float neededXPToLevel;
+    [SerializeField] public float[] levelXPArray;
+
 
     [Header("Equipped Item Stats")]
     [SerializeField] public float meleeDamage;
@@ -48,6 +55,8 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
     [SerializeField] Vector2 localPosition;
     [SerializeField] int poise;
 
+    [SerializeField] Slider xpSlider;
+    [SerializeField] TMPro.TextMeshProUGUI levelText;
 
     [Header("Buff Stats")]
     [SerializeField] List<float> defenseBuff;
@@ -90,6 +99,7 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
         GameEvents.current.OnUpdateInventoryStats += UpdateInventoryStats;
         GameEvents.current.OnAbilityBuffDefense += AbilityDefenseBuff;
         GameEvents.current.OnAbilityRemoveBuffDefense += AbilityRemoveDefenseBuff;
+        GameEvents.current.OnGainXP += GainXP;
     }
 
 
@@ -100,6 +110,14 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
         mana = Mathf.Clamp(mana, 0, maxMana);
         stamina = Mathf.Clamp(stamina, 0, maxStamina);
 
+        if (xpSlider != null)
+        {
+            xpSlider.value = currentXPAmount / neededXPToLevel;
+        }
+        if (levelText != null)
+        {
+            levelText.text = "Lv. " + currentLevel;
+        }
         // run this last to clamp values
         UpdateStats();
         
@@ -119,6 +137,9 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
         maxStamina = data.maxStamina;
         mana = data.mana;
         maxMana = data.maxMana;
+        currentLevel = data.currentLevel;
+        currentXPAmount = data.currentXPAmount;
+        neededXPToLevel = data.neededXpToLevel;
     }
 
     public void SaveData(GameData data)
@@ -130,6 +151,9 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
         data.mana = mana;
         data.maxMana = maxMana;
         data.position = playerObject.transform.position;
+        data.currentLevel = currentLevel;
+        data.neededXpToLevel = neededXPToLevel;
+        data.currentXPAmount = currentXPAmount;
     }
 
     void UpdateStats()
@@ -363,6 +387,35 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
     }
 
 
+    void GainXP(float xpGiven)
+    {
+        currentXPAmount += xpGiven;
+        if (currentXPAmount > neededXPToLevel)
+        {
+            LevelUp();
+        }
+    }
 
+    private void LevelUp()
+    {
+        if (currentLevel + 1 >=  maxLevel)
+        {
+            currentLevel = maxLevel;
+        }
+        else
+        {
+            currentLevel++;
+
+            if (levelXPArray.Length >= currentLevel)
+            {
+                currentXPAmount = currentXPAmount - neededXPToLevel;
+                neededXPToLevel = levelXPArray[currentLevel - 1];
+            }
+        }
+
+
+
+        
+    }
 }
 

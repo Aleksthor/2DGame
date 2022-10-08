@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class SceneManagerComponent : SingletonMonoBehaviour<SceneManagerComponent>
+public class SceneManagerComponent : SingletonMonoBehaviour<SceneManagerComponent>, IDataPersistence
 {
     private Button respawnButton;
     public string respawnScene;
@@ -27,5 +27,14 @@ public class SceneManagerComponent : SingletonMonoBehaviour<SceneManagerComponen
         deathScreen.gameObject.SetActive(false);
         SceneManager.LoadScene(respawnScene);
         playerAnimator.SetBool("Dead", false);
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.currentScene = respawnScene;
+    }
+    public void LoadData(GameData data)
+    {
+        respawnScene = data.currentScene;
     }
 }

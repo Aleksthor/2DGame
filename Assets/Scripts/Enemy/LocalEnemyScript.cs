@@ -8,6 +8,7 @@ public class LocalEnemyScript : MonoBehaviour
     [Header("Enemy Health")]
     public float health = 1;
     public float maxHealth;
+    public float xpGiven;
 
     public float armor;
     public int poiseResistance;
@@ -193,7 +194,7 @@ public class LocalEnemyScript : MonoBehaviour
                 transform.GetComponent<LocalBossScript>().Die();
                 chestSpawned = true;
             }
-           
+            GameEvents.current.GainXP(xpGiven);
             animator.SetTrigger("Dead");
         }
         else

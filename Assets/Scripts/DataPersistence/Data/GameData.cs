@@ -20,6 +20,9 @@ public class GameData
     public float mana;
     public float maxMana;
 
+    public int currentLevel;
+    public float currentXPAmount;
+    public float neededXpToLevel;
 
     /**  Inventory  */
     public List<InventorySlot> itemInventory;
@@ -54,7 +57,7 @@ public class GameData
     public bool goblinSmallBossDead;
     public bool goblinArcMageDead;
 
-
+    public string currentScene;
     /** Trees */
     public List<TreeData> trees = new List<TreeData>();
 
@@ -72,6 +75,11 @@ public class GameData
         maxStamina = 100;
         mana = 75;
         maxMana = 75;
+        currentLevel = 1;
+        currentXPAmount = 0;
+        neededXpToLevel = 500f;
+        currentScene = "FirstArena";
+
     }
 
 

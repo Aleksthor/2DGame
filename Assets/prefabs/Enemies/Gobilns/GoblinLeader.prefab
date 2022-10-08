@@ -598,6 +598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 7.5
+  damageType: 0
 --- !u!1 &4770604996690801669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,7 +1234,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 45
   maxHealth: 45
+  xpGiven: 15
   armor: 0
+  poiseResistance: 0
   weaponCollider: {fileID: 4910410392311390403}
   healthBar: {fileID: 4449359775235164884}
   damageDisplay: {fileID: 999469176986295036}
