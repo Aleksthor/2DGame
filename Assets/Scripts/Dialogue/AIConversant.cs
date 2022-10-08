@@ -7,6 +7,7 @@ namespace Dialogue
 
     public class AIConversant : MonoBehaviour
     {
+        [SerializeField] string conversantName;
         private GameObject playerObject;
         private PlayerConversant playerConversant;
         public float interactRange = 3f;
@@ -22,17 +23,26 @@ namespace Dialogue
         {
             if (Vector2.Distance(playerObject.transform.position, transform.position) < interactRange && !playerConversant.isActive())
             {
-                playerConversant.StartDialogue(AIDialogue);
+
+                if (Input.GetButton("Use"))
+                {
+                    playerConversant.StartDialogue(this, AIDialogue);
+                }
+                
 
             }
 
             if (Vector2.Distance(playerObject.transform.position, transform.position) > interactRange 
-                && playerConversant.GetCurrentDialogue() == AIDialogue)
+                && playerConversant.GetCurrentDialogue() == AIDialogue &&  AIDialogue != null) 
             {
                 playerConversant.Quit();
             }
 
 
+        }
+        public string GetConversantName()
+        {
+            return conversantName;
         }
     }
 }

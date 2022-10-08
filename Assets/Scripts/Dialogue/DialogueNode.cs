@@ -13,7 +13,8 @@ namespace Dialogue
         [SerializeField] private List<string> children = new List<string>();
         [SerializeField] private Rect rect = new Rect(0,0,200,100);
         [SerializeField] private bool isPlayerSpeaking = false;
-
+        [SerializeField] private string onEnterAction;
+        [SerializeField] private string onExitAction;
         public Rect GetRect()
         {
             return rect; 
@@ -72,6 +73,17 @@ namespace Dialogue
             Undo.RecordObject(this, "Change Dialogue Speaker");
             isPlayerSpeaking = IsPlayerSpeaking;
             EditorUtility.SetDirty(this);
+        }
+
+
+        public string GetOnEnterAction()
+        {
+            return onEnterAction;
+        }
+
+        public string GetOnExitAction()
+        {
+            return onExitAction;
         }
 #endif
     }

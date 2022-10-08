@@ -20,7 +20,6 @@ public class Movement : SingletonMonoBehaviour<Movement>
     [SerializeField] float dashingSpeed = 15;
 
     [Header("HUD Elements")]
-    [SerializeField] float staminaDrainSpeed = 150;
     [SerializeField] float staminaRegenSpeed = 50;
 
     [Header("Player Hitbox for i-frames")]
@@ -38,9 +37,17 @@ public class Movement : SingletonMonoBehaviour<Movement>
     public bool isShielding = false;
     [SerializeField]
     bool isAttacking = false;
-
+    [SerializeField]
+    float dashForce = 50f;
+    [SerializeField]
+    float dashStaminaCost = 50f;
+    [SerializeField]
+    float dashLength = 0.3f;
     public bool iFrames = false;
-
+    float dashTimer = 0.3f;
+    bool dashActivated = false;
+    Vector2 direction;
+    private Camera mainCam;
 
     //Stamina Cooldown
     [SerializeField] float staminaCooldownPrecentage = 75f;
@@ -65,6 +72,7 @@ public class Movement : SingletonMonoBehaviour<Movement>
         playerCollider = PlayerSingleton.instance.gameObject.GetComponent<PolygonCollider2D>();
         playerObject = PlayerSingleton.instance.gameObject;
         playerRB = playerObject.GetComponent<Rigidbody2D>();
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
 
@@ -74,16 +82,15 @@ public class Movement : SingletonMonoBehaviour<Movement>
         Attack();
         Shield();
 
-        DashActivation();
-        DashRunning();
-        DashCooldown();
-
         Sneaking();
     }
 
     private void FixedUpdate()
     {
+        DashActivation();
+        DashRunning();
         MovementSpeed();
+        DashCooldown();
     }
 
 
@@ -146,10 +153,11 @@ public class Movement : SingletonMonoBehaviour<Movement>
     {
         if(localPlayerScript.GetCanMove())
         {
-            if (isDashing)
+            if (isDashing && player.GetStamina() > 0 && !dashActivated)
             {
-                Vector2 positionChange = (Vector2)playerObject.transform.position + new Vector2(buttonInput.GetMovementX(), buttonInput.GetMovementY()) * dashingSpeed * Time.deltaTime;
-                playerRB.MovePosition(positionChange);
+                player.UseStamina(dashStaminaCost);
+                dashActivated = true;
+                dashTimer = dashLength;
             }
             else if (isSneaking || isShielding)
             {
@@ -168,7 +176,7 @@ public class Movement : SingletonMonoBehaviour<Movement>
     void DashActivation()
     {
         //When Space is pressed down
-        if (buttonInput.GetDashInput())
+        if (buttonInput.GetDashInput() && !isDashing && player.GetStamina() > 0)
         {
             if (isDashCooldown)
             {
@@ -178,25 +186,23 @@ public class Movement : SingletonMonoBehaviour<Movement>
             }
             else
             {
-                
+                direction = mainCam.ScreenToWorldPoint(Input.mousePosition) - playerObject.transform.position;
                 playerAnimation.SetDashingAnimation(true);
                 isDashing = true;
             }
         }
-        else
+        else if (!isDashing)
         {
             
             playerAnimation.SetDashingAnimation(false);
             isDashing = false;
         }
+
     }
     void DashRunning()
     {
         if (isDashing)
         {
-            //Reduce Stamina Parameter
-            player.SetStaminaValue(-staminaDrainSpeed * Time.deltaTime);
-
             //Set player invisible
             playerCollider.enabled = false;
             
@@ -206,7 +212,7 @@ public class Movement : SingletonMonoBehaviour<Movement>
             //Refill Stramina Parameter if stamina isn't full
             if (hud.GetCurrentStaminaValue() < hud.GetMaxStaminaValue())
             {
-                player.SetStaminaValue(staminaRegenSpeed * Time.deltaTime);
+                player.SetStaminaValue(staminaRegenSpeed * Time.fixedDeltaTime);
             }
             if (!iFrames)
             {
@@ -239,6 +245,22 @@ public class Movement : SingletonMonoBehaviour<Movement>
                 //Change back to Default color
                 hud.SetStaminaFillColorDefault();
             }
+        }
+
+        if (isDashing)
+        {
+            if (dashTimer > 0)
+            {
+                
+                playerRB.AddForce(direction.normalized * dashForce, ForceMode2D.Force);
+                dashTimer -= Time.fixedDeltaTime;
+            }
+            else
+            {
+                isDashing = false;
+                dashActivated = false;
+            }
+            
         }
     }
 

@@ -96,7 +96,9 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
     void Update()
     {
         BaseManaRegen();
-
+        health = Mathf.Clamp(health, 0, maxHealth);
+        mana = Mathf.Clamp(mana, 0, maxMana);
+        stamina = Mathf.Clamp(stamina, 0, maxStamina);
 
         // run this last to clamp values
         UpdateStats();
@@ -339,7 +341,7 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
         return mana;
     }
 
-    private void UseStamina(float Stamina)
+    public void UseStamina(float Stamina)
     {
         stamina -= Stamina;
     }

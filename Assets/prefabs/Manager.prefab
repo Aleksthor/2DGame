@@ -410,6 +410,9 @@ MonoBehaviour:
   isDashCooldown: 0
   isShielding: 0
   isAttacking: 0
+  dashForce: 750
+  dashStaminaCost: 50
+  dashLength: 0.2
   iFrames: 0
   staminaCooldownPrecentage: 75
   dashTransparity: 0.5

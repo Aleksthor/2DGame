@@ -17,6 +17,7 @@ namespace UI
         [SerializeField] GameObject AIResponse;
         [SerializeField] GameObject choicePrefab;
         [SerializeField] Button quitButton;
+        [SerializeField] TMPro.TextMeshProUGUI Name;
 
         // Start is called before the first frame update
         void Start()
@@ -45,7 +46,7 @@ namespace UI
                 return;
             }
 
-
+            Name.text = playerConversant.GetCurrentConversantName();
             AIResponse.SetActive(!playerConversant.IsChoosing());
 
             choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());

@@ -23,6 +23,8 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+    #region Player Attack
+
     // Start of a player attack 
 
     public event Action<float, float, bool, bool> OnPlayerAttack;
@@ -44,7 +46,6 @@ public class GameEvents : MonoBehaviour
             EndPlayerAttack(attack, turn);
         }
     }
-
     // Use Stamina
 
     public event Action<float> OnUseStamina;
@@ -55,7 +56,6 @@ public class GameEvents : MonoBehaviour
             OnUseStamina(stamina);
         }
     }
-
     // use mana
     public event Action<float> OnUseMana;
     public void UseMana(float stamina)
@@ -65,18 +65,6 @@ public class GameEvents : MonoBehaviour
             OnUseMana(stamina);
         }
     }
-
-    public event Action<GameObject> OnDestroyObject;
-    public void DestroyObject(GameObject gameObject)
-    {
-        if (OnDestroyObject != null)
-        {
-            OnDestroyObject(gameObject);
-        }
-    }
-
-    
-
     // When our weapon hits something
 
     public event Action<GameObject, float, float, float, float, Vector2, bool, WeaponCollider.DamageType, int> OnWeaponCollission;
@@ -87,7 +75,20 @@ public class GameEvents : MonoBehaviour
             OnWeaponCollission(gameObject, damage, knockbackForce, speedMultiplier, slowDownLength, playerPosition, crit, damageType, poise);
         }
     }
+    #endregion
 
+
+    #region Enemy Events
+
+
+    public event Action<GameObject> OnDestroyObject;
+    public void DestroyObject(GameObject gameObject)
+    {
+        if (OnDestroyObject != null)
+        {
+            OnDestroyObject(gameObject);
+        }
+    }
 
     // When the enemy hits us
 
@@ -100,7 +101,56 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+    // Trigger in TaskAttack
 
+    public event Action<Vector2> OnEnemyMeleeAttack;
+    public void EnemyMeleeAttack(Vector2 position)
+    {
+        if (OnEnemyMeleeAttack != null)
+        {
+            OnEnemyMeleeAttack(position);
+        }
+    }
+    public event Action<GameObject> OnEnemyStartAttack;
+    public void EnemyStartAttack(GameObject gameObject)
+    {
+        if (OnEnemyStartAttack != null)
+        {
+            OnEnemyStartAttack(gameObject);
+        }
+    }
+
+    public event Action<GameObject> OnEnemyStopAttack;
+    public void EnemyStopAttack(GameObject gameObject)
+    {
+        if (OnEnemyStopAttack != null)
+        {
+            OnEnemyStopAttack(gameObject);
+        }
+    }
+    // Set Agro lets the enemy see the player again
+
+    public event Action<GameObject> OnSetAgro;
+    public void SetAgro(GameObject gameObject)
+    {
+        if (OnSetAgro != null)
+        {
+            OnSetAgro(gameObject);
+        }
+    }
+
+    // Remove agro makes the player invisible to all enemies with the task (
+
+    public event Action<GameObject> OnRemoveAgro;
+    public void RemoveAgro(GameObject gameObject)
+    {
+        if (OnRemoveAgro != null)
+        {
+            OnRemoveAgro(gameObject);
+        }
+    }
+
+    #endregion
 
 
     #region Inventory
@@ -310,35 +360,6 @@ public class GameEvents : MonoBehaviour
             OnUpdateInventoryStats(damage, magicFamage, knockbackForce, speedMultiplier, slowDownLength, manaCost, force, critRate, critDamage, localPosition, poise);
         }
     }
-
-
-
-
-
-    #endregion
-
-
-    public event Action<float> OnAbilityBuffDefense;
-    public void AbilityBuffDefense(float defenseBoost)
-    {
-        if (OnAbilityBuffDefense != null)
-        {
-            OnAbilityBuffDefense(defenseBoost);
-        }
-    }
-
-    public event Action<float> OnAbilityRemoveBuffDefense;
-    public void AbilityRemoveBuffDefense(float defenseBoost)
-    {
-        if (OnAbilityRemoveBuffDefense != null)
-        {
-            OnAbilityRemoveBuffDefense(defenseBoost);
-        }
-    }
-
-
-
-
     // Change Player Sprites
     public event Action<Sprite, Sprite, Sprite, Sprite, Sprite, Sprite, Sprite, Sprite, Sprite, Sprite, Color, Color, Color, Color, Color, Color> OnPlayerSpriteChange;
     public void PlayerSpriteChange(Sprite head_top, Sprite head_bottom, Sprite head_ear, Sprite head_hand, Sprite head_hair, Sprite head_facialhair, Sprite head_eye, Sprite head_eyebrow, Sprite head_mouth, Sprite head_nose,
@@ -351,7 +372,6 @@ public class GameEvents : MonoBehaviour
 
         }
     }
-
     // Update Armor Stat
     public event Action<float> OnUpdateArmor;
     public void UpdateArmorStat(float armor)
@@ -361,166 +381,6 @@ public class GameEvents : MonoBehaviour
             OnUpdateArmor(armor);
         }
     }
-
-    // Trigger in TaskAttack
-
-    public event Action<Vector2> OnEnemyMeleeAttack;
-    public void EnemyMeleeAttack(Vector2 position)
-    {
-        if (OnEnemyMeleeAttack != null)
-        {
-            OnEnemyMeleeAttack(position);
-        }
-    }
-
-
-
-    // LowerPlayerOpacity
-
-    public event Action OnLowerPlayerOpacity;
-    public void LowerPlayerOpacity()
-    {
-        if (OnLowerPlayerOpacity != null)
-        {
-            OnLowerPlayerOpacity();
-        }
-    }
-
-    public event Action OnNormalPlayerOpacity;
-    public void NormalPlayerOpacity()
-    {
-        if (OnNormalPlayerOpacity != null)
-        {
-            OnNormalPlayerOpacity();
-        }
-    }
-
-    // enemies cant see us
-
-    public event Action OnPlayerInvisible;
-    public void PlayerInvisible()
-    {
-        if (OnPlayerInvisible != null)
-        {
-            OnPlayerInvisible();
-        }
-    }
-
-    public event Action OnPlayerNotInvisible;
-    public void PlayerNotInvisible()
-    {
-        if (OnPlayerNotInvisible != null)
-        {
-            OnPlayerNotInvisible();
-        }
-    }
-
-
-
-    public event Action<GameObject> OnEnemyStartAttack;
-    public void EnemyStartAttack(GameObject gameObject)
-    {
-        if (OnEnemyStartAttack != null)
-        {
-            OnEnemyStartAttack(gameObject);
-        }
-    }
-
-    public event Action<GameObject> OnEnemyStopAttack;
-    public void EnemyStopAttack(GameObject gameObject)
-    {
-        if (OnEnemyStopAttack != null)
-        {
-            OnEnemyStopAttack(gameObject);
-        }
-    }
-
-
-    // Attack Buff
-
-    public event Action<float> OnBoostNextAttack;
-    public void BoostNextAttack(float damageBoost)
-    {
-        if (OnBoostNextAttack != null)
-        {
-            OnBoostNextAttack(damageBoost);
-        }
-    }
-
-    public event Action OnDontBoostNextAttack;
-    public void DontBoostNextAttack()
-    {
-        if (OnDontBoostNextAttack != null)
-        {
-            OnDontBoostNextAttack();
-        }
-    }
-
-    // Change Weapon Ability
-
-    public event Action<Weapon.AbilityType, Weapon.AbilityType, Weapon.AbilityType> OnChangeWeaponAbility;
-    public void ChangeWeaponAbility(Weapon.AbilityType ability1, Weapon.AbilityType ability2, Weapon.AbilityType ability3) 
-    {
-        if (OnChangeWeaponAbility != null)
-        {
-            OnChangeWeaponAbility(ability1, ability2, ability3);
-        }
-    }
-
-    // Set Agro lets the enemy see the player again
-
-    public event Action<GameObject> OnSetAgro;
-    public void SetAgro(GameObject gameObject)
-    {
-        if (OnSetAgro != null)
-        {
-            OnSetAgro(gameObject);
-        }
-    }
-
-    // Remove agro makes the player invisible to all enemies with the task (
-
-    public event Action<GameObject> OnRemoveAgro;
-    public void RemoveAgro(GameObject gameObject)
-    {
-        if (OnRemoveAgro != null)
-        {
-            OnRemoveAgro(gameObject);
-        }
-    }
-
-
-    public event Action OnCharacterCreation;
-    public void CharacterCreation()
-    {
-        if (OnCharacterCreation != null)
-        {
-            OnCharacterCreation();
-        }
-    }
-
-
-    public event Action OnCharacterCreationEnd;
-    public void CharacterCreationOver()
-    {
-        if (OnCharacterCreationEnd != null)
-        {
-            OnCharacterCreationEnd();
-        }
-    }
-
-
-    public event Action<float, float> OnBuffDefense;
-    public void BuffDefense(float defenseBoost, float time)
-    {
-        if (OnBuffDefense != null)
-        {
-            OnBuffDefense(defenseBoost, time);
-        }
-    }
-
-
-
     public event Action<Weapon> OnShowSecondary;
     public void ShowSecondary(Weapon weapon)
     {
@@ -561,6 +421,134 @@ public class GameEvents : MonoBehaviour
 
 
 
+
+    #endregion
+
+
+    #region Ablilites
+    public event Action<float> OnAbilityBuffDefense;
+    public void AbilityBuffDefense(float defenseBoost)
+    {
+        if (OnAbilityBuffDefense != null)
+        {
+            OnAbilityBuffDefense(defenseBoost);
+        }
+    }
+
+    public event Action<float> OnAbilityRemoveBuffDefense;
+    public void AbilityRemoveBuffDefense(float defenseBoost)
+    {
+        if (OnAbilityRemoveBuffDefense != null)
+        {
+            OnAbilityRemoveBuffDefense(defenseBoost);
+        }
+    }
+    // LowerPlayerOpacity
+
+    public event Action OnLowerPlayerOpacity;
+    public void LowerPlayerOpacity()
+    {
+        if (OnLowerPlayerOpacity != null)
+        {
+            OnLowerPlayerOpacity();
+        }
+    }
+    public event Action OnNormalPlayerOpacity;
+    public void NormalPlayerOpacity()
+    {
+        if (OnNormalPlayerOpacity != null)
+        {
+            OnNormalPlayerOpacity();
+        }
+    }
+
+    // enemies cant see us
+
+    public event Action OnPlayerInvisible;
+    public void PlayerInvisible()
+    {
+        if (OnPlayerInvisible != null)
+        {
+            OnPlayerInvisible();
+        }
+    }
+
+    public event Action OnPlayerNotInvisible;
+    public void PlayerNotInvisible()
+    {
+        if (OnPlayerNotInvisible != null)
+        {
+            OnPlayerNotInvisible();
+        }
+    }
+    // Attack Buff
+
+    public event Action<float> OnBoostNextAttack;
+    public void BoostNextAttack(float damageBoost)
+    {
+        if (OnBoostNextAttack != null)
+        {
+            OnBoostNextAttack(damageBoost);
+        }
+    }
+
+    public event Action OnDontBoostNextAttack;
+    public void DontBoostNextAttack()
+    {
+        if (OnDontBoostNextAttack != null)
+        {
+            OnDontBoostNextAttack();
+        }
+    }
+
+    // Change Weapon Ability
+
+    public event Action<Weapon.AbilityType, Weapon.AbilityType, Weapon.AbilityType> OnChangeWeaponAbility;
+    public void ChangeWeaponAbility(Weapon.AbilityType ability1, Weapon.AbilityType ability2, Weapon.AbilityType ability3) 
+    {
+        if (OnChangeWeaponAbility != null)
+        {
+            OnChangeWeaponAbility(ability1, ability2, ability3);
+        }
+    }
+    public event Action<float, float> OnBuffDefense;
+    public void BuffDefense(float defenseBoost, float time)
+    {
+        if (OnBuffDefense != null)
+        {
+            OnBuffDefense(defenseBoost, time);
+        }
+    }
+
+    #endregion
+
+
+    #region Character Creation
+    public event Action OnCharacterCreation;
+    public void CharacterCreation()
+    {
+        if (OnCharacterCreation != null)
+        {
+            OnCharacterCreation();
+        }
+    }
+
+
+    public event Action OnCharacterCreationEnd;
+    public void CharacterCreationOver()
+    {
+        if (OnCharacterCreationEnd != null)
+        {
+            OnCharacterCreationEnd();
+        }
+    }
+
+
+    #endregion
+
+
+    #region Dialogue
+
     public event Action OnConversationUpdated;
     public void ConversationUpdated()
     {
@@ -569,5 +557,16 @@ public class GameEvents : MonoBehaviour
             OnConversationUpdated();
         }
     }
+
+    public event Action<string> OnDialogueTrigger;
+    public void DialogueTrigger(string action)
+    {
+        if (OnDialogueTrigger != null)
+        {
+            OnDialogueTrigger(action);
+        }
+    }
     //
+
+    #endregion
 }

@@ -10,7 +10,7 @@ public class CameraSingleton : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(transform.gameObject);
+            
         }
         else
         {

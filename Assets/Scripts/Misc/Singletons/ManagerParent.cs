@@ -12,7 +12,7 @@ public class ManagerParent : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(transform.gameObject);
+            
         }
         else
         {

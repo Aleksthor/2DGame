@@ -62,42 +62,42 @@ public class TreeComponent : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
-        bool found = false;
-        TreeData dataToRemove = null;
-        foreach(TreeData trees in data.trees)
-        {
-            if (trees.uniqueID == treeData.uniqueID)
-            {
-                dataToRemove = trees;
-                found = true;
-            }
-        }
-        if(found)
-        {
-            data.trees.Remove(dataToRemove);
-            data.trees.Add(treeData);
-        }
-        else
-        {
-            data.trees.Add(treeData);
-        }
+        //bool found = false;
+        //TreeData dataToRemove = null;
+        //foreach(TreeData trees in data.trees)
+        //{
+        //    if (trees.uniqueID == treeData.uniqueID)
+        //    {
+        //        dataToRemove = trees;
+        //        found = true;
+        //    }
+        //}
+        //if(found)
+        //{
+        //    data.trees.Remove(dataToRemove);
+        //    data.trees.Add(treeData);
+        //}
+        //else
+        //{
+        //    data.trees.Add(treeData);
+        //}
        
-        found = false;
+        //found = false;
     }
 
     public void LoadData(GameData data)
     {
 
 
-        foreach (TreeData trees in data.trees)
-        {
-            if (trees.uniqueID == treeData.uniqueID)
-            {
+        //foreach (TreeData trees in data.trees)
+        //{
+        //    if (trees.uniqueID == treeData.uniqueID)
+        //    {
 
-                treeData = trees;
+        //        treeData = trees;
 
-            }
-        }
+        //    }
+        //}
 
     }
 }
