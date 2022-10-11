@@ -100,7 +100,7 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
     // Update is called once per frame
     void Update()
     {
-
+        
 
         #region Ablity1
         if (ability1 != null)
@@ -108,7 +108,7 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
             switch (state1)
             {
                 case AbilityState.ready:
-                    if (Input.GetKeyDown(key1) && (cooldownTime1 <= 0) && (playerManager.GetManaValue() - ability1.manaCost) > 0) 
+                    if (Input.GetKeyDown(key1) && (cooldownTime1 <= 0) && (playerManager.GetManaValue() - ability1.manaCost) > 0 && ButtonInput.Instance.GetLocomotion()) 
                     {
                         Debug.Log("Ability 1 is Active");
                         cooldownIcon1.value = 1f;
@@ -197,7 +197,7 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
             switch (state2)
             {
                 case AbilityState.ready:
-                    if (Input.GetKeyDown(key2) && (cooldownTime2 <= 0) && (playerManager.GetManaValue() - ability2.manaCost) > 0)
+                    if (Input.GetKeyDown(key2) && (cooldownTime2 <= 0) && (playerManager.GetManaValue() - ability2.manaCost) > 0 && ButtonInput.Instance.GetLocomotion())
                     {
                         Debug.Log("Ability 2 is Active");
                         ability2.Activate(playerObject);
@@ -279,7 +279,7 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
             switch (state3)
             {
                 case AbilityState.ready:
-                    if (Input.GetKeyDown(key3) && (cooldownTime3 <= 0) && (playerManager.GetManaValue() - ability3.manaCost) > 0)
+                    if (Input.GetKeyDown(key3) && (cooldownTime3 <= 0) && (playerManager.GetManaValue() - ability3.manaCost) > 0 && ButtonInput.Instance.GetLocomotion())
                     {
                         Debug.Log("Ability 3 is Active");
                         cooldownIcon3.value = 1f;

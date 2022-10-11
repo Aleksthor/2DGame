@@ -53,7 +53,6 @@ public class LocalEnemyScript : MonoBehaviour
     // Are we playing our Hit animation, if so do NOTHING
     public bool hit = false;
 
-
     // When hit display the damage counter
     private bool doDamageDisplay = false;
     private Vector2 newPosition;

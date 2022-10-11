@@ -1235,8 +1235,8 @@ MonoBehaviour:
   health: 45
   maxHealth: 45
   xpGiven: 15
-  armor: 0
-  poiseResistance: 0
+  armor: 1
+  poiseResistance: 1
   weaponCollider: {fileID: 4910410392311390403}
   healthBar: {fileID: 4449359775235164884}
   damageDisplay: {fileID: 999469176986295036}
@@ -1260,7 +1260,7 @@ MonoBehaviour:
   attackSpeed: 3
   attackRange: 2.5
   FOV: 6
-  MovementSpeed: 1
+  MovementSpeed: 2
   playerTransform: {fileID: 0}
 --- !u!114 &1660450454407356178
 MonoBehaviour:

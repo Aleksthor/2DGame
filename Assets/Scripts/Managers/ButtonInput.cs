@@ -25,7 +25,7 @@ public class ButtonInput : SingletonMonoBehaviour<ButtonInput>
     float triggerTimer = 0.3f;
     float triggerClock = 0f;
 
-
+    [SerializeField] private bool isLocomotion = true;
 
     //--------------------
 
@@ -45,13 +45,21 @@ public class ButtonInput : SingletonMonoBehaviour<ButtonInput>
 
     void ButtonInputs()
     {
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y = Input.GetAxis("Vertical");
+        if (isLocomotion)
+        {
+            movement.x = Input.GetAxis("Horizontal");
+            movement.y = Input.GetAxis("Vertical");
+            dash = Input.GetButton("Jump");
+
+            sneak = Input.GetButton("Running");
+            shield = Input.GetButton("Fire2");
+            attack = Input.GetButton("Fire1");
+        }
+        else
+        {
+            movement = new Vector2 (0,0);
+        }
         playerAnimator.SetWalkingSpeedAnimation(movement);
-        dash = Input.GetButton("Jump");
-        sneak = Input.GetButton("Running");
-        shield = Input.GetButton("Fire2");
-        attack = Input.GetButton("Fire1");
 
         #region Open Inventory 
         if (Input.GetButton("Inventory") && triggerClock <= 0)
@@ -60,6 +68,8 @@ public class ButtonInput : SingletonMonoBehaviour<ButtonInput>
             {
                 HUDSingleton.instance.transform.Find("Inventory").gameObject.SetActive(false);
                 inventoryOpen = false;
+                isLocomotion = true;
+
             }
             else
             {
@@ -67,6 +77,7 @@ public class ButtonInput : SingletonMonoBehaviour<ButtonInput>
                 InventoryManager.Instance.UpdateInventoryTab(0);
                 InventoryManager.Instance.SpawnCurrentWeapons();
                 inventoryOpen = true;
+                isLocomotion = false;
             }
 
 
@@ -77,16 +88,7 @@ public class ButtonInput : SingletonMonoBehaviour<ButtonInput>
             triggerClock -= Time.deltaTime;
         }
         #endregion
-        if (Input.GetKeyDown("9"))
-        {
-            SceneManager.LoadScene("TestMap - Aleksander");
-            GameEvents.current.CharacterCreationOver();
-        }
-        if (Input.GetKeyDown("8"))
-        {
-            SceneManager.LoadScene("TestScene");
-            GameEvents.current.CharacterCreationOver();
-        }
+
     }
 
 
@@ -116,6 +118,17 @@ public class ButtonInput : SingletonMonoBehaviour<ButtonInput>
     public bool GetAttackInput()
     {
         return attack;
+    }
+
+
+    public void SetLocomotion(bool input)
+    {
+        isLocomotion = input;
+    }
+
+    public bool GetLocomotion()
+    {
+        return isLocomotion;
     }
 
 }

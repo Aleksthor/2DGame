@@ -160,6 +160,16 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+
+    public event Action<int> OnNotifySpawner;
+    public void NotifySpawner(int ID)
+    {
+        if (OnNotifySpawner != null)
+        {
+            OnNotifySpawner(ID);
+        }
+    }
+
     #endregion
 
 
