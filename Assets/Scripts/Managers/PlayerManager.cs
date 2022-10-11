@@ -19,6 +19,10 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
     [Header("Health Stats")]
     [SerializeField] float health = 50;
     [SerializeField] float maxHealth = 50;
+    [SerializeField] float levelMaxHealth = 50;
+    [SerializeField] float bonusMaxHealth;
+    [SerializeField] float baseHealthRegenSpeed = 5;
+    [SerializeField] float baseHealthRegen = 2f;
 
     [Header("Stamina Stats")]
     [SerializeField] float stamina = 50;
@@ -54,6 +58,7 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
     [SerializeField] float slowDownLength;
     [SerializeField] Vector2 localPosition;
     [SerializeField] int poise;
+    [SerializeField] float bonusHealth;
 
     [SerializeField] Slider xpSlider;
     [SerializeField] TMPro.TextMeshProUGUI levelText;
@@ -100,6 +105,8 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
         GameEvents.current.OnAbilityBuffDefense += AbilityDefenseBuff;
         GameEvents.current.OnAbilityRemoveBuffDefense += AbilityRemoveDefenseBuff;
         GameEvents.current.OnGainXP += GainXP;
+
+        StartCoroutine(BaseHealthRegen());
     }
 
 
@@ -166,6 +173,10 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
         {
             health = maxHealth;
         }
+        if (health < 0)
+        {
+            health = 0f;
+        }
 
         playerHUD.staminaSliderMaxValue = maxStamina;
         playerHUD.staminaSliderCurrent = stamina;
@@ -174,6 +185,11 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
         {
             stamina = maxStamina;
         }
+        if (stamina < 0)
+        {
+            stamina = 0f;
+        }
+
 
         playerHUD.magicSliderMaxValue = maxMana;
         playerHUD.magicSliderCurrent = mana;
@@ -182,6 +198,11 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
         {
             mana = maxMana;
         }
+        if (mana < 0)
+        {
+            mana = 0f;
+        }
+
 
         #region DefenseBuff
 
@@ -252,7 +273,7 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
     }
 
 
-    private void UpdateInventoryStats(float Damage, float MagicDamage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, float CritRate, float CritDamage, Vector2 LocalPosition, int Poise)
+    private void UpdateInventoryStats(float Damage, float MagicDamage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, float CritRate, float CritDamage, Vector2 LocalPosition, int Poise, float BonusHealth)
     {
         meleeDamage = Damage;
         magicDamage = MagicDamage;
@@ -265,7 +286,7 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
         critDamage = CritDamage;
         localPosition = LocalPosition;
         poise = Poise;
-
+        bonusHealth = BonusHealth;
 
 
         UpdatePlayerStats();
@@ -293,10 +314,15 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
         float CritDamage = critDamage;
         Vector2 LocalPos = localPosition;
         int Poise = poise;   
-
+        
 
         GameEvents.current.ChangeStats(Damage, MagicDamage, KnockBackForce, SlowDebuff,
     SlowDebuffTime, ManaCost, ShotForce, CritRate, CritDamage, LocalPos, Poise);
+
+
+
+
+        maxHealth = levelMaxHealth + bonusHealth;
     }
 
 
@@ -416,6 +442,15 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
 
 
         
+    }
+
+    IEnumerator BaseHealthRegen()
+    {
+        health += baseHealthRegen;
+
+        Debug.Log("Regen");
+        yield return new WaitForSeconds(baseHealthRegenSpeed);
+        StartCoroutine(BaseHealthRegen());
     }
 }
 

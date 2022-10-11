@@ -50,10 +50,10 @@ MonoBehaviour:
     spriteAtlasPath: Weapons/bow
     spriteIndex: 0
     isActive: 1
-    itemName: Bow
-    itemDescription: Bow
+    itemName: Basic Bow
+    itemDescription: A very basic bow..
     itemType: 0
-    itemRarity: 2
+    itemRarity: 0
     itemWeight: 1
     isStackable: 0
     localPosition: {x: 0.02, y: 0}
@@ -65,7 +65,7 @@ MonoBehaviour:
     critRate: 25
     isTwoHanded: 0
     canDualWield: 0
-    staminaUse: 35
+    staminaUse: 50
     bowSprites:
     - {fileID: -8620833474484916134, guid: b4330c4fd80476542aa68aa6d3aab2fd, type: 3}
     - {fileID: 4816620848291997996, guid: b4330c4fd80476542aa68aa6d3aab2fd, type: 3}

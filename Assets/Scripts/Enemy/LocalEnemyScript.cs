@@ -194,6 +194,12 @@ public class LocalEnemyScript : MonoBehaviour
                 transform.GetComponent<LocalBossScript>().Die();
                 chestSpawned = true;
             }
+
+            if (transform.GetComponent<LootComponent>() != null)
+            {
+                transform.GetComponent<LootComponent>().SpawnLoot();
+            }
+
             GameEvents.current.GainXP(xpGiven);
             animator.SetTrigger("Dead");
         }

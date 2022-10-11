@@ -77,13 +77,11 @@ MonoBehaviour:
   bossName: 1
   Chest: {fileID: 1525471442761610389, guid: a67e36b0a640a014a8b8a4f4c13003bf, type: 3}
   chestLocation: {x: -20, y: 55}
-  highChanceItem:
-  - {fileID: 11400000, guid: 46817d819abdfdc41a133a31bc5ec812, type: 2}
+  highChanceItem: []
   highChance: 60
   midChanceItem: []
   midChance: 35
-  lowChanceItem:
-  - {fileID: 11400000, guid: 287d2e19e3d41cb4f9d50a624292c3dc, type: 2}
+  lowChanceItem: []
   lowChance: 10
 --- !u!114 &1668108134705213172
 MonoBehaviour:

@@ -56,6 +56,8 @@ public class LocalBossScript : MonoBehaviour
         float random2 = Random.Range(1, 100);
         float random3 = Random.Range(1, 100);
 
+        bool LowChance = false;
+        bool MidChance = false;
         // Low Chance Items
         if (random1 < lowChance)
         {
@@ -68,10 +70,11 @@ public class LocalBossScript : MonoBehaviour
                         chestComponent.items.Add(item);
                     }
                 }
+                LowChance = true;
             }
         }
         // Mid Chance Items
-        if (random2 < midChance)
+        if (random2 < midChance && !LowChance)
         {
             if (midChanceItem != null)
             {
@@ -81,11 +84,12 @@ public class LocalBossScript : MonoBehaviour
                     {
                         chestComponent.items.Add(item);
                     }
+                    MidChance = true;
                 }
             }
         }
         // High Chance Items
-        if (random3 < highChance)
+        if (random3 < highChance && !MidChance && !LowChance)
         {
             if (highChanceItem != null)
             {

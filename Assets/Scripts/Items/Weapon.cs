@@ -22,7 +22,8 @@ public class Weapon : Item
     public enum StaffAttack
     {
         SmallFireBall,
-        SmallWaterBall
+        SmallWaterBall,
+        BasicOrb
     };
 
     public enum WandAttack

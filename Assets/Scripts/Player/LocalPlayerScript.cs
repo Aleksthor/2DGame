@@ -24,10 +24,10 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
 
     [Header("Projectiles")]
     public GameObject arrow;
+    public GameObject basicOrb;
     public GameObject SmallFireBall;
     public GameObject SmallWaterBall;
-    public GameObject EnergyShard;
-    public GameObject MagicShard;
+
 
     private float manaCost = 3;
     private float force = 10;
@@ -260,7 +260,6 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
             Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
 
             GameObject smallWaterBall = Instantiate(SmallWaterBall, ShotPoint.position, ShotPoint.rotation);
-            smallWaterBall.transform.right = direction;
             smallWaterBall.GetComponent<ProjectileCollider>().speedMultiplier = speedMultiplier;
             smallWaterBall.GetComponent<ProjectileCollider>().slowDownLength = slowDownLength;
             smallWaterBall.GetComponent<ProjectileCollider>().damage = magicDamage;
@@ -269,34 +268,7 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
 
     }
 
-    #endregion
-
-
-    #region Wand Attacks
-    public void SpawnEnergyShard()
-    {
-        if(player.GetManaValue() < manaCost)
-        {
-
-        }
-        else
-        {
-            player.SetManaValue(-manaCost);
-
-
-            Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
-
-            GameObject NewEnergyBall = Instantiate(EnergyShard, ShotPoint.position, ShotPoint.rotation);
-            NewEnergyBall.GetComponent<ProjectileCollider>().speedMultiplier = speedMultiplier;
-            NewEnergyBall.GetComponent<ProjectileCollider>().slowDownLength = slowDownLength;
-            NewEnergyBall.transform.right = direction * -1f;
-            NewEnergyBall.GetComponent<ProjectileCollider>().damage = magicDamage;
-            NewEnergyBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
-        }
-
-
-    }
-    public void SpawnMagicShard()
+    public void SpawnBasicOrb()
     {
         if (player.GetManaValue() < manaCost)
         {
@@ -306,19 +278,21 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
         {
             player.SetManaValue(-manaCost);
 
+
             Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
 
-            GameObject NewMagicBall = Instantiate(MagicShard, ShotPoint.position, ShotPoint.rotation);
-            NewMagicBall.GetComponent<ProjectileCollider>().speedMultiplier = speedMultiplier;
-            NewMagicBall.GetComponent<ProjectileCollider>().slowDownLength = slowDownLength;
-            NewMagicBall.transform.right = direction * -1f;
-            NewMagicBall.GetComponent<ProjectileCollider>().damage = magicDamage;
-            NewMagicBall.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
-
+            GameObject BasicOrb = Instantiate(basicOrb, ShotPoint.position, ShotPoint.rotation);
+            BasicOrb.GetComponent<ProjectileCollider>().speedMultiplier = speedMultiplier;
+            BasicOrb.GetComponent<ProjectileCollider>().slowDownLength = slowDownLength;
+            BasicOrb.GetComponent<ProjectileCollider>().damage = magicDamage;
+            BasicOrb.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
         }
+
     }
 
     #endregion
+
+
     private void ChangeStats(float Damage, float MagicDamage, float KnockBackForce, float SpeedMultiplier, float SlowDownLength, float ManaCost, float Force, float critRate, float critDamage, Vector2 LocalPosition, int Poise)
     {
         manaCost = ManaCost;

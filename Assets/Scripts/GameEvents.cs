@@ -362,12 +362,12 @@ public class GameEvents : MonoBehaviour
         }
     }
 
-    public event Action<float, float, float, float, float, float, float, float, float, Vector2, int > OnUpdateInventoryStats;
-    public void UpdateInventoryStats(float damage, float magicFamage, float knockbackForce, float speedMultiplier, float slowDownLength, float manaCost, float force, float critRate, float critDamage, Vector2 localPosition, int poise)
+    public event Action<float, float, float, float, float, float, float, float, float, Vector2, int, float > OnUpdateInventoryStats;
+    public void UpdateInventoryStats(float damage, float magicFamage, float knockbackForce, float speedMultiplier, float slowDownLength, float manaCost, float force, float critRate, float critDamage, Vector2 localPosition, int poise, float bonusHealth)
     {
         if (OnUpdateInventoryStats != null)
         {
-            OnUpdateInventoryStats(damage, magicFamage, knockbackForce, speedMultiplier, slowDownLength, manaCost, force, critRate, critDamage, localPosition, poise);
+            OnUpdateInventoryStats(damage, magicFamage, knockbackForce, speedMultiplier, slowDownLength, manaCost, force, critRate, critDamage, localPosition, poise, bonusHealth);
         }
     }
     // Change Player Sprites

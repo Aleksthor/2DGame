@@ -15,9 +15,10 @@ public class Movement : SingletonMonoBehaviour<Movement>
 
 
     [Header("Movement Parameters")]
-    [SerializeField] float walkingSpeed = 10;
-    [SerializeField] float sneakingSpeed = 5;
-    [SerializeField] float dashingSpeed = 15;
+    [SerializeField] float walkingSpeed = 4;
+    [SerializeField] float baseWalkingSpeed = 4;
+    [SerializeField] float bonusSpeedPercent;
+    [SerializeField] float sneakingSpeed = 2;
 
     [Header("HUD Elements")]
     [SerializeField] float staminaRegenSpeed = 50;
@@ -275,5 +276,11 @@ public class Movement : SingletonMonoBehaviour<Movement>
         {
             isSneaking = false;
         }
+    }
+
+
+    public void UpdateRunSpeed(float newPercent)
+    {
+        walkingSpeed = baseWalkingSpeed + (baseWalkingSpeed * newPercent) / 100f;
     }
 }

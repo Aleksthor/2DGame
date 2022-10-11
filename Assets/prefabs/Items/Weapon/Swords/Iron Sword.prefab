@@ -50,8 +50,8 @@ MonoBehaviour:
     spriteAtlasPath: Weapons/sword
     spriteIndex: 2
     isActive: 1
-    itemName: Sword2
-    itemDescription: Sword2
+    itemName: Iron Sword
+    itemDescription: 'Sword made out or iron.. '
     itemType: 0
     itemRarity: 1
     itemWeight: 1
@@ -59,7 +59,7 @@ MonoBehaviour:
     localPosition: {x: 0.01, y: 0.11}
     weaponType: 2
     damageType: 0
-    damage: 4
+    damage: 5
     knockBackForce: 50
     critDamage: 1.5
     critRate: 10
@@ -69,7 +69,7 @@ MonoBehaviour:
     bowSprites: []
     bowSpriteLocation: 
     bowSpriteIndex: 
-    poise: 0
+    poise: 1
     magicDamage: 0
     force: 0
     manaCost: 0

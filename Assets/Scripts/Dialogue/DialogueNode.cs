@@ -68,6 +68,7 @@ namespace Dialogue
             EditorUtility.SetDirty(this);
         }
 
+
         public void SetPlayerSpeaking(bool IsPlayerSpeaking)
         {
             Undo.RecordObject(this, "Change Dialogue Speaker");
@@ -75,7 +76,7 @@ namespace Dialogue
             EditorUtility.SetDirty(this);
         }
 
-
+#endif
         public string GetOnEnterAction()
         {
             return onEnterAction;
@@ -85,7 +86,6 @@ namespace Dialogue
         {
             return onExitAction;
         }
-#endif
     }
 }
 

@@ -327,12 +327,17 @@ MonoBehaviour:
   Chest: {fileID: 1525471442761610389, guid: a67e36b0a640a014a8b8a4f4c13003bf, type: 3}
   chestLocation: {x: 12, y: 3}
   highChanceItem:
-  - {fileID: 1868218010068571963, guid: 6ef0448d2287b834889861b735fd563c, type: 3}
-  highChance: 100
-  midChanceItem: []
-  midChance: 25
-  lowChanceItem: []
-  lowChance: 10
+  - {fileID: 1868218010068571963, guid: fd27edf97dd74e243978bbc3332f6c68, type: 3}
+  highChance: 80
+  midChanceItem:
+  - {fileID: 1868218010068571963, guid: fd27edf97dd74e243978bbc3332f6c68, type: 3}
+  - {fileID: 1868218010068571963, guid: 7d0c651b826dc7e4d9199b1d9d41387e, type: 3}
+  midChance: 50
+  lowChanceItem:
+  - {fileID: 1868218010068571963, guid: 7d0c651b826dc7e4d9199b1d9d41387e, type: 3}
+  - {fileID: 1868218010068571963, guid: fd27edf97dd74e243978bbc3332f6c68, type: 3}
+  - {fileID: 663977096512798907, guid: 3d497e69a5af1d2469680b351a1ad8b7, type: 3}
+  lowChance: 20
 --- !u!50 &3899537854521541981
 Rigidbody2D:
   serializedVersion: 4

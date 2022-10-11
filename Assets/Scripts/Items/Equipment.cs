@@ -24,5 +24,7 @@ public class Equipment : Item
     public float armor;
     public float bonusMeleeDamage;
     public float bonusMagicDamage;
+    public float bonusHealth;
+    public float movementSpeedPercent;
 
 }
