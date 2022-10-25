@@ -16,8 +16,16 @@ public class ProjectileCollider : MonoBehaviour
     public bool hasDeathAnimation = false;
 
     private bool didCrit;
-    
+    float timeTolive = 10f;
 
+    private void Update()
+    {
+        timeTolive -= Time.deltaTime;
+        if (timeTolive < 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

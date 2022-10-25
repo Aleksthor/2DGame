@@ -106,7 +106,7 @@ public class AbilityDashBehindEnemy : Ability
 
                 GameEvents.current.BoostNextAttack(damageBoost);
                 GameEvents.current.LowerPlayerOpacity();
-                GameEvents.current.PlayerInvisible();
+                GameEvents.current.PlayerInvisible(2f);
             }
 
 

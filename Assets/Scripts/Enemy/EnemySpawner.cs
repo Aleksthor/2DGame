@@ -15,8 +15,8 @@ public class EnemySpawner : MonoBehaviour
     {
 
 
-        float X = transform.position.x + Random.Range(-2f, 2f);
-        float Y = transform.position.y + Random.Range(-2f, 2f);
+        float X = transform.position.x + Random.Range(-0.5f, 0.5f);
+        float Y = transform.position.y + Random.Range(-0.5f, 0.5f);
 
         for (int i = 0; i < numerOfEnemies; i++)
         {
@@ -32,8 +32,8 @@ public class EnemySpawner : MonoBehaviour
     public void ResetPosition()
     {
 
-        float X = transform.position.x + Random.Range(-2f, 2f);
-        float Y = transform.position.y + Random.Range(-2f, 2f);
+        float X = transform.position.x + Random.Range(-0.5f, 0.5f);
+        float Y = transform.position.y + Random.Range(-0.5f, 0.5f);
         for (int i = enemies.Count - 1; i > -1; i--)
         {
             if (enemies[i] == null)
@@ -78,9 +78,15 @@ public class EnemySpawner : MonoBehaviour
 
         StartCoroutine("CheckEnemies");
     }
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(transform.position, 0.5f);
+    }
+#endif
 
 
 
 
-  
 }

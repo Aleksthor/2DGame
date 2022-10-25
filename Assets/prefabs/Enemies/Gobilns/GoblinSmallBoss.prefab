@@ -454,6 +454,7 @@ MonoBehaviour:
   isBoss: 1
   speedMultiplier: 1
   hit: 0
+  dashEffect: {fileID: 8096557702922142553, guid: bd4d19b9caba93f43a25b7bd2666752f, type: 3}
 --- !u!95 &8392069931314174974
 Animator:
   serializedVersion: 4
@@ -489,12 +490,11 @@ MonoBehaviour:
   attackDamage: 10
   strongAttackDamage: 15
   attackSpeed: 3
-  attackRange: 2.5
-  FOV: 10
+  attackRange: 3.5
+  FOV: 15
   MovementSpeed: 2
   strongAttackChance: 50
   waitToDash: 5
-  effect: {fileID: 8096557702922142553, guid: bd4d19b9caba93f43a25b7bd2666752f, type: 3}
   playerTransform: {fileID: 0}
 --- !u!114 &5394334746562266757
 MonoBehaviour:

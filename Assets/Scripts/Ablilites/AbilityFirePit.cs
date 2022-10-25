@@ -34,7 +34,7 @@ public class AbilityFirePit : Ability
 
     public override void DeActivate(GameObject parent)
     {
-
+        parent.GetComponent<Animator>().SetBool("InfernoCast", false);
 
     }
 

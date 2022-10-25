@@ -484,12 +484,12 @@ public class GameEvents : MonoBehaviour
 
     // enemies cant see us
 
-    public event Action OnPlayerInvisible;
-    public void PlayerInvisible()
+    public event Action<float> OnPlayerInvisible;
+    public void PlayerInvisible(float time)
     {
         if (OnPlayerInvisible != null)
         {
-            OnPlayerInvisible();
+            OnPlayerInvisible(time);
         }
     }
 

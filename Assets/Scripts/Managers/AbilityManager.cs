@@ -65,6 +65,9 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
     private AbilityFirePit firePit;
     private AbilityWaterSlam waterSlam;
     private AbilityBuffDefense buffDefense;
+    private AbilitySpinMove spinMove;
+    private AbilityInvisible invisible;
+    private AbilityStrongShot strongShot;
 
     public Sprite dashSprite;
     public Sprite dashBehindEnemySprite;
@@ -72,6 +75,9 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
     public Sprite firePitSprite;
     public Sprite waterSlamSprite;
     public Sprite buffDefenseSprite;
+    public Sprite spinMoveSprite;
+    public Sprite invisibleSprite;
+    public Sprite strongShotSprite;
 
     public void Start()
     {
@@ -89,6 +95,9 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
         firePit = transform.GetComponent<AbilityFirePit>();
         waterSlam = transform.GetComponent<AbilityWaterSlam>();
         buffDefense = transform.GetComponent<AbilityBuffDefense>();
+        spinMove = transform.GetComponent<AbilitySpinMove>();
+        invisible = transform.GetComponent<AbilityInvisible>();
+        strongShot = transform.GetComponent<AbilityStrongShot>();
 
         ability1 = dash;
         ability2 = dash;
@@ -435,6 +444,18 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
                 ability1 = buffDefense;
                 cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = buffDefenseSprite;
                 break;
+            case Weapon.AbilityType.SpinMove:
+                ability1 = spinMove;
+                cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = spinMoveSprite;
+                break;
+            case Weapon.AbilityType.Invisible:
+                ability1 = invisible;
+                cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = invisibleSprite;
+                break;
+            case Weapon.AbilityType.StrongShot:
+                ability1 = strongShot;
+                cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = strongShotSprite;
+                break;
             default:
                 ability1 = null;
                 cooldownIcon1.transform.Find("Background").GetComponent<Image>().sprite = backgroundImage;
@@ -493,6 +514,18 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
                 ability2 = buffDefense;
                 cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = buffDefenseSprite;
                 break;
+            case Weapon.AbilityType.SpinMove:
+                ability2 = spinMove;
+                cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = spinMoveSprite;
+                break;
+            case Weapon.AbilityType.Invisible:
+                ability2 = invisible;
+                cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = invisibleSprite;
+                break;
+            case Weapon.AbilityType.StrongShot:
+                ability2 = strongShot;
+                cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = strongShotSprite;
+                break;
             default:
                 ability2 = null;
                 cooldownIcon2.transform.Find("Background").GetComponent<Image>().sprite = backgroundImage;
@@ -546,6 +579,18 @@ public class AbilityManager : SingletonMonoBehaviour<AbilityManager>
             case Weapon.AbilityType.BuffDefense:
                 ability3 = buffDefense;
                 cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = buffDefenseSprite;
+                break;
+            case Weapon.AbilityType.SpinMove:
+                ability3 = spinMove;
+                cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = spinMoveSprite;
+                break;
+            case Weapon.AbilityType.Invisible:
+                ability3 = invisible;
+                cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = invisibleSprite;
+                break;
+            case Weapon.AbilityType.StrongShot:
+                ability3 = strongShot;
+                cooldownIcon3.transform.Find("Background").GetComponent<Image>().sprite = strongShotSprite;
                 break;
             default:
                 ability3 = null;

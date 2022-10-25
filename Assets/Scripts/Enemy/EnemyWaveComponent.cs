@@ -28,11 +28,13 @@ public class EnemyWaveComponent : MonoBehaviour
     [SerializeField] public float highChance = 80f;
     [Header("Mid Chance Reward")]
     [SerializeField] public List<GameObject> midChanceItem = new List<GameObject>();
-    [SerializeField] public float midChance = 80f;
+    [SerializeField] public float midChance = 50f;
     [Header("Low Chance Reward")]
     [SerializeField] public List<GameObject> lowChanceItem = new List<GameObject>();
-    [SerializeField] public float lowChance = 80f;
+    [SerializeField] public float lowChance = 30f;
 
+
+    bool spawnedLoot = false;
     public void Update()
     {
         WaveFunction();
@@ -70,9 +72,10 @@ public class EnemyWaveComponent : MonoBehaviour
                 }
 
             }
-            else
+            else if (!spawnedLoot)
             {
                 SpawnLoot();
+                spawnedLoot = true;
             }
 
         }

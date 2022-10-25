@@ -24,6 +24,7 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
 
     [Header("Projectiles")]
     public GameObject arrow;
+    public GameObject strongArrow; 
     public GameObject basicOrb;
     public GameObject SmallFireBall;
     public GameObject SmallWaterBall;
@@ -200,17 +201,42 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
 
         GameObject arrowObject = Instantiate(arrow, transform.Find("Hand").transform.position, transform.Find("Hand").transform.rotation);
         arrowObject.transform.right = direction;
-        arrowObject.GetComponent<ProjectileCollider>().speedMultiplier = speedMultiplier;
-        arrowObject.GetComponent<ProjectileCollider>().slowDownLength = slowDownLength;
-        arrowObject.GetComponent<ProjectileCollider>().damage = weaponCollider.damage;
-        arrowObject.GetComponent<ProjectileCollider>().critDamage = weaponCollider.critDamage;
-        arrowObject.GetComponent<ProjectileCollider>().critRate = weaponCollider.critRate;
-        arrowObject.GetComponent<ProjectileCollider>().knockbackForce = weaponCollider.knockbackForce;
-        arrowObject.GetComponent<ProjectileCollider>().speedMultiplier = weaponCollider.speedMultiplier;
-        arrowObject.GetComponent<ProjectileCollider>().slowDownLength = weaponCollider.slowDownLength;
-        arrowObject.GetComponent<ProjectileCollider>().damage = PlayerManager.Instance.meleeDamage;
-        arrowObject.GetComponent<ProjectileCollider>().poise = poise;
+        ProjectileCollider collider = arrowObject.GetComponent<ProjectileCollider>();
+        collider.speedMultiplier = speedMultiplier;
+        collider.slowDownLength = slowDownLength;
+        collider.damage = weaponCollider.damage;
+        collider.critDamage = weaponCollider.critDamage;
+        collider.critRate = weaponCollider.critRate;
+        collider.knockbackForce = weaponCollider.knockbackForce;
+        collider.speedMultiplier = weaponCollider.speedMultiplier;
+        collider.slowDownLength = weaponCollider.slowDownLength;
+        collider.damage = PlayerManager.Instance.meleeDamage;
+        collider.poise = poise;
         arrowObject.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * force;
+
+    }
+
+    public void SpawnStrongArrow()
+    {
+
+        Vector2 direction = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition) - (Vector2)ShotPoint.position;
+
+        WeaponCollider weaponCollider = PlayerSingleton.instance.transform.Find("Hand").transform.Find("Weapon").GetComponent<WeaponCollider>();
+
+        GameObject arrowObject = Instantiate(strongArrow, transform.Find("Hand").transform.position, transform.Find("Hand").transform.rotation);
+        arrowObject.transform.right = direction;
+        StrongProjectileCollider collider = arrowObject.GetComponent<StrongProjectileCollider>();
+        collider.speedMultiplier = speedMultiplier;
+        collider.slowDownLength = slowDownLength;
+        collider.damage = weaponCollider.damage;
+        collider.critDamage = weaponCollider.critDamage;
+        collider.critRate = weaponCollider.critRate;
+        collider.knockbackForce = weaponCollider.knockbackForce;
+        collider.speedMultiplier = weaponCollider.speedMultiplier;
+        collider.slowDownLength = weaponCollider.slowDownLength;
+        collider.damage = PlayerManager.Instance.meleeDamage * 2f;
+        collider.poise = poise;
+        arrowObject.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * (force + 5f);
 
     }
 
@@ -374,6 +400,16 @@ public class LocalPlayerScript : SingletonMonoBehaviour<LocalPlayerScript>
             transform.Find("Hand").transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = weaponSprite;
         }
        
+    }
+
+    public void CanBeHit()
+    {
+        PlayerManager.Instance.canBeHit = true;
+    }
+
+    public void CannotBeHit()
+    {
+        PlayerManager.Instance.canBeHit = false;
     }
 
 

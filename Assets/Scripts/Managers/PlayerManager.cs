@@ -69,6 +69,8 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
     [SerializeField] float baseDefense;
     private bool defenseBuffActive = false;
 
+    public bool canBeHit = true;
+
     private Transform deathScreen;
     // Where to spawn on a new scene
 
@@ -264,7 +266,14 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
         {
             health -= damage;
         }
-        playerAnimator.SetTrigger("Hit");
+
+
+        if (canBeHit)
+        {
+            playerAnimator.SetTrigger("Hit");
+        }
+
+
         if (health <= 0)
         {
             deathScreen.gameObject.SetActive(true);
@@ -447,8 +456,6 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>, IDataPersist
     IEnumerator BaseHealthRegen()
     {
         health += baseHealthRegen;
-
-        Debug.Log("Regen");
         yield return new WaitForSeconds(baseHealthRegenSpeed);
         StartCoroutine(BaseHealthRegen());
     }

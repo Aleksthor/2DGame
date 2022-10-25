@@ -221,6 +221,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   maxHealth: 50
+  levelMaxHealth: 50
+  bonusMaxHealth: 0
+  baseHealthRegenSpeed: 5
+  baseHealthRegen: 2
   stamina: 100
   maxStamina: 100
   staminaPerHit: 35
@@ -229,6 +233,11 @@ MonoBehaviour:
   baseManaRegen: 1.2
   baseManaRegenSpeed: 2
   baseManaRegenClock: 2
+  currentLevel: 0
+  maxLevel: 0
+  currentXPAmount: 0
+  neededXPToLevel: 0
+  levelXPArray: []
   meleeDamage: 0
   critDamage: 0
   critRate: 0
@@ -241,6 +250,9 @@ MonoBehaviour:
   slowDownLength: 0
   localPosition: {x: 0, y: 0}
   poise: 0
+  bonusHealth: 0
+  xpSlider: {fileID: 0}
+  levelText: {fileID: 0}
   defenseBuff: []
   defenseBuffTime: []
   baseDefense: 0
@@ -400,9 +412,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkingSpeed: 4
+  baseWalkingSpeed: 4
+  bonusSpeedPercent: 0
   sneakingSpeed: 2
-  dashingSpeed: 12
-  staminaDrainSpeed: 200
   staminaRegenSpeed: 35
   playerCollider: {fileID: 0}
   isDashing: 0
@@ -580,6 +592,7 @@ MonoBehaviour:
   shield: 0
   attack: 0
   inventoryOpen: 0
+  isLocomotion: 1
 --- !u!1 &4636206482792096945
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,10 +701,10 @@ MonoBehaviour:
     spriteAtlasPath: Weapons/sword
     spriteIndex: 0
     isActive: 1
-    itemName: Iron Sword
-    itemDescription: Slah
+    itemName: Basic Sword
+    itemDescription: A very basic sword
     itemType: 0
-    itemRarity: 1
+    itemRarity: 0
     itemWeight: 1
     isStackable: 0
     localPosition: {x: 0.01, y: 0.11}
@@ -758,8 +771,8 @@ MonoBehaviour:
     - -0.019999999552965164
     - 0.009999999776482582
     ability1: 1
-    ability2: 6
-    ability3: 0
+    ability2: 7
+    ability3: 6
   secondaryWeapon:
     itemSprite: {fileID: 0}
     spriteAtlasPath: 
@@ -824,6 +837,8 @@ MonoBehaviour:
     armor: 0
     bonusMeleeDamage: 0
     bonusMagicDamage: 0
+    bonusHealth: 0
+    movementSpeedPercent: 0
   currentChest:
     itemSprite: {fileID: 0}
     spriteAtlasPath: 
@@ -839,6 +854,8 @@ MonoBehaviour:
     armor: 0
     bonusMeleeDamage: 0
     bonusMagicDamage: 0
+    bonusHealth: 0
+    movementSpeedPercent: 0
   currentPants:
     itemSprite: {fileID: 0}
     spriteAtlasPath: 
@@ -854,6 +871,8 @@ MonoBehaviour:
     armor: 0
     bonusMeleeDamage: 0
     bonusMagicDamage: 0
+    bonusHealth: 0
+    movementSpeedPercent: 0
   currentShoes:
     itemSprite: {fileID: 0}
     spriteAtlasPath: 
@@ -869,6 +888,8 @@ MonoBehaviour:
     armor: 0
     bonusMeleeDamage: 0
     bonusMagicDamage: 0
+    bonusHealth: 0
+    movementSpeedPercent: 0
   currentNecklace:
     itemSprite: {fileID: 0}
     spriteAtlasPath: 
@@ -884,6 +905,8 @@ MonoBehaviour:
     armor: 0
     bonusMeleeDamage: 0
     bonusMagicDamage: 0
+    bonusHealth: 0
+    movementSpeedPercent: 0
   currentEarrings:
     itemSprite: {fileID: 0}
     spriteAtlasPath: 
@@ -899,6 +922,8 @@ MonoBehaviour:
     armor: 0
     bonusMeleeDamage: 0
     bonusMagicDamage: 0
+    bonusHealth: 0
+    movementSpeedPercent: 0
   currentRing1:
     itemSprite: {fileID: 0}
     spriteAtlasPath: 
@@ -914,6 +939,8 @@ MonoBehaviour:
     armor: 0
     bonusMeleeDamage: 0
     bonusMagicDamage: 0
+    bonusHealth: 0
+    movementSpeedPercent: 0
   currentRing2:
     itemSprite: {fileID: 0}
     spriteAtlasPath: 
@@ -929,6 +956,8 @@ MonoBehaviour:
     armor: 0
     bonusMeleeDamage: 0
     bonusMagicDamage: 0
+    bonusHealth: 0
+    movementSpeedPercent: 0
   uiObject: {fileID: 4513455475149660618, guid: 209efaadd39b9a04a989dde68beace17, type: 3}
   pickupItem: {fileID: 1859770256390172355, guid: 0259850f7139bb7499669950cbb20695, type: 3}
   currentTab: 0
@@ -1030,6 +1059,9 @@ GameObject:
   - component: {fileID: 3004010245076270004}
   - component: {fileID: 7260099311775307777}
   - component: {fileID: 6742232938218550905}
+  - component: {fileID: 6079199914682175409}
+  - component: {fileID: 5342080055062340372}
+  - component: {fileID: 4318939992457012000}
   m_Layer: 0
   m_Name: AbilityManager
   m_TagString: Untagged
@@ -1091,6 +1123,9 @@ MonoBehaviour:
   firePitSprite: {fileID: 21300000, guid: 291c884fe33a0a942a47688e66852a93, type: 3}
   waterSlamSprite: {fileID: 21300000, guid: b28bdfe7afba89543bb003f77d08cd36, type: 3}
   buffDefenseSprite: {fileID: 21300000, guid: 2891f0f310a19b44f94090317ee2691a, type: 3}
+  spinMoveSprite: {fileID: 21300000, guid: 9fc0434609bffb94da30fa0d2a0f84b0, type: 3}
+  invisibleSprite: {fileID: 21300000, guid: cf508280f1b927146bb1eb9f6f7ee273, type: 3}
+  strongShotSprite: {fileID: 21300000, guid: 2a99499ade8898a458f62d02e62ea20a, type: 3}
 --- !u!114 &8702538505341612216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1151,7 +1186,7 @@ MonoBehaviour:
   activeTime: 2
   manaCost: 5
   hasBuff: 1
-  buffIcon: {fileID: 21300000, guid: cf508280f1b927146bb1eb9f6f7ee273, type: 3}
+  buffIcon: {fileID: 21300000, guid: 261e9c65c94ca314ebb2f0d24b571984, type: 3}
   range: 10
   damageBoost: 2
   effect: {fileID: 8096557702922142553, guid: bd4d19b9caba93f43a25b7bd2666752f, type: 3}
@@ -1174,7 +1209,7 @@ MonoBehaviour:
   manaCost: 5
   hasBuff: 0
   buffIcon: {fileID: 0}
-  dashLength: 5
+  dashLength: 3
   effect: {fileID: 8096557702922142553, guid: bd4d19b9caba93f43a25b7bd2666752f, type: 3}
   layerMask:
     serializedVersion: 2
@@ -1219,6 +1254,60 @@ MonoBehaviour:
   buffIcon: {fileID: 0}
   range: 7
   waterWaveObject: {fileID: 4182180318318713808, guid: f8a9257b39dd8af41a280a81e6ff6fb3, type: 3}
+--- !u!114 &6079199914682175409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201428679708295401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad667d5214bb204aa7255d18a0774d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: Spin Move
+  cooldownTime: 10
+  activeTime: 1
+  manaCost: 5
+  hasBuff: 0
+  buffIcon: {fileID: 0}
+--- !u!114 &5342080055062340372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201428679708295401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bcfa9920c8753448a28b4e4fc23ce86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: Invisible
+  cooldownTime: 150
+  activeTime: 10
+  manaCost: 10
+  hasBuff: 1
+  buffIcon: {fileID: 21300000, guid: cf508280f1b927146bb1eb9f6f7ee273, type: 3}
+--- !u!114 &4318939992457012000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201428679708295401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ae66873a66601042af1412e6cb37dff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: StrongShot
+  cooldownTime: 30
+  activeTime: 0.5
+  manaCost: 5
+  hasBuff: 0
+  buffIcon: {fileID: 0}
 --- !u!1 &8281306039312005146
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 650004744209937234}
   - component: {fileID: -1221066143295352023}
-  - component: {fileID: -1173859759933810330}
   - component: {fileID: 357088433092020053}
   - component: {fileID: -7127152852452199104}
+  - component: {fileID: 3313932002756504917}
+  - component: {fileID: -1730311313703437663}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Arrow
@@ -87,25 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-1173859759933810330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2292795352707001750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff5170f85b217f54795c5caa624b31ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 5
-  critRate: 0
-  critDamage: 2
-  knockbackForce: 40
-  speedMultiplier: 1
-  slowDownLength: 0
-  hasDeathAnimation: 0
 --- !u!60 &357088433092020053
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -160,3 +142,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &3313932002756504917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292795352707001750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b540ddaf4670040438f0c09a719120ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1730311313703437663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292795352707001750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff5170f85b217f54795c5caa624b31ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  damageType: 0
+  critRate: 0
+  critDamage: 2
+  knockbackForce: 40
+  speedMultiplier: 1
+  slowDownLength: 0
+  poise: 0
+  hasDeathAnimation: 0

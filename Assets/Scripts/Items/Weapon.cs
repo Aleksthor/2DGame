@@ -79,7 +79,10 @@ public class Weapon : Item
         DashBackwards,
         FirePit,
         WaterWaterSlam,
-        BuffDefense
+        BuffDefense,
+        SpinMove,
+        Invisible,
+        StrongShot
     };
 
     [Header("Weapon Abilites")]

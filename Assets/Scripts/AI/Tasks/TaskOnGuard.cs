@@ -29,7 +29,7 @@ public class TaskOnGuard : Node
     public override NodeState Evaluate()
     {
 
-        if (onGuard && parent.GetData("target") == null)
+        if (onGuard)
         {
             animator.SetBool("Walking", false);
 
@@ -52,16 +52,16 @@ public class TaskOnGuard : Node
     }
 
 
-    private void PlayerInvisible()
+    private void PlayerInvisible(float time)
     {
         onGuard = true;
         onGuardClock = 0f;
+        onGuardTime = time;
         parent.ClearData("target");
         
     }
     private void PlayerNotInvisible()
     {
         onGuard = false;
-        onGuardClock = onGuardTime - 1f;
     }
 }

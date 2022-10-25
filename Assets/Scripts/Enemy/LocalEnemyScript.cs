@@ -58,7 +58,7 @@ public class LocalEnemyScript : MonoBehaviour
     private Vector2 newPosition;
     #endregion
 
-
+    [SerializeField] GameObject dashEffect;
     void Start()
     {
         weaponCollider.enabled = false;
@@ -361,5 +361,16 @@ public class LocalEnemyScript : MonoBehaviour
     public void CanInterupt()
     {
         canInterupt = true;
+    }
+
+    public void SpawnDashEffect()
+    {
+        if (dashEffect != null)
+        {
+            Vector2 direction = transform.position - playerTransform.position;
+            GameObject spawnedEffect = Instantiate(dashEffect, transform.position, transform.rotation);
+            spawnedEffect.transform.right = direction;
+
+        }
     }
 }

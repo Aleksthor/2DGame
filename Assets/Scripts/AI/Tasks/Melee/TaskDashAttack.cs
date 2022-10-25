@@ -7,16 +7,16 @@ public class TaskDashAttack : Node
 {
     private Transform transform;
     private Animator animator;
-    public GameObject effect;
+
 
     private Transform playerTransform;
 
-    public TaskDashAttack(Transform AgentTransform, Transform PlayerTransform, GameObject Effect)
+    public TaskDashAttack(Transform AgentTransform, Transform PlayerTransform)
     {
         transform = AgentTransform;
         animator = AgentTransform.GetComponent<Animator>();
         playerTransform = PlayerTransform;
-        effect = Effect;
+
     }
 
 
@@ -24,18 +24,7 @@ public class TaskDashAttack : Node
     public override NodeState Evaluate()
     {
 
-
-
-        Vector2 direction = transform.position - playerTransform.position;
-        GameObject spawnedEffect = Object.Instantiate(effect, transform.position, transform.rotation);
-        spawnedEffect.transform.right = direction;
         animator.SetTrigger("Charge");
-
-
-
-
-
-
 
 
         state = NodeState.RUNNING;

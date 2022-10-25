@@ -53,7 +53,7 @@ MonoBehaviour:
     itemName: Iron Dagger
     itemDescription: Dagger made out of iron..
     itemType: 0
-    itemRarity: 0
+    itemRarity: 1
     itemWeight: 1
     isStackable: 0
     localPosition: {x: 0.01, y: 0.05}
@@ -120,7 +120,7 @@ MonoBehaviour:
     - -0.019999999552965164
     - 0.009999999776482582
     ability1: 2
-    ability2: 0
+    ability2: 8
     ability3: 0
   pickupRange: 1
 --- !u!212 &7972110707073650288

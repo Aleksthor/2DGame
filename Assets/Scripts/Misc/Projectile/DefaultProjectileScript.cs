@@ -10,7 +10,7 @@ public class DefaultProjectileScript : MonoBehaviour
     {
         if (gameObject.tag == "Arrow")
         {
-            if (collider.tag == "Player" || collider.tag == "Enemy" || collider.tag == "Projectile" || collider.tag == "IgnoreProjectile")
+            if (collider.tag == "Player" || collider.tag == "Enemy" || collider.tag == "Projectile" || collider.tag == "IgnoreProjectile" || collider.tag == "Plant")
             {
 
             }
